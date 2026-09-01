@@ -83,18 +83,76 @@
   });
 
   if ("IntersectionObserver" in window) {
+    var reveals = document.querySelectorAll(".reveal");
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
+      entries.forEach(function (entry, i) {
+        if (!entry.isIntersecting) return;
+        var delay = Math.min(i * 70, 280);
+        window.setTimeout(function () {
           entry.target.classList.add("in");
-          io.unobserve(entry.target);
-        }
+        }, delay);
+        io.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
+
+  document.querySelectorAll(".cat-rail").forEach(function (rail) {
+    var dots = document.createElement("div");
+    dots.className = "rail-dots";
+    dots.setAttribute("role", "group");
+    dots.setAttribute("aria-label", "Jump to a service");
+    rail.after(dots);
+
+    var cards = [];
+
+    function cardOffset(card) {
+      return card.getBoundingClientRect().left - rail.getBoundingClientRect().left + rail.scrollLeft;
+    }
+
+    function markActive() {
+      if (!cards.length) return;
+      var active = 0;
+      var closest = Infinity;
+      cards.forEach(function (card, i) {
+        var distance = Math.abs(cardOffset(card) - rail.scrollLeft);
+        if (distance < closest) {
+          closest = distance;
+          active = i;
+        }
+      });
+      dots.querySelectorAll(".rail-dot").forEach(function (dot, i) {
+        var on = i === active;
+        dot.classList.toggle("is-active", on);
+        if (on) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    }
+
+    function build() {
+      cards = Array.prototype.slice.call(rail.children);
+      dots.textContent = "";
+      if (cards.length < 2) return;
+      cards.forEach(function (card, i) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "rail-dot";
+        var label = card.querySelector("h2");
+        dot.setAttribute("aria-label", label ? label.textContent.trim() : "Card " + (i + 1));
+        dot.addEventListener("click", function () {
+          rail.scrollTo({ left: cardOffset(card), behavior: "smooth" });
+        });
+        dots.appendChild(dot);
+      });
+      markActive();
+    }
+
+    build();
+    rail.addEventListener("scroll", markActive, { passive: true });
+    window.addEventListener("resize", markActive);
+  });
 
   var form = document.getElementById("contract-form");
   if (!form) return;
