@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Northline | Google Maps Reviews, Google Ads &amp; Websites for Local Businesses</title>
-  <meta name="description" content="Northline helps local businesses with empty Google Maps profiles collect authentic reviews, run high-converting Google Ads, and launch owned websites with free Cloudflare hosting and SSL. You only pay for the domain." />
-  <meta name="keywords" content="Google Maps review management, Google Business Profile reviews, Google Ads for local businesses, local SEO, custom website development, Cloudflare hosting" />
+  <title>Northline | Google Maps Reviews, Google Ads &amp; Owned Websites for Local Businesses</title>
+  <meta name="description" content="Northline helps local businesses collect authentic Google Maps reviews, run high-converting Google Ads, and launch websites they fully own. Free Cloudflare hosting and SSL. You only pay for the domain." />
+  <meta name="keywords" content="Google Maps review management, Google Business Profile reviews, Google Ads for local businesses, local SEO, custom website development, Cloudflare hosting, source code ownership" />
   <meta name="author" content="Northline" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Northline | Get Found, Trusted, and Booked on Google" />
-  <meta property="og:description" content="Real Google Maps reviews for businesses stuck at zero. Paid ads built to sell. Websites you fully own — hosting and SSL included." />
+  <meta property="og:description" content="Authentic Google Maps reviews. Paid search built to book work. Websites you own outright — hosting and SSL included." />
   <meta property="og:url" content="https://northline.example/" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,17 +34,19 @@
             paper: "#f4f1ea",
             mist: "#ebe6dc",
             line: "rgba(17,17,17,0.12)",
+            trust: "#00b67a",
           },
           boxShadow: {
             soft: "0 20px 50px -24px rgba(17,17,17,0.28)",
             lift: "0 12px 40px -18px rgba(17,17,17,0.18)",
+            glow: "0 30px 80px -36px rgba(17,17,17,0.55)",
           },
         },
       },
     };
   </script>
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 5.75rem; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
     body { font-family: Outfit, system-ui, sans-serif; }
     ::selection { background: #111; color: #f4f1ea; }
     .font-serif { font-family: "Instrument Serif", Georgia, serif; }
@@ -53,54 +55,57 @@
       position: fixed;
       inset: 0;
       z-index: 40;
-      opacity: 0.04;
+      opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     .reveal { opacity: 1; transform: none; }
     html.js .reveal {
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     html.js .reveal.in { opacity: 1; transform: none; }
-    header {
-      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    #site-header {
+      background: rgba(17, 17, 17, 0.28);
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
     }
-    header.is-stuck,
-    header.is-menu-open {
-      background: rgba(244, 241, 234, 0.86);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    #site-header.is-stuck,
+    #site-header.is-menu-open.is-stuck {
+      background: rgba(244, 241, 234, 0.82);
       border-color: rgba(17,17,17,0.12);
       color: #111;
+      box-shadow: 0 12px 40px -28px rgba(17,17,17,0.35);
     }
-    header.is-menu-open:not(.is-stuck) {
+    #site-header.is-menu-open:not(.is-stuck) {
       background: rgba(17, 17, 17, 0.94);
       border-color: rgba(255,255,255,0.1);
       color: #f4f1ea;
     }
-    header.is-stuck .header-cta,
-    header.is-menu-open.is-stuck .header-cta {
-      background: #111;
-      color: #f4f1ea;
-    }
-    header.is-stuck .header-mark,
-    header.is-menu-open.is-stuck .header-mark {
-      background: #111;
-      color: #f4f1ea;
-    }
-    header.is-menu-open:not(.is-stuck) .header-cta {
-      background: #f4f1ea;
-      color: #111;
-    }
-    header.is-menu-open:not(.is-stuck) .header-mark {
-      background: #f4f1ea;
-      color: #111;
-    }
+    #site-header.is-stuck .header-cta { background: #111; color: #f4f1ea; }
+    #site-header.is-stuck .header-mark { background: #111; color: #f4f1ea; }
+    #site-header.is-menu-open:not(.is-stuck) .header-cta { background: #f4f1ea; color: #111; }
+    #site-header.is-menu-open:not(.is-stuck) .header-mark { background: #f4f1ea; color: #111; }
     #mobile-menu { background: rgba(17, 17, 17, 0.96); }
-    header.is-stuck #mobile-menu { background: rgba(244, 241, 234, 0.96); }
-    header.is-stuck #menu-btn { border-color: rgba(17, 17, 17, 0.18); }
-    header.is-stuck #mobile-menu a.rounded-full { background: #111; color: #f4f1ea; }
+    #site-header.is-stuck #mobile-menu { background: rgba(244, 241, 234, 0.98); }
+    #site-header.is-stuck #menu-btn { border-color: rgba(17, 17, 17, 0.18); }
+    #site-header.is-stuck #mobile-menu a.rounded-full { background: #111; color: #f4f1ea; }
+    .nav-link {
+      position: relative;
+      transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+    .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
     .nav-drop-caret { transition: transform 0.22s ease; }
     .nav-drop.is-open .nav-drop-caret, .nav-drop:hover .nav-drop-caret { transform: rotate(180deg); }
     .nav-drop-menu {
@@ -121,144 +126,71 @@
     .nav-drop-item {
       display: flex; align-items: center; gap: 0.85rem;
       padding: 0.85rem 0.9rem; border-radius: 1rem; color: #111; text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     }
     .nav-drop-item:hover { background: #111; color: #f4f1ea; }
     .nav-drop-num { width: 1.35rem; font-size: 10px; letter-spacing: 0.14em; opacity: 0.38; }
     .nav-drop-name { flex: 1; font-size: 0.9rem; font-weight: 500; }
-    .nav-drop-arrow { opacity: 0; transform: translateX(-6px); transition: 0.2s ease; }
+    .nav-drop-arrow { opacity: 0; transform: translateX(-6px); transition: 0.3s ease-in-out; }
     .nav-drop-item:hover .nav-drop-arrow { opacity: 1; transform: none; }
-    .svc-card { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease; }
-    .svc-card:hover { transform: translateY(-8px); box-shadow: 0 28px 60px -28px rgba(17,17,17,0.45); }
+    .svc-card { position: relative; overflow: hidden; }
+    .svc-card::after {
+      content: "";
+      position: absolute; inset: 0 auto auto;
+      height: 1px; width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(17,17,17,0.28), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .svc-card:hover::after { opacity: 1; }
     .svc-card img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
     .svc-card:hover img { transform: scale(1.07); }
+    .work-card img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .work-card:hover img { transform: scale(1.06); }
     .star { color: #00b67a; }
-    .hero-mesh {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 85% 18%, rgba(244, 241, 234, 0.12), transparent 58%),
-        radial-gradient(ellipse 50% 40% at 8% 88%, rgba(0, 182, 122, 0.08), transparent 55%),
-        linear-gradient(180deg, #161616 0%, #111111 55%, #0c0c0c 100%);
+    .hero-ken {
+      animation: ken 28s ease-in-out infinite alternate;
+      transform-origin: center;
     }
-    .hero-mesh::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.35;
-      background-image:
-        linear-gradient(rgba(244,241,234,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244,241,234,0.045) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);
+    @keyframes ken {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
     }
-    .hero-bento {
-      display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      grid-template-rows: minmax(160px, 1fr) minmax(140px, 0.85fr);
-      gap: 0.8rem;
-      min-height: 420px;
+    .float-chip {
+      animation: floaty 6.5s ease-in-out infinite;
     }
-    .hero-tile {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.35rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #1a1a1a;
-      color: inherit;
-      text-decoration: none;
-      isolation: isolate;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.4s ease;
-    }
-    .hero-tile:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255,255,255,0.28);
-      box-shadow: 0 28px 50px -28px rgba(0,0,0,0.7);
-    }
-    .hero-tile img {
-      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .hero-tile:hover img { transform: scale(1.06); }
-    .hero-tile-maps { grid-row: 1 / 3; }
-    .hero-listing {
-      position: absolute;
-      left: 0.85rem;
-      right: 0.85rem;
-      bottom: 0.85rem;
-      padding: 0.85rem 0.95rem;
-      border-radius: 1rem;
-      background: rgba(255,255,255,0.94);
-      color: #111;
-      box-shadow: 0 16px 40px -20px rgba(0,0,0,0.5);
-    }
-    .hero-pin {
-      display: grid;
-      place-items: center;
-      width: 1.7rem;
-      height: 1.7rem;
-      border-radius: 999px;
-      background: #ea4335;
-      color: #fff;
-      flex-shrink: 0;
-    }
-    .hero-ad {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      padding: 1rem 1.05rem 0.9rem;
-      background: linear-gradient(180deg, #1f1f1f, #161616);
-    }
-    .hero-bars { display: flex; align-items: flex-end; gap: 5px; height: 46px; }
-    .hero-bars span {
-      flex: 1;
-      border-radius: 4px 4px 0 0;
-      background: linear-gradient(180deg, #f4f1ea, rgba(244,241,234,0.25));
-    }
-    .hero-browser {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .hero-chrome {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.55rem 0.75rem;
-      background: rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .hero-dot { width: 7px; height: 7px; border-radius: 99px; background: rgba(255,255,255,0.22); }
-    @media (min-width: 1024px) {
-      .hero-bento {
-        min-height: 520px;
-        height: min(64vh, 580px);
-      }
-    }
-    @media (max-width: 1023px) {
-      .hero-bento {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 240px 170px;
-        min-height: 0;
-      }
-      .hero-tile-maps { grid-column: 1 / -1; grid-row: 1; }
-    }
-    @media (max-width: 639px) {
-      .hero-bento { grid-template-rows: 220px 150px; gap: 0.65rem; }
-      .hero-listing { left: 0.65rem; right: 0.65rem; bottom: 0.65rem; padding: 0.7rem 0.8rem; }
+    .float-chip-delay { animation-delay: 1.2s; }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     .mobile-services { display: none; }
     .mobile-services.is-open { display: block; }
     .mobile-services-caret { display: inline-block; transition: transform 0.22s ease; }
     .mobile-services-btn[aria-expanded="true"] .mobile-services-caret { transform: rotate(180deg); }
-    input:focus, select:focus, textarea:focus {
-      outline: none; box-shadow: 0 0 0 3px rgba(17,17,17,0.12); border-color: #111;
+    .field-input {
+      transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
     }
+    .field-input.is-invalid {
+      border-color: #b91c1c;
+      box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.18);
+      animation: shake 0.36s ease;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+    .success-pop { animation: pop 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+    .tp-star { color: #00b67a; letter-spacing: 0.08em; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       html.js .reveal { opacity: 1; transform: none; transition: none !important; }
-      .reveal, .svc-card, .svc-card img, .hero-tile, .hero-tile img { transition: none !important; }
-      .hero-tile:hover { transform: none; }
+      .reveal, .svc-card, .svc-card img, .work-card img, .hero-ken, .float-chip, .field-input { animation: none !important; transition: none !important; }
     }
   </style>
   <script type="application/ld+json">
@@ -284,17 +216,17 @@
 </head>
 <body class="bg-paper text-ink antialiased">
   <div class="grain" aria-hidden="true"></div>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
 
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
-      <a href="index.html" class="flex items-center gap-2.5">
-        <span class="grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink header-mark">N</span>
+      <a href="index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
+        <span class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink">N</span>
         <span class="text-[15px] font-semibold tracking-tight">Northline</span>
       </a>
       <ul class="hidden items-center gap-8 text-sm md:flex">
         <li class="nav-drop relative">
-          <button type="button" class="nav-drop-btn inline-flex items-center gap-1 opacity-80 transition hover:opacity-100" aria-expanded="false" aria-haspopup="true">
+          <button type="button" class="nav-drop-btn nav-link inline-flex items-center gap-1 opacity-85" aria-expanded="false" aria-haspopup="true">
             Services
             <svg class="nav-drop-caret h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </button>
@@ -306,14 +238,14 @@
             </div>
           </div>
         </li>
-        <li><a class="opacity-80 transition hover:opacity-100" href="#work">Work</a></li>
-        <li><a class="opacity-80 transition hover:opacity-100" href="#reviews">Reviews</a></li>
-        <li><a class="opacity-80 transition hover:opacity-100" href="#maps">Maps</a></li>
-        <li><a class="opacity-80 transition hover:opacity-100" href="#contact">Contract</a></li>
+        <li><a class="nav-link opacity-85" data-nav="work" href="#work">Work</a></li>
+        <li><a class="nav-link opacity-85" data-nav="reviews" href="#reviews">Reviews</a></li>
+        <li><a class="nav-link opacity-85" data-nav="maps" href="#maps">Maps</a></li>
+        <li><a class="nav-link opacity-85" data-nav="contact" href="#contact">Contract</a></li>
       </ul>
       <div class="flex items-center gap-3">
-        <a href="#contact" class="hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition hover:opacity-90 md:inline-flex header-cta">Start a contract</a>
-        <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-full border border-white/20 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <a href="#contact" class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Start a contract</a>
+        <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition-all duration-300 ease-in-out md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg id="icon-open" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
           <svg id="icon-close" class="hidden h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
@@ -332,88 +264,54 @@
         <a href="#work" class="mobile-link py-1">Work</a>
         <a href="#reviews" class="mobile-link py-1">Reviews</a>
         <a href="#maps" class="mobile-link py-1">Maps</a>
-        <a href="#contact" class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink">Start a contract</a>
+        <a href="#contact" class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Start a contract</a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="relative isolate overflow-hidden bg-ink text-paper">
-      <div class="hero-mesh" aria-hidden="true"></div>
-      <div class="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-6xl items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pb-20 lg:pt-28">
-        <div class="lg:col-span-5">
-          <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-paper/55">Google Maps · Google Ads · Custom websites</p>
-          <h1 class="font-serif text-[2.55rem] leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.35rem] xl:text-[3.7rem]">
-            The listing that looks trusted gets the call.<br class="hidden sm:block" />
-            <span class="italic text-paper/70">Empty ones wait.</span>
+    <section class="relative isolate min-h-[100svh] overflow-hidden bg-ink text-paper">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=2400&amp;q=80" alt="Sunlit high-end studio workspace representing a premium local digital agency headquarters" class="hero-ken absolute inset-0 h-full w-full object-cover" width="2400" height="1600" fetchpriority="high" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/78 to-ink/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40"></div>
+      <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end gap-10 px-5 pb-16 pt-32 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:pb-20">
+        <div class="max-w-2xl">
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-paper/80 backdrop-blur-md">Google Maps · Google Ads · Custom websites</p>
+          <h1 class="font-serif text-[2.7rem] leading-[1.06] tracking-tight sm:text-6xl lg:text-[4.35rem]">
+            Look like the business people already trust.
+            <span class="mt-1 block italic text-paper/70">Then let Google send the call.</span>
           </h1>
-          <p class="mt-6 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
-            Northline works with local businesses that already do the job well — and still lose people to a competitor with more Google reviews, cleaner ads, or an actual website. We fix those three gaps, then hand you the keys.
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-paper/75 sm:text-lg">
+            Clinics, trades, and storefronts lose work to quieter competitors — not because the job is worse, but because the Maps listing is empty, the ads buy the wrong searches, or there is no website to land on. Northline fixes those three gaps, then hands you the keys.
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#contact" class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink shadow-soft transition hover:opacity-90">Request a service contract</a>
-            <a href="#services" class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition hover:border-white/50">See the three services</a>
-          </div>
-          <dl class="mt-10 grid max-w-lg grid-cols-2 gap-5 sm:grid-cols-4 sm:max-w-none">
-            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Reviews</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Authentic only</dd></div>
-            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Ads</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Built to sell</dd></div>
-            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Sites</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">You own 100%</dd></div>
-            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Hosting</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Cloudflare</dd></div>
-          </dl>
-        </div>
-
-        <div class="lg:col-span-7">
-          <div class="hero-bento">
-            <a class="hero-tile hero-tile-maps" href="services/google-maps-review-management.html">
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Local restaurant interior, the kind of business that needs Google Maps reviews to win walk-ins" class="absolute inset-0 h-full w-full object-cover" width="1200" height="1600" fetchpriority="high" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/15 to-transparent"></div>
-              <p class="absolute left-4 top-4 rounded-full bg-ink/55 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-paper backdrop-blur-sm">01 · Maps reviews</p>
-              <div class="hero-listing">
-                <div class="flex items-start gap-3">
-                  <span class="hero-pin" aria-hidden="true">
-                    <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
-                  </span>
-                  <div class="min-w-0">
-                    <p class="truncate text-sm font-semibold">Hale &amp; Co. Dental</p>
-                    <p class="mt-0.5 text-xs text-[#e37400]" aria-label="Google listing with no reviews yet">☆☆☆☆☆ · 0 Google reviews</p>
-                    <p class="mt-1 text-[11px] leading-snug text-ink/55">We install the ask so real patients fill this — not purchased stars.</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a class="hero-tile hero-tile-ads" href="services/google-ads-campaigns.html">
-              <div class="hero-ad">
-                <p class="text-[11px] font-medium uppercase tracking-[0.14em] text-paper/45">02 · Google Ads</p>
-                <p class="mt-3 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2 text-[11px] text-paper/80">emergency plumber <span class="text-paper/40">near me</span></p>
-                <p class="mt-2.5 text-[11px] leading-snug text-paper/55"><span class="text-[#8ab4f8]">Ad</span> · Harbor HVAC · Call now · Open 24/7</p>
-                <div class="hero-bars mt-auto pt-3" aria-hidden="true">
-                  <span style="height:38%"></span>
-                  <span style="height:55%"></span>
-                  <span style="height:34%"></span>
-                  <span style="height:72%"></span>
-                  <span style="height:90%"></span>
-                  <span style="height:62%"></span>
-                  <span style="height:80%"></span>
-                </div>
-                <p class="mt-2 text-[11px] text-paper/45">Spend follows booked jobs, not junk clicks.</p>
-              </div>
-            </a>
-
-            <a class="hero-tile hero-tile-web" href="services/web-development.html">
-              <div class="hero-browser">
-                <div class="hero-chrome">
-                  <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
-                  <span class="ml-1 truncate rounded-md bg-white/10 px-2 py-0.5 text-[10px] text-paper/50">yoursite.com — you own it</span>
-                </div>
-                <div class="relative min-h-0 flex-1">
-                  <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop showing a clean local business website layout" class="absolute inset-0 h-full w-full object-cover" width="900" height="600" decoding="async" />
-                  <p class="absolute left-3 bottom-3 rounded-full bg-ink/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-paper backdrop-blur-sm">03 · Website · Cloudflare</p>
-                </div>
-              </div>
-            </a>
+            <a href="#contact" class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink shadow-glow transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:opacity-95">Request a service contract</a>
+            <a href="#services" class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition-all duration-300 ease-in-out hover:border-white/55 hover:bg-white/5">Explore the three services</a>
           </div>
         </div>
+        <div class="grid w-full max-w-md gap-3 sm:grid-cols-2 lg:w-80 lg:grid-cols-1">
+          <a href="services/google-maps-review-management.html" class="float-chip rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-white/15">
+            <p class="text-[11px] uppercase tracking-[0.16em] text-paper/50">01 · Reputation</p>
+            <p class="mt-1 font-serif text-xl">Authentic Maps reviews</p>
+          </a>
+          <a href="services/google-ads-campaigns.html" class="float-chip float-chip-delay rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-white/15">
+            <p class="text-[11px] uppercase tracking-[0.16em] text-paper/50">02 · Demand</p>
+            <p class="mt-1 font-serif text-xl">Ads built to book work</p>
+          </a>
+          <a href="services/web-development.html" class="float-chip rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:bg-white/15 sm:col-span-2 lg:col-span-1">
+            <p class="text-[11px] uppercase tracking-[0.16em] text-paper/50">03 · Presence</p>
+            <p class="mt-1 font-serif text-xl">A site you fully own</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line bg-mist/40 px-5 py-8 lg:px-8" aria-label="Operating principles">
+      <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal"><p class="text-[11px] uppercase tracking-[0.16em] text-ink/40">Reviews</p><p class="mt-1 font-serif text-2xl">Authentic only</p></div>
+        <div class="reveal"><p class="text-[11px] uppercase tracking-[0.16em] text-ink/40">Ads media</p><p class="mt-1 font-serif text-2xl">Billed by Google</p></div>
+        <div class="reveal"><p class="text-[11px] uppercase tracking-[0.16em] text-ink/40">Websites</p><p class="mt-1 font-serif text-2xl">You own 100%</p></div>
+        <div class="reveal"><p class="text-[11px] uppercase tracking-[0.16em] text-ink/40">Hosting &amp; SSL</p><p class="mt-1 font-serif text-2xl">Cloudflare, included</p></div>
       </div>
     </section>
 
@@ -421,76 +319,88 @@
       <div class="mx-auto max-w-6xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Services</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Three jobs. That is the whole menu.</h2>
-          <p class="mt-4 text-ink/60">Top local agencies win by stacking reputation, paid demand, and a place to land. We do those three — and we do not bury them under a catalog of extras.</p>
+          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Three contracts. That is the entire practice.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-ink/60">Market leaders in local search win by stacking proof, paid demand, and a place to land. We run that stack — and we refuse to hide it under a dozen extras you will never use.</p>
         </div>
-        <div class="mt-14 grid gap-6 md:grid-cols-3">
-          <article class="svc-card reveal group overflow-hidden rounded-3xl border border-line bg-white">
+        <div class="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-7">
+          <article class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Folded city map with a location pin, representing Google Maps review and listing work" class="h-52 w-full object-cover" width="900" height="600" loading="lazy" decoding="async" />
+              <img src="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Folded paper city map with a red location pin illustrating Google Maps listing and review management" class="h-56 w-full object-cover" width="1200" height="800" loading="lazy" decoding="async" />
             </div>
-            <div class="p-7">
-              <p class="text-xs text-ink/40">01</p>
+            <div class="flex flex-1 flex-col p-7">
+              <p class="text-xs tracking-[0.18em] text-ink/40">01 · Reputation</p>
               <h3 class="mt-3 font-serif text-2xl leading-snug">Google Maps Review Management</h3>
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">For listings that exist and sit at zero. We help local businesses collect real, policy-compliant Google reviews from customers who already paid — the signal Google uses to rank the map pack and the proof a stranger needs before they dial.</p>
-              <a href="services/google-maps-review-management.html" class="mt-6 inline-flex text-sm font-medium underline-offset-4 group-hover:underline">Open this service</a>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-ink/65">For listings that already exist and still sit at zero. We help owners collect real, policy-compliant Google reviews from customers who already paid — the public proof a stranger needs before they tap Call, and the signal the map pack still ranks on.</p>
+              <a href="services/google-maps-review-management.html" class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out group-hover:gap-3">Open Maps reviews <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="svc-card reveal group overflow-hidden rounded-3xl border border-line bg-white">
+          <article class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Analytics dashboard on a widescreen display used while managing Google Ads performance" class="h-52 w-full object-cover" width="900" height="600" loading="lazy" decoding="async" />
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="High-resolution analytics dashboard used while rebuilding a local Google Ads account for booked jobs" class="h-56 w-full object-cover" width="1200" height="800" loading="lazy" decoding="async" />
             </div>
-            <div class="p-7">
-              <p class="text-xs text-ink/40">02</p>
+            <div class="flex flex-1 flex-col p-7">
+              <p class="text-xs tracking-[0.18em] text-ink/40">02 · Demand</p>
               <h3 class="mt-3 font-serif text-2xl leading-snug">Google Ads Campaigns</h3>
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Paid search aimed at queries that already mean “I need this now.” We build the account so spend follows leads and booked work — not vanity clicks — then keep cutting the waste. Google bills you for media. We charge for the architecture.</p>
-              <a href="services/google-ads-campaigns.html" class="mt-6 inline-flex text-sm font-medium underline-offset-4 group-hover:underline">Open this service</a>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-ink/65">Paid search aimed at phrases that already mean “I need this now.” We structure the account so spend follows leads and booked work, then we keep cutting the waste. Google bills you for media. Northline charges for the architecture.</p>
+              <a href="services/google-ads-campaigns.html" class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out group-hover:gap-3">Open Google Ads <span aria-hidden="true">→</span></a>
             </div>
           </article>
-          <article class="svc-card reveal group overflow-hidden rounded-3xl border border-line bg-white">
+          <article class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Sunlit modern studio interior used as a stand-in for a newly launched local business website" class="h-52 w-full object-cover" width="900" height="600" loading="lazy" decoding="async" />
+              <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Laptop displaying a clean local business website homepage during a custom web development launch" class="h-56 w-full object-cover" width="1200" height="800" loading="lazy" decoding="async" />
             </div>
-            <div class="p-7">
-              <p class="text-xs text-ink/40">03</p>
+            <div class="flex flex-1 flex-col p-7">
+              <p class="text-xs tracking-[0.18em] text-ink/40">03 · Presence</p>
               <h3 class="mt-3 font-serif text-2xl leading-snug">Web Development</h3>
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Custom-coded or CMS sites for businesses that still do not have one. Fast pages, click-to-call, an offer a phone can read in a parking lot. You keep full access and the source. Cloudflare hosting and SSL are included. You only pay for the domain.</p>
-              <a href="services/web-development.html" class="mt-6 inline-flex text-sm font-medium underline-offset-4 group-hover:underline">Open this service</a>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-ink/65">Custom-coded or CMS sites for businesses that still do not have one. Fast pages, click-to-call, an offer a phone can read in a parking lot. You keep full access and the source. Cloudflare hosting and SSL ship with the build. You only pay for the domain.</p>
+              <a href="services/web-development.html" class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out group-hover:gap-3">Open web development <span aria-hidden="true">→</span></a>
             </div>
           </article>
+        </div>
+        <div class="mt-16 grid gap-8 border-t border-line pt-12 md:grid-cols-3">
+          <div class="reveal">
+            <h3 class="font-serif text-xl">They stack. They do not replace each other.</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Ads can buy the click. Reviews make that click feel safe. A website gives it somewhere to land. Missing one still leaves money on the table.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="font-serif text-xl">You keep admin. Always.</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Maps, ads, and the site live in accounts with your name on them. If the contract ends, you leave with the work — not a locked dashboard.</p>
+          </div>
+          <div class="reveal">
+            <h3 class="font-serif text-xl">No purchased stars. Ever.</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">We will not farm Google reviews or invent five-star copy. If a vendor promised fifty ratings next week, that is not this firm.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="work" class="border-t border-line bg-ink px-5 py-20 text-paper lg:px-8 lg:py-28">
       <div class="mx-auto max-w-6xl">
-        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Portfolio</p>
-            <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Work that looks like it belongs in the room.</h2>
-            <p class="mt-4 text-paper/55">Stills below are high-resolution stand-ins for client sites, campaign rooms, and local storefronts. Swap them for live case photos when contracts allow.</p>
-          </div>
+        <div class="max-w-xl">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Selected work</p>
+          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Frames that belong in the room, not on a template farm.</h2>
+          <p class="mt-4 text-paper/55">High-resolution stand-ins for launched sites, campaign rooms, and local interiors. Swap them for live case photography when contracts allow.</p>
         </div>
         <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          <figure class="reveal group relative col-span-2 overflow-hidden rounded-2xl md:row-span-2">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Glass office tower at dusk standing in for a finished corporate website homepage" class="h-full min-h-[280px] w-full object-cover transition duration-700 group-hover:scale-[1.04]" width="1400" height="900" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-5 text-sm">Skyline Dental · site launch</figcaption>
+          <figure class="work-card reveal group relative col-span-2 overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl md:row-span-2">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Glass office tower at dusk used as a cinematic hero still for a finished dental clinic website" class="h-full min-h-[280px] w-full object-cover" width="1600" height="1000" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 p-5 text-sm">Skyline Dental · website launch</figcaption>
           </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Laptop showing campaign charts from a Google Ads account rebuild" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-40" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs">Harbor HVAC · ads rebuild</figcaption>
+          <figure class="work-card reveal group relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop displaying Google Ads performance charts during a paid search account rebuild" class="h-44 w-full object-cover md:h-40" width="900" height="600" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 p-3 text-xs">Harbor HVAC · ads rebuild</figcaption>
           </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Small team reviewing notes around a table during a campaign planning session" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-40" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs">Field &amp; Co. · strategy</figcaption>
+          <figure class="work-card reveal group relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Agency team reviewing campaign notes around a conference table in a sunlit studio" class="h-44 w-full object-cover md:h-40" width="900" height="600" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 p-3 text-xs">Field &amp; Co. · strategy</figcaption>
           </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Contemporary office interior with glass walls used as a local business website hero" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-40" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs">North Clinic · interiors</figcaption>
+          <figure class="work-card reveal group relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Contemporary glass office interior photographed for a local clinic website homepage" class="h-44 w-full object-cover md:h-40" width="900" height="600" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 p-3 text-xs">North Clinic · interiors</figcaption>
           </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Collaborative workspace with laptops and notes representing a delivered web project" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-40" width="800" height="600" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs">Pine Street · build</figcaption>
+          <figure class="work-card reveal group relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Collaborative workspace with laptops representing a delivered custom-coded web project" class="h-44 w-full object-cover md:h-40" width="900" height="600" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 p-3 text-xs">Pine Street · build</figcaption>
           </figure>
         </div>
       </div>
@@ -498,95 +408,131 @@
 
     <section id="reviews" class="border-t border-line px-5 py-20 lg:px-8 lg:py-28">
       <div class="mx-auto max-w-6xl">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Trustpilot &amp; Google-style reviews</p>
-            <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">What clients say when the phone starts moving.</h2>
-            <p class="mt-4 text-ink/60">Layout matches an active review widget. Replace these placeholders with live Trustpilot and Google embeds once the first contracts close.</p>
-          </div>
-          <p class="text-xs uppercase tracking-[0.16em] text-ink/35">Excellent · 5.0 sample layout</p>
+        <div class="mb-10 max-w-xl">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Social proof</p>
+          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">What owners say when the phone starts behaving like a business.</h2>
         </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Dana, a dental studio owner who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+        <div class="reveal overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-soft">
+          <div class="flex flex-col justify-between gap-6 border-b border-line px-6 py-6 sm:flex-row sm:items-center sm:px-8">
+            <div class="flex items-center gap-4">
+              <div class="grid h-14 w-14 place-items-center rounded-2xl bg-[#00b67a] text-lg font-bold text-white">T</div>
               <div>
-                <p class="text-sm font-medium">Dana R.</p>
-                <p class="text-xs text-ink/45">Neighborhood dental studio</p>
+                <p class="text-sm font-semibold tracking-tight">Trustpilot-style dashboard</p>
+                <p class="text-xs text-ink/50">Sample layout — replace with live Trustpilot and Google widgets when contracts close.</p>
               </div>
             </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“Our Google listing sat at zero reviews for two years. Within a few weeks we had real feedback from actual patients, and the phone started behaving like a business again.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Marcus, a home services owner who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+            <div class="flex flex-wrap items-end gap-6">
               <div>
-                <p class="text-sm font-medium">Marcus T.</p>
-                <p class="text-xs text-ink/45">Home services crew</p>
+                <p class="text-[11px] uppercase tracking-[0.16em] text-ink/40">Score</p>
+                <p class="font-serif text-3xl leading-none">Excellent</p>
+              </div>
+              <div>
+                <p class="tp-star text-lg" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="text-xs text-ink/45">5.0 · 6 sample reviews</p>
               </div>
             </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“They rebuilt the ads from scratch. Fewer clicks, better leads. I finally stopped paying for people who were never going to hire us.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Priya, a clinic director who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Priya S.</p>
-                <p class="text-xs text-ink/45">Independent clinic</p>
+          </div>
+          <div class="grid gap-px bg-line md:grid-cols-2 lg:grid-cols-3">
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Dana, a dental studio owner who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">Dana R.</p>
+                  <p class="text-xs text-ink/45">Neighborhood dental studio</p>
+                </div>
               </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“We had no website. They shipped one, handed us the keys, and put it on Cloudflare. Domain was the only bill I had to think about.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Luis, a cafe owner who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Luis M.</p>
-                <p class="text-xs text-ink/45">Corner cafe</p>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“Our Google listing sat at zero for two years. After the ask went in at checkout, real patients posted — and the phone started behaving like a practice again.”</p>
+            </blockquote>
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Marcus, a home services owner who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">Marcus T.</p>
+                  <p class="text-xs text-ink/45">Home services crew</p>
+                </div>
               </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“The Maps profile looked abandoned. After the review flow went in, regulars actually posted. Walk-ins mentioned Google for the first time.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Elena, a salon founder who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Elena K.</p>
-                <p class="text-xs text-ink/45">Studio salon</p>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“They rebuilt the ads from scratch. Fewer clicks, better leads. I finally stopped paying for people who were never going to hire us.”</p>
+            </blockquote>
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Priya, a clinic director who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">Priya S.</p>
+                  <p class="text-xs text-ink/45">Independent clinic</p>
+                </div>
               </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“Straight talk, no software stack I would never open. We own the site. That was the whole point of hiring them.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-line bg-white p-6 shadow-lift">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of James, a contractor who left a review" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">James P.</p>
-                <p class="text-xs text-ink/45">Residential contractor</p>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“We had no website. They shipped one, handed us the keys, and put it on Cloudflare. The domain was the only bill I had to think about.”</p>
+            </blockquote>
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Luis, a cafe owner who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">Luis M.</p>
+                  <p class="text-xs text-ink/45">Corner cafe</p>
+                </div>
               </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-ink/70">“They did not buy me fake stars. They taught the crew when to ask. That is why the reviews stuck.”</p>
-          </blockquote>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“The Maps profile looked abandoned. After the review flow, regulars actually posted. Walk-ins mentioned Google for the first time.”</p>
+            </blockquote>
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of Elena, a salon founder who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">Elena K.</p>
+                  <p class="text-xs text-ink/45">Studio salon</p>
+                </div>
+              </div>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“Straight talk, no software stack I would never open. We own the site. That was the whole point of hiring them.”</p>
+            </blockquote>
+            <blockquote class="bg-white p-6">
+              <div class="mb-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=80" alt="Portrait of James, a residential contractor who left a five-star review" class="h-11 w-11 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
+                <div>
+                  <p class="text-sm font-medium">James P.</p>
+                  <p class="text-xs text-ink/45">Residential contractor</p>
+                </div>
+              </div>
+              <p class="mb-2 text-sm text-trust" aria-label="5 out of 5 stars">★★★★★</p>
+              <p class="text-sm leading-relaxed text-ink/70">“They did not buy me fake stars. They taught the crew when to ask. That is why the reviews stuck.”</p>
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="maps" class="border-t border-line bg-mist/50 px-5 py-20 lg:px-8 lg:py-28">
-      <div class="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
-        <div>
+      <div class="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-12 lg:gap-12">
+        <div class="lg:col-span-5">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Google Business Profile</p>
           <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Your map pin is the front door most people never walk past.</h2>
-          <p class="mt-5 leading-relaxed text-ink/65">Hours, photos, the review count, the route button — that is the first impression. If the listing is thin, the map still works. It just works for somebody else. Paste your public Maps URL in the contract form and we will wire this embed to your own Google Business Profile.</p>
-          <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex rounded-full border border-line px-5 py-2.5 text-sm font-medium transition hover:border-ink/40">Open Google Maps</a>
+          <p class="mt-5 leading-relaxed text-ink/65">Hours, photos, the review count, the route button — that is the first impression. If the listing is thin, the map still works. It just works for somebody else. Paste your public Maps URL in the contract form and this frame becomes your own Google Business Profile embed.</p>
+          <ul class="mt-6 space-y-2 text-sm text-ink/70">
+            <li>Isolated embed, ready for your GBP place ID.</li>
+            <li>No cluttered directory widgets around it.</li>
+            <li>Opens Google Maps in a new tab for directions.</li>
+          </ul>
+          <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:border-ink/40 hover:shadow-lift">Open Google Maps</a>
         </div>
-        <div class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-          <iframe title="Google Maps placeholder for a Google Business Profile embed" src="https://maps.google.com/maps?q=downtown%20local%20business%20district&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" class="h-[400px] w-full grayscale-[15%]" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="reveal lg:col-span-7">
+          <div class="overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-glow">
+            <div class="flex items-center justify-between gap-4 border-b border-line px-5 py-4">
+              <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-[#ea4335] text-white">
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+                </span>
+                <div>
+                  <p class="text-sm font-semibold">Your business on Google</p>
+                  <p class="text-xs text-ink/45">Placeholder embed · swap for your Maps URL</p>
+                </div>
+              </div>
+              <p class="hidden text-xs text-ink/40 sm:block">GBP frame</p>
+            </div>
+            <iframe title="Google Maps placeholder ready for a Google Business Profile embed" src="https://maps.google.com/maps?q=downtown%20local%20business%20district&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" class="h-[380px] w-full grayscale-[12%]" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -598,21 +544,21 @@
           <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Tell us where the business is stuck.</h2>
           <p class="mt-5 leading-relaxed text-ink/65">This starts a working agreement, not a newsletter. Share the Maps link if you have one, pick the first service, and we reply with scope, timing, and what you will own when the work is done.</p>
           <ul class="mt-8 space-y-3 text-sm text-ink/70">
-            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>No review buying. Authentic Google feedback only.</li>
-            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Ad accounts structured for leads, not vanity clicks.</li>
-            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Websites with full access. You keep the source.</li>
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>No review buying. Authentic Google feedback only.</li>
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Ad accounts structured for leads, not vanity clicks.</li>
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink"></span>Websites with full access. You keep the source.</li>
           </ul>
         </div>
         <div class="lg:col-span-7">
-          <form id="contract-form" class="reveal rounded-3xl border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
+          <form id="contract-form" class="reveal rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
             <div class="grid gap-5 sm:grid-cols-2">
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Client name</span><input name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale" class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm" /></label>
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input name="email" type="email" autocomplete="email" required placeholder="you@business.com" class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm" /></label>
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+1 555 010 2841" class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm" /></label>
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input name="businessName" type="text" autocomplete="organization" required placeholder="Hale &amp; Co. Dental" class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm" /></label>
-              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps link</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..." class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm" /><span class="mt-1 block text-xs text-ink/45">Paste the public listing URL. Leave blank if you do not have one yet.</span></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Client name</span><input name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale" class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input name="email" type="email" autocomplete="email" required placeholder="you@business.com" class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+1 555 010 2841" class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input name="businessName" type="text" autocomplete="organization" required placeholder="Hale &amp; Co. Dental" class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps link</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..." class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /><span class="mt-1 block text-xs text-ink/45">Paste the public listing URL. Leave blank if you do not have one yet.</span></label>
               <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
-                <select name="service" required class="w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm">
+                <select name="service" required class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
                   <option value="">Choose one</option>
                   <option value="Google Maps Review Management">Google Maps Review Management</option>
                   <option value="Google Ads Campaigns">Google Ads Campaigns</option>
@@ -621,13 +567,13 @@
               </label>
             </div>
             <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
-            <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3.5 text-sm font-medium text-paper transition hover:opacity-90 sm:w-auto sm:px-8">Submit contract request</button>
+            <button type="submit" class="mt-6 w-full rounded-full bg-ink py-3.5 text-sm font-medium text-paper transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:opacity-90 sm:w-auto sm:px-8">Submit contract request</button>
             <p class="mt-3 text-xs text-ink/45">By sending this, you agree we may contact you about the selected service. No spam lists. No sold data.</p>
           </form>
-          <div id="form-success" class="hidden rounded-3xl border border-line bg-white p-10 text-center shadow-soft">
+          <div id="form-success" class="hidden success-pop rounded-[1.75rem] border border-line bg-white p-10 text-center shadow-soft">
             <p class="font-serif text-3xl">Request received.</p>
             <p id="success-copy" class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink/65"></p>
-            <button id="send-another" type="button" class="mt-8 text-sm underline underline-offset-4">Send another request</button>
+            <button id="send-another" type="button" class="mt-8 text-sm underline underline-offset-4 transition-all duration-300 ease-in-out hover:opacity-70">Send another request</button>
           </div>
         </div>
       </div>
@@ -642,12 +588,12 @@
           <p class="mt-2 max-w-sm text-sm text-paper/55">Local visibility for businesses that already do good work — they just do not look like it on Google yet.</p>
         </div>
         <div class="flex flex-wrap gap-x-10 gap-y-3 text-sm text-paper/70">
-          <a href="services/google-maps-review-management.html" class="hover:text-paper">Maps reviews</a>
-          <a href="services/google-ads-campaigns.html" class="hover:text-paper">Google Ads</a>
-          <a href="services/web-development.html" class="hover:text-paper">Web development</a>
-          <a href="#contact" class="hover:text-paper">Contract</a>
-          <a href="#privacy" class="legal-link hover:text-paper">Privacy</a>
-          <a href="#terms" class="legal-link hover:text-paper">Terms</a>
+          <a href="services/google-maps-review-management.html" class="transition-all duration-300 ease-in-out hover:text-paper">Maps reviews</a>
+          <a href="services/google-ads-campaigns.html" class="transition-all duration-300 ease-in-out hover:text-paper">Google Ads</a>
+          <a href="services/web-development.html" class="transition-all duration-300 ease-in-out hover:text-paper">Web development</a>
+          <a href="#contact" class="transition-all duration-300 ease-in-out hover:text-paper">Contract</a>
+          <a href="#privacy" class="legal-link transition-all duration-300 ease-in-out hover:text-paper">Privacy</a>
+          <a href="#terms" class="legal-link transition-all duration-300 ease-in-out hover:text-paper">Terms</a>
         </div>
       </div>
       <div class="mt-10 rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-4">
@@ -661,12 +607,12 @@
   <dialog id="privacy" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="privacy-title">
     <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
     <p class="mt-4 text-sm leading-relaxed text-ink/70">Northline collects only what you type into the contract form. That data is used to reply. It is not sold. Email hello@northline.example to remove a record.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
+    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper transition-all duration-300 ease-in-out hover:opacity-90">Close</button></form>
   </dialog>
   <dialog id="terms" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="terms-title">
     <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
     <p class="mt-4 text-sm leading-relaxed text-ink/70">A form submission is a request, not a paid contract. Review work covers authentic customer feedback only. Web projects include full access and source-code ownership. Cloudflare hosting and SSL are set up at no extra fee. Domain registration is paid by the client.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
+    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper transition-all duration-300 ease-in-out hover:opacity-90">Close</button></form>
   </dialog>
 
   <script>
@@ -676,6 +622,22 @@
       var onScroll = function () { header.classList.toggle("is-stuck", window.scrollY > 24); };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+
+      var sections = ["work", "reviews", "maps", "contact"];
+      var navLinks = document.querySelectorAll("[data-nav]");
+      function markNav() {
+        var current = "";
+        sections.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          if (el.getBoundingClientRect().top < 120) current = id;
+        });
+        navLinks.forEach(function (link) {
+          link.classList.toggle("is-active", link.getAttribute("data-nav") === current);
+        });
+      }
+      window.addEventListener("scroll", markNav, { passive: true });
+      markNav();
 
       var menuBtn = document.getElementById("menu-btn");
       var mobileMenu = document.getElementById("mobile-menu");
@@ -736,9 +698,7 @@
         });
       }
       document.querySelectorAll(".mobile-link").forEach(function (link) {
-        link.addEventListener("click", function () {
-          setMobileOpen(false);
-        });
+        link.addEventListener("click", function () { setMobileOpen(false); });
       });
       document.querySelectorAll(".legal-link").forEach(function (link) {
         link.addEventListener("click", function (event) {
@@ -771,6 +731,17 @@
       var preset = params.get("service");
       if (preset && form.service) form.service.value = preset;
 
+      function clearInvalid() {
+        form.querySelectorAll(".field-input").forEach(function (el) { el.classList.remove("is-invalid"); });
+      }
+      function markInvalid(name) {
+        var el = form.elements[name];
+        if (el) el.classList.add("is-invalid");
+      }
+      form.querySelectorAll(".field-input").forEach(function (el) {
+        el.addEventListener("input", function () { el.classList.remove("is-invalid"); });
+      });
+
       function showError(message) {
         errorEl.textContent = message;
         errorEl.classList.remove("hidden");
@@ -778,6 +749,7 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         errorEl.classList.add("hidden");
+        clearInvalid();
         var data = {
           clientName: form.clientName.value.trim(),
           email: form.email.value.trim(),
@@ -788,14 +760,19 @@
           submittedAt: new Date().toISOString()
         };
         if (!data.clientName || !data.email || !data.phone || !data.businessName || !data.service) {
+          ["clientName", "email", "phone", "businessName", "service"].forEach(function (key) {
+            if (!data[key]) markInvalid(key);
+          });
           showError("Please complete every required field before sending.");
           return;
         }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+          markInvalid("email");
           showError("That email does not look usable. Check the spelling and try again.");
           return;
         }
         if (data.phone.replace(/\D/g, "").length < 10) {
+          markInvalid("phone");
           showError("Enter a phone number with at least 10 digits so we can actually reach you.");
           return;
         }
@@ -804,6 +781,7 @@
             var parsed = new URL(data.mapsLink);
             if (parsed.protocol !== "http:" && parsed.protocol !== "https:") throw new Error("bad");
           } catch (err) {
+            markInvalid("mapsLink");
             showError("The Google Maps link needs to be a full URL, starting with https://");
             return;
           }
@@ -813,20 +791,21 @@
           if (!Array.isArray(existing)) existing = [];
           existing.push(data);
           localStorage.setItem("northline-contracts", JSON.stringify(existing));
-        } catch (storageErr) {
-          /* Mailto still sends if storage is blocked. */
-        }
+        } catch (storageErr) { /* Mailto still sends if storage is blocked. */ }
         var body = ["New service contract request", "", "Client name: " + data.clientName, "Email: " + data.email, "Phone: " + data.phone, "Business: " + data.businessName, "Google Maps: " + (data.mapsLink || "Not provided"), "Service: " + data.service].join("\n");
         var mailto = "mailto:hello@northline.example?subject=" + encodeURIComponent("Service contract — " + data.service + " — " + data.businessName) + "&body=" + encodeURIComponent(body);
         form.classList.add("hidden");
         successEl.classList.remove("hidden");
+        successEl.classList.add("success-pop");
         successCopy.textContent = "Thanks, " + data.clientName + ". We have " + data.service + " on file for " + data.businessName + ". Your email app should open with a draft — send it so the request reaches the desk.";
         window.setTimeout(function () { window.location.href = mailto; }, 400);
       });
       document.getElementById("send-another").addEventListener("click", function () {
         form.reset();
+        clearInvalid();
         if (preset && form.service) form.service.value = preset;
         successEl.classList.add("hidden");
+        successEl.classList.remove("success-pop");
         form.classList.remove("hidden");
       });
     })();
