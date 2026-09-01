@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="../assets/site.css" />
   <script type="application/ld+json">
   {
@@ -69,12 +70,13 @@
             </div>
           </div>
         </li>
-        <li><a class="transition hover:text-ink" href="../index.html#proof">Proof</a></li>
+        <li><a class="transition hover:text-ink" href="../index.html#work">Work</a></li>
+        <li><a class="transition hover:text-ink" href="../index.html#reviews">Reviews</a></li>
         <li><a class="transition hover:text-ink" href="../index.html#maps">Maps</a></li>
         <li><a class="transition hover:text-ink" href="../index.html#contact">Contract</a></li>
       </ul>
       <div class="flex items-center gap-3">
-        <a href="../index.html#contact" class="hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:opacity-90 sm:inline-flex">Start a contract</a>
+        <a href="../index.html#contact" class="hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:opacity-90 md:inline-flex">Start a contract</a>
         <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-full border border-line md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg id="icon-open" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
           <svg id="icon-close" class="hidden h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
@@ -83,7 +85,7 @@
     </nav>
     <div id="mobile-menu" class="hidden border-t border-line px-5 py-4 md:hidden">
       <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn" class="flex w-full items-center justify-between py-1 font-medium" aria-expanded="false" aria-controls="mobile-services">
+        <button type="button" id="mobile-services-btn" class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false" aria-controls="mobile-services">
           Services
           <svg class="mobile-services-caret h-3.5 w-3.5 opacity-50" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
         </button>
@@ -106,7 +108,8 @@
             </a>
           </div>
         </div>
-        <a href="../index.html#proof" class="mobile-link py-1">Proof</a>
+        <a href="../index.html#work" class="mobile-link py-1">Work</a>
+        <a href="../index.html#reviews" class="mobile-link py-1">Reviews</a>
         <a href="../index.html#maps" class="mobile-link py-1">Maps</a>
         <a href="../index.html#contact" class="mobile-link rounded-full bg-ink px-4 py-2.5 text-center text-paper">Start a contract</a>
       </div>
@@ -135,7 +138,7 @@
         <div class="cat-rail">
           <article class="cat-card reveal">
             <figure class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Paper city map with a location marker representing Google Maps listing work" class="h-48 w-full object-cover" width="900" height="700" />
+              <img src="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Paper city map with a location marker representing Google Maps listing work" class="h-48 w-full object-cover" width="900" height="700" loading="lazy" decoding="async" />
             </figure>
             <div class="flex flex-col justify-between p-7">
               <div>
@@ -149,7 +152,7 @@
 
           <article class="cat-card reveal">
             <figure class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop displaying advertising performance charts for a paid search campaign" class="h-48 w-full object-cover" width="900" height="700" />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop displaying advertising performance charts for a paid search campaign" class="h-48 w-full object-cover" width="900" height="700" loading="lazy" decoding="async" />
             </figure>
             <div class="flex flex-col justify-between p-7">
               <div>
@@ -163,7 +166,7 @@
 
           <article class="cat-card reveal">
             <figure class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Sunlit studio interior used as a stand-in for a new local business website" class="h-48 w-full object-cover" width="900" height="700" />
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Sunlit studio interior used as a stand-in for a new local business website" class="h-48 w-full object-cover" width="900" height="700" loading="lazy" decoding="async" />
             </figure>
             <div class="flex flex-col justify-between p-7">
               <div>
@@ -209,22 +212,22 @@
       </div>
       <div class="mt-10 rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-4">
         <p class="text-[11px] font-medium uppercase tracking-[0.16em] text-paper/50">Client guarantee</p>
-        <p class="mt-1 font-serif text-lg leading-snug sm:text-xl">100% Full Access Ownership <span class="text-paper/35">|</span> Free Cloudflare Hosting &amp; SSL Setup <span class="text-paper/35">|</span> Client only pays for Domain</p>
+        <p class="mt-1 font-serif text-lg leading-snug sm:text-xl">100% Full Access &amp; Source-Code Ownership <span class="text-paper/35">|</span> Free Cloudflare Hosting &amp; SSL Setup <span class="text-paper/35">|</span> Pay Only for Domain</p>
       </div>
       <p class="mt-8 text-xs text-paper/35">© <span id="year"></span> Northline. All rights reserved.</p>
     </div>
   </footer>
 
-  <dialog id="privacy" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50">
-    <h2 class="font-serif text-3xl">Privacy</h2>
+  <dialog id="privacy" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="privacy-title">
+    <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
     <div class="mt-4 space-y-3 text-sm leading-relaxed text-ink/70">
       <p>Northline collects only what you type into the service contract form: name, email, phone, business name, optional Maps URL, and the service you selected. That data is used to reply to your request. It is not sold or rented.</p>
       <p>If you want a record removed, email hello@northline.example with the address you used.</p>
     </div>
     <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
   </dialog>
-  <dialog id="terms" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50">
-    <h2 class="font-serif text-3xl">Terms</h2>
+  <dialog id="terms" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="terms-title">
+    <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
     <div class="mt-4 space-y-3 text-sm leading-relaxed text-ink/70">
       <p>Submitting a form requests a conversation. It does not create a paid contract until both sides agree in writing. Review work covers legitimate collection of feedback from real customers. Fake Google reviews are not offered.</p>
       <p>Web projects include full access and ownership. Cloudflare hosting and SSL are set up at no extra fee. Domain registration is paid by the client.</p>

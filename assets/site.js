@@ -1,4 +1,6 @@
 (function () {
+  document.documentElement.classList.add("js");
+
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
@@ -6,13 +8,21 @@
   var mobileMenu = document.getElementById("mobile-menu");
   var iconOpen = document.getElementById("icon-open");
   var iconClose = document.getElementById("icon-close");
+  var siteHeader = document.querySelector("header");
+
+  function setMobileOpen(open) {
+    if (!mobileMenu || !menuBtn) return;
+    mobileMenu.classList.toggle("hidden", !open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (iconOpen) iconOpen.classList.toggle("hidden", open);
+    if (iconClose) iconClose.classList.toggle("hidden", !open);
+    if (siteHeader) siteHeader.classList.toggle("is-menu-open", open);
+  }
 
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", function () {
-      var open = mobileMenu.classList.toggle("hidden") === false;
-      menuBtn.setAttribute("aria-expanded", String(open));
-      if (iconOpen) iconOpen.classList.toggle("hidden", open);
-      if (iconClose) iconClose.classList.toggle("hidden", !open);
+      setMobileOpen(mobileMenu.classList.contains("hidden"));
     });
   }
 
@@ -52,6 +62,7 @@
       var btn = drop.querySelector(".nav-drop-btn");
       if (btn) btn.setAttribute("aria-expanded", "false");
     });
+    setMobileOpen(false);
   });
 
   var mobileServicesBtn = document.getElementById("mobile-services-btn");
@@ -65,19 +76,16 @@
 
   document.querySelectorAll(".mobile-link").forEach(function (link) {
     link.addEventListener("click", function () {
-      if (!mobileMenu) return;
-      mobileMenu.classList.add("hidden");
-      if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
-      if (iconOpen) iconOpen.classList.remove("hidden");
-      if (iconClose) iconClose.classList.add("hidden");
+      setMobileOpen(false);
     });
   });
 
   document.querySelectorAll(".legal-link").forEach(function (link) {
     link.addEventListener("click", function (event) {
       event.preventDefault();
-      var id = link.getAttribute("href").slice(1);
-      var dialog = document.getElementById(id);
+      var href = link.getAttribute("href") || "";
+      if (href.charAt(0) !== "#") return;
+      var dialog = document.getElementById(href.slice(1));
       if (dialog) dialog.showModal();
     });
   });
@@ -215,9 +223,14 @@
       }
     }
 
-    var existing = JSON.parse(localStorage.getItem("northline-contracts") || "[]");
-    existing.push(data);
-    localStorage.setItem("northline-contracts", JSON.stringify(existing));
+    try {
+      var existing = JSON.parse(localStorage.getItem("northline-contracts") || "[]");
+      if (!Array.isArray(existing)) existing = [];
+      existing.push(data);
+      localStorage.setItem("northline-contracts", JSON.stringify(existing));
+    } catch (err) {
+      /* Keep the mailto path even if storage is blocked or corrupt. */
+    }
 
     var body = [
       "New service contract request",
