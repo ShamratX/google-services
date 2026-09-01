@@ -107,11 +107,11 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
 
-  document.querySelectorAll(".cat-rail").forEach(function (rail) {
+  function initSnapRail(rail, options) {
     var dots = document.createElement("div");
-    dots.className = "rail-dots";
+    dots.className = options.dotsClass;
     dots.setAttribute("role", "group");
-    dots.setAttribute("aria-label", "Jump to a service");
+    dots.setAttribute("aria-label", options.ariaLabel);
     rail.after(dots);
 
     var cards = [];
@@ -147,8 +147,8 @@
         var dot = document.createElement("button");
         dot.type = "button";
         dot.className = "rail-dot";
-        var label = card.querySelector("h2");
-        dot.setAttribute("aria-label", label ? label.textContent.trim() : "Card " + (i + 1));
+        var label = card.querySelector(options.labelSelector || "h2, .font-medium");
+        dot.setAttribute("aria-label", label ? label.textContent.trim() : options.fallbackLabel + " " + (i + 1));
         dot.addEventListener("click", function () {
           rail.scrollTo({ left: cardOffset(card), behavior: "smooth" });
         });
@@ -160,6 +160,72 @@
     build();
     rail.addEventListener("scroll", markActive, { passive: true });
     window.addEventListener("resize", markActive);
+  }
+
+  document.querySelectorAll(".cat-rail").forEach(function (rail) {
+    initSnapRail(rail, {
+      dotsClass: "rail-dots",
+      ariaLabel: "Jump to a service",
+      labelSelector: "h2",
+      fallbackLabel: "Card"
+    });
+  });
+
+  var iconPrev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>';
+  var iconNext = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+
+  document.querySelectorAll(".review-rail").forEach(function (rail) {
+    var wrap = document.createElement("div");
+    wrap.className = "review-slider" + (rail.classList.contains("review-rail-light") ? " review-slider-light" : "");
+    if (rail.classList.contains("mt-10")) {
+      wrap.classList.add("mt-10");
+      rail.classList.remove("mt-10");
+    }
+    rail.parentNode.insertBefore(wrap, rail);
+    wrap.appendChild(rail);
+
+    var nav = document.createElement("div");
+    nav.className = "review-nav";
+    nav.setAttribute("role", "group");
+    nav.setAttribute("aria-label", "Review slider");
+
+    var prev = document.createElement("button");
+    prev.type = "button";
+    prev.className = "review-arrow review-arrow-prev";
+    prev.setAttribute("aria-label", "Previous reviews");
+    prev.innerHTML = iconPrev;
+
+    var next = document.createElement("button");
+    next.type = "button";
+    next.className = "review-arrow review-arrow-next";
+    next.setAttribute("aria-label", "Next reviews");
+    next.innerHTML = iconNext;
+
+    nav.appendChild(prev);
+    nav.appendChild(next);
+    wrap.appendChild(nav);
+
+    function step() {
+      var card = rail.children[0];
+      if (!card) return rail.clientWidth * 0.8;
+      var gap = parseFloat(window.getComputedStyle(rail).gap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function updateArrows() {
+      var max = rail.scrollWidth - rail.clientWidth - 4;
+      prev.disabled = rail.scrollLeft <= 4;
+      next.disabled = max <= 0 || rail.scrollLeft >= max;
+      wrap.classList.toggle("is-static", max <= 0);
+    }
+    prev.addEventListener("click", function () {
+      rail.scrollBy({ left: -step(), behavior: "smooth" });
+    });
+    next.addEventListener("click", function () {
+      rail.scrollBy({ left: step(), behavior: "smooth" });
+    });
+    rail.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+    updateArrows();
   });
 
   var form = document.getElementById("contract-form");
@@ -167,6 +233,8 @@
 
   var params = new URLSearchParams(window.location.search);
   var preset = params.get("service");
+  if (preset === "GMB") preset = "Google My Business";
+  if (preset === "Google Maps Review Management") preset = "Google Business Reviews";
   if (preset && form.service) form.service.value = preset;
 
   var errorEl = document.getElementById("form-error");
