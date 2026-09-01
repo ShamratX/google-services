@@ -13,7 +13,7 @@
   <meta property="og:title" content="Northline | Get Found, Trusted, and Booked on Google" />
   <meta property="og:description" content="Real Google Maps reviews for businesses stuck at zero. Paid ads built to sell. Websites you fully own — hosting and SSL included." />
   <meta property="og:url" content="https://northline.example/" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524661132060-ba3cfcb38cc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -133,6 +133,120 @@
     .svc-card img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
     .svc-card:hover img { transform: scale(1.07); }
     .star { color: #00b67a; }
+    .hero-mesh {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 85% 18%, rgba(244, 241, 234, 0.12), transparent 58%),
+        radial-gradient(ellipse 50% 40% at 8% 88%, rgba(0, 182, 122, 0.08), transparent 55%),
+        linear-gradient(180deg, #161616 0%, #111111 55%, #0c0c0c 100%);
+    }
+    .hero-mesh::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(244,241,234,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244,241,234,0.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);
+    }
+    .hero-bento {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      grid-template-rows: minmax(160px, 1fr) minmax(140px, 0.85fr);
+      gap: 0.8rem;
+      min-height: 420px;
+    }
+    .hero-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #1a1a1a;
+      color: inherit;
+      text-decoration: none;
+      isolation: isolate;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+    }
+    .hero-tile:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: 0 28px 50px -28px rgba(0,0,0,0.7);
+    }
+    .hero-tile img {
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hero-tile:hover img { transform: scale(1.06); }
+    .hero-tile-maps { grid-row: 1 / 3; }
+    .hero-listing {
+      position: absolute;
+      left: 0.85rem;
+      right: 0.85rem;
+      bottom: 0.85rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.94);
+      color: #111;
+      box-shadow: 0 16px 40px -20px rgba(0,0,0,0.5);
+    }
+    .hero-pin {
+      display: grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 999px;
+      background: #ea4335;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .hero-ad {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1rem 1.05rem 0.9rem;
+      background: linear-gradient(180deg, #1f1f1f, #161616);
+    }
+    .hero-bars { display: flex; align-items: flex-end; gap: 5px; height: 46px; }
+    .hero-bars span {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, #f4f1ea, rgba(244,241,234,0.25));
+    }
+    .hero-browser {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .hero-chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.75rem;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-dot { width: 7px; height: 7px; border-radius: 99px; background: rgba(255,255,255,0.22); }
+    @media (min-width: 1024px) {
+      .hero-bento {
+        min-height: 520px;
+        height: min(64vh, 580px);
+      }
+    }
+    @media (max-width: 1023px) {
+      .hero-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 170px;
+        min-height: 0;
+      }
+      .hero-tile-maps { grid-column: 1 / -1; grid-row: 1; }
+    }
+    @media (max-width: 639px) {
+      .hero-bento { grid-template-rows: 220px 150px; gap: 0.65rem; }
+      .hero-listing { left: 0.65rem; right: 0.65rem; bottom: 0.65rem; padding: 0.7rem 0.8rem; }
+    }
     .mobile-services { display: none; }
     .mobile-services.is-open { display: block; }
     .mobile-services-caret { display: inline-block; transition: transform 0.22s ease; }
@@ -143,7 +257,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       html.js .reveal { opacity: 1; transform: none; transition: none !important; }
-      .reveal, .svc-card, .svc-card img { transition: none !important; }
+      .reveal, .svc-card, .svc-card img, .hero-tile, .hero-tile img { transition: none !important; }
+      .hero-tile:hover { transform: none; }
     }
   </style>
   <script type="application/ld+json">
@@ -223,28 +338,82 @@
   </header>
 
   <main id="main">
-    <section class="relative isolate flex min-h-[100svh] items-end overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&amp;fit=crop&amp;w=2400&amp;q=80" alt="Night city skyline with lit windows, used as a cinematic backdrop for a local digital agency hero" class="absolute inset-0 h-full w-full object-cover" width="2400" height="1600" fetchpriority="high" decoding="async" />
-      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30"></div>
-      <div class="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-36 text-paper lg:px-8 lg:pb-24">
-        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-paper/55">Google Maps · Google Ads · Custom websites</p>
-        <h1 class="max-w-4xl font-serif text-[2.8rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.6rem]">
-          The listing that looks trusted gets the call.<br class="hidden sm:block" />
-          <span class="italic text-paper/70">Empty ones wait.</span>
-        </h1>
-        <p class="mt-7 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
-          Northline works with local businesses that already do the job well — and still lose people to a competitor with more Google reviews, cleaner ads, or an actual website. We fix those three gaps, then hand you the keys.
-        </p>
-        <div class="mt-9 flex flex-wrap items-center gap-3">
-          <a href="#contact" class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink shadow-soft transition hover:opacity-90">Request a service contract</a>
-          <a href="#services" class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition hover:border-white/50">See the three services</a>
+    <section class="relative isolate overflow-hidden bg-ink text-paper">
+      <div class="hero-mesh" aria-hidden="true"></div>
+      <div class="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-6xl items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pb-20 lg:pt-28">
+        <div class="lg:col-span-5">
+          <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-paper/55">Google Maps · Google Ads · Custom websites</p>
+          <h1 class="font-serif text-[2.55rem] leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.35rem] xl:text-[3.7rem]">
+            The listing that looks trusted gets the call.<br class="hidden sm:block" />
+            <span class="italic text-paper/70">Empty ones wait.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
+            Northline works with local businesses that already do the job well — and still lose people to a competitor with more Google reviews, cleaner ads, or an actual website. We fix those three gaps, then hand you the keys.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#contact" class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink shadow-soft transition hover:opacity-90">Request a service contract</a>
+            <a href="#services" class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition hover:border-white/50">See the three services</a>
+          </div>
+          <dl class="mt-10 grid max-w-lg grid-cols-2 gap-5 sm:grid-cols-4 sm:max-w-none">
+            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Reviews</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Authentic only</dd></div>
+            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Ads</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Built to sell</dd></div>
+            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Sites</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">You own 100%</dd></div>
+            <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Hosting</dt><dd class="mt-1 font-serif text-xl sm:text-2xl">Cloudflare</dd></div>
+          </dl>
         </div>
-        <dl class="mt-14 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4">
-          <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Reviews</dt><dd class="mt-1 font-serif text-2xl">Authentic only</dd></div>
-          <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Ads</dt><dd class="mt-1 font-serif text-2xl">Built to sell</dd></div>
-          <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Sites</dt><dd class="mt-1 font-serif text-2xl">You own 100%</dd></div>
-          <div><dt class="text-[11px] uppercase tracking-[0.16em] text-paper/40">Hosting</dt><dd class="mt-1 font-serif text-2xl">Cloudflare</dd></div>
-        </dl>
+
+        <div class="lg:col-span-7">
+          <div class="hero-bento">
+            <a class="hero-tile hero-tile-maps" href="services/google-maps-review-management.html">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Local restaurant interior, the kind of business that needs Google Maps reviews to win walk-ins" class="absolute inset-0 h-full w-full object-cover" width="1200" height="1600" fetchpriority="high" decoding="async" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/15 to-transparent"></div>
+              <p class="absolute left-4 top-4 rounded-full bg-ink/55 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-paper backdrop-blur-sm">01 · Maps reviews</p>
+              <div class="hero-listing">
+                <div class="flex items-start gap-3">
+                  <span class="hero-pin" aria-hidden="true">
+                    <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+                  </span>
+                  <div class="min-w-0">
+                    <p class="truncate text-sm font-semibold">Hale &amp; Co. Dental</p>
+                    <p class="mt-0.5 text-xs text-[#e37400]" aria-label="Google listing with no reviews yet">☆☆☆☆☆ · 0 Google reviews</p>
+                    <p class="mt-1 text-[11px] leading-snug text-ink/55">We install the ask so real patients fill this — not purchased stars.</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a class="hero-tile hero-tile-ads" href="services/google-ads-campaigns.html">
+              <div class="hero-ad">
+                <p class="text-[11px] font-medium uppercase tracking-[0.14em] text-paper/45">02 · Google Ads</p>
+                <p class="mt-3 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2 text-[11px] text-paper/80">emergency plumber <span class="text-paper/40">near me</span></p>
+                <p class="mt-2.5 text-[11px] leading-snug text-paper/55"><span class="text-[#8ab4f8]">Ad</span> · Harbor HVAC · Call now · Open 24/7</p>
+                <div class="hero-bars mt-auto pt-3" aria-hidden="true">
+                  <span style="height:38%"></span>
+                  <span style="height:55%"></span>
+                  <span style="height:34%"></span>
+                  <span style="height:72%"></span>
+                  <span style="height:90%"></span>
+                  <span style="height:62%"></span>
+                  <span style="height:80%"></span>
+                </div>
+                <p class="mt-2 text-[11px] text-paper/45">Spend follows booked jobs, not junk clicks.</p>
+              </div>
+            </a>
+
+            <a class="hero-tile hero-tile-web" href="services/web-development.html">
+              <div class="hero-browser">
+                <div class="hero-chrome">
+                  <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
+                  <span class="ml-1 truncate rounded-md bg-white/10 px-2 py-0.5 text-[10px] text-paper/50">yoursite.com — you own it</span>
+                </div>
+                <div class="relative min-h-0 flex-1">
+                  <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop showing a clean local business website layout" class="absolute inset-0 h-full w-full object-cover" width="900" height="600" decoding="async" />
+                  <p class="absolute left-3 bottom-3 rounded-full bg-ink/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-paper backdrop-blur-sm">03 · Website · Cloudflare</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
