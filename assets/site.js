@@ -6,14 +6,35 @@
 
   document.documentElement.classList.add("js");
 
-  var year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+  var siteHeader = document.getElementById("site-header");
+  if (siteHeader) {
+    var onScroll = function () {
+      siteHeader.classList.toggle("is-stuck", window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  var sections = ["work", "trust", "faq", "contact"];
+  var navLinks = document.querySelectorAll("[data-nav]");
+  function markNav() {
+    var current = "";
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (el.getBoundingClientRect().top < 120) current = id;
+    });
+    navLinks.forEach(function (link) {
+      link.classList.toggle("is-active", link.getAttribute("data-nav") === current);
+    });
+  }
+  window.addEventListener("scroll", markNav, { passive: true });
+  markNav();
 
   var menuBtn = document.getElementById("menu-btn");
   var mobileMenu = document.getElementById("mobile-menu");
   var iconOpen = document.getElementById("icon-open");
   var iconClose = document.getElementById("icon-close");
-  var siteHeader = document.querySelector("header");
 
   function setMobileOpen(open) {
     if (!mobileMenu || !menuBtn) return;
@@ -95,8 +116,47 @@
     });
   });
 
+  var faqItems = document.querySelectorAll("#faq details");
+  function closeFaq(item) {
+    var panel = item.querySelector(".faq-panel");
+    item.classList.remove("is-open");
+    var done = false;
+    var finish = function (event) {
+      if (done) return;
+      if (event && event.target && event.target !== panel) return;
+      if (event && event.propertyName && event.propertyName !== "grid-template-rows") return;
+      done = true;
+      item.removeAttribute("open");
+      panel.removeEventListener("transitionend", finish);
+    };
+    panel.addEventListener("transitionend", finish);
+    setTimeout(finish, 420);
+  }
+  function openFaq(item) {
+    item.setAttribute("open", "");
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        item.classList.add("is-open");
+      });
+    });
+  }
+  faqItems.forEach(function (item) {
+    var summary = item.querySelector("summary");
+    if (!summary) return;
+    summary.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (item.classList.contains("is-open")) {
+        closeFaq(item);
+        return;
+      }
+      faqItems.forEach(function (other) {
+        if (other !== item && other.classList.contains("is-open")) closeFaq(other);
+      });
+      openFaq(item);
+    });
+  });
+
   if ("IntersectionObserver" in window) {
-    var reveals = document.querySelectorAll(".reveal");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry, i) {
         if (!entry.isIntersecting) return;
@@ -107,131 +167,10 @@
         io.unobserve(entry.target);
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    reveals.forEach(function (el) { io.observe(el); });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
-
-  function initSnapRail(rail, options) {
-    var dots = document.createElement("div");
-    dots.className = options.dotsClass;
-    dots.setAttribute("role", "group");
-    dots.setAttribute("aria-label", options.ariaLabel);
-    rail.after(dots);
-
-    var cards = [];
-
-    function cardOffset(card) {
-      return card.getBoundingClientRect().left - rail.getBoundingClientRect().left + rail.scrollLeft;
-    }
-
-    function markActive() {
-      if (!cards.length) return;
-      var active = 0;
-      var closest = Infinity;
-      cards.forEach(function (card, i) {
-        var distance = Math.abs(cardOffset(card) - rail.scrollLeft);
-        if (distance < closest) {
-          closest = distance;
-          active = i;
-        }
-      });
-      dots.querySelectorAll(".rail-dot").forEach(function (dot, i) {
-        var on = i === active;
-        dot.classList.toggle("is-active", on);
-        if (on) dot.setAttribute("aria-current", "true");
-        else dot.removeAttribute("aria-current");
-      });
-    }
-
-    function build() {
-      cards = Array.prototype.slice.call(rail.children);
-      dots.textContent = "";
-      if (cards.length < 2) return;
-      cards.forEach(function (card, i) {
-        var dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "rail-dot";
-        var label = card.querySelector(options.labelSelector || "h2, .font-medium");
-        dot.setAttribute("aria-label", label ? label.textContent.trim() : options.fallbackLabel + " " + (i + 1));
-        dot.addEventListener("click", function () {
-          rail.scrollTo({ left: cardOffset(card), behavior: "smooth" });
-        });
-        dots.appendChild(dot);
-      });
-      markActive();
-    }
-
-    build();
-    rail.addEventListener("scroll", markActive, { passive: true });
-    window.addEventListener("resize", markActive);
-  }
-
-  document.querySelectorAll(".cat-rail").forEach(function (rail) {
-    initSnapRail(rail, {
-      dotsClass: "rail-dots",
-      ariaLabel: "Jump to a service",
-      labelSelector: "h2",
-      fallbackLabel: "Card"
-    });
-  });
-
-  var iconPrev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>';
-  var iconNext = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
-
-  document.querySelectorAll(".review-rail").forEach(function (rail) {
-    var wrap = document.createElement("div");
-    wrap.className = "review-slider" + (rail.classList.contains("review-rail-light") ? " review-slider-light" : "");
-    if (rail.classList.contains("mt-10")) {
-      wrap.classList.add("mt-10");
-      rail.classList.remove("mt-10");
-    }
-    rail.parentNode.insertBefore(wrap, rail);
-    wrap.appendChild(rail);
-
-    var nav = document.createElement("div");
-    nav.className = "review-nav";
-    nav.setAttribute("role", "group");
-    nav.setAttribute("aria-label", "Review slider");
-
-    var prev = document.createElement("button");
-    prev.type = "button";
-    prev.className = "review-arrow review-arrow-prev";
-    prev.setAttribute("aria-label", "Previous reviews");
-    prev.innerHTML = iconPrev;
-
-    var next = document.createElement("button");
-    next.type = "button";
-    next.className = "review-arrow review-arrow-next";
-    next.setAttribute("aria-label", "Next reviews");
-    next.innerHTML = iconNext;
-
-    nav.appendChild(prev);
-    nav.appendChild(next);
-    wrap.appendChild(nav);
-
-    function step() {
-      var card = rail.children[0];
-      if (!card) return rail.clientWidth * 0.8;
-      var gap = parseFloat(window.getComputedStyle(rail).gap) || 0;
-      return card.getBoundingClientRect().width + gap;
-    }
-    function updateArrows() {
-      var max = rail.scrollWidth - rail.clientWidth - 4;
-      prev.disabled = rail.scrollLeft <= 4;
-      next.disabled = max <= 0 || rail.scrollLeft >= max;
-      wrap.classList.toggle("is-static", max <= 0);
-    }
-    prev.addEventListener("click", function () {
-      rail.scrollBy({ left: -step(), behavior: "smooth" });
-    });
-    next.addEventListener("click", function () {
-      rail.scrollBy({ left: step(), behavior: "smooth" });
-    });
-    rail.addEventListener("scroll", updateArrows, { passive: true });
-    window.addEventListener("resize", updateArrows);
-    updateArrows();
-  });
 
   var backToTop = document.createElement("button");
   backToTop.type = "button";
@@ -257,10 +196,12 @@
 
   var params = new URLSearchParams(window.location.search);
   var preset = params.get("service");
-  if (preset === "GMB" || preset === "Google My Business") preset = "Google Business Profile";
-  if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Reviews") preset = "Google Reviews";
-  if (preset === "Google Ads Campaigns") preset = "Google Ads";
-  if (preset === "Web Development" || preset === "Websites") preset = "Website Building";
+
+  if (preset === "GMB" || preset === "Google My Business" || preset === "Google Business Profile") preset = "Local SEO";
+  if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Google Reviews" || preset === "Reviews") preset = "Reputation Management";
+  if (preset === "Google Ads Campaigns" || preset === "Google Ads") preset = "Paid Advertising";
+  if (preset === "Web Development" || preset === "Websites" || preset === "Website Building") preset = "Web Design & Development";
+
   if (preset && form.service) form.service.value = preset;
 
   var errorEl = document.getElementById("form-error");
@@ -273,6 +214,23 @@
     errorEl.classList.remove("hidden");
   }
 
+  function clearInvalid() {
+    form.querySelectorAll(".field-input").forEach(function (el) {
+      el.classList.remove("is-invalid");
+    });
+  }
+
+  function markInvalid(name) {
+    var el = form.elements[name];
+    if (el) el.classList.add("is-invalid");
+  }
+
+  form.querySelectorAll(".field-input").forEach(function (el) {
+    el.addEventListener("input", function () {
+      el.classList.remove("is-invalid");
+    });
+  });
+
   function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
@@ -284,6 +242,7 @@
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (errorEl) errorEl.classList.add("hidden");
+    clearInvalid();
 
     var data = {
       clientName: form.clientName.value.trim(),
@@ -292,18 +251,24 @@
       businessName: form.businessName.value.trim(),
       mapsLink: form.mapsLink.value.trim(),
       service: form.service.value,
+      message: form.message.value.trim(),
       submittedAt: new Date().toISOString(),
     };
 
     if (!data.clientName || !data.email || !data.phone || !data.businessName || !data.service) {
+      ["clientName", "email", "phone", "businessName", "service"].forEach(function (key) {
+        if (!data[key]) markInvalid(key);
+      });
       showError("Please complete every required field before sending.");
       return;
     }
     if (!isValidEmail(data.email)) {
+      markInvalid("email");
       showError("That email does not look usable. Check the spelling and try again.");
       return;
     }
     if (!isValidPhone(data.phone)) {
+      markInvalid("phone");
       showError("Enter a phone number with at least 10 digits so we can actually reach you.");
       return;
     }
@@ -312,6 +277,7 @@
         var parsed = new URL(data.mapsLink);
         if (parsed.protocol !== "http:" && parsed.protocol !== "https:") throw new Error("bad protocol");
       } catch (err) {
+        markInvalid("mapsLink");
         showError("The Google Maps link needs to be a full URL, starting with https://");
         return;
       }
@@ -335,6 +301,7 @@
       "Business: " + data.businessName,
       "Google Maps: " + (data.mapsLink || "Not provided"),
       "Service: " + data.service,
+      "Message: " + (data.message || "Not provided"),
     ].join("\n");
 
     var mailto = "mailto:hello@northline.example?subject=" +
@@ -342,7 +309,10 @@
       "&body=" + encodeURIComponent(body);
 
     form.classList.add("hidden");
-    if (successEl) successEl.classList.remove("hidden");
+    if (successEl) {
+      successEl.classList.remove("hidden");
+      successEl.classList.add("success-pop");
+    }
     if (successCopy) {
       successCopy.textContent = "Thanks, " + data.clientName + ". We have " + data.service +
         " on file for " + data.businessName +
@@ -358,8 +328,12 @@
   if (sendAnother) {
     sendAnother.addEventListener("click", function () {
       form.reset();
+      clearInvalid();
       if (preset && form.service) form.service.value = preset;
-      if (successEl) successEl.classList.add("hidden");
+      if (successEl) {
+        successEl.classList.add("hidden");
+        successEl.classList.remove("success-pop");
+      }
       form.classList.remove("hidden");
     });
   }

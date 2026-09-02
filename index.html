@@ -47,9 +47,10 @@
           },
           colors: {
             ink: "#111111",
-            paper: "#f4f1ea",
-            mist: "#ebe6dc",
-            line: "rgba(17,17,17,0.12)",
+            paper: "#F5F1E8",
+            mist: "#EEE9DE",
+            muted: "#66635D",
+            line: "rgba(17,17,17,0.10)",
             trust: "#00b67a",
           },
           boxShadow: {
@@ -73,7 +74,37 @@
 
     ::selection {
       background: #111;
-      color: #f4f1ea;
+      color: #F5F1E8;
+    }
+
+    .section-pad {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-pad {
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-pad {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+    }
+
+    .section-heading {
+      font-size: clamp(2.625rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .body-lg {
+      font-size: clamp(1rem, 1.1vw, 1.125rem);
+      line-height: 1.65;
     }
 
     .font-serif {
@@ -147,61 +178,49 @@
     }
 
     #site-header {
-      background: rgba(17, 17, 17, 0.28);
-      backdrop-filter: blur(18px) saturate(1.2);
-      -webkit-backdrop-filter: blur(18px) saturate(1.2);
-      transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+      background: transparent;
+      border-color: rgba(17, 17, 17, 0.06);
+      color: #111111;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
     }
 
     #site-header.is-stuck,
     #site-header.is-menu-open.is-stuck {
-      background: rgba(244, 241, 234, 0.82);
-      border-color: rgba(17, 17, 17, 0.12);
-      color: #111;
-      box-shadow: 0 12px 40px -28px rgba(17, 17, 17, 0.35);
+      background: rgba(245, 241, 232, 0.82);
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      border-color: rgba(17, 17, 17, 0.1);
+      box-shadow: 0 12px 40px -28px rgba(17, 17, 17, 0.18);
     }
 
     #site-header.is-menu-open:not(.is-stuck) {
-      background: rgba(17, 17, 17, 0.94);
-      border-color: rgba(255, 255, 255, 0.1);
-      color: #f4f1ea;
+      background: rgba(245, 241, 232, 0.98);
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      border-color: rgba(17, 17, 17, 0.1);
     }
 
-    #site-header.is-stuck .header-cta {
-      background: #111;
-      color: #f4f1ea;
+    #site-header .header-cta {
+      background: #111111;
+      color: #F5F1E8;
     }
 
-    #site-header.is-stuck .header-mark {
-      background: #111;
-      color: #f4f1ea;
-    }
-
-    #site-header.is-menu-open:not(.is-stuck) .header-cta {
-      background: #f4f1ea;
-      color: #111;
-    }
-
-    #site-header.is-menu-open:not(.is-stuck) .header-mark {
-      background: #f4f1ea;
-      color: #111;
+    #site-header .header-mark {
+      background: #111111;
+      color: #F5F1E8;
     }
 
     #mobile-menu {
-      background: rgba(17, 17, 17, 0.96);
+      background: rgba(245, 241, 232, 0.98);
     }
 
-    #site-header.is-stuck #mobile-menu {
-      background: rgba(244, 241, 234, 0.98);
+    #site-header #menu-btn {
+      border-color: rgba(17, 17, 17, 0.15);
     }
 
-    #site-header.is-stuck #menu-btn {
-      border-color: rgba(17, 17, 17, 0.18);
-    }
-
-    #site-header.is-stuck #mobile-menu a.rounded-full {
-      background: #111;
-      color: #f4f1ea;
+    #site-header #mobile-menu a.rounded-full {
+      background: #111111;
+      color: #F5F1E8;
     }
 
     .nav-link {
@@ -422,23 +441,92 @@
       color: #00b67a;
     }
 
-    .hero-ken {
-      animation: ken 28s ease-in-out infinite alternate;
-      transform-origin: center;
-    }
-
     .hero-banner {
-      min-height: clamp(28rem, 74vh, 48rem);
+      min-height: auto;
+      background: #F5F1E8;
     }
 
-    @keyframes ken {
-      from {
-        transform: scale(1);
-      }
+    .hero-split {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
 
-      to {
-        transform: scale(1.08);
+    @media (min-width: 1024px) {
+      .hero-split {
+        grid-template-columns: 55fr 45fr;
+        gap: 3.5rem;
+        min-height: clamp(32rem, 82vh, 44rem);
       }
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 5.5vw, 5.125rem);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      aspect-ratio: 4 / 5;
+      background: #EEE9DE;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-media {
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 28rem;
+        border-radius: 1.5rem;
+      }
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background: #111111;
+      color: #F5F1E8;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 16px 40px -20px rgba(17, 17, 17, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.94;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(17, 17, 17, 0.18);
+      background: transparent;
+      color: #111111;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(17, 17, 17, 0.35);
+      background: rgba(17, 17, 17, 0.04);
     }
 
     .float-chip {
@@ -574,7 +662,7 @@
       border-radius: 999px;
       border: 1px solid rgba(244, 241, 234, 0.18);
       background: transparent;
-      color: #f4f1ea;
+      color: #F5F1E8;
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
@@ -630,8 +718,15 @@
 
     @media (min-width: 768px) {
       .footer-top {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-        gap: 3rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-top {
+        grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+        gap: 2.5rem;
         align-items: start;
       }
     }
@@ -642,7 +737,7 @@
       gap: 0.65rem;
       font-size: 1.05rem;
       font-weight: 600;
-      color: #f4f1ea;
+      color: #F5F1E8;
       transition: opacity 0.2s ease;
     }
 
@@ -681,7 +776,7 @@
     }
 
     .footer-email:hover {
-      color: #f4f1ea;
+      color: #F5F1E8;
     }
 
     .footer-nav {
@@ -695,6 +790,22 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.75rem 2rem;
       }
+    }
+
+    .footer-ownership {
+      list-style: none;
+      padding: 0;
+      margin: 0.85rem 0 0;
+    }
+
+    .footer-ownership li {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: rgba(245, 241, 232, 0.55);
+    }
+
+    .footer-ownership li + li {
+      margin-top: 0.35rem;
     }
 
     .footer-col-title {
@@ -723,7 +834,7 @@
 
     .footer-col a:hover,
     .footer-col a[aria-current="page"] {
-      color: #f4f1ea;
+      color: #F5F1E8;
     }
 
     .footer-guarantee {
@@ -786,7 +897,7 @@
     }
 
     .footer-cta:hover {
-      color: #f4f1ea;
+      color: #F5F1E8;
     }
 
     .journey-flow {
@@ -821,20 +932,8 @@
     }
 
     .journey-step-final {
-      border-color: rgba(244, 241, 234, 0.35);
-      background: rgba(244, 241, 234, 0.08);
-    }
-
-    .journey-num {
-      display: inline-flex;
-      height: 1.5rem;
-      width: 1.5rem;
-      align-items: center;
-      justify-content: center;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.12);
-      font-size: 0.7rem;
-      font-weight: 600;
+      border-color: rgba(245, 241, 232, 0.35);
+      background: rgba(245, 241, 232, 0.08);
     }
 
     .journey-label {
@@ -843,12 +942,12 @@
       font-size: 0.8125rem;
       font-weight: 500;
       line-height: 1.35;
-      color: rgba(244, 241, 234, 0.92);
+      color: rgba(245, 241, 232, 0.92);
       letter-spacing: 0.01em;
     }
 
     .journey-step-final .journey-label {
-      color: #f4f1ea;
+      color: #F5F1E8;
       font-weight: 600;
     }
 
@@ -857,7 +956,7 @@
       flex-shrink: 0;
       align-items: center;
       align-self: center;
-      color: rgba(244, 241, 234, 0.4);
+      color: rgba(245, 241, 232, 0.4);
     }
 
     .journey-arrow svg {
@@ -865,19 +964,24 @@
       width: 1rem;
     }
 
-    .industry-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+    .journey-icon {
+      display: grid;
+      height: 2.25rem;
+      width: 2.25rem;
+      flex-shrink: 0;
+      place-items: center;
+      border-radius: 0.65rem;
+      background: rgba(255, 255, 255, 0.12);
+      color: #F5F1E8;
     }
 
-    .industry-pills span {
-      border: 1px solid rgba(17, 17, 17, 0.1);
-      border-radius: 9999px;
-      background: #fff;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.8125rem;
-      color: rgba(17, 17, 17, 0.72);
+    .journey-icon svg {
+      height: 1.15rem;
+      width: 1.15rem;
+    }
+
+    .journey-step-final .journey-icon {
+      background: rgba(245, 241, 232, 0.16);
     }
 
     .trust-badges {
@@ -918,24 +1022,96 @@
       width: 1.1rem;
     }
 
-    .journey-icon {
+    .process-icon {
       display: grid;
-      height: 2.25rem;
-      width: 2.25rem;
-      flex-shrink: 0;
+      height: 2.5rem;
+      width: 2.5rem;
       place-items: center;
-      border-radius: 0.65rem;
-      background: rgba(255, 255, 255, 0.12);
-      color: #f4f1ea;
+      border-radius: 0.75rem;
+      background: rgba(17, 17, 17, 0.06);
+      color: #111;
+      margin-bottom: 0.75rem;
     }
 
-    .journey-icon svg {
+    .process-icon svg {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+
+    .industry-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .industry-pills span {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 9999px;
+      background: #fff;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8125rem;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .trust-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(17, 17, 17, 0.1);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      .trust-bar {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+
+    .trust-bar-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    }
+
+    @media (min-width: 768px) {
+      .trust-bar-item {
+        padding: 1.5rem 1.75rem;
+        border-bottom: none;
+        border-right: 1px solid rgba(17, 17, 17, 0.08);
+      }
+
+      .trust-bar-item:last-child {
+        border-right: none;
+      }
+    }
+
+    .trust-bar-item:last-child {
+      border-bottom: none;
+    }
+
+    .trust-bar-icon {
+      display: grid;
+      height: 2rem;
+      width: 2rem;
+      flex-shrink: 0;
+      place-items: center;
+      color: #111111;
+    }
+
+    .trust-bar-icon svg {
       height: 1.15rem;
       width: 1.15rem;
     }
 
-    .journey-step-final .journey-icon {
-      background: rgba(244, 241, 234, 0.16);
+    .trust-bar-item p {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: #111111;
     }
 
     .industry-grid {
@@ -975,7 +1151,7 @@
       padding: 2rem 0.75rem 0.65rem;
       font-size: 0.75rem;
       font-weight: 500;
-      color: #f4f1ea;
+      color: #F5F1E8;
     }
 
     .deliverable-card {
@@ -985,44 +1161,194 @@
       background: #fff;
     }
 
-    .deliverable-mock {
+    .deliverable-shot {
       border-bottom: 1px solid rgba(17, 17, 17, 0.08);
-      background: linear-gradient(180deg, #f8f6f1 0%, #f0ece3 100%);
-      padding: 1rem;
-      min-height: 7.5rem;
+      background: #EEE9DE;
+      padding: 1.25rem;
+      min-height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .mock-ui {
-      border-radius: 0.65rem;
-      border: 1px solid rgba(17, 17, 17, 0.08);
-      background: #fff;
-      padding: 0.75rem;
-      font-size: 0.68rem;
-      color: rgba(17, 17, 17, 0.55);
-      line-height: 1.5;
-    }
-
-    .mock-ui strong {
+    .deliverable-shot img {
       display: block;
-      margin-bottom: 0.35rem;
-      font-size: 0.72rem;
-      color: #111;
+      max-width: 100%;
+      max-height: 14rem;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      box-shadow: 0 12px 32px -16px rgba(17, 17, 17, 0.25);
     }
 
-    .process-icon {
+    .process-timeline {
+      position: relative;
       display: grid;
-      height: 2.5rem;
-      width: 2.5rem;
-      place-items: center;
-      border-radius: 0.75rem;
-      background: rgba(17, 17, 17, 0.06);
-      color: #111;
-      margin-bottom: 0.75rem;
+      gap: 1.5rem;
     }
 
-    .process-icon svg {
-      height: 1.2rem;
-      width: 1.2rem;
+    @media (min-width: 1024px) {
+      .process-timeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        padding-top: 2.5rem;
+      }
+
+      .process-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0.65rem;
+        left: 12.5%;
+        right: 12.5%;
+        height: 1px;
+        background: rgba(17, 17, 17, 0.12);
+      }
+    }
+
+    .process-step {
+      position: relative;
+      text-align: left;
+    }
+
+    @media (min-width: 1024px) {
+      .process-step {
+        padding: 0 1.25rem;
+        text-align: center;
+      }
+    }
+
+    .process-dot {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .process-dot {
+        display: block;
+        width: 0.75rem;
+        height: 0.75rem;
+        margin: 0 auto 1.5rem;
+        border-radius: 9999px;
+        background: #111111;
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .process-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.12);
+    }
+
+    @media (min-width: 1024px) {
+      .process-num {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .process-phase {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #66635D;
+    }
+
+    .trust-editorial {
+      display: grid;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .trust-editorial {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .trust-editorial-lead {
+      text-align: center;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .trust-editorial-headline {
+      text-wrap: balance;
+    }
+
+    @media (min-width: 1024px) {
+      .trust-editorial-lead {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        align-self: center;
+        text-align: center;
+      }
+
+      .trust-editorial-headline {
+        white-space: nowrap;
+        text-wrap: unset;
+      }
+    }
+
+    .trust-principle {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+    }
+
+    .trust-principle:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .trust-principle-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.2);
+    }
+
+    .portfolio-case {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-case .portfolio-shot {
+      aspect-ratio: 16 / 11;
+      margin-bottom: 1.25rem;
+    }
+
+    .portfolio-case .portfolio-shot img {
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .portfolio-meta {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.8125rem;
+      color: rgba(245, 241, 232, 0.55);
+    }
+
+    .portfolio-meta span {
+      color: rgba(245, 241, 232, 0.85);
+      font-weight: 500;
+    }
+
+    .faq-wrap {
+      max-width: 56.25rem;
+    }
+
+    #faq .faq-panel p {
+      font-size: clamp(1rem, 1.05vw, 1.125rem);
+      line-height: 1.65;
     }
 
     .back-to-top {
@@ -1037,7 +1363,7 @@
       border: 1px solid rgba(17, 17, 17, 0.12);
       border-radius: 9999px;
       background: #111111;
-      color: #f4f1ea;
+      color: #F5F1E8;
       opacity: 0;
       visibility: hidden;
       transform: translateY(0.5rem);
@@ -1078,7 +1404,7 @@
       .portfolio-shot img,
       .home-figure-zoom img,
       .industry-card img,
-      .hero-ken,
+      .hero-media img,
       .float-chip,
       .field-input,
       #faq .faq-panel {
@@ -1144,11 +1470,11 @@
     class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
     to content</a>
 
-  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-line text-ink">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
         <span
-          class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink">N</span>
+          class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-ink text-[11px] font-semibold tracking-wide text-paper">N</span>
         <span class="text-[15px] font-semibold tracking-tight">Northline</span>
       </a>
       <ul class="hidden items-center gap-8 text-sm md:flex">
@@ -1185,10 +1511,10 @@
       </ul>
       <div class="flex items-center gap-3">
         <a href="#contact"
-          class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
+          class="header-cta hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
           Started</a>
         <button id="menu-btn"
-          class="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition-all duration-300 ease-in-out md:hidden"
+          class="grid h-10 w-10 place-items-center rounded-full border border-line transition-all duration-300 ease-in-out md:hidden"
           aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg id="icon-open" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
             <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
@@ -1223,44 +1549,38 @@
         <a href="#trust" class="mobile-link py-1">Trust</a>
         <a href="#faq" class="mobile-link py-1">FAQ</a>
         <a href="#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
+          class="mobile-link rounded-full bg-ink px-4 py-2.5 text-center font-medium text-paper transition-all duration-300 ease-in-out">Get
           Started</a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero-banner relative isolate overflow-hidden bg-ink text-paper">
-      <img src="assets/images/home/hero-local-owner.jpg"
-        alt="Local business owner using a smartphone to check Google leads after a service call"
-        class="hero-ken absolute inset-0 h-full w-full object-cover" width="2400" height="1600" fetchpriority="high"
-        decoding="async"
-        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=1920&amp;q=75';" />
-      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/45"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40"></div>
-      <div
-        class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-5 py-24 pt-28 sm:py-28 sm:pt-32 lg:px-8 lg:py-24 lg:pt-36">
-        <div class="max-w-3xl">
+    <section class="hero-banner px-5 pb-12 pt-24 lg:px-8 lg:pb-16 lg:pt-28">
+      <div class="hero-split mx-auto max-w-7xl">
+        <div class="hero-copy">
           <p
-            class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-paper/80 backdrop-blur-md">
+            class="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-mist/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
             Google Business Profile · Google Reviews · Google Ads · Website Building</p>
-          <h1 class="font-serif text-[2.5rem] leading-[1.08] tracking-tight sm:text-6xl lg:text-[4rem]">
+          <h1 class="hero-title font-serif tracking-tight">
             Get Found on Google. Build Trust. Turn Searches Into Customers.
           </h1>
-          <p class="mt-6 max-w-2xl text-base leading-relaxed text-paper/75 sm:text-lg">
+          <p class="body-lg mt-6 max-w-xl text-muted">
             We help local businesses improve their Google Business Profile, earn genuine customer reviews, run Google
             Ads,
             and build websites that turn visitors into calls, bookings, and leads.
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#contact"
-              class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink shadow-glow transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:opacity-95">Get
-              a Free Business Assessment</a>
-            <a href="#services"
-              class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition-all duration-300 ease-in-out hover:border-white/55 hover:bg-white/5">Explore
-              Our Services</a>
+            <a href="#contact" class="btn-primary">Get a Free Assessment</a>
+            <a href="#services" class="btn-secondary">Explore Services</a>
           </div>
         </div>
+        <figure class="hero-media reveal">
+          <img src="assets/images/home/hero-local-owner.jpg"
+            alt="Local business owner using a smartphone to check Google leads after a service call"
+            width="2400" height="1600" fetchpriority="high" decoding="async"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=1920&amp;q=75';" />
+        </figure>
       </div>
     </section>
 
@@ -1316,7 +1636,7 @@
       </div>
     </section>
 
-    <section id="problem" class="border-b border-line px-5 py-20 lg:px-8 lg:py-28">
+    <section id="problem" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
         <div class="lg:col-span-6">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Why this matters</p>
@@ -1354,7 +1674,7 @@
       </div>
     </section>
 
-    <section id="services" class="px-5 py-20 lg:px-8 lg:py-28">
+    <section id="services" class="px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What we do</p>
@@ -1363,7 +1683,7 @@
           <p class="mt-4 text-lg leading-relaxed text-ink/60">Google Reviews, profile, ads, and website building — each built to work
             together, each owned by you.</p>
         </div>
-        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:gap-7">
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:gap-7">
           <article
             class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
@@ -1435,7 +1755,7 @@
       </div>
     </section>
 
-    <section id="journey" class="border-t border-line bg-ink px-5 py-20 text-paper lg:px-8 lg:py-28">
+    <section id="journey" class="border-t border-line bg-ink px-5 py-14 text-paper lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">How they work together</p>
@@ -1444,7 +1764,7 @@
           <p class="mt-4 text-paper/60">A complete Google Business Profile tells the truth. Reviews make the tap feel
             safe. Ads can buy the click. A website gives it somewhere to land.</p>
         </div>
-        <div class="journey-flow reveal mt-12">
+        <div class="journey-flow reveal mt-8">
           <div class="journey-step">
             <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -1508,170 +1828,104 @@
       </div>
     </section>
 
-    <section id="industries" class="border-t border-line px-5 py-20 lg:px-8 lg:py-28">
+    <section id="industries" class="section-pad border-t border-line px-5 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Who we help</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Built for Local Businesses</h2>
-          <p class="mt-4 text-lg leading-relaxed text-ink/60">Whether you run a home-service company, local shop,
-            restaurant, or professional business, we help you turn Google searches into real customers.</p>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Who we help</p>
+          <h2 class="section-heading mt-3 font-serif tracking-tight">Built for Local Businesses</h2>
+          <p class="body-lg mt-4 text-muted">Home-service companies, trades, and local shops that need Google to send real customers — not just traffic.</p>
         </div>
-        <div class="industry-grid reveal mt-10">
-          <figure class="industry-card"><img src="assets/images/home/industries/plumbing.jpg?v=2"
+        <div class="industry-grid reveal mt-8">
+          <figure class="industry-card"><img src="assets/images/home/industries/plumbing.jpg"
               alt="Plumber repairing pipes under a sink" width="600" height="450" loading="lazy"
-              decoding="async" /><span>Plumbing</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/hvac.jpg?v=2"
+              decoding="async" /><span>Plumber</span></figure>
+          <figure class="industry-card"><img src="assets/images/home/industries/hvac.jpg"
               alt="HVAC technician servicing an air conditioning unit" width="600" height="450" loading="lazy"
               decoding="async" /><span>HVAC</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/electrician.jpg?v=2"
+          <figure class="industry-card"><img src="assets/images/home/industries/electrician.jpg"
               alt="Electrician working on electrical wiring" width="600" height="450" loading="lazy"
-              decoding="async" /><span>Electrical</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/roofing.jpg?v=2"
+              decoding="async" /><span>Electrician</span></figure>
+          <figure class="industry-card"><img src="assets/images/home/industries/roofing.jpg"
               alt="Roofing contractor installing shingles on a roof" width="600" height="450" loading="lazy"
               decoding="async" /><span>Roofing</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/landscaping.jpg?v=2"
+          <figure class="industry-card"><img src="assets/images/home/industries/landscaping.jpg"
               alt="Landscaper maintaining a garden and lawn" width="600" height="450" loading="lazy"
-              decoding="async" /><span>Landscaping</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/auto-repair.jpg?v=2"
+              decoding="async" /><span>Landscaping / Lawn Care</span></figure>
+          <figure class="industry-card"><img src="assets/images/home/industries/auto-repair.jpg"
               alt="Mechanic working on a car in an auto repair shop" width="600" height="450" loading="lazy"
-              decoding="async" /><span>Auto Repair</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/restaurant.jpg?v=2"
-              alt="Restaurant interior with staff serving customers" width="600" height="450" loading="lazy"
-              decoding="async" /><span>Restaurant</span></figure>
-          <figure class="industry-card"><img src="assets/images/home/industries/salon.jpg?v=2"
+              decoding="async" /><span>Auto Repair / Car Detailing</span></figure>
+          <figure class="industry-card"><img src="assets/images/home/industries/restaurant.jpg"
+              alt="Professional cleaning service in a commercial space" width="600" height="450" loading="lazy"
+              decoding="async" /><span>Cleaning Service</span></figure>
+          <figure class="industry-card"><img src="assets/images/home/industries/salon.jpg"
               alt="Hair stylist working in a barber shop or salon" width="600" height="450" loading="lazy"
               decoding="async" /><span>Barber / Salon</span></figure>
         </div>
-        <div class="mt-12 space-y-10">
-          <div class="reveal">
-            <p class="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">Home Services</p>
-            <div class="industry-pills mt-4">
-              <span>Plumber</span><span>HVAC Contractor</span><span>Electrician</span><span>Roofing
-                Contractor</span><span>Pest Control</span><span>Landscaping</span><span>Lawn Care</span><span>Painting
-                Contractor</span><span>Pressure Washing</span><span>Cleaning Service</span><span>Junk
-                Removal</span><span>Window Cleaning</span><span>Carpet Cleaning</span><span>Locksmith</span><span>Garage
-                Door Repair</span><span>Fire Protection Service</span>
-            </div>
-          </div>
-          <div class="reveal">
-            <p class="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">Automotive</p>
-            <div class="industry-pills mt-4">
-              <span>Auto Repair</span><span>Car Detailing</span><span>Mobile Car Wash</span>
-            </div>
-          </div>
-          <div class="reveal">
-            <p class="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">Repair &amp; Installation</p>
-            <div class="industry-pills mt-4">
-              <span>Appliance Repair</span><span>Refrigerator Repair</span><span>Washing Machine
-                Repair</span><span>Dryer Repair</span><span>Oven/Stove Repair</span><span>Water Heater
-                Service</span><span>Boiler Service</span><span>Generator Installation</span><span>Solar Panel
-                Installer</span><span>Air Conditioning Repair</span><span>Heating Repair</span>
-            </div>
-          </div>
-          <div class="reveal">
-            <p class="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">Local Businesses</p>
-            <div class="industry-pills mt-4">
-              <span>Restaurant</span><span>Barber
-                Shop</span><span>Salon</span><span>Clinic</span><span>Retail</span><span>Professional Services</span>
-            </div>
-          </div>
-        </div>
-        <p class="reveal mt-10 text-sm text-ink/60">Don't see your business? We work with many other local businesses
-          too.</p>
         <a href="industries/index.html"
-          class="reveal mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">See
-          All Industries <span aria-hidden="true">→</span></a>
+          class="reveal mt-10 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          Industries <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <section id="deliverables" class="border-t border-line bg-mist/30 px-5 py-20 lg:px-8 lg:py-28">
+    <section id="deliverables" class="section-pad border-t border-line bg-mist/50 px-5 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What you actually get</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Clear deliverables. No mystery stack.</h2>
-          <p class="mt-4 text-lg leading-relaxed text-ink/60">Depending on the service you choose, here is what the work
-            includes.</p>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">What you actually get</p>
+          <h2 class="section-heading mt-3 font-serif tracking-tight">Clear deliverables. No mystery work.</h2>
+          <p class="body-lg mt-4 text-muted">Real assets you can see, use, and own — depending on the service you choose.</p>
         </div>
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
           <div class="deliverable-card reveal">
-            <div class="deliverable-mock">
-              <div class="mock-ui"><strong>Google Business Profile</strong>Profile · Categories · Services · Photos ·
-                Hours · Map pin</div>
+            <div class="deliverable-shot">
+              <img src="assets/images/home/portfolio-gbp.jpg"
+                alt="Google Business Profile optimization deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Business Profile</h3>
-              <ul class="mt-4 space-y-2 text-sm text-ink/65">
-                <li>Profile setup / optimization</li>
-                <li>Categories &amp; services</li>
-                <li>Business information</li>
-                <li>Photos</li>
-                <li>Local optimization</li>
-                <li>Ownership / access</li>
-              </ul>
+              <p class="mt-2 body-lg text-muted">Profile setup, categories, services, photos, and local optimization — all in your account.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
-            <div class="deliverable-mock">
-              <div class="mock-ui"><strong>Review flow</strong>Job complete → Request sent → Customer review → Profile
-                trust</div>
+            <div class="deliverable-shot">
+              <img src="assets/images/home/service-reviews.jpg"
+                alt="Google Reviews request flow deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Reviews</h3>
-              <ul class="mt-4 space-y-2 text-sm text-ink/65">
-                <li>Review request system</li>
-                <li>QR / SMS / email flow</li>
-                <li>Staff guidance</li>
-                <li>Review response guidance</li>
-                <li>Profile cleanup</li>
-              </ul>
+              <p class="mt-2 body-lg text-muted">Review request system, staff guidance, and response templates for authentic feedback.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
-            <div class="deliverable-mock">
-              <div class="mock-ui"><strong>Campaign structure</strong>Campaign → Keywords → Ads → Conversion tracking
-              </div>
+            <div class="deliverable-shot">
+              <img src="assets/images/home/portfolio-ads.jpg"
+                alt="Google Ads campaign structure deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Ads</h3>
-              <ul class="mt-4 space-y-2 text-sm text-ink/65">
-                <li>Campaign structure</li>
-                <li>Keyword targeting</li>
-                <li>Ad creation</li>
-                <li>Conversion tracking</li>
-                <li>Negative keywords</li>
-                <li>Optimization</li>
-              </ul>
+              <p class="mt-2 body-lg text-muted">Campaign structure, keyword targeting, ad copy, conversion tracking, and ongoing optimization.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
-            <div class="deliverable-mock">
-              <div class="mock-ui"><strong>Website deliverables</strong>Homepage · Mobile · Click-to-call · Quote form
-              </div>
+            <div class="deliverable-shot">
+              <img src="assets/images/home/portfolio-website.webp"
+                alt="Website design and development deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Website Building</h3>
-              <ul class="mt-4 space-y-2 text-sm text-ink/65">
-                <li>Custom design</li>
-                <li>Mobile responsive</li>
-                <li>SEO structure</li>
-                <li>Click-to-call</li>
-                <li>Lead / quote forms</li>
-                <li>Analytics</li>
-                <li>Source-code ownership</li>
-              </ul>
+              <p class="mt-2 body-lg text-muted">Custom design, mobile layout, click-to-call, lead forms, and full source-code ownership.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="border-t border-line px-5 py-20 lg:px-8 lg:py-28">
+    <section id="process" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">How it works</p>
           <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">From assessment to assets you own.</h2>
         </div>
-        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div class="reveal process-step rounded-2xl border border-line bg-white p-6">
             <div class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -1726,109 +1980,130 @@
       </div>
     </section>
 
-    <section id="work" class="border-t border-line bg-ink px-5 py-20 text-paper lg:px-8 lg:py-28">
+    <section id="work" class="section-pad border-t border-line bg-ink px-5 text-paper lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Selected builds &amp; demonstrations
           </p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Work That Looks Good Because It Works</h2>
-          <p class="mt-4 text-paper/55">Demonstration projects showing how we structure local search work. Replace with
+          <h2 class="section-heading mt-3 font-serif tracking-tight">Work That Looks Good Because It Works</h2>
+          <p class="body-lg mt-4 text-paper/55">Demonstration projects showing how we structure local search work. Replace with
             real client case studies when contracts allow.</p>
         </div>
-        <div class="mt-12 grid gap-5 lg:grid-cols-3">
-          <article class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="portfolio-shot"><img src="assets/images/home/portfolio-ads.jpg"
-                alt="Demonstration Google Ads campaign dashboard screenshot" width="800" height="500" loading="lazy"
-                decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">HVAC Company · Google Ads</p>
-            <h3 class="mt-3 font-serif text-xl">High-intent repair campaigns</h3>
-            <p class="mt-3 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Problem:</strong> Broad
-              keywords were buying low-intent clicks.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">What we did:</strong>
-              Rebuilt campaign structure around high-intent repair searches.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Outcome:</strong>
-              Better-qualified leads and less wasted spend.</p>
-          </article>
-          <article class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+        <div class="mt-8 grid gap-8 lg:grid-cols-3">
+          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
             <div class="portfolio-shot"><img src="assets/images/home/portfolio-gbp.jpg"
                 alt="Demonstration Google Business Profile optimization screenshot" width="800" height="500"
                 loading="lazy" decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Local Clinic · Google Business Profile</p>
-            <h3 class="mt-3 font-serif text-xl">Profile cleanup &amp; local visibility</h3>
-            <p class="mt-3 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Problem:</strong>
-              Incomplete listing with wrong hours and thin categories.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">What we did:</strong>
-              Verified profile, fixed categories, added services and photos.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Outcome:</strong>
-              Clearer Maps presence and fewer confused callers.</p>
+            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <div class="portfolio-meta mt-3">
+              <p><span>Industry:</span> HVAC Contractor</p>
+              <p><span>Service:</span> Google Business Profile</p>
+            </div>
+            <h3 class="mt-4 font-serif text-xl">Profile optimization &amp; review strategy</h3>
+            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong>
+              Weak local visibility.</p>
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
+              Profile optimization + review strategy.</p>
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong>
+              Improved local presence.</p>
           </article>
-          <article class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+            <div class="portfolio-shot"><img src="assets/images/home/portfolio-ads.jpg"
+                alt="Demonstration Google Ads campaign dashboard screenshot" width="800" height="500" loading="lazy"
+                decoding="async" /></div>
+            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <div class="portfolio-meta mt-3">
+              <p><span>Industry:</span> HVAC</p>
+              <p><span>Service:</span> Google Ads</p>
+            </div>
+            <h3 class="mt-4 font-serif text-xl">High-intent repair campaigns</h3>
+            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong> Broad
+              keywords were buying low-intent clicks.</p>
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
+              Rebuilt campaign structure around high-intent repair searches.</p>
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong>
+              Better-qualified leads and less wasted spend.</p>
+          </article>
+          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
             <div class="portfolio-shot"><img src="assets/images/home/portfolio-website.webp"
                 alt="Demonstration local business website on desktop and mobile" width="800" height="500" loading="lazy"
                 decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Trades Business · Website</p>
-            <h3 class="mt-3 font-serif text-xl">Mobile-first lead site</h3>
-            <p class="mt-3 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Problem:</strong> No
+            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <div class="portfolio-meta mt-3">
+              <p><span>Industry:</span> Trades Business</p>
+              <p><span>Service:</span> Website Building</p>
+            </div>
+            <h3 class="mt-4 font-serif text-xl">Mobile-first lead site</h3>
+            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong> No
               website to land paid or organic traffic.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">What we did:</strong>
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
               Built a fast site with click-to-call, quote form, and Cloudflare hosting.</p>
-            <p class="mt-2 text-sm leading-relaxed text-paper/70"><strong class="text-paper/90">Outcome:</strong> One
+            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong> One
               place for Google visitors to convert — owned by the client.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="trust" class="border-t border-line px-5 py-20 lg:px-8 lg:py-28">
+    <section id="trust" class="section-pad border-t border-line px-5 lg:px-8">
       <div class="mx-auto max-w-7xl">
-        <div class="max-w-2xl">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Built around trust</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">We believe local marketing should be
+        <div class="max-w-3xl">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Built around trust</p>
+          <h2 class="section-heading mt-3 font-serif tracking-tight">We believe local marketing should be
             transparent, measurable, and owned by the business.</h2>
-          <p class="mt-4 text-lg leading-relaxed text-ink/60">Until we have permission to publish real client reviews,
-            we show how we work — not invented testimonials.</p>
         </div>
-        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">No purchased reviews</p>
-            <p class="mt-2 text-sm text-ink/60">Authentic customer feedback only.</p>
+        <div class="trust-editorial reveal mt-8">
+          <div class="trust-editorial-lead">
+            <p class="trust-editorial-headline font-serif text-3xl leading-snug tracking-tight sm:text-4xl">Your business should own its growth system.</p>
+            <p class="body-lg mt-5 text-muted">Until we have permission to publish real client reviews,
+              we show how we work — not invented testimonials.</p>
           </div>
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">No fake testimonials</p>
-            <p class="mt-2 text-sm text-ink/60">We will not publish quotes we cannot verify.</p>
-          </div>
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">Google bills Ads directly</p>
-            <p class="mt-2 text-sm text-ink/60">Transparent advertising spend.</p>
-          </div>
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">Client owns website source</p>
-            <p class="mt-2 text-sm text-ink/60">Full access when the project ships.</p>
-          </div>
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">Client keeps account access</p>
-            <p class="mt-2 text-sm text-ink/60">Profiles and assets stay in your name.</p>
-          </div>
-          <div class="reveal rounded-2xl border border-line bg-white p-6">
-            <p class="font-serif text-xl">Cloudflare hosting included</p>
-            <p class="mt-2 text-sm text-ink/60">SSL setup at no extra charge on web builds.</p>
+          <div>
+            <article class="trust-principle">
+              <p class="trust-principle-num">01</p>
+              <div>
+                <h3 class="font-serif text-xl">Transparent</h3>
+                <p class="mt-1 body-lg text-muted">No hidden platform fees.</p>
+              </div>
+            </article>
+            <article class="trust-principle">
+              <p class="trust-principle-num">02</p>
+              <div>
+                <h3 class="font-serif text-xl">Measurable</h3>
+                <p class="mt-1 body-lg text-muted">Track what matters.</p>
+              </div>
+            </article>
+            <article class="trust-principle">
+              <p class="trust-principle-num">03</p>
+              <div>
+                <h3 class="font-serif text-xl">Owned</h3>
+                <p class="mt-1 body-lg text-muted">You keep your website and accounts.</p>
+              </div>
+            </article>
+            <article class="trust-principle">
+              <p class="trust-principle-num">04</p>
+              <div>
+                <h3 class="font-serif text-xl">Honest</h3>
+                <p class="mt-1 body-lg text-muted">No fake reviews or manufactured proof.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-3xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">FAQ</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Questions we hear before getting started</h2>
-        <p class="mt-4 text-ink/60">Straight answers. If your question is about one service only, the page for that
+    <section id="faq" class="section-pad border-t border-line px-5 lg:px-8">
+      <div class="faq-wrap mx-auto">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">FAQ</p>
+        <h2 class="section-heading mt-3 font-serif tracking-tight">Questions we hear before getting started</h2>
+        <p class="body-lg mt-4 text-muted">Straight answers. If your question is about one service only, the page for that
           service has more.</p>
-        <div class="mt-8 divide-y divide-line border-y border-line">
+        <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
             <summary class="flex items-center justify-between gap-4 font-medium">What services do you provide?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Four core services: <a
+              <p class="mt-3 text-muted">Four core services: <a
                   class="underline underline-offset-4" href="services/google-business-profile-setup.html">Google
                   Business Profile</a>, <a class="underline underline-offset-4"
                   href="services/google-maps-review-management.html">Google Reviews</a>, <a
@@ -1841,7 +2116,7 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Do you work with my type of
               business?<span class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes — if customers search Google before they call,
+              <p class="mt-3 text-muted">Yes — if customers search Google before they call,
                 book, or visit. We work with home services, trades, clinics, restaurants, retail, and other local
                 businesses. See <a class="underline underline-offset-4" href="industries/index.html">all industries</a>.
               </p>
@@ -1851,7 +2126,7 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Do you buy Google reviews?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We never buy stars, farm accounts, or post fake
+              <p class="mt-3 text-muted">No. We never buy stars, farm accounts, or post fake
                 check-ins. Review work is a timed ask after a real job so customers who already used you can write what
                 they experienced.</p>
             </div>
@@ -1860,7 +2135,7 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Can you help if I don't have a Google
               Business Profile?<span class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can claim, verify, and build out a new profile
+              <p class="mt-3 text-muted">Yes. We can claim, verify, and build out a new profile
                 — or fix an existing one that is thin, wrong, or unclaimed. Start with <a
                   class="underline underline-offset-4" href="services/google-business-profile-setup.html">Google
                   Business Profile setup</a>.</p>
@@ -1870,7 +2145,7 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Do I need a website?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Not always on day one — but a website gives ads and
+              <p class="mt-3 text-muted">Not always on day one — but a website gives ads and
                 organic traffic somewhere to convert. If you do not have one, or yours does not work on mobile, see <a
                   class="underline underline-offset-4" href="services/web-development.html">web development</a>.</p>
             </div>
@@ -1879,7 +2154,7 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Who pays for Google Ads?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">You pay Google for media. Northline builds and runs
+              <p class="mt-3 text-muted">You pay Google for media. Northline builds and runs
                 the campaigns. We do not mark up a mystery ad budget. The invoice from Google is yours to see.</p>
             </div>
           </details>
@@ -1887,59 +2162,37 @@
             <summary class="flex items-center justify-between gap-4 font-medium">Who owns my website?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">You do. Website source files are yours. Cloudflare
+              <p class="mt-3 text-muted">You do. Website source files are yours. Cloudflare
                 hosting and SSL are set up at no extra charge on web projects. You pay only for the domain.</p>
             </div>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do I keep my Google account?<span
+            <summary class="flex items-center justify-between gap-4 text-base font-medium">Do I keep my Google account?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. The Business Profile stays in an account in your
+              <p class="mt-3 text-muted">Yes. The Business Profile stays in an account in your
                 name. We work inside your access — not a locked dashboard you cannot leave with.</p>
             </div>
           </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">How long does the work take?<span
-                class="text-ink/30">+</span></summary>
-            <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">It depends on the service and what already exists.
-                Profile fixes can move in days. Ads and websites typically take a few weeks. We reply to assessments
-                with a realistic timeline.</p>
-            </div>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">How do I get started?<span
-                class="text-ink/30">+</span></summary>
-            <div class="faq-panel">
-              <p class="mt-3 text-sm leading-relaxed text-ink/65">Send the <a class="underline underline-offset-4"
-                  href="#contact">free business assessment form</a> with your Maps link or website if you have one. We
-                review where you are losing visibility, trust, or leads and recommend the best place to start.</p>
-            </div>
-          </details>
         </div>
-        <a href="#contact" class="mt-10 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get
-          Started</a>
+        <a href="#contact" class="btn-primary mt-10">Get a Free Assessment</a>
       </div>
     </section>
 
-    <section id="assessment" class="border-t border-line bg-ink px-5 py-20 text-paper lg:px-8 lg:py-28">
-      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center">
+    <section id="assessment" class="section-pad border-t border-line bg-ink px-5 text-paper lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
         <div class="lg:col-span-7">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Free assessment</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Not Sure What Your Business Needs?</h2>
-          <p class="mt-5 text-lg leading-relaxed text-paper/70">Send us your website or Google Business Profile. We'll
+          <h2 class="section-heading mt-3 font-serif tracking-tight">Not Sure What Your Business Needs?</h2>
+          <p class="body-lg mt-5 text-paper/70">Send us your website or Google Business Profile. We'll
             review where you're losing visibility, trust, or leads and recommend the best place to start.</p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact"
-              class="rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:opacity-95">Get
-              My Free Assessment →</a>
+            <a href="#contact" class="btn-primary bg-paper text-ink hover:opacity-95">Get a Free Assessment</a>
             <a href="#services"
-              class="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-paper/90 transition-all duration-300 ease-in-out hover:border-white/55 hover:bg-white/5">View
-              Services</a>
+              class="btn-secondary border-white/25 text-paper hover:border-white/45 hover:bg-white/5">Explore Services</a>
           </div>
         </div>
-        <figure class="reveal home-figure-zoom rounded-2xl lg:col-span-5">
+        <figure class="reveal home-figure-zoom overflow-hidden rounded-2xl lg:col-span-5">
           <img src="assets/images/home/cta-business-customer.jpg"
             alt="Local business owner serving a customer after a Google lead" class="w-full object-cover"
             width="1200" height="800" loading="lazy" decoding="async" />
@@ -1947,15 +2200,15 @@
       </div>
     </section>
 
-    <section id="contact" class="border-t border-line px-5 py-20 lg:px-8 lg:py-28">
-      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
-        <div class="lg:col-span-6">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Get started</p>
-          <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Tell us where the business is stuck.</h2>
-          <p class="mt-5 text-base leading-relaxed text-ink/65 sm:text-lg">This starts a working agreement, not a
-            newsletter. Share the Maps link if you have one.</p>
+    <section id="contact" class="section-pad border-t border-line px-5 lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Contact</p>
+          <h2 class="section-heading mt-3 font-serif tracking-tight">Tell us where the business stands.</h2>
+          <p class="body-lg mt-5 font-medium text-ink">Let's build what your business actually needs.</p>
+          <p class="body-lg mt-3 text-muted">No long sales pitch. No unnecessary package. Just a clear recommendation.</p>
         </div>
-        <div class="lg:col-span-6">
+        <div class="lg:col-span-7">
           <form id="contract-form"
             class="reveal w-full rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
             <div class="grid gap-5 sm:grid-cols-2">
@@ -1970,39 +2223,22 @@
                   class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
               <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input
                   name="businessName" type="text" autocomplete="organization" required
-                  placeholder="Hale &amp; Co. Dental"
+                  placeholder="Hale &amp; Co. Plumbing"
                   class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /></label>
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business type</span>
-                <select name="businessType"
-                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
-                  <option value="">Choose one</option>
-                  <option value="Plumber">Plumber</option>
-                  <option value="HVAC">HVAC</option>
-                  <option value="Electrician">Electrician</option>
-                  <option value="Roofing">Roofing</option>
-                  <option value="Landscaping">Landscaping</option>
-                  <option value="Cleaning">Cleaning</option>
-                  <option value="Auto">Auto</option>
-                  <option value="Restaurant">Restaurant</option>
-                  <option value="Barber/Salon">Barber/Salon</option>
-                  <option value="Clinic">Clinic</option>
-                  <option value="Other">Other</option>
-                </select>
-              </label>
-              <label class="block text-sm"><span class="mb-1.5 block font-medium">Selected service</span>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
                 <select name="service" required
                   class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
                   <option value="">Choose one</option>
-                  <option value="Google Business Profile">Google Business Profile</option>
-                  <option value="Google Reviews">Google Reviews</option>
-                  <option value="Google Ads">Google Ads</option>
-                  <option value="Website Building">Website Building</option>
+                  <option value="Reputation Management">Reputation Management</option>
+                  <option value="Local SEO">Local SEO</option>
+                  <option value="Paid Advertising">Paid Advertising</option>
+                  <option value="Web Design &amp; Development">Web Design &amp; Development</option>
+                  <option value="Not sure yet">Not sure yet</option>
                 </select>
               </label>
-              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps
-                  link</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps / Google Business Profile URL</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
                   class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /><span
-                  class="mt-1 block text-xs text-ink/45">Optional. Paste the public listing URL.</span></label>
+                  class="mt-1 block text-xs text-muted">Optional. Paste the public listing URL.</span></label>
               <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
                 <textarea name="message" rows="4" placeholder="Tell us where the business is stuck..."
                   class="field-input w-full resize-y rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"></textarea>
@@ -2010,9 +2246,8 @@
             </div>
             <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
             <button type="submit"
-              class="mt-6 w-full rounded-full bg-ink py-3.5 text-sm font-medium text-paper transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:opacity-90 sm:w-auto sm:px-8">Send
-              Request</button>
-            <p class="mt-3 text-xs text-ink/45">By sending this, you agree we may contact you about the selected
+              class="btn-primary mt-6 w-full sm:w-auto">Request My Assessment</button>
+            <p class="mt-3 text-xs text-muted">By sending this, you agree we may contact you about the selected
               service. No spam lists. No sold data.</p>
           </form>
           <div id="form-success"
@@ -2031,54 +2266,40 @@
   <footer class="site-footer bg-ink px-5 py-14 text-paper lg:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo">
-            <span class="footer-mark">N</span>
-            <span>Northline</span>
-          </a>
-          <p class="footer-tagline">Local visibility for businesses that already do good work — they just do not look
-            like it on Google yet.</p>
-          <a href="mailto:hello@northline.example" class="footer-email">hello@northline.example</a>
+        <div class="footer-col">
+          <p class="footer-col-title">Northline</p>
+          <p class="footer-tagline">Local Google marketing for businesses that already do good work — profile, reviews, ads, and websites you own.</p>
         </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-col">
-            <p class="footer-col-title">Services</p>
-            <ul>
-              <li><a href="services/google-business-profile-setup.html">Google Business Profile</a></li>
-              <li><a href="services/google-maps-review-management.html">Google Reviews</a></li>
-              <li><a href="services/google-ads-campaigns.html">Google Ads</a></li>
-              <li><a href="services/web-development.html">Website Building</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <p class="footer-col-title">Pages</p>
-            <ul>
-              <li><a href="industries/index.html">Industries</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#trust">Trust</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="services/index.html">All services</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <p class="footer-col-title">Legal</p>
-            <ul>
-              <li><a href="#contact">Get Started</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-              <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-guarantee">
-        <p class="footer-guarantee-label">Client guarantee</p>
-        <p class="footer-guarantee-text">Client-owned accounts <span>|</span> Full website source-code ownership
-          <span>|</span> Transparent advertising spend
-        </p>
+        <div class="footer-col">
+          <p class="footer-col-title">Services</p>
+          <ul>
+            <li><a href="services/google-maps-review-management.html">Reputation Management</a></li>
+            <li><a href="services/google-business-profile-setup.html">Local SEO</a></li>
+            <li><a href="services/google-ads-campaigns.html">Paid Advertising</a></li>
+            <li><a href="services/web-development.html">Web Design &amp; Development</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#trust">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Ownership</p>
+          <ul class="footer-ownership">
+            <li>You own your website.</li>
+            <li>You keep your accounts.</li>
+            <li>Transparent work.</li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Northline. All rights reserved.</p>
-        <a href="#contact" class="footer-cta">Get a Free Business Assessment →</a>
+        <p>© 2026 Northline</p>
+        <a href="#contact" class="footer-cta">Get a Free Assessment →</a>
       </div>
     </div>
   </footer>
@@ -2105,265 +2326,7 @@
     </form>
   </dialog>
 
-  <script>
-    (function () {
-      document.getElementById("year").textContent = new Date().getFullYear();
-      var header = document.getElementById("site-header");
-      var onScroll = function () { header.classList.toggle("is-stuck", window.scrollY > 24); };
-      onScroll();
-      window.addEventListener("scroll", onScroll, { passive: true });
-
-      var sections = ["work", "trust", "faq", "contact"];
-      var navLinks = document.querySelectorAll("[data-nav]");
-      function markNav() {
-        var current = "";
-        sections.forEach(function (id) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          if (el.getBoundingClientRect().top < 120) current = id;
-        });
-        navLinks.forEach(function (link) {
-          link.classList.toggle("is-active", link.getAttribute("data-nav") === current);
-        });
-      }
-      window.addEventListener("scroll", markNav, { passive: true });
-      markNav();
-
-      var faqItems = document.querySelectorAll("#faq details");
-      function closeFaq(item) {
-        var panel = item.querySelector(".faq-panel");
-        item.classList.remove("is-open");
-        var done = false;
-        var finish = function (event) {
-          if (done) return;
-          if (event && event.target && event.target !== panel) return;
-          if (event && event.propertyName && event.propertyName !== "grid-template-rows") return;
-          done = true;
-          item.removeAttribute("open");
-          panel.removeEventListener("transitionend", finish);
-        };
-        panel.addEventListener("transitionend", finish);
-        setTimeout(finish, 420);
-      }
-      function openFaq(item) {
-        item.setAttribute("open", "");
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            item.classList.add("is-open");
-          });
-        });
-      }
-      faqItems.forEach(function (item) {
-        var summary = item.querySelector("summary");
-        summary.addEventListener("click", function (event) {
-          event.preventDefault();
-          if (item.classList.contains("is-open")) {
-            closeFaq(item);
-            return;
-          }
-          faqItems.forEach(function (other) {
-            if (other !== item && other.classList.contains("is-open")) closeFaq(other);
-          });
-          openFaq(item);
-        });
-      });
-
-      var menuBtn = document.getElementById("menu-btn");
-      var mobileMenu = document.getElementById("mobile-menu");
-      var iconOpen = document.getElementById("icon-open");
-      var iconClose = document.getElementById("icon-close");
-      function setMobileOpen(open) {
-        mobileMenu.classList.toggle("hidden", !open);
-        menuBtn.setAttribute("aria-expanded", String(open));
-        menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-        iconOpen.classList.toggle("hidden", open);
-        iconClose.classList.toggle("hidden", !open);
-        header.classList.toggle("is-menu-open", open);
-      }
-      menuBtn.addEventListener("click", function () {
-        setMobileOpen(mobileMenu.classList.contains("hidden"));
-      });
-
-      document.querySelectorAll(".nav-drop-btn").forEach(function (btn) {
-        btn.addEventListener("click", function (event) {
-          event.stopPropagation();
-          var drop = btn.closest(".nav-drop");
-          var open = !drop.classList.contains("is-open");
-          document.querySelectorAll(".nav-drop.is-open").forEach(function (other) {
-            other.classList.remove("is-open");
-            var otherBtn = other.querySelector(".nav-drop-btn");
-            if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
-          });
-          drop.classList.toggle("is-open", open);
-          btn.setAttribute("aria-expanded", String(open));
-        });
-      });
-      document.querySelectorAll(".nav-drop-menu").forEach(function (menu) {
-        menu.addEventListener("click", function (event) { event.stopPropagation(); });
-      });
-      document.addEventListener("click", function () {
-        document.querySelectorAll(".nav-drop.is-open").forEach(function (drop) {
-          drop.classList.remove("is-open");
-          var btn = drop.querySelector(".nav-drop-btn");
-          if (btn) btn.setAttribute("aria-expanded", "false");
-        });
-      });
-      document.addEventListener("keydown", function (event) {
-        if (event.key !== "Escape") return;
-        document.querySelectorAll(".nav-drop.is-open").forEach(function (drop) {
-          drop.classList.remove("is-open");
-          var dropBtn = drop.querySelector(".nav-drop-btn");
-          if (dropBtn) dropBtn.setAttribute("aria-expanded", "false");
-        });
-        setMobileOpen(false);
-      });
-
-      var mobileServicesBtn = document.getElementById("mobile-services-btn");
-      var mobileServices = document.getElementById("mobile-services");
-      if (mobileServicesBtn && mobileServices) {
-        mobileServicesBtn.addEventListener("click", function () {
-          var open = mobileServices.classList.toggle("is-open");
-          mobileServicesBtn.setAttribute("aria-expanded", String(open));
-        });
-      }
-      document.querySelectorAll(".mobile-link").forEach(function (link) {
-        link.addEventListener("click", function () { setMobileOpen(false); });
-      });
-      document.querySelectorAll(".legal-link").forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          var href = link.getAttribute("href") || "";
-          if (href.charAt(0) !== "#") return;
-          var dialog = document.getElementById(href.slice(1));
-          if (dialog) dialog.showModal();
-        });
-      });
-
-      if ("IntersectionObserver" in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry, i) {
-            if (!entry.isIntersecting) return;
-            window.setTimeout(function () { entry.target.classList.add("in"); }, Math.min(i * 70, 280));
-            io.unobserve(entry.target);
-          });
-        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-      } else {
-        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-      }
-
-      var form = document.getElementById("contract-form");
-      var errorEl = document.getElementById("form-error");
-      var successEl = document.getElementById("form-success");
-      var successCopy = document.getElementById("success-copy");
-      var params = new URLSearchParams(window.location.search);
-      var preset = params.get("service");
-      if (preset === "GMB" || preset === "Google My Business") preset = "Google Business Profile";
-      if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Reviews") preset = "Google Reviews";
-      if (preset === "Google Ads Campaigns") preset = "Google Ads";
-      if (preset === "Web Development" || preset === "Websites") preset = "Website Building";
-      if (preset && form.service) form.service.value = preset;
-
-      function clearInvalid() {
-        form.querySelectorAll(".field-input").forEach(function (el) { el.classList.remove("is-invalid"); });
-      }
-      function markInvalid(name) {
-        var el = form.elements[name];
-        if (el) el.classList.add("is-invalid");
-      }
-      form.querySelectorAll(".field-input").forEach(function (el) {
-        el.addEventListener("input", function () { el.classList.remove("is-invalid"); });
-      });
-
-      function showError(message) {
-        errorEl.textContent = message;
-        errorEl.classList.remove("hidden");
-      }
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        errorEl.classList.add("hidden");
-        clearInvalid();
-        var data = {
-          clientName: form.clientName.value.trim(),
-          email: form.email.value.trim(),
-          phone: form.phone.value.trim(),
-          businessName: form.businessName.value.trim(),
-          businessType: form.businessType.value.trim(),
-          mapsLink: form.mapsLink.value.trim(),
-          service: form.service.value,
-          message: form.message.value.trim(),
-          submittedAt: new Date().toISOString()
-        };
-        if (!data.clientName || !data.email || !data.phone || !data.businessName || !data.service) {
-          ["clientName", "email", "phone", "businessName", "service"].forEach(function (key) {
-            if (!data[key]) markInvalid(key);
-          });
-          showError("Please complete every required field before sending.");
-          return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-          markInvalid("email");
-          showError("That email does not look usable. Check the spelling and try again.");
-          return;
-        }
-        if (data.phone.replace(/\D/g, "").length < 10) {
-          markInvalid("phone");
-          showError("Enter a phone number with at least 10 digits so we can actually reach you.");
-          return;
-        }
-        if (data.mapsLink) {
-          try {
-            var parsed = new URL(data.mapsLink);
-            if (parsed.protocol !== "http:" && parsed.protocol !== "https:") throw new Error("bad");
-          } catch (err) {
-            markInvalid("mapsLink");
-            showError("The Google Maps link needs to be a full URL, starting with https://");
-            return;
-          }
-        }
-        try {
-          var existing = JSON.parse(localStorage.getItem("northline-contracts") || "[]");
-          if (!Array.isArray(existing)) existing = [];
-          existing.push(data);
-          localStorage.setItem("northline-contracts", JSON.stringify(existing));
-        } catch (storageErr) { /* Mailto still sends if storage is blocked. */ }
-        var body = ["New service contract request", "", "Client name: " + data.clientName, "Email: " + data.email, "Phone: " + data.phone, "Business: " + data.businessName, "Business type: " + (data.businessType || "Not provided"), "Google Maps: " + (data.mapsLink || "Not provided"), "Service: " + data.service, "Message: " + (data.message || "Not provided")].join("\n");
-        var mailto = "mailto:hello@northline.example?subject=" + encodeURIComponent("Service contract — " + data.service + " — " + data.businessName) + "&body=" + encodeURIComponent(body);
-        form.classList.add("hidden");
-        successEl.classList.remove("hidden");
-        successEl.classList.add("success-pop");
-        successCopy.textContent = "Thanks, " + data.clientName + ". We have " + data.service + " on file for " + data.businessName + ". Your email app should open with a draft — send it so the request reaches the desk.";
-        window.setTimeout(function () { window.location.href = mailto; }, 400);
-      });
-      document.getElementById("send-another").addEventListener("click", function () {
-        form.reset();
-        clearInvalid();
-        if (preset && form.service) form.service.value = preset;
-        successEl.classList.add("hidden");
-        successEl.classList.remove("success-pop");
-        form.classList.remove("hidden");
-      });
-
-      var backToTop = document.createElement("button");
-      backToTop.type = "button";
-      backToTop.className = "back-to-top";
-      backToTop.setAttribute("aria-label", "Back to top");
-      backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>';
-      document.body.appendChild(backToTop);
-
-      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      backToTop.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-      });
-
-      function toggleBackToTop() {
-        backToTop.classList.toggle("is-visible", window.scrollY > 320);
-      }
-
-      toggleBackToTop();
-      window.addEventListener("scroll", toggleBackToTop, { passive: true });
-    })();
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 
 </html>
