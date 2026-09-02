@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | Northline Google Business Reviews, Ads &amp; Websites</title>
+  <title>Privacy Policy | Northline Google Reviews, Ads &amp; Website Building</title>
   <meta name="description"
-    content="Northline Privacy Policy explains how we collect, use, and protect data from service contract requests for Google Business Reviews, Google My Business, Google Ads, and web development." />
+    content="Northline Privacy Policy explains how we collect, use, and protect data from service contract requests for Google Reviews, Google My Business, Google Ads, and Website Building." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/privacy.html" />
   <meta property="og:type" content="website" />
@@ -23,6 +23,10 @@
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/tailwind.js"></script>
+  <script>
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.addEventListener("beforeunload", function () { window.scrollTo(0, 0); });
+  </script>
   <link rel="stylesheet" href="assets/site.css" />
   <script type="application/ld+json">
   {
@@ -32,7 +36,7 @@
         "@type": "WebPage",
         "name": "Privacy Policy",
         "url": "https://northline.example/privacy.html",
-        "description": "Northline Privacy Policy for Google Business Reviews, Google My Business, Google Ads Campaigns, and Web Development services.",
+        "description": "Northline Privacy Policy for Google Reviews, Google My Business, Google Ads Campaigns, and Website Building services.",
         "isPartOf": { "@type": "WebSite", "name": "Northline", "url": "https://northline.example/" }
       },
       {
@@ -78,7 +82,7 @@
       <p class="mt-4 text-sm text-ink/50">Last updated: September 2, 2026</p>
       <p>This Privacy Policy describes how <strong>Northline</strong> (“we,” “us”) collects, uses, and protects
         personal information when you visit northline.example or submit a service contract request for Google Business
-        Reviews, Google My Business (Google Business Profile setup), Google Ads Campaigns, or Web Development.</p>
+        Reviews, Google My Business (Google Business Profile setup), Google Ads Campaigns, or Website Building.</p>
 
       <h2>Who we are</h2>
       <p>Northline is a local digital services practice focused on Google Maps visibility, paid search, and owned
@@ -94,7 +98,7 @@
         <li>Phone number</li>
         <li>Company or business name</li>
         <li>Public Google Maps listing URL (optional)</li>
-        <li>Selected service: Google Business Reviews, Google My Business, Google Ads Campaigns, or Web Development</li>
+        <li>Selected service: Google Reviews, Google My Business, Google Ads Campaigns, or Website Building</li>
       </ul>
       <p>We do not require you to create an account to browse the site. We do not run a checkout or payment form on
         this website.</p>
@@ -112,7 +116,7 @@
       <h2>Google Business Profile and Google Maps data</h2>
       <p>If you share a public Google Maps URL or ask us to work on your Google Business Profile, we may view publicly
         available listing information — business name, address or service area, categories, hours, photos, and reviews —
-        to scope Google My Business setup, listing optimization, or Google Business Reviews work. Access to manage a
+        to scope Google My Business setup, listing optimization, or Google Reviews work. Access to manage a
         listing stays in a Google account you own unless you explicitly invite Northline as a manager for ongoing edits.
       </p>
 
@@ -122,7 +126,7 @@
         account access details only to build or restructure campaigns you have approved.</p>
 
       <h2>Website development and hosting</h2>
-      <p>For Web Development projects, we may collect login details for your domain registrar, Cloudflare account, CMS,
+      <p>For Website Building projects, we may collect login details for your domain registrar, Cloudflare account, CMS,
         or hosting only as needed to launch a site you own. Our standard setup includes Cloudflare hosting and SSL. You
         pay the domain registrar separately. Source files and admin access are handed to you at project completion.</p>
 
@@ -166,6 +170,7 @@
       </div>
     </div>
   </footer>
+  <script src="assets/site.js"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 

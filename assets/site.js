@@ -1,4 +1,9 @@
 (function () {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
+  });
+
   document.documentElement.classList.add("js");
 
   var year = document.getElementById("year");
@@ -228,13 +233,34 @@
     updateArrows();
   });
 
+  var backToTop = document.createElement("button");
+  backToTop.type = "button";
+  backToTop.className = "back-to-top";
+  backToTop.setAttribute("aria-label", "Back to top");
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backToTop);
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  function toggleBackToTop() {
+    backToTop.classList.toggle("is-visible", window.scrollY > 320);
+  }
+
+  toggleBackToTop();
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+
   var form = document.getElementById("contract-form");
   if (!form) return;
 
   var params = new URLSearchParams(window.location.search);
   var preset = params.get("service");
-  if (preset === "GMB") preset = "Google My Business";
-  if (preset === "Google Maps Review Management") preset = "Google Business Reviews";
+  if (preset === "GMB" || preset === "Google My Business") preset = "Google Business Profile";
+  if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Reviews") preset = "Google Reviews";
+  if (preset === "Google Ads Campaigns") preset = "Google Ads";
+  if (preset === "Web Development" || preset === "Websites") preset = "Website Building";
   if (preset && form.service) form.service.value = preset;
 
   var errorEl = document.getElementById("form-error");
