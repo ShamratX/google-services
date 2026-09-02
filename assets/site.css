@@ -22,8 +22,65 @@ html.js .reveal.in { opacity: 1; transform: none; }
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-#mobile-menu {
-  background: rgba(244, 241, 234, 0.96);
+
+#site-header {
+  background: rgba(17, 17, 17, 0.96);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f5f1e8;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+#site-header.is-stuck,
+#site-header.is-menu-open.is-stuck,
+#site-header.is-menu-open:not(.is-stuck) {
+  background: rgba(17, 17, 17, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.35);
+}
+#site-header .header-cta {
+  background: #f5f1e8;
+  color: #111111;
+}
+#site-header .header-mark {
+  background: #f5f1e8;
+  color: #111111;
+}
+#site-header #menu-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+#site-header #mobile-menu a.rounded-full {
+  background: #f5f1e8;
+  color: #111111;
+}
+#site-header .nav-drop-item:hover,
+#site-header .nav-drop-item:focus-visible {
+  background: rgba(17, 17, 17, 0.06);
+  color: #111111;
+}
+#site-header #mobile-menu {
+  background: rgba(17, 17, 17, 0.98);
+}
+
+.nav-link {
+  position: relative;
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
@@ -396,10 +453,26 @@ details summary span:last-child { display: inline-block; transition: transform 0
 }
 @media (min-width: 768px) {
   .footer-top {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-    gap: 3rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
     align-items: start;
   }
+}
+.footer-ownership {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 0;
+}
+.footer-ownership li {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(245, 241, 232, 0.55);
 }
 .footer-logo {
   display: inline-flex;

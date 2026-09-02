@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Northline | Google Business Profile, Google Reviews, Google Ads &amp; Website Building for Local Businesses</title>
+  <title>Northline | Google Business Profile, Google Reviews, Google Ads &amp; Website Building for Local Businesses
+  </title>
   <meta name="description"
     content="Northline helps local businesses get found on Google with Business Profile optimization, genuine reviews, high-intent Google Ads, and websites they fully own. Free business assessment." />
   <meta name="keywords"
@@ -25,7 +26,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
-  <link rel="preload" as="image" fetchpriority="high" href="assets/images/home/hero-local-owner.jpg" />
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
@@ -80,6 +80,7 @@
     .section-pad {
       padding-top: 3rem;
       padding-bottom: 3rem;
+      background: #F5F1E8;
     }
 
     @media (min-width: 768px) {
@@ -178,49 +179,43 @@
     }
 
     #site-header {
-      background: transparent;
-      border-color: rgba(17, 17, 17, 0.06);
-      color: #111111;
-      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+      background: rgba(17, 17, 17, 0.96);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #F5F1E8;
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
     #site-header.is-stuck,
-    #site-header.is-menu-open.is-stuck {
-      background: rgba(245, 241, 232, 0.82);
-      backdrop-filter: blur(18px) saturate(1.2);
-      -webkit-backdrop-filter: blur(18px) saturate(1.2);
-      border-color: rgba(17, 17, 17, 0.1);
-      box-shadow: 0 12px 40px -28px rgba(17, 17, 17, 0.18);
-    }
-
+    #site-header.is-menu-open.is-stuck,
     #site-header.is-menu-open:not(.is-stuck) {
-      background: rgba(245, 241, 232, 0.98);
-      backdrop-filter: blur(18px) saturate(1.2);
-      -webkit-backdrop-filter: blur(18px) saturate(1.2);
-      border-color: rgba(17, 17, 17, 0.1);
+      background: rgba(17, 17, 17, 0.98);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.35);
     }
 
     #site-header .header-cta {
-      background: #111111;
-      color: #F5F1E8;
+      background: #F5F1E8;
+      color: #111111;
     }
 
     #site-header .header-mark {
-      background: #111111;
-      color: #F5F1E8;
+      background: #F5F1E8;
+      color: #111111;
     }
 
     #mobile-menu {
-      background: rgba(245, 241, 232, 0.98);
+      background: rgba(17, 17, 17, 0.98);
     }
 
     #site-header #menu-btn {
-      border-color: rgba(17, 17, 17, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     #site-header #mobile-menu a.rounded-full {
-      background: #111111;
-      color: #F5F1E8;
+      background: #F5F1E8;
+      color: #111111;
     }
 
     .nav-link {
@@ -434,7 +429,7 @@
       border-radius: 0.85rem;
       margin-bottom: 1rem;
       aspect-ratio: 16 / 10;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(17, 17, 17, 0.1);
     }
 
     .star {
@@ -442,8 +437,41 @@
     }
 
     .hero-banner {
+      position: relative;
+      overflow: hidden;
       min-height: auto;
       background: #F5F1E8;
+    }
+
+    .hero-banner-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 78% 42%;
+    }
+
+    .hero-banner-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        rgba(245, 241, 232, 0.96) 0%,
+        rgba(245, 241, 232, 0.88) 38%,
+        rgba(245, 241, 232, 0.45) 52%,
+        rgba(245, 241, 232, 0.08) 68%,
+        transparent 82%
+      );
+    }
+
+    .hero-banner-content {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-split {
@@ -488,7 +516,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: 72% 42%;
     }
 
     .btn-primary {
@@ -804,7 +832,7 @@
       color: rgba(245, 241, 232, 0.55);
     }
 
-    .footer-ownership li + li {
+    .footer-ownership li+li {
       margin-top: 0.35rem;
     }
 
@@ -924,16 +952,16 @@
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(17, 17, 17, 0.1);
       border-radius: 0.85rem;
-      background: rgba(255, 255, 255, 0.04);
+      background: #fff;
       padding: 0.65rem 0.6rem;
       text-align: center;
     }
 
     .journey-step-final {
-      border-color: rgba(245, 241, 232, 0.35);
-      background: rgba(245, 241, 232, 0.08);
+      border-color: rgba(17, 17, 17, 0.18);
+      background: #fff;
     }
 
     .journey-label {
@@ -942,12 +970,12 @@
       font-size: 0.8125rem;
       font-weight: 500;
       line-height: 1.35;
-      color: rgba(245, 241, 232, 0.92);
+      color: rgba(17, 17, 17, 0.85);
       letter-spacing: 0.01em;
     }
 
     .journey-step-final .journey-label {
-      color: #F5F1E8;
+      color: #111111;
       font-weight: 600;
     }
 
@@ -956,7 +984,7 @@
       flex-shrink: 0;
       align-items: center;
       align-self: center;
-      color: rgba(245, 241, 232, 0.4);
+      color: rgba(17, 17, 17, 0.35);
     }
 
     .journey-arrow svg {
@@ -971,8 +999,8 @@
       flex-shrink: 0;
       place-items: center;
       border-radius: 0.65rem;
-      background: rgba(255, 255, 255, 0.12);
-      color: #F5F1E8;
+      background: rgba(17, 17, 17, 0.06);
+      color: #111111;
     }
 
     .journey-icon svg {
@@ -981,7 +1009,7 @@
     }
 
     .journey-step-final .journey-icon {
-      background: rgba(245, 241, 232, 0.16);
+      background: rgba(17, 17, 17, 0.1);
     }
 
     .trust-badges {
@@ -1327,18 +1355,18 @@
 
     .portfolio-case .portfolio-shot img {
       object-fit: contain;
-      background: rgba(255, 255, 255, 0.04);
+      background: #EEE9DE;
     }
 
     .portfolio-meta {
       display: grid;
       gap: 0.35rem;
       font-size: 0.8125rem;
-      color: rgba(245, 241, 232, 0.55);
+      color: #66635D;
     }
 
     .portfolio-meta span {
-      color: rgba(245, 241, 232, 0.85);
+      color: #111111;
       font-weight: 500;
     }
 
@@ -1404,7 +1432,7 @@
       .portfolio-shot img,
       .home-figure-zoom img,
       .industry-card img,
-      .hero-media img,
+      .hero-banner-bg,
       .float-chip,
       .field-input,
       #faq .faq-panel {
@@ -1470,11 +1498,11 @@
     class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
     to content</a>
 
-  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-line text-ink">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
         <span
-          class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-ink text-[11px] font-semibold tracking-wide text-paper">N</span>
+          class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink">N</span>
         <span class="text-[15px] font-semibold tracking-tight">Northline</span>
       </a>
       <ul class="hidden items-center gap-8 text-sm md:flex">
@@ -1511,10 +1539,10 @@
       </ul>
       <div class="flex items-center gap-3">
         <a href="#contact"
-          class="header-cta hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
+          class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
           Started</a>
         <button id="menu-btn"
-          class="grid h-10 w-10 place-items-center rounded-full border border-line transition-all duration-300 ease-in-out md:hidden"
+          class="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition-all duration-300 ease-in-out md:hidden"
           aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg id="icon-open" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
             <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
@@ -1549,16 +1577,19 @@
         <a href="#trust" class="mobile-link py-1">Trust</a>
         <a href="#faq" class="mobile-link py-1">FAQ</a>
         <a href="#contact"
-          class="mobile-link rounded-full bg-ink px-4 py-2.5 text-center font-medium text-paper transition-all duration-300 ease-in-out">Get
+          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
           Started</a>
       </div>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="bg-paper">
     <section class="hero-banner px-5 pb-12 pt-24 lg:px-8 lg:pb-16 lg:pt-28">
-      <div class="hero-split mx-auto max-w-7xl">
-        <div class="hero-copy">
+      <img class="hero-banner-bg" src="assets/images/home/hero-banner.jpg"
+        alt="" width="1200" height="800" loading="eager" decoding="async" aria-hidden="true" />
+      <div class="hero-banner-scrim" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl hero-banner-content">
+        <div class="max-w-3xl">
           <p
             class="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-mist/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
             Google Business Profile · Google Reviews · Google Ads · Website Building</p>
@@ -1575,16 +1606,10 @@
             <a href="#services" class="btn-secondary">Explore Services</a>
           </div>
         </div>
-        <figure class="hero-media reveal">
-          <img src="assets/images/home/hero-local-owner.jpg"
-            alt="Local business owner using a smartphone to check Google leads after a service call"
-            width="2400" height="1600" fetchpriority="high" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=1920&amp;q=75';" />
-        </figure>
       </div>
     </section>
 
-    <section id="trust-strip" class="border-b border-line bg-mist/40 px-5 py-10 lg:px-8"
+    <section id="trust-strip" class="border-b border-line bg-paper px-5 py-10 lg:px-8"
       aria-label="Why businesses choose Northline">
       <div class="mx-auto max-w-7xl">
         <p class="text-center text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Why Businesses Choose
@@ -1636,7 +1661,7 @@
       </div>
     </section>
 
-    <section id="problem" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+    <section id="problem" class="border-b border-line bg-paper px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
         <div class="lg:col-span-6">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Why this matters</p>
@@ -1666,21 +1691,21 @@
         </div>
         <figure class="reveal home-figure-zoom rounded-2xl shadow-lift lg:col-span-6">
           <img src="assets/images/home/problem-owner-search.jpg"
-            alt="Local business owner reviewing Google visibility on a laptop"
-            class="w-full object-cover" width="1200" height="900" loading="lazy"
-            decoding="async"
+            alt="Local business owner reviewing Google visibility on a laptop" class="w-full object-cover" width="1200"
+            height="900" loading="lazy" decoding="async"
             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1611162617474-5b21e939e966?auto=format&amp;fit=crop&amp;w=1200&amp;q=75';" />
         </figure>
       </div>
     </section>
 
-    <section id="services" class="px-5 py-14 lg:px-8 lg:py-20">
+    <section id="services" class="bg-paper px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What we do</p>
           <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Four services. One complete local search
             stack.</h2>
-          <p class="mt-4 text-lg leading-relaxed text-ink/60">Google Reviews, profile, ads, and website building — each built to work
+          <p class="mt-4 text-lg leading-relaxed text-ink/60">Google Reviews, profile, ads, and website building — each
+            built to work
             together, each owned by you.</p>
         </div>
         <div class="mt-10 grid gap-6 md:grid-cols-2 lg:gap-7">
@@ -1755,13 +1780,13 @@
       </div>
     </section>
 
-    <section id="journey" class="border-t border-line bg-ink px-5 py-14 text-paper lg:px-8 lg:py-20">
+    <section id="journey" class="border-t border-line bg-paper px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">How they work together</p>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">How they work together</p>
           <h2 class="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">They stack. They do not replace each other.
           </h2>
-          <p class="mt-4 text-paper/60">A complete Google Business Profile tells the truth. Reviews make the tap feel
+          <p class="mt-4 text-muted">A complete Google Business Profile tells the truth. Reviews make the tap feel
             safe. Ads can buy the click. A website gives it somewhere to land.</p>
         </div>
         <div class="journey-flow reveal mt-8">
@@ -1792,8 +1817,7 @@
           <div class="journey-step">
             <span class="journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6z" />
+                <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6z" />
               </svg></span>
             <p class="journey-label">Google Reviews</p>
           </div>
@@ -1824,7 +1848,7 @@
             <p class="journey-label">Call / Booking / Quote</p>
           </div>
         </div>
-        <p class="reveal mt-8 text-center text-sm uppercase tracking-[0.16em] text-paper/40">One Customer Journey</p>
+        <p class="reveal mt-8 text-center text-sm uppercase tracking-[0.16em] text-muted">One Customer Journey</p>
       </div>
     </section>
 
@@ -1833,7 +1857,8 @@
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Who we help</p>
           <h2 class="section-heading mt-3 font-serif tracking-tight">Built for Local Businesses</h2>
-          <p class="body-lg mt-4 text-muted">Home-service companies, trades, and local shops that need Google to send real customers — not just traffic.</p>
+          <p class="body-lg mt-4 text-muted">Home-service companies, trades, and local shops that need Google to send
+            real customers — not just traffic.</p>
         </div>
         <div class="industry-grid reveal mt-8">
           <figure class="industry-card"><img src="assets/images/home/industries/plumbing.jpg"
@@ -1867,59 +1892,66 @@
       </div>
     </section>
 
-    <section id="deliverables" class="section-pad border-t border-line bg-mist/50 px-5 lg:px-8">
+    <section id="deliverables" class="section-pad border-t border-line bg-paper px-5 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">What you actually get</p>
           <h2 class="section-heading mt-3 font-serif tracking-tight">Clear deliverables. No mystery work.</h2>
-          <p class="body-lg mt-4 text-muted">Real assets you can see, use, and own — depending on the service you choose.</p>
+          <p class="body-lg mt-4 text-muted">Real assets you can see, use, and own — depending on the service you
+            choose.</p>
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-2">
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
               <img src="assets/images/home/portfolio-gbp.jpg"
-                alt="Google Business Profile optimization deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
+                alt="Google Business Profile optimization deliverable screenshot" width="800" height="500"
+                loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Business Profile</h3>
-              <p class="mt-2 body-lg text-muted">Profile setup, categories, services, photos, and local optimization — all in your account.</p>
+              <p class="mt-2 body-lg text-muted">Profile setup, categories, services, photos, and local optimization —
+                all in your account.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
-              <img src="assets/images/home/service-reviews.jpg"
-                alt="Google Reviews request flow deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
+              <img src="assets/images/home/service-reviews.jpg" alt="Google Reviews request flow deliverable screenshot"
+                width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Reviews</h3>
-              <p class="mt-2 body-lg text-muted">Review request system, staff guidance, and response templates for authentic feedback.</p>
+              <p class="mt-2 body-lg text-muted">Review request system, staff guidance, and response templates for
+                authentic feedback.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
-              <img src="assets/images/home/portfolio-ads.jpg"
-                alt="Google Ads campaign structure deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
+              <img src="assets/images/home/portfolio-ads.jpg" alt="Google Ads campaign structure deliverable screenshot"
+                width="800" height="500" loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Google Ads</h3>
-              <p class="mt-2 body-lg text-muted">Campaign structure, keyword targeting, ad copy, conversion tracking, and ongoing optimization.</p>
+              <p class="mt-2 body-lg text-muted">Campaign structure, keyword targeting, ad copy, conversion tracking,
+                and ongoing optimization.</p>
             </div>
           </div>
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
               <img src="assets/images/home/portfolio-website.webp"
-                alt="Website design and development deliverable screenshot" width="800" height="500" loading="lazy" decoding="async" />
+                alt="Website design and development deliverable screenshot" width="800" height="500" loading="lazy"
+                decoding="async" />
             </div>
             <div class="p-6">
               <h3 class="font-serif text-xl">Website Building</h3>
-              <p class="mt-2 body-lg text-muted">Custom design, mobile layout, click-to-call, lead forms, and full source-code ownership.</p>
+              <p class="mt-2 body-lg text-muted">Custom design, mobile layout, click-to-call, lead forms, and full
+                source-code ownership.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
+    <section id="process" class="border-t border-line bg-paper px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">How it works</p>
@@ -1980,65 +2012,66 @@
       </div>
     </section>
 
-    <section id="work" class="section-pad border-t border-line bg-ink px-5 text-paper lg:px-8">
+    <section id="work" class="section-pad border-t border-line bg-paper px-5 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Selected builds &amp; demonstrations
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Selected builds &amp; demonstrations
           </p>
           <h2 class="section-heading mt-3 font-serif tracking-tight">Work That Looks Good Because It Works</h2>
-          <p class="body-lg mt-4 text-paper/55">Demonstration projects showing how we structure local search work. Replace with
+          <p class="body-lg mt-4 text-muted">Demonstration projects showing how we structure local search work.
+            Replace with
             real client case studies when contracts allow.</p>
         </div>
         <div class="mt-8 grid gap-8 lg:grid-cols-3">
-          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+          <article class="portfolio-case reveal rounded-2xl border border-line bg-white p-6">
             <div class="portfolio-shot"><img src="assets/images/home/portfolio-gbp.jpg"
                 alt="Demonstration Google Business Profile optimization screenshot" width="800" height="500"
                 loading="lazy" decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <p class="text-xs uppercase tracking-[0.16em] text-muted">Demonstration</p>
             <div class="portfolio-meta mt-3">
               <p><span>Industry:</span> HVAC Contractor</p>
               <p><span>Service:</span> Google Business Profile</p>
             </div>
             <h3 class="mt-4 font-serif text-xl">Profile optimization &amp; review strategy</h3>
-            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong>
+            <p class="mt-3 body-lg text-muted"><strong class="text-ink">Problem:</strong>
               Weak local visibility.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Work:</strong>
               Profile optimization + review strategy.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong>
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Outcome:</strong>
               Improved local presence.</p>
           </article>
-          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+          <article class="portfolio-case reveal rounded-2xl border border-line bg-white p-6">
             <div class="portfolio-shot"><img src="assets/images/home/portfolio-ads.jpg"
                 alt="Demonstration Google Ads campaign dashboard screenshot" width="800" height="500" loading="lazy"
                 decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <p class="text-xs uppercase tracking-[0.16em] text-muted">Demonstration</p>
             <div class="portfolio-meta mt-3">
               <p><span>Industry:</span> HVAC</p>
               <p><span>Service:</span> Google Ads</p>
             </div>
             <h3 class="mt-4 font-serif text-xl">High-intent repair campaigns</h3>
-            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong> Broad
+            <p class="mt-3 body-lg text-muted"><strong class="text-ink">Problem:</strong> Broad
               keywords were buying low-intent clicks.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Work:</strong>
               Rebuilt campaign structure around high-intent repair searches.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong>
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Outcome:</strong>
               Better-qualified leads and less wasted spend.</p>
           </article>
-          <article class="portfolio-case reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+          <article class="portfolio-case reveal rounded-2xl border border-line bg-white p-6">
             <div class="portfolio-shot"><img src="assets/images/home/portfolio-website.webp"
                 alt="Demonstration local business website on desktop and mobile" width="800" height="500" loading="lazy"
                 decoding="async" /></div>
-            <p class="text-xs uppercase tracking-[0.16em] text-paper/40">Demonstration</p>
+            <p class="text-xs uppercase tracking-[0.16em] text-muted">Demonstration</p>
             <div class="portfolio-meta mt-3">
               <p><span>Industry:</span> Trades Business</p>
               <p><span>Service:</span> Website Building</p>
             </div>
             <h3 class="mt-4 font-serif text-xl">Mobile-first lead site</h3>
-            <p class="mt-3 body-lg text-paper/70"><strong class="text-paper/90">Problem:</strong> No
+            <p class="mt-3 body-lg text-muted"><strong class="text-ink">Problem:</strong> No
               website to land paid or organic traffic.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Work:</strong>
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Work:</strong>
               Built a fast site with click-to-call, quote form, and Cloudflare hosting.</p>
-            <p class="mt-2 body-lg text-paper/70"><strong class="text-paper/90">Outcome:</strong> One
+            <p class="mt-2 body-lg text-muted"><strong class="text-ink">Outcome:</strong> One
               place for Google visitors to convert — owned by the client.</p>
           </article>
         </div>
@@ -2054,7 +2087,8 @@
         </div>
         <div class="trust-editorial reveal mt-8">
           <div class="trust-editorial-lead">
-            <p class="trust-editorial-headline font-serif text-3xl leading-snug tracking-tight sm:text-4xl">Your business should own its growth system.</p>
+            <p class="trust-editorial-headline font-serif text-3xl leading-snug tracking-tight sm:text-4xl">Your
+              business should own its growth system.</p>
             <p class="body-lg mt-5 text-muted">Until we have permission to publish real client reviews,
               we show how we work — not invented testimonials.</p>
           </div>
@@ -2096,19 +2130,21 @@
       <div class="faq-wrap mx-auto">
         <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">FAQ</p>
         <h2 class="section-heading mt-3 font-serif tracking-tight">Questions we hear before getting started</h2>
-        <p class="body-lg mt-4 text-muted">Straight answers. If your question is about one service only, the page for that
+        <p class="body-lg mt-4 text-muted">Straight answers. If your question is about one service only, the page for
+          that
           service has more.</p>
         <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
             <summary class="flex items-center justify-between gap-4 font-medium">What services do you provide?<span
                 class="text-ink/30">+</span></summary>
             <div class="faq-panel">
-              <p class="mt-3 text-muted">Four core services: <a
-                  class="underline underline-offset-4" href="services/google-business-profile-setup.html">Google
+              <p class="mt-3 text-muted">Four core services: <a class="underline underline-offset-4"
+                  href="services/google-business-profile-setup.html">Google
                   Business Profile</a>, <a class="underline underline-offset-4"
                   href="services/google-maps-review-management.html">Google Reviews</a>, <a
                   class="underline underline-offset-4" href="services/google-ads-campaigns.html">Google Ads</a>, and <a
-                  class="underline underline-offset-4" href="services/web-development.html">Website Building</a>. Most local
+                  class="underline underline-offset-4" href="services/web-development.html">Website Building</a>. Most
+                local
                 businesses need more than one over time.</p>
             </div>
           </details>
@@ -2167,8 +2203,8 @@
             </div>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 text-base font-medium">Do I keep my Google account?<span
-                class="text-ink/30">+</span></summary>
+            <summary class="flex items-center justify-between gap-4 text-base font-medium">Do I keep my Google
+              account?<span class="text-ink/30">+</span></summary>
             <div class="faq-panel">
               <p class="mt-3 text-muted">Yes. The Business Profile stays in an account in your
                 name. We work inside your access — not a locked dashboard you cannot leave with.</p>
@@ -2179,23 +2215,22 @@
       </div>
     </section>
 
-    <section id="assessment" class="section-pad border-t border-line bg-ink px-5 text-paper lg:px-8">
+    <section id="assessment" class="section-pad border-t border-line bg-paper px-5 lg:px-8">
       <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
         <div class="lg:col-span-7">
-          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Free assessment</p>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Free assessment</p>
           <h2 class="section-heading mt-3 font-serif tracking-tight">Not Sure What Your Business Needs?</h2>
-          <p class="body-lg mt-5 text-paper/70">Send us your website or Google Business Profile. We'll
+          <p class="body-lg mt-5 text-muted">Send us your website or Google Business Profile. We'll
             review where you're losing visibility, trust, or leads and recommend the best place to start.</p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" class="btn-primary bg-paper text-ink hover:opacity-95">Get a Free Assessment</a>
-            <a href="#services"
-              class="btn-secondary border-white/25 text-paper hover:border-white/45 hover:bg-white/5">Explore Services</a>
+            <a href="#contact" class="btn-primary">Get a Free Assessment</a>
+            <a href="#services" class="btn-secondary">Explore Services</a>
           </div>
         </div>
         <figure class="reveal home-figure-zoom overflow-hidden rounded-2xl lg:col-span-5">
           <img src="assets/images/home/cta-business-customer.jpg"
-            alt="Local business owner serving a customer after a Google lead" class="w-full object-cover"
-            width="1200" height="800" loading="lazy" decoding="async" />
+            alt="Local business owner serving a customer after a Google lead" class="w-full object-cover" width="1200"
+            height="800" loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
@@ -2206,7 +2241,8 @@
           <p class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Contact</p>
           <h2 class="section-heading mt-3 font-serif tracking-tight">Tell us where the business stands.</h2>
           <p class="body-lg mt-5 font-medium text-ink">Let's build what your business actually needs.</p>
-          <p class="body-lg mt-3 text-muted">No long sales pitch. No unnecessary package. Just a clear recommendation.</p>
+          <p class="body-lg mt-3 text-muted">No long sales pitch. No unnecessary package. Just a clear recommendation.
+          </p>
         </div>
         <div class="lg:col-span-7">
           <form id="contract-form"
@@ -2236,7 +2272,8 @@
                   <option value="Not sure yet">Not sure yet</option>
                 </select>
               </label>
-              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps / Google Business Profile URL</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Maps / Google
+                  Business Profile URL</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
                   class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30" /><span
                   class="mt-1 block text-xs text-muted">Optional. Paste the public listing URL.</span></label>
               <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
@@ -2245,8 +2282,7 @@
               </label>
             </div>
             <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
-            <button type="submit"
-              class="btn-primary mt-6 w-full sm:w-auto">Request My Assessment</button>
+            <button type="submit" class="btn-primary mt-6 w-full sm:w-auto">Request My Assessment</button>
             <p class="mt-3 text-xs text-muted">By sending this, you agree we may contact you about the selected
               service. No spam lists. No sold data.</p>
           </form>
@@ -2268,7 +2304,8 @@
       <div class="footer-top">
         <div class="footer-col">
           <p class="footer-col-title">Northline</p>
-          <p class="footer-tagline">Local Google marketing for businesses that already do good work — profile, reviews, ads, and websites you own.</p>
+          <p class="footer-tagline">Local Google marketing for businesses that already do good work — profile, reviews,
+            ads, and websites you own.</p>
         </div>
         <div class="footer-col">
           <p class="footer-col-title">Services</p>
@@ -2297,8 +2334,13 @@
           </ul>
         </div>
       </div>
+      <div class="footer-guarantee">
+        <p class="footer-guarantee-label">Client guarantee</p>
+        <p class="footer-guarantee-text">100% Full Access &amp; Source-Code Ownership <span>|</span> Free Cloudflare
+          Hosting &amp; SSL Setup <span>|</span> Pay Only for Domain</p>
+      </div>
       <div class="footer-bottom">
-        <p>© 2026 Northline</p>
+        <p>© <span id="year"></span> Northline</p>
         <a href="#contact" class="footer-cta">Get a Free Assessment →</a>
       </div>
     </div>

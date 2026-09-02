@@ -50,58 +50,51 @@
     class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
     to content</a>
 
-  <header class="nav-blur fixed inset-x-0 top-0 z-50 border-b border-line">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
-      <a href="../index.html" class="flex items-center gap-2.5">
+      <a href="../index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
         <span
-          class="grid h-8 w-8 place-items-center rounded-lg bg-ink text-[11px] font-semibold tracking-wide text-paper">N</span>
+          class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink">N</span>
         <span class="text-[15px] font-semibold tracking-tight">Northline</span>
       </a>
-      <ul class="hidden items-center gap-8 text-sm text-ink/70 md:flex">
+      <ul class="hidden items-center gap-8 text-sm md:flex">
         <li class="nav-drop relative">
-          <button type="button" class="nav-drop-btn text-sm text-ink/70 transition hover:text-ink" aria-expanded="false"
-            aria-haspopup="true">
+          <button type="button" class="nav-drop-btn nav-link inline-flex items-center gap-1 opacity-85"
+            aria-expanded="false" aria-haspopup="true">
             Services
-            <svg class="nav-drop-caret h-3.5 w-3.5 opacity-50" fill="none" stroke="currentColor" stroke-width="1.8"
+            <svg class="nav-drop-caret h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8"
               viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="nav-drop-menu absolute left-1/2 top-full z-50 w-[min(22rem,calc(100vw-2rem))] pt-3">
             <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-              <a class="nav-drop-item" href="google-business-profile-setup.html">
-                <span class="nav-drop-num">01</span>
-                <span class="nav-drop-name">Google Business Profile</span>
-                <span class="nav-drop-arrow">→</span>
-              </a>
-              <a class="nav-drop-item" href="google-maps-review-management.html">
-                <span class="nav-drop-num">02</span>
-                <span class="nav-drop-name">Google Reviews</span>
-                <span class="nav-drop-arrow">→</span>
-              </a>
-              <a class="nav-drop-item" href="google-ads-campaigns.html">
-                <span class="nav-drop-num">03</span>
-                <span class="nav-drop-name">Google Ads</span>
-                <span class="nav-drop-arrow">→</span>
-              </a>
-              <a class="nav-drop-item" href="web-development.html">
-                <span class="nav-drop-num">04</span>
-                <span class="nav-drop-name">Website Building</span>
-                <span class="nav-drop-arrow">→</span>
-              </a>
+              <a class="nav-drop-item" href="google-business-profile-setup.html"><span
+                  class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span><span
+                  class="nav-drop-arrow">→</span></a>
+              <a class="nav-drop-item" href="google-maps-review-management.html"><span
+                  class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span><span
+                  class="nav-drop-arrow">→</span></a>
+              <a class="nav-drop-item" href="google-ads-campaigns.html"><span
+                  class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span><span
+                  class="nav-drop-arrow">→</span></a>
+              <a class="nav-drop-item" href="web-development.html"><span class="nav-drop-num">04</span><span
+                  class="nav-drop-name">Website Building</span><span class="nav-drop-arrow">→</span></a>
             </div>
           </div>
         </li>
-        <li><a class="transition hover:text-ink" href="../index.html#work">Work</a></li>
-        <li><a class="transition hover:text-ink" href="../index.html#faq">FAQ</a></li>
-        <li><a class="transition hover:text-ink" href="../index.html#reviews">Reviews</a></li>
-        <li><a class="transition hover:text-ink" href="../index.html#contact">Contract</a></li>
+        <li><a class="nav-link opacity-85" href="../industries/index.html">Industries</a></li>
+        <li><a class="nav-link opacity-85" data-nav="work" href="../index.html#work">Work</a></li>
+        <li><a class="nav-link opacity-85" data-nav="trust" href="../index.html#trust">Trust</a></li>
+        <li><a class="nav-link opacity-85" data-nav="faq" href="../index.html#faq">FAQ</a></li>
+        <li><a class="nav-link opacity-85" data-nav="contact" href="../index.html#contact">Get Started</a></li>
       </ul>
       <div class="flex items-center gap-3">
         <a href="../index.html#contact"
-          class="hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:opacity-90 md:inline-flex">Start
-          a contract</a>
-        <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-full border border-line md:hidden"
+          class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
+          Started</a>
+        <button id="menu-btn"
+          class="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition-all duration-300 ease-in-out md:hidden"
           aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg id="icon-open" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
             <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
@@ -113,46 +106,31 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-line px-5 py-4 md:hidden">
+    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
       <div class="flex flex-col gap-3 text-sm">
         <button type="button" id="mobile-services-btn"
           class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">
-          Services
-          <svg class="mobile-services-caret h-3.5 w-3.5 opacity-50" fill="none" stroke="currentColor" stroke-width="1.8"
-            viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
+          aria-controls="mobile-services">Services <span class="mobile-services-caret"
+            aria-hidden="true">▾</span></button>
         <div id="mobile-services" class="mobile-services">
           <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html">
-              <span class="nav-drop-num">01</span>
-              <span class="nav-drop-name">Google Business Profile</span>
-              <span class="nav-drop-arrow">→</span>
-            </a>
-            <a class="nav-drop-item mobile-link" href="google-maps-review-management.html">
-              <span class="nav-drop-num">02</span>
-              <span class="nav-drop-name">Google Reviews</span>
-              <span class="nav-drop-arrow">→</span>
-            </a>
-            <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html">
-              <span class="nav-drop-num">03</span>
-              <span class="nav-drop-name">Google Ads</span>
-              <span class="nav-drop-arrow">→</span>
-            </a>
-            <a class="nav-drop-item mobile-link" href="web-development.html">
-              <span class="nav-drop-num">04</span>
-              <span class="nav-drop-name">Website Building</span>
-              <span class="nav-drop-arrow">→</span>
-            </a>
+            <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html"><span
+                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+            <a class="nav-drop-item mobile-link" href="google-maps-review-management.html"><span
+                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
+            <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html"><span
+                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+            <a class="nav-drop-item mobile-link" href="web-development.html"><span
+                class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
           </div>
         </div>
+        <a href="../industries/index.html" class="mobile-link py-1">Industries</a>
         <a href="../index.html#work" class="mobile-link py-1">Work</a>
+        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
         <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
-        <a href="../index.html#reviews" class="mobile-link py-1">Reviews</a>
-        <a href="../index.html#contact" class="mobile-link rounded-full bg-ink px-4 py-2.5 text-center text-paper">Start
-          a contract</a>
+        <a href="../index.html#contact"
+          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
+          Started</a>
       </div>
     </div>
   </header>
@@ -350,50 +328,46 @@
   <footer class="site-footer bg-ink px-5 py-14 text-paper lg:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="footer-top">
-        <div class="footer-brand">
-          <a href="../index.html" class="footer-logo">
-            <span class="footer-mark">N</span>
-            <span>Northline</span>
-          </a>
-          <p class="footer-tagline">Local visibility for businesses that already do good work — they just do not look like it on Google yet.</p>
-          <a href="mailto:hello@northline.example" class="footer-email">hello@northline.example</a>
+        <div class="footer-col">
+          <p class="footer-col-title">Northline</p>
+          <p class="footer-tagline">Local Google marketing for businesses that already do good work — profile, reviews,
+            ads, and websites you own.</p>
         </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-col">
-            <p class="footer-col-title">Services</p>
-            <ul>
-              <li><a href="google-maps-review-management.html">Google Reviews</a></li>
-              <li><a href="google-business-profile-setup.html">Google Business Profile</a></li>
-              <li><a href="google-ads-campaigns.html">Google Ads</a></li>
-              <li><a href="web-development.html">Website Building</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <p class="footer-col-title">Pages</p>
-            <ul>
-              <li><a href="../index.html#work">Work</a></li>
-              <li><a href="../index.html#faq">FAQ</a></li>
-              <li><a href="../index.html#reviews">Reviews</a></li>
-              <li><a href="index.html" aria-current="page">All services</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <p class="footer-col-title">Legal</p>
-            <ul>
-              <li><a href="../index.html#contact">Start a contract</a></li>
-              <li><a href="../privacy.html">Privacy Policy</a></li>
-              <li><a href="../terms.html">Terms of Service</a></li>
-            </ul>
-          </div>
-        </nav>
+        <div class="footer-col">
+          <p class="footer-col-title">Services</p>
+          <ul>
+            <li><a href="google-maps-review-management.html">Reputation Management</a></li>
+            <li><a href="google-business-profile-setup.html">Local SEO</a></li>
+            <li><a href="google-ads-campaigns.html">Paid Advertising</a></li>
+            <li><a href="web-development.html">Web Design &amp; Development</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#faq">FAQ</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../index.html#trust">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Ownership</p>
+          <ul class="footer-ownership">
+            <li>You own your website.</li>
+            <li>You keep your accounts.</li>
+            <li>Transparent work.</li>
+          </ul>
+        </div>
       </div>
       <div class="footer-guarantee">
         <p class="footer-guarantee-label">Client guarantee</p>
-        <p class="footer-guarantee-text">100% Full Access &amp; Source-Code Ownership <span>|</span> Free Cloudflare Hosting &amp; SSL Setup <span>|</span> Pay Only for Domain</p>
+        <p class="footer-guarantee-text">100% Full Access &amp; Source-Code Ownership <span>|</span> Free Cloudflare
+          Hosting &amp; SSL Setup <span>|</span> Pay Only for Domain</p>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Northline. All rights reserved.</p>
-        <a href="../index.html#contact" class="footer-cta">Request a service contract →</a>
+        <p>© <span id="year"></span> Northline</p>
+        <a href="../index.html#contact" class="footer-cta">Get a Free Assessment →</a>
       </div>
     </div>
   </footer>
