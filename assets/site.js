@@ -231,10 +231,11 @@
   var params = new URLSearchParams(window.location.search);
   var preset = params.get("service");
 
-  if (preset === "GMB" || preset === "Google My Business" || preset === "Google Business Profile") preset = "Local SEO";
-  if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Google Reviews" || preset === "Reviews") preset = "Reputation Management";
-  if (preset === "Google Ads Campaigns" || preset === "Google Ads") preset = "Paid Advertising";
-  if (preset === "Web Development" || preset === "Websites" || preset === "Website Building") preset = "Web Design & Development";
+  if (preset === "GMB" || preset === "Google My Business" || preset === "Local SEO") preset = "Google Business Profile";
+  if (preset === "Google Maps Review Management" || preset === "Google Business Reviews" || preset === "Reviews" || preset === "Reputation Management") preset = "Google Reviews & Reputation Management";
+  if (preset === "Google Ads Campaigns" || preset === "Paid Advertising") preset = "Google Ads";
+  if (preset === "Web Development" || preset === "Websites" || preset === "Website Building" || preset === "Web Design & Development") preset = "Website Design & Development";
+  if (preset === "Not sure yet") preset = "Not sure";
 
   if (preset && form.service) form.service.value = preset;
 

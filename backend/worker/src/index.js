@@ -17,11 +17,11 @@ const MAX = {
 };
 
 const ALLOWED_SERVICES = new Set([
-  "Reputation Management",
-  "Local SEO",
-  "Paid Advertising",
-  "Web Design & Development",
-  "Not sure yet",
+  "Google Business Profile",
+  "Google Reviews & Reputation Management",
+  "Google Ads",
+  "Website Design & Development",
+  "Not sure",
 ]);
 
 function json(data, status, origin) {
