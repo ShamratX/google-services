@@ -273,6 +273,14 @@
     return value.replace(/\D/g, "").length >= 10;
   }
 
+  function contactApiUrl() {
+    var host = window.location.hostname;
+    if (host === "localhost" || host === "127.0.0.1") {
+      return "http://127.0.0.1:8787/api/contact";
+    }
+    return "https://google-services.catiq.workers.dev/api/contact";
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (errorEl) errorEl.classList.add("hidden");
@@ -317,45 +325,75 @@
       }
     }
 
-    try {
-      var existing = JSON.parse(localStorage.getItem("northline-contracts") || "[]");
-      if (!Array.isArray(existing)) existing = [];
-      existing.push(data);
-      localStorage.setItem("northline-contracts", JSON.stringify(existing));
-    } catch (err) {
-      /* Keep the mailto path even if storage is blocked or corrupt. */
-    }
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
 
-    var body = [
-      "New service contract request",
-      "",
-      "Client name: " + data.clientName,
-      "Email: " + data.email,
-      "Phone: " + data.phone,
-      "Business: " + data.businessName,
-      "Google Maps: " + (data.mapsLink || "Not provided"),
-      "Service: " + data.service,
-      "Message: " + (data.message || "Not provided"),
-    ].join("\n");
+    var payload = {
+      clientName: data.clientName,
+      email: data.email,
+      phone: data.phone,
+      businessName: data.businessName,
+      mapsLink: data.mapsLink,
+      service: data.service,
+      message: data.message,
+    };
 
-    var mailto = "mailto:hello@northline.example?subject=" +
-      encodeURIComponent("Service contract — " + data.service + " — " + data.businessName) +
-      "&body=" + encodeURIComponent(body);
+    fetch(contactApiUrl(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(function (res) {
+        return res.json().then(function (body) {
+          return { ok: res.ok, status: res.status, body: body };
+        }).catch(function () {
+          return {
+            ok: false,
+            status: res.status,
+            body: { success: false, message: "Unexpected response from the server." },
+          };
+        });
+      })
+      .then(function (result) {
+        if (!result.body || result.body.success !== true) {
+          showError(
+            (result.body && result.body.message) ||
+              "Something went wrong. Please try again later."
+          );
+          return;
+        }
 
-    form.classList.add("hidden");
-    if (successEl) {
-      successEl.classList.remove("hidden");
-      successEl.classList.add("success-pop");
-    }
-    if (successCopy) {
-      successCopy.textContent = "Thanks, " + data.clientName + ". We have " + data.service +
-        " on file for " + data.businessName +
-        ". Your email app should open with a draft — send it so the request reaches the desk. If it does not open, write us at hello@northline.example.";
-    }
+        try {
+          var existing = JSON.parse(localStorage.getItem("northline-contracts") || "[]");
+          if (!Array.isArray(existing)) existing = [];
+          existing.push(data);
+          localStorage.setItem("northline-contracts", JSON.stringify(existing));
+        } catch (err) {
+          /* Ignore storage failures; the request already reached the API. */
+        }
 
-    window.setTimeout(function () {
-      window.location.href = mailto;
-    }, 400);
+        form.classList.add("hidden");
+        if (successEl) {
+          successEl.classList.remove("hidden");
+          successEl.classList.add("success-pop");
+        }
+        if (successCopy) {
+          successCopy.textContent =
+            "Thanks, " +
+            data.clientName +
+            ". We have " +
+            data.service +
+            " on file for " +
+            data.businessName +
+            ". Your message has been received — we'll follow up shortly.";
+        }
+      })
+      .catch(function () {
+        showError("Could not reach the server. Check your connection and try again.");
+      })
+      .finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
   });
 
   var sendAnother = document.getElementById("send-another");
