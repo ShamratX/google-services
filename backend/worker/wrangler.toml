@@ -13,5 +13,5 @@ ALLOWED_ORIGINS = "http://127.0.0.1:5500,http://localhost:5500,http://127.0.0.1:
 [[d1_databases]]
 binding = "DB"
 database_name = "e8467b53-8717-4954-981d-201cd729a9a3"
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+database_id = "e8467b53-8717-4954-981d-201cd729a9a3"
 migrations_dir = "migrations"
