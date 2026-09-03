@@ -5,7 +5,7 @@ Cloudflare Worker backend for the Free Assessment / Contact form.
 **Live Worker:** https://google-services.catiq.workers.dev/
 
 Validated form submissions are stored in **Cloudflare D1** (`leads` table).  
-Email, CMS, and admin UI are **not** implemented yet.
+Email notifications are sent via **Resend** after each successful lead.
 
 ## Structure
 
@@ -14,7 +14,7 @@ backend/worker/
   src/index.js              # Worker entry (POST /api/contact)
   migrations/               # D1 SQL migrations
     0001_create_leads.sql
-  wrangler.toml             # Cloudflare + D1 config
+  wrangler.toml             # Cloudflare + D1 + email config
   package.json
   README.md
 ```
@@ -26,84 +26,110 @@ cd backend/worker
 npm install
 ```
 
-## 2. Create the D1 database (Cloudflare)
+## 2. D1 Database setup
 
-Run once while logged in to Cloudflare:
+### Create the database (once)
 
 ```bash
 npx wrangler login
-npm run db:create
+npx wrangler d1 create google-services-leads
 ```
 
-Wrangler prints output similar to:
+Copy the UUID into `wrangler.toml` → `database_id`.
 
-```text
-Created your database 'google-services-leads' with id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-```
+### Run migrations
 
-Copy that UUID into `wrangler.toml`:
-
-```toml
-[[d1_databases]]
-binding = "DB"
-database_name = "google-services-leads"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  # paste here
-migrations_dir = "migrations"
-```
-
-> **Local-only testing:** you can develop locally before creating the remote database.  
-> Use the local migration command below; replace `database_id` before deploying to production.
-
-## 3. Run the migration
-
-### Local (Wrangler dev)
-
+Local:
 ```bash
 npm run db:migrate:local
 ```
 
-### Remote (production database)
-
-After `database_id` is set:
-
+Remote (production):
 ```bash
 npm run db:migrate:remote
 ```
 
-## 4. Run the Worker locally
+## 3. Resend email setup
+
+### Step 1 — Create a Resend account
+
+Go to https://resend.com and sign up (free tier: 100 emails/day).
+
+### Step 2 — Create an API key
+
+Go to https://resend.com/api-keys → Create API Key → copy it.
+
+### Step 3 — Store the API key as a Cloudflare secret
+
+```bash
+npx wrangler secret put RESEND_API_KEY
+```
+
+Paste the key when prompted. This keeps it out of Git and `wrangler.toml`.
+
+### Step 4 — Deploy
+
+```bash
+npm run deploy
+```
+
+### Important note about `onboarding@resend.dev`
+
+Without a verified custom domain in Resend, emails are sent **from** `onboarding@resend.dev`.  
+This sandbox sender can **only deliver to the email address associated with your Resend account**.
+
+This works fine as long as your Resend account email matches `RECIPIENT_EMAIL` in `wrangler.toml` (currently `shamratar@gmail.com`).
+
+To send from your own domain (e.g. `leads@northline.example`), verify the domain in the Resend dashboard at https://resend.com/domains, then update `SENDER_EMAIL` in `wrangler.toml`.
+
+## 4. Environment variables & secrets
+
+| Variable | Location | Purpose |
+|---|---|---|
+| `RESEND_API_KEY` | Cloudflare secret | Resend API key (never in Git) |
+| `RECIPIENT_EMAIL` | `wrangler.toml` `[vars]` | Who receives lead notifications |
+| `SENDER_EMAIL` | `wrangler.toml` `[vars]` | From address for notification emails |
+| `ALLOWED_ORIGINS` | `wrangler.toml` `[vars]` | CORS allowed origins |
+
+### Change the recipient email later
+
+Option A — edit `wrangler.toml` and redeploy:
+```toml
+RECIPIENT_EMAIL = "new-email@example.com"
+```
+
+Option B — set as secret (no redeploy needed):
+```bash
+npx wrangler secret put RECIPIENT_EMAIL
+```
+
+## 5. Spam protection
+
+The Worker includes multiple layers of protection:
+
+1. **Honeypot field** — hidden `website2` field; bots that fill it get a fake success response (silently rejected)
+2. **Rate limiting** — max 3 submissions per IP per minute (in-memory, per-isolate)
+3. **Server-side validation** — name, email, phone, business, service validated; length limits enforced
+4. **CORS** — only allowed origins can submit
+5. **Service allowlist** — only valid service options accepted
+
+## 6. Run the Worker locally
 
 ```bash
 npm run dev
 ```
 
-Wrangler serves at:
+Worker serves at `http://127.0.0.1:8787`.
 
-```text
-http://127.0.0.1:8787
+For local testing, email notifications will only send if `RESEND_API_KEY` is set. You can create a `.dev.vars` file (not committed) to test locally:
+
+```
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-Health check:
+## 7. Test a submission
 
-```bash
-curl http://127.0.0.1:8787/
-```
-
-## 5. Test a form submission
-
-### Option A — site form
-
-```bash
-# terminal A — static site
-python -m http.server 5500
-
-# terminal B — worker (after migration)
-cd backend/worker
-npm run dev
-```
-
-Open http://127.0.0.1:5500/, scroll to Free Assessment, submit the form.
-
-### Option B — curl
+### Via curl
 
 ```bash
 curl -X POST http://127.0.0.1:8787/api/contact \
@@ -114,14 +140,70 @@ curl -X POST http://127.0.0.1:8787/api/contact \
     \"email\": \"jordan@example.com\",
     \"phone\": \"+1 555 010 2841\",
     \"businessName\": \"Hale & Co. Plumbing\",
-    \"service\": \"Local SEO\",
+    \"service\": \"Google Ads\",
     \"mapsLink\": \"https://maps.google.com/?cid=example\",
-    \"message\": \"Need help getting found locally.\"
+    \"message\": \"Need help with ads.\",
+    \"website2\": \"\"
   }"
 ```
 
-Expected success:
+### Test honeypot rejection
 
+```bash
+curl -X POST http://127.0.0.1:8787/api/contact \
+  -H "Content-Type: application/json" \
+  -H "Origin: http://127.0.0.1:5500" \
+  -d "{
+    \"clientName\": \"Bot\",
+    \"email\": \"bot@spam.com\",
+    \"phone\": \"5555555555\",
+    \"businessName\": \"Spam Corp\",
+    \"service\": \"Google Ads\",
+    \"website2\": \"http://spam.example\"
+  }"
+```
+
+This returns `200 success` (to fool the bot) but the lead is **not** saved.
+
+### Via the website
+
+```bash
+# terminal A — static site
+python -m http.server 5500
+
+# terminal B — worker
+cd backend/worker
+npm run dev
+```
+
+Open http://127.0.0.1:5500/ and submit the form.
+
+## 8. Verify stored leads
+
+```bash
+npm run db:leads:local
+```
+
+Or remote:
+```bash
+npx wrangler d1 execute google-services-leads --remote \
+  --command "SELECT id, name, email, service, status, created_at FROM leads ORDER BY id DESC LIMIT 10;"
+```
+
+## 9. Deploy
+
+```bash
+npm run deploy
+```
+
+Make sure `RESEND_API_KEY` is set as a secret before deploying:
+```bash
+npx wrangler secret put RESEND_API_KEY
+```
+
+## API responses
+
+Success (`200`):
 ```json
 {
   "success": true,
@@ -129,76 +211,7 @@ Expected success:
 }
 ```
 
-Invalid payloads return `400` and are **not** saved.
-
-## 6. Verify the lead was stored
-
-Local database:
-
-```bash
-npm run db:leads:local
-```
-
-Or:
-
-```bash
-npx wrangler d1 execute google-services-leads --local --command "SELECT * FROM leads ORDER BY id DESC LIMIT 5;"
-```
-
-Remote database (after deploy + remote migration):
-
-```bash
-npx wrangler d1 execute google-services-leads --remote --command "SELECT id, name, email, service, status, created_at FROM leads ORDER BY id DESC LIMIT 10;"
-```
-
-## 7. Deploy later
-
-1. Set the real `database_id` in `wrangler.toml`
-2. Apply remote migration: `npm run db:migrate:remote`
-3. Deploy Worker: `npm run deploy`
-
-Do **not** deploy until `database_id` is configured.
-
-## How the frontend connects
-
-The site form (`#contract-form`) is handled in `assets/site.js`.
-
-On submit it:
-
-1. Keeps existing client-side validation / invalid field UI
-2. Sends a `POST` JSON request to `/api/contact`
-3. Uses the local Worker on `localhost` / `127.0.0.1`
-4. Uses the live Worker URL in production
-
-No UI changes are required for D1 storage.
-
-## API fields
-
-Required:
-
-- `clientName` → stored as `name`
-- `email`
-- `phone`
-- `businessName` → stored as `business`
-- `service`
-
-Optional:
-
-- `mapsLink` → stored as `website_url`
-- `message`
-
-Allowed `service` values:
-
-- `Reputation Management`
-- `Local SEO`
-- `Paid Advertising`
-- `Web Design & Development`
-- `Not sure yet`
-
-## Example error responses
-
 Validation error (`400`):
-
 ```json
 {
   "success": false,
@@ -206,8 +219,15 @@ Validation error (`400`):
 }
 ```
 
-Database / server error (`500`):
+Rate limited (`429`):
+```json
+{
+  "success": false,
+  "message": "Too many requests. Please try again later."
+}
+```
 
+Server error (`500`):
 ```json
 {
   "success": false,
@@ -215,16 +235,8 @@ Database / server error (`500`):
 }
 ```
 
-Internal database errors are never returned to the browser.
-
-## CORS
-
-Allowed origins are configured in `wrangler.toml` under `ALLOWED_ORIGINS`.  
-Any `localhost` / `127.0.0.1` origin is also accepted for local development.
-
 ## What this Worker does NOT do yet
 
-- Email delivery
 - CMS / admin panel
 - Authentication
 - Bulk messaging

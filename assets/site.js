@@ -329,6 +329,7 @@
     var submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
+    var hpField = form.elements["website2"];
     var payload = {
       clientName: data.clientName,
       email: data.email,
@@ -337,6 +338,7 @@
       mapsLink: data.mapsLink,
       service: data.service,
       message: data.message,
+      website2: hpField ? hpField.value : "",
     };
 
     fetch(contactApiUrl(), {
