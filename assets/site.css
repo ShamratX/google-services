@@ -1460,3 +1460,129 @@ main section h2.svc-section-title {
 .site-footer a {
   -webkit-font-smoothing: antialiased;
 }
+
+/* =========================================================
+   Hero page-load animation only
+   ========================================================= */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Homepage full-bleed hero */
+  html.js .hero-banner .hero-eyebrow,
+  html.js .hero-banner .hero-title,
+  html.js .hero-banner .hero-lead,
+  html.js .hero-banner .hero-actions,
+  html.js .hero-banner .hero-banner-img {
+    animation: hero-fade-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html.js .hero-banner .hero-banner-img {
+    animation-delay: 0.08s;
+    animation-duration: 0.85s;
+  }
+
+  html.js .hero-banner .hero-eyebrow {
+    animation-delay: 0.1s;
+  }
+
+  html.js .hero-banner .hero-title {
+    animation-delay: 0.18s;
+  }
+
+  html.js .hero-banner .hero-lead {
+    animation-delay: 0.3s;
+  }
+
+  html.js .hero-banner .hero-actions {
+    animation-delay: 0.42s;
+  }
+
+  /* Service + inner page heroes (first section only; skip homepage banner) */
+  html.js main > section:first-of-type:not(.hero-banner) .svc-hero-title,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif,
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead,
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead + div,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif + p,
+  html.js main > section:first-of-type:not(.hero-banner) > .mx-auto > nav + p,
+  html.js main > section:first-of-type:not(.hero-banner) > .mx-auto > .grid > div > nav + p,
+  html.js main > section:first-of-type:not(.hero-banner) figure {
+    animation: hero-fade-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html.js main > section:first-of-type:not(.hero-banner) > .mx-auto > nav + p,
+  html.js main > section:first-of-type:not(.hero-banner) > .mx-auto > .grid > div > nav + p {
+    animation-delay: 0.08s;
+    animation-duration: 0.65s;
+  }
+
+  html.js main > section:first-of-type:not(.hero-banner) .svc-hero-title,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif {
+    animation-delay: 0.16s;
+  }
+
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif + p {
+    animation-delay: 0.28s;
+  }
+
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead + div {
+    animation-delay: 0.4s;
+  }
+
+  html.js main > section:first-of-type:not(.hero-banner) figure {
+    animation-delay: 0.22s;
+    animation-duration: 0.85s;
+  }
+
+  /* Industries / privacy / terms — hero block is first child of main */
+  html.js main#main > .mx-auto.max-w-7xl:first-child > p.text-xs:first-of-type,
+  html.js main#main > .mx-auto.max-w-3xl:first-child > p.text-xs:first-of-type,
+  html.js main#main > .mx-auto:first-child > p.text-xs:first-of-type,
+  html.js main#main > .mx-auto:first-child > h1,
+  html.js main#main > .mx-auto:first-child > h1 + p {
+    animation: hero-fade-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html.js main#main > .mx-auto:first-child > p.text-xs:first-of-type {
+    animation-delay: 0.08s;
+    animation-duration: 0.65s;
+  }
+
+  html.js main#main > .mx-auto:first-child > h1 {
+    animation-delay: 0.16s;
+  }
+
+  html.js main#main > .mx-auto:first-child > h1 + p {
+    animation-delay: 0.28s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .hero-banner .hero-eyebrow,
+  html.js .hero-banner .hero-title,
+  html.js .hero-banner .hero-lead,
+  html.js .hero-banner .hero-actions,
+  html.js .hero-banner .hero-banner-img,
+  html.js main > section:first-of-type:not(.hero-banner) .svc-hero-title,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif,
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead,
+  html.js main > section:first-of-type:not(.hero-banner) .svc-lead + div,
+  html.js main > section:first-of-type:not(.hero-banner) h1.font-serif + p,
+  html.js main > section:first-of-type:not(.hero-banner) figure,
+  html.js main#main > .mx-auto:first-child > p.text-xs:first-of-type,
+  html.js main#main > .mx-auto:first-child > h1,
+  html.js main#main > .mx-auto:first-child > h1 + p {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

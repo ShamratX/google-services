@@ -41,20 +41,34 @@ npx serve -l 5500
 ## Project structure
 
 ```
-├── index.html              # Homepage
-├── privacy.html            # Privacy Policy
-├── terms.html              # Terms of Service
+├── index.html                 # Homepage
+├── privacy.html               # Privacy Policy
+├── terms.html                 # Terms of Service
+├── README.md
+├── .nojekyll                  # GitHub Pages: serve as static files
 ├── assets/
-│   ├── site.css            # Shared styles
-│   ├── site.js             # Shared scripts
-│   └── images/             # WebP banners and photos
-└── services/
-    ├── index.html          # Services hub
-    ├── google-maps-review-management.html
-    ├── google-business-profile-setup.html
-    ├── google-ads-campaigns.html
-    ├── web-development.html
-    └── gmb.html            # Redirect to Google My Business page
+│   ├── site.css               # Shared styles
+│   ├── site.js                # Shared scripts
+│   ├── tailwind.js            # Tailwind theme config
+│   └── images/
+│       ├── shared/            # Shared service card tiles
+│       ├── home/              # Homepage photography
+│       └── services/          # Per-service page photography
+│           ├── gbp/
+│           ├── reviews/
+│           ├── ads/
+│           └── web-development/
+├── industries/
+│   └── index.html             # Industries overview
+├── services/
+│   ├── index.html             # Services hub
+│   ├── google-maps-review-management.html
+│   ├── google-business-profile-setup.html
+│   ├── google-ads-campaigns.html
+│   ├── web-development.html
+│   └── gmb.html               # Redirect → Google Business Profile
+└── scripts/
+    └── sync-layout.py         # Optional header/footer sync helper
 ```
 
 ## Stack

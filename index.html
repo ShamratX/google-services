@@ -24,14 +24,11 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="preload" as="image" href="assets/images/home/hero-banner.jpg" fetchpriority="high" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="https://fonts.gstatic.com/s/instrumentserif/v5/jizBRFtNs2ka5fXjeivQ4LroWlx-6zUTjg.woff2" />
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>document.documentElement.classList.add("js");</script>
@@ -51,7 +48,7 @@
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Instrument Serif"', '"Instrument Serif Fallback"', "Georgia", "serif"],
+            serif: ["Outfit", "system-ui", "sans-serif"],
             sans: ["Outfit", "system-ui", "sans-serif"],
           },
           colors: {
@@ -76,16 +73,6 @@
       scroll-behavior: smooth;
       scroll-padding-top: 6rem;
       scrollbar-gutter: stable;
-    }
-
-    /* Keep hero title metrics stable while Instrument Serif loads */
-    @font-face {
-      font-family: "Instrument Serif Fallback";
-      src: local("Georgia");
-      size-adjust: 106%;
-      ascent-override: 90%;
-      descent-override: 22%;
-      line-gap-override: 0%;
     }
 
     body,
@@ -2258,6 +2245,61 @@
       font-size: 0.95rem !important;
       font-weight: 400 !important;
     }
+
+    /* Hero page-load animation only */
+    @keyframes hero-fade-up {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 16px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html.js .hero-banner .hero-eyebrow,
+      html.js .hero-banner .hero-title,
+      html.js .hero-banner .hero-lead,
+      html.js .hero-banner .hero-actions,
+      html.js .hero-banner .hero-banner-img {
+        animation: hero-fade-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      html.js .hero-banner .hero-banner-img {
+        animation-delay: 0.08s;
+        animation-duration: 0.85s;
+      }
+
+      html.js .hero-banner .hero-eyebrow {
+        animation-delay: 0.1s;
+      }
+
+      html.js .hero-banner .hero-title {
+        animation-delay: 0.18s;
+      }
+
+      html.js .hero-banner .hero-lead {
+        animation-delay: 0.3s;
+      }
+
+      html.js .hero-banner .hero-actions {
+        animation-delay: 0.42s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.js .hero-banner .hero-eyebrow,
+      html.js .hero-banner .hero-title,
+      html.js .hero-banner .hero-lead,
+      html.js .hero-banner .hero-actions,
+      html.js .hero-banner .hero-banner-img {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -2516,7 +2558,7 @@
         </div>
         <figure class="reveal home-figure-zoom rounded-2xl shadow-lift lg:col-span-6">
           <img src="assets/images/home/problem-owner-search.jpg"
-            alt="Customer searching Google on a phone for a local business nearby" class="w-full object-cover"
+            alt="Customer searching on a phone for a local business nearby" class="w-full object-cover"
             width="1152" height="864" loading="lazy" decoding="async" />
         </figure>
       </div>
@@ -2535,8 +2577,8 @@
           <a href="services/google-business-profile-setup.html"
             class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="assets/images/service-google-my-business.webp?v=10"
-                alt="Grow Your Business with Google Business Profile banner" class="w-full object-cover object-center"
+              <img src="assets/images/shared/service-google-my-business.webp?v=10"
+                alt="Illustrated Google Business Profile service banner for local listings" class="w-full object-cover object-center"
                 width="1600" height="639" loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-1 flex-col p-7">
@@ -2552,8 +2594,8 @@
           <a href="services/google-maps-review-management.html"
             class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="assets/images/service-google-business-reviews.webp?v=10"
-                alt="Google 4.8 rating with five-star customer review bubbles" class="w-full object-cover object-center"
+              <img src="assets/images/shared/service-google-business-reviews.webp?v=10"
+                alt="Illustrated Google Reviews service banner with star rating graphics" class="w-full object-cover object-center"
                 width="1600" height="639" loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-1 flex-col p-7">
@@ -2569,7 +2611,7 @@
           <a href="services/google-ads-campaigns.html"
             class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="assets/images/service-google-ads.webp?v=10" alt="Google Ads logo tile for paid search campaigns"
+              <img src="assets/images/shared/service-google-ads.webp?v=10" alt="Illustrated Google Ads service banner for paid search"
                 class="w-full object-cover object-center" width="1600" height="1077" loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-1 flex-col p-7">
@@ -2585,8 +2627,8 @@
           <a href="services/web-development.html"
             class="svc-card reveal group flex flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-lift transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
             <div class="overflow-hidden">
-              <img src="assets/images/service-web-development.webp?v=10"
-                alt="Web development workstation with HTML, CSS, JavaScript, and PHP tiles"
+              <img src="assets/images/shared/service-web-development.webp?v=10"
+                alt="Illustrated website building service banner with code and layout tiles"
                 class="w-full object-cover object-center" width="1600" height="900" loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-1 flex-col p-7">
@@ -2694,7 +2736,7 @@
               alt="Professional cleaner working inside a residential property" width="1200" height="800" loading="lazy"
               decoding="async" /><span>Cleaning Service</span></figure>
           <figure class="industry-card"><img src="assets/images/home/industries/salon.jpg"
-              alt="Ladies beauty salon stylist providing hair care for a female client" width="1200" height="800"
+              alt="Ladies beauty salon stylist providing hair care for a female client" width="1152" height="864"
               loading="lazy" decoding="async" /><span>Beauty Salon</span></figure>
         </div>
         <a href="industries/index.html"
@@ -2739,7 +2781,7 @@
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
               <img src="assets/images/home/deliverables/ads.jpg"
-                alt="Google Ads campaign concept for local search advertising" width="1800" height="675" loading="lazy"
+                alt="Marketing dashboard graphic representing Google Ads campaign performance" width="1800" height="675" loading="lazy"
                 decoding="async" />
             </div>
             <div class="p-6">
@@ -2751,7 +2793,7 @@
           <div class="deliverable-card reveal">
             <div class="deliverable-shot">
               <img src="assets/images/home/deliverables/website.jpg"
-                alt="Local business website layout shown on desktop and mobile screens" width="1800" height="675"
+                alt="Web developer working on website code at a dual-monitor workstation" width="1800" height="675"
                 loading="lazy" decoding="async" />
             </div>
             <div class="p-6">
@@ -3041,7 +3083,7 @@
         </div>
         <figure class="reveal home-figure-zoom overflow-hidden rounded-2xl lg:col-span-5">
           <img src="assets/images/home/cta-business-customer.jpg"
-            alt="Local business owner and consultant reviewing business details together on a laptop"
+            alt="Local business owner and consultant reviewing business details on a laptop in a cafe"
             class="w-full object-cover" width="1536" height="1024" loading="lazy" decoding="async" />
         </figure>
       </div>
