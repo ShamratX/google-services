@@ -1,40 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Building | Custom &amp; CMS Sites You Own | Northline</title>
-  <meta name="description" content="Northline builds custom-coded or CMS websites for local businesses that do not have a site yet. Full access and ownership, free Cloudflare hosting and SSL. You only pay for the domain." />
+  <title>Local Business Website Design &amp; Development | Northline</title>
+  <meta name="description"
+    content="Build a fast, mobile-friendly website designed around local search, customer trust, clear services, and calls, bookings, enquiries, and quote requests." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/services/web-development.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Website Building | Northline" />
-  <meta property="og:description" content="A website you fully own. Cloudflare hosting and SSL included. The client only pays for the domain." />
+  <meta property="og:title" content="Local Business Website Design &amp; Development | Northline" />
+  <meta property="og:description"
+    content="Build a fast, mobile-friendly website designed around local search, customer trust, clear services, and calls, bookings, enquiries, and quote requests." />
   <meta property="og:url" content="https://northline.example/services/web-development.html" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&amp;fit=crop&amp;w=1200&amp;q=75" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
+  <meta property="og:image" content="https://northline.example/assets/images/services/web-development/hero.jpg" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
+  </script>
   <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .svc-hero-title {
+      font-size: 2.15rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    @media (min-width: 640px) {
+      .svc-hero-title { font-size: 2.65rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .svc-hero-title { font-size: 3.25rem; }
+    }
+
+    @media (min-width: 1280px) {
+      .svc-hero-title { font-size: 3.5rem; }
+    }
+
+    .svc-section-title {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .svc-lead {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      line-height: 1.65;
+      color: rgba(17, 17, 17, 0.62);
+    }
+
+    .value-strip {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .value-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    .value-item {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .value-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.28);
+    }
+
+    .build-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .build-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .build-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    .build-card ul {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.58);
+    }
+
+    .flow-panel {
+      border-radius: 1.75rem;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      background: #fff;
+      padding: 1.75rem 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .flow-panel {
+        padding: 2.5rem;
+      }
+    }
+
+    .flow-track {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 1024px) {
+      .flow-track {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0.65rem;
+      }
+    }
+
+    .flow-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1rem;
+      background: #f5f1e8;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-node,
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .flow-node strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .flow-node span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: rgba(17, 17, 17, 0.55);
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .checklist-panel {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .checklist-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .checklist-grid li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .checklist-grid li::before {
+      content: "✓";
+      flex: none;
+      margin-top: 0.05rem;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .hub-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hub-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hub-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .hub-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1.15rem;
+    }
+
+    .who-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .who-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .who-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .who-card {
+      overflow: hidden;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.25rem;
+      background: #fff;
+    }
+
+    .who-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .who-card-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+    }
+
+    .process-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .process-row {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    .process-card {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .ux-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .ux-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .ux-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.5rem;
+    }
+
+    .demo-panel {
+      border: 1px dashed rgba(17, 17, 17, 0.22);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .demo-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .demo-stages {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .demo-stages {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
+    .demo-stage {
+      border-top: 1px solid rgba(17, 17, 17, 0.1);
+      padding-top: 0.85rem;
+    }
+
+    .seo-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .seo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .seo-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .seo-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .approach-panel {
+      border-radius: 1.5rem;
+      background: #111;
+      color: #f5f1e8;
+      padding: 2rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-panel {
+        padding: 2.75rem;
+      }
+    }
+
+    .approach-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-cols {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(245, 241, 232, 0.72);
+    }
+
+    .own-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .own-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .own-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .own-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .system-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 1024px) {
+      .system-flow {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.65rem;
+      }
+    }
+
+    .system-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 9999px;
+      background: #fff;
+      padding: 0.85rem 0.65rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1023px) {
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .system-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 1023px) {
+      .system-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .outcome-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .outcome-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1.15rem;
+    }
+
+    #web-faq details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    #web-faq details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@graph": [
+      {
     "@type": "Service",
-    "name": "Website Building",
-    "provider": { "@type": "ProfessionalService", "name": "Northline" },
+        "name": "Website Design & Development",
+        "provider": { "@type": "ProfessionalService", "name": "Northline", "url": "https://northline.example/" },
     "url": "https://northline.example/services/web-development.html",
-    "description": "Custom-coded or CMS websites for businesses without a site, including full ownership and free Cloudflare hosting and SSL."
+        "areaServed": "United States",
+        "description": "Local business website design and development focused on clarity, trust, mobile usability, conversion paths, and SEO-friendly structure. No guaranteed rankings or lead counts."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northline.example/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://northline.example/services/" },
+          { "@type": "ListItem", "position": 3, "name": "Website Design & Development", "item": "https://northline.example/services/web-development.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you build websites from scratch?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build a new website around your business, services, customers, and goals rather than forcing your business into a generic template." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you redesign my existing website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can review an existing website and identify opportunities related to structure, messaging, usability, mobile experience, conversion paths, and technical implementation." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you build mobile-friendly websites?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Websites are designed and developed to work across modern desktop, tablet, and mobile screen sizes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Will my website be SEO-friendly?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We build with SEO-friendly structure in mind, including page hierarchy, headings, URLs, internal linking, relevant content structure, metadata, and technical considerations. SEO does not guarantee a specific Google ranking." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you create service pages for my business?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Service pages can be structured around the services your business actually provides and the questions customers need answered before contacting you." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you connect my website with Google Business Profile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can make sure the website and Business Profile work together as part of the broader local customer journey." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you add contact forms and calls to action?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can structure appropriate contact paths such as enquiry forms, phone calls, booking links, quote requests, and other customer actions supported by your setup." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you help with website content?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can help structure and develop customer-focused website content based on your business, services, locations, and goals." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I own my website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Your website and related digital infrastructure should remain accessible to your business. The exact ownership and licensing details depend on the technologies, third-party services, and project arrangement involved." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does website development take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The timeline depends on the number of pages, content, functionality, integrations, revisions, and information available for the project. We can provide a clearer timeline after assessing the scope." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you guarantee more leads from the website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. A website can improve clarity, usability, and conversion opportunities, but actual results depend on traffic, demand, competition, offer, reputation, website experience, and many other factors." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you build websites for any local business?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We work with many types of local businesses, including home services, automotive, repair, professional services, beauty, health, retail, and other customer-facing businesses." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
+
 <body class="bg-paper text-ink antialiased">
   <div class="grain" aria-hidden="true"></div>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
+    to content</a>
+
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="../index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
@@ -91,13 +671,20 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
         <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
         <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
           <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
             <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html"><span
                 class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
@@ -109,334 +696,875 @@
                 class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
           </div>
         </div>
-        <a href="../industries/index.html" class="mobile-link py-1">Industries</a>
-        <a href="../index.html#work" class="mobile-link py-1">Work</a>
-        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
+            </div>
+          </div>
+          <a href="../industries/index.html" class="mobile-link mobile-menu-item">Industries</a>
+          <a href="../index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="../index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="../index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
         <a href="../index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
+            class="mobile-link mobile-menu-item mobile-menu-cta">Get Started</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
-      <div class="mx-auto max-w-7xl">
+  <main id="main" class="pt-[4.5rem] lg:pt-0">
+    <!-- HERO -->
+    <section class="border-b border-line px-5 pb-12 pt-8 lg:px-8 lg:pb-16 lg:pt-24">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-7">
         <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
           <ol class="flex flex-wrap items-center gap-2">
             <li><a class="hover:text-ink" href="../index.html">Home</a></li>
             <li aria-hidden="true">/</li>
             <li><a class="hover:text-ink" href="index.html">Services</a></li>
             <li aria-hidden="true">/</li>
-            <li class="text-ink/70">Website Building</li>
+              <li class="text-ink/70">Website Design &amp; Development</li>
           </ol>
         </nav>
-        <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
-          <div class="flex flex-col justify-center">
-            <p
-              class="inline-flex rounded-full border border-line bg-white/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/55">
-              Service 04 · Website Building</p>
-            <h1 class="mt-5 font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl xl:text-[3.4rem]">If you still do not have a website, every click dies in the listing.</h1>
-            <p class="mt-6 text-base leading-relaxed text-ink/65 sm:text-lg">Maps and ads can send people your way. Without a site, they get a phone number and a guess. We build custom-coded or CMS websites for businesses starting from zero — pages that load on a phone, say what you do, and let someone tap to call. You keep the keys. Hosting and SSL go on Cloudflare. You only pay for the domain.</p>
+          <p class="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Website Design &amp; Development
+          </p>
+          <h1 class="svc-hero-title mt-4 font-serif tracking-tight">Turn Google Visitors Into Real Customer
+            Opportunities.</h1>
+          <p class="svc-lead mt-6 max-w-xl">We build fast, clear, mobile-friendly websites that help local customers
+            understand your business, trust your services, and take the next step.</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="../index.html?service=Website%20Building#contact" class="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Contract this service</a>
-              <a href="#work" class="inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">See the field work</a>
+            <a href="#contact" class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+            <a href="#what-we-build" class="rounded-full border border-line px-6 py-3 text-sm font-medium">See What We Build
+              ↓</a>
             </div>
+          <p class="mt-5 text-sm text-ink/50">Clear messaging. Strong structure. Built around the customer journey.</p>
           </div>
-          <figure
-            class="reveal relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-line bg-ink shadow-lift sm:min-h-[18rem] lg:min-h-0 lg:h-full">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&amp;fit=crop&amp;w=1600&amp;q=75" alt="Browser windows on a monitor during a local business website launch" class="absolute inset-0 h-full w-full object-cover" width="1600" height="900" fetchpriority="high" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/55 to-transparent p-5 text-sm text-paper sm:p-7 sm:text-base">A site you own — Cloudflare hosting and SSL included. You pay for the domain.</figcaption>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/web-development/hero.webp" type="image/webp" />
+            <img src="../assets/images/services/web-development/hero.jpg"
+              alt="Local business owner reviewing a professionally designed website on a laptop"
+              class="w-full object-cover" width="1152" height="864" fetchpriority="high" decoding="async" />
+          </picture>
           </figure>
+      </div>
+    </section>
+
+    <!-- VALUE -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">A good website should do more than look
+          professional.</h2>
+        <div class="value-strip reveal mt-10">
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">01</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h10M4 17h7" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Clarity</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Help customers understand your business</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make it immediately clear what you do, who you serve, where
+              you operate, and why someone should choose you.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">02</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Trust</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Give customers confidence to move forward</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Use professional design, clear information, proof, services,
+              and business details to reduce uncertainty.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">03</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Action</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Make the next step obvious</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Guide visitors toward the action that matters — calling,
+              requesting a quote, booking, contacting, or visiting your business.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12">
+    <!-- PROBLEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
         <div class="lg:col-span-7">
-          <h2 class="font-serif text-3xl sm:text-4xl">Built for shops that skipped the internet</h2>
-          <p class="mt-5 leading-relaxed text-ink/65">This is not a redesign of a ten-year-old brochure. It is a first site. The kind a tradesperson, clinic, or storefront needs when Google finally sends traffic and there is nowhere decent to land. We keep the page count honest: home, services, contact, and whatever proof you actually have.</p>
-          <p class="mt-4 leading-relaxed text-ink/65">Custom-coded when the layout should stay light and fast. A CMS when you need to edit hours, photos, or posts without calling us. Either way, the files and accounts are yours. We do not hold the site hostage behind a monthly “platform fee.”</p>
-          <h3 class="mt-12 font-serif text-2xl">What ships with the contract</h3>
-          <ul class="mt-5 space-y-4 text-sm leading-relaxed text-ink/70">
-            <li class="border-b border-line pb-4"><strong class="text-ink">A site that works in a parking lot.</strong> Large tap targets, click-to-call, readable type, and a layout that does not collapse on a cheap Android.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">100% full access ownership.</strong> Logins, DNS when you want it, and the codebase. If you leave, you take the site with you.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">Cloudflare hosting and SSL, set up free.</strong> We put the site on Cloudflare and turn on HTTPS. There is no separate hosting invoice from Northline.</li>
-            <li><strong class="text-ink">You pay the registrar for the domain.</strong> Namecheap, Google Domains successor, Cloudflare Registrar — your choice. That is the only name-related bill that sits with you.</li>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Problem</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Getting people to your website is only half the
+            job.</h2>
+          <p class="svc-lead mt-5">A customer can find your business through Google and still leave if your website is
+            slow, confusing, outdated, difficult to use, or unclear about what they should do next.</p>
+          <div class="mt-10 grid gap-6 sm:grid-cols-3">
+            <article>
+              <p class="font-serif text-2xl text-ink/25">01</p>
+              <h3 class="mt-3 font-serif text-xl">Looks Outdated</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Your website may no longer reflect the quality of your
+                business or the expectations of modern customers.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">02</p>
+              <h3 class="mt-3 font-serif text-xl">Hard to Understand</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Visitors shouldn't have to search through multiple pages
+                to figure out what you offer, where you serve, or how to contact you.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">03</p>
+              <h3 class="mt-3 font-serif text-xl">Doesn't Convert</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">A website can receive visitors without creating meaningful
+                calls, enquiries, bookings, or quote requests.</p>
+            </article>
+        </div>
+          <p class="mt-8 max-w-2xl text-base font-medium text-ink">Your website should make choosing your business easier
+            — not give customers another reason to leave.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/web-development/problem.webp" type="image/webp" />
+            <img src="../assets/images/services/web-development/problem.jpg"
+              alt="Business owner reviewing their website experience on a laptop"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+          </figure>
+          </div>
+    </section>
+
+    <!-- WHAT WE BUILD -->
+    <section id="what-we-build" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What We Build</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Websites built around how customers
+          actually decide.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We combine structure, messaging, design, mobile usability, and conversion paths
+          to create a website that supports the entire local customer journey.</p>
+        <div class="build-grid reveal mt-10">
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h7" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-2xl">Website Strategy &amp; Structure</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We plan the website around your business, services,
+              customers, and goals before design begins.</p>
+            <ul>
+              <li>Business goals</li>
+              <li>Customer journey</li>
+              <li>Site structure</li>
+              <li>Page hierarchy</li>
+              <li>Service organization</li>
+              <li>Location considerations</li>
+              <li>Conversion priorities</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v14H4zM8 9h8M8 13h5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-2xl">Design &amp; User Experience</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We create a professional interface that makes important
+              information easy to find and easy to understand.</p>
+            <ul>
+              <li>Custom page design</li>
+              <li>Brand-aligned visual system</li>
+              <li>Clear navigation</li>
+              <li>Content hierarchy</li>
+              <li>Service presentation</li>
+              <li>Trust elements</li>
+              <li>Mobile-first considerations</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-2xl">Service Pages &amp; Conversion Paths</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Your services should have dedicated pages that help
+              customers understand what you offer and what to do next.</p>
+            <ul>
+              <li>Service page structure</li>
+              <li>Clear service messaging</li>
+              <li>Benefits and differentiators</li>
+              <li>Calls to action</li>
+              <li>Contact pathways</li>
+              <li>Quote/enquiry flows</li>
+              <li>Internal linking</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15l3-4 2 2 4-5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-2xl">Performance, SEO &amp; Technical Setup</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We build the technical foundation around usability, search
+              visibility, and maintainability.</p>
+            <ul>
+              <li>Responsive development</li>
+              <li>Mobile optimization</li>
+              <li>Page speed considerations</li>
+              <li>SEO-friendly structure</li>
+              <li>Metadata setup</li>
+              <li>Semantic HTML</li>
+              <li>Image optimization</li>
+              <li>Technical quality checks</li>
+            </ul>
+          </article>
+        </div>
+        <p class="mt-8 text-sm text-ink/55">We don't promise specific Google rankings or guaranteed traffic.</p>
+      </div>
+    </section>
+
+    <!-- CUSTOMER JOURNEY -->
+    <section class="border-b border-line bg-mist/40 px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">From Google search to customer action.</h2>
+        <div class="flow-panel reveal mt-10">
+          <p class="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">Northline website journey</p>
+          <div class="flow-track mt-6">
+            <div class="flow-node">
+              <strong>Google Search</strong>
+              <span>Customer discovers your business</span>
+            </div>
+            <div class="flow-node">
+              <strong>Business Profile / Ad</strong>
+              <span>They learn more about your business</span>
+            </div>
+            <div class="flow-node">
+              <strong>Website</strong>
+              <span>They explore your services</span>
+            </div>
+            <div class="flow-node">
+              <strong>Trust</strong>
+              <span>Why they should choose you</span>
+            </div>
+            <div class="flow-node">
+              <strong>Action</strong>
+              <span>Call · Form · Booking · Enquiry</span>
+            </div>
+            <div class="flow-node">
+              <strong>Customer Opportunity</strong>
+              <span>A clearer next step</span>
+            </div>
+          </div>
+          <p class="mt-6 text-sm leading-relaxed text-ink/60">Every part of the website should move the customer forward.
+            The page they land on should match what they searched for, answer their important questions, and make the
+            next step obvious.</p>
+          <p class="mt-3 text-xs text-ink/45">Conceptual visualization — not a Google product interface.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What You Get</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">A complete website foundation — without the
+          guesswork.</h2>
+        <div class="checklist-panel reveal mt-10">
+          <ul class="checklist-grid">
+            <li>Website strategy</li>
+            <li>Sitemap and page structure</li>
+            <li>Custom website design</li>
+            <li>Responsive development</li>
+            <li>Homepage</li>
+            <li>Service pages</li>
+            <li>About page</li>
+            <li>Contact page</li>
+            <li>Conversion-focused CTAs</li>
+            <li>Mobile optimization</li>
+            <li>SEO-friendly page structure</li>
+            <li>Metadata setup</li>
+            <li>Image optimization</li>
+            <li>Internal linking</li>
+            <li>Contact/enquiry pathways</li>
+            <li>Basic technical SEO setup</li>
+            <li>Performance checks</li>
+            <li>Cross-device testing</li>
+            <li>Final website quality review</li>
           </ul>
+          <p class="mt-8 text-sm leading-relaxed text-ink/55">Exact pages, features, integrations, and development scope
+            depend on your business, content, goals, and existing website.</p>
         </div>
-        <aside class="lg:col-span-5">
-          <figure class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1000&amp;q=75" alt="Bright modern interior used as a hero photograph on a new local business website" class="h-64 w-full object-cover" width="1000" height="700" loading="lazy" decoding="async" />
-          </figure>
-          <div class="mt-5 rounded-3xl border border-white/15 bg-ink p-6 text-paper">
-            <p class="text-[11px] font-medium uppercase tracking-[0.16em] text-paper/50">Client guarantee</p>
-            <p class="mt-2 font-serif text-xl leading-snug">100% Full Access &amp; Source-Code Ownership | Free Cloudflare Hosting &amp; SSL Setup | Pay Only for Domain</p>
+      </div>
+    </section>
+
+    <!-- CONVERSION HUB -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">Your website is where local interest becomes a
+          real opportunity.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Your Google presence can help customers discover you. Your reviews can help
+          build confidence. Your website gives them somewhere to understand your business and decide what to do next.</p>
+        <div class="hub-grid reveal mt-10">
+          <article class="hub-item">
+            <h3 class="font-serif text-2xl">Discover</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Customers find you through Google.</p>
+          </article>
+          <article class="hub-item">
+            <h3 class="font-serif text-2xl">Understand</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Your website explains your services, locations, and value.
+            </p>
+          </article>
+          <article class="hub-item">
+            <h3 class="font-serif text-2xl">Trust</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Clear information, proof, reviews, and professional
+              presentation reduce uncertainty.</p>
+          </article>
+          <article class="hub-item">
+            <h3 class="font-serif text-2xl">Act</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">A strong conversion path makes calling, booking, or enquiring
+              easy.</p>
+          </article>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="font-serif text-3xl sm:text-4xl">How a typical engagement runs</h2>
-        <ol class="mt-10 grid gap-5 md:grid-cols-3">
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 1</p>
-            <h3 class="mt-3 font-serif text-2xl">Scope the first version</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Pages, photos you already have, the offer, and whether custom code or a CMS is the saner path. We do not invent a twenty-page sitemap for a five-person shop.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 2</p>
-            <h3 class="mt-3 font-serif text-2xl">Build and put it live</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Design in the browser, connect the domain you registered, enable SSL on Cloudflare, and hand you the access list in writing.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 3</p>
-            <h3 class="mt-3 font-serif text-2xl">Point the rest of Google at it</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Website URL on the <a class="underline underline-offset-4" href="google-business-profile-setup.html">Google Business Profile</a>. Landing page for ads if you also run <a class="underline underline-offset-4" href="google-ads-campaigns.html">paid search</a>. The site is useless if nothing links to it.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="work" class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">From the field</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Sites that look like a real business, not a template parked on a subdomain.</h2>
-        <p class="mt-4 max-w-2xl text-ink/60">Clutch-ranked web shops show the craft: desks, screens, interiors, and the kind of local businesses they actually ship for. These frames are stand-ins for first-site launches.</p>
-        <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Laptop showing a clean website layout for a small business homepage" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Designer desk with color swatches used while building a custom-coded site" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Browser windows on a monitor during a local business website launch" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Modern glass office interior used as photography on a new clinic website" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
+        <p class="mt-10 max-w-2xl text-base font-medium text-ink">The goal isn't simply to build a website. It's to build
+          a better path from visitor to customer.</p>
         </div>
-      </div>
     </section>
 
-    <section id="reviews" class="border-t border-line bg-ink px-5 py-16 text-paper lg:px-8 lg:py-24">
+    <!-- WHO WE HELP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Client reviews</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">What they say when they actually own the files.</h2>
-            <p class="mt-4 text-paper/55">Web agencies that rank on Clutch lead with named people and the ownership story. These quotes are unique to this page. Replace them with live Trustpilot and Google reviews when the first sites ship.</p>
-          </div>
-          <p class="text-xs uppercase tracking-[0.16em] text-paper/35">★★★★★ · Web development</p>
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Who We Help</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Built for businesses that depend on local
+          customers.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Northline builds websites for local businesses where customers search online
+          before they call, book, visit, or request information.</p>
+        <div class="who-grid reveal mt-10">
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/web-development/ind-home.webp" type="image/webp" />
+              <img src="../assets/images/services/web-development/ind-home.jpg"
+                alt="Home services technician working at a customer property" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Home Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Plumbing · HVAC · Electrical · Roofing · Landscaping</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/web-development/ind-auto.webp" type="image/webp" />
+              <img src="../assets/images/services/web-development/ind-auto.jpg"
+                alt="Automotive technician working on a vehicle" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Automotive</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Auto Repair · Car Detailing · Mobile Car Wash</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/web-development/ind-repair.webp" type="image/webp" />
+              <img src="../assets/images/services/web-development/ind-repair.jpg"
+                alt="Technician repairing home equipment" width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Repair &amp; Installation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Appliance Repair · Garage Door · Locksmith · Water Heater
+              </p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/web-development/ind-local.webp" type="image/webp" />
+              <img src="../assets/images/services/web-development/ind-local.jpg"
+                alt="Local business owner serving a customer" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Local Businesses</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Cleaning · Barber Shops · Salons · Restaurants · Retail
+              </p>
+            </div>
+          </article>
+            </div>
+        <p class="mt-8 text-sm text-ink/60">Don't see your business? We build websites for many other local businesses
+          too.</p>
+        <a href="../industries/index.html"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          Industries <span aria-hidden="true">→</span></a>
+            </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Our Process</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Strategy before design.</h2>
+        <div class="process-row reveal mt-10">
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-xl">Discover</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We learn about your business, services, customers,
+              locations, competitors, and goals.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-xl">Structure</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We organize the pages, information, services, and customer
+              journey before development begins.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-xl">Design</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We create the visual system, layouts, content hierarchy, and
+              conversion paths around your business.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-xl">Build</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We develop the responsive website and implement the agreed
+              structure, content, and functionality.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">05</p>
+            <h3 class="mt-3 font-serif text-xl">Review</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We test the website across devices and review usability,
+              content, links, forms, performance, and technical details.</p>
+          </article>
+            </div>
+        <a href="#contact"
+          class="mt-10 inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">Plan My Website</a>
+            </div>
+    </section>
+
+    <!-- UX -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">User Experience</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Your customers don't all browse the same
+          way.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">People may discover your business from a phone, search result, advertisement,
+          social link, or desktop computer. Your website needs to work wherever the customer starts.</p>
+        <div class="ux-grid reveal mt-10">
+          <article class="ux-card">
+            <h3 class="font-serif text-xl">Mobile</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Easy navigation, readable content, fast access to important
+              actions.</p>
+          </article>
+          <article class="ux-card">
+            <h3 class="font-serif text-xl">Desktop</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Clear information hierarchy and professional presentation.
+            </p>
+          </article>
+          <article class="ux-card">
+            <h3 class="font-serif text-xl">Navigation</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Customers should be able to reach important services and
+              contact options without getting lost.</p>
+          </article>
+          <article class="ux-card">
+            <h3 class="font-serif text-xl">Conversion</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Calls, forms, bookings, and enquiries should be easy to find.
+            </p>
+          </article>
+            </div>
+        <p class="mt-10 max-w-2xl text-base font-medium text-ink">A professional website should feel simple to use — even
+          when the business behind it is complex.</p>
+            </div>
+    </section>
+
+    <!-- DEMONSTRATION -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Website Demonstration</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">How Northline structures a local business
+          website.</h2>
+        <div class="demo-panel reveal mt-10">
+          <p
+            class="demo-badge inline-flex rounded-full border border-line px-2 py-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-ink/55 md:px-3 md:py-1">
+            Demonstration — not a client result</p>
+          <div class="demo-stages mt-8">
+            <article class="demo-stage">
+              <p class="text-xs tracking-[0.16em] text-ink/40">Before</p>
+              <h3 class="mt-2 font-serif text-xl">Information is scattered</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Services, business information, contact options, and
+                important details aren't organized around the customer journey.</p>
+            </article>
+            <article class="demo-stage">
+              <p class="text-xs tracking-[0.16em] text-ink/40">Work</p>
+              <h3 class="mt-2 font-serif text-xl">Structure + design + conversion</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Clear service pages, logical navigation, mobile-friendly
+                layouts, relevant calls to action, and an easier path to contact the business.</p>
+            </article>
+            <article class="demo-stage">
+              <p class="text-xs tracking-[0.16em] text-ink/40">After</p>
+              <h3 class="mt-2 font-serif text-xl">A website customers can actually use</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Visitors can quickly understand the business, explore
+                relevant services, build confidence, and take the next step.</p>
+            </article>
+            </div>
+          <p class="mt-6 text-sm text-ink/55">Conceptual website structure — not a client performance result.</p>
+            </div>
+            </div>
+    </section>
+
+    <!-- SEO + PERFORMANCE -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Built for Search and People</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">SEO starts with a website customers can
+          understand.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We build the underlying structure so search engines and customers can more
+          easily understand the pages, services, and relationships across your website.</p>
+        <div class="seo-grid reveal mt-10">
+          <article class="seo-item">
+            <h3 class="font-serif text-xl">Structure</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Organized pages, headings, navigation, URLs, and internal
+              links.</p>
+          </article>
+          <article class="seo-item">
+            <h3 class="font-serif text-xl">Relevance</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Service pages built around the actual services and locations
+              your business serves.</p>
+          </article>
+          <article class="seo-item">
+            <h3 class="font-serif text-xl">Usability</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Responsive layouts, readable content, clear navigation, and
+              accessible customer actions.</p>
+          </article>
+          <article class="seo-item">
+            <h3 class="font-serif text-xl">Performance</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Image optimization, efficient implementation, and technical
+              checks that support a better browsing experience.</p>
+          </article>
+            </div>
+        <p class="mt-8 max-w-3xl text-sm leading-relaxed text-ink/55">SEO can support visibility, but no legitimate website
+          provider can guarantee a specific Google ranking.</p>
+            </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="approach-panel reveal">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Our Approach</p>
+          <h2 class="mt-3 font-serif text-3xl tracking-tight sm:text-4xl">No bloated websites. No unnecessary complexity.
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-paper/65 sm:text-base">A website should serve the business
+            and the customer — not become a collection of features nobody needs.</p>
+          <div class="approach-cols mt-10">
+            <div>
+              <h3 class="font-serif text-2xl">We Don't</h3>
+              <ul class="approach-list">
+                <li>❌ Use unnecessary features just to increase scope</li>
+                <li>❌ Hide important information behind confusing navigation</li>
+                <li>❌ Build pages without a clear purpose</li>
+                <li>❌ Use misleading SEO claims</li>
+                <li>❌ Promise guaranteed rankings</li>
+                <li>❌ Lock you into unnecessary complexity</li>
+                <li>❌ Copy a competitor's website as your strategy</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-serif text-2xl">We Do</h3>
+              <ul class="approach-list">
+                <li>✓ Build around your actual business</li>
+                <li>✓ Prioritize customer clarity</li>
+                <li>✓ Create purposeful page structures</li>
+                <li>✓ Design around real conversion paths</li>
+                <li>✓ Build responsive experiences</li>
+                <li>✓ Keep the website maintainable</li>
+                <li>✓ Explain what we're building and why</li>
+                <li>✓ Keep your digital infrastructure accessible to you</li>
+              </ul>
+            </div>
+            </div>
+          <p class="mt-10 text-sm font-medium text-paper/80">Your website should work for your business — not become
+            another thing your business has to manage.</p>
+            </div>
         </div>
-        <div class="review-rail mt-10">
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Mina, a yoga studio owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Mina J.</p><p class="text-xs text-paper/45">Yoga studio</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“We owned the files on day one. Hosting was Cloudflare. I paid Namecheap for the name. That was the pitch, and they kept it. No monthly platform ransom.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Hank, an electrician" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Hank P.</p><p class="text-xs text-paper/45">Electrician</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Four pages. That is what we needed. Click-to-call works on the cheapest phone in the van. I do not miss the old Facebook-page-as-website trick.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Sofi, a boutique owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Sofi N.</p><p class="text-xs text-paper/45">Retail boutique</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“If we leave, we take the site. That sentence is why I signed. They wrote the logins in my name and emailed the list the day it went live.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Drew, a chiropractic clinic owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Drew A.</p><p class="text-xs text-paper/45">Chiropractic clinic</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They put the URL on our Maps listing the same afternoon it went live. Ads finally had somewhere to land that did not look like a blank Google page.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Cleo, a Barber shop" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Cleo S.</p><p class="text-xs text-paper/45">Barber shop</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Click-to-call on the first screen. Walk-ins from Maps finally had a page that loaded on cheap phones.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Dax, a HVAC contractor" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Dax T.</p><p class="text-xs text-paper/45">HVAC contractor</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Four pages, not a brochure of twenty. The source is in a repo I control.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Evie, a Restaurant" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Evie U.</p><p class="text-xs text-paper/45">Restaurant</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Menu and hours match the listing. Cloudflare SSL was on before we posted the URL to Maps.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Flynn, a Plumber" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Flynn V.</p><p class="text-xs text-paper/45">Plumber</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I paid for the domain. Hosting was included. If we leave, the files leave with us.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Greta, a Salon" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Greta W.</p><p class="text-xs text-paper/45">Salon</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Booking sits above the fold. No page builder ransom. Logins are in my name.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Ivo, a Landscaping" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Ivo X.</p><p class="text-xs text-paper/45">Landscaping</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Before-and-after photos load fast. The old Wix stall is gone.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of June, a Auto repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">June Y.</p><p class="text-xs text-paper/45">Auto repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They put the site URL on Google the afternoon it launched. Ads finally had a place to land.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Kurt, a Pest control" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Kurt Z.</p><p class="text-xs text-paper/45">Pest control</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Service list matches the GBP. No keyword stuffing in the title. That was a relief.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Leona, a Roofing contractor" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Leona A.</p><p class="text-xs text-paper/45">Roofing contractor</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Mobile first. The estimate form works with gloves. That is the whole brief they kept.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Moss, a Cleaning service" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Moss B.</p><p class="text-xs text-paper/45">Cleaning service</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I own the CMS. They emailed the access list the day it went live.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Nell, a Moving company" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Nell C.</p><p class="text-xs text-paper/45">Moving company</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Quote form, click-to-call, and a map embed. Nothing extra I would never update.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Otis, a Locksmith" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Otis D.</p><p class="text-xs text-paper/45">Locksmith</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Night emergency page is the homepage after 6. That one change paid for the build.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Piper, a Painting contractor" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Piper E.</p><p class="text-xs text-paper/45">Painting contractor</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Portfolio is real jobs, not stock rooms. Source is ours.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Quinn, a Carpet cleaning" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Quinn F.</p><p class="text-xs text-paper/45">Carpet cleaning</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“SSL and hosting were Cloudflare. Domain was the only extra bill.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Romy, a Window cleaning" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Romy G.</p><p class="text-xs text-paper/45">Window cleaning</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“If I fire the agency I still have a website. That sentence is in the contract.”</p>
-          </blockquote>
+    </section>
+
+    <!-- OWNERSHIP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Your Website. Your Business.</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">You shouldn't feel trapped inside a website
+          you can't access, understand, or maintain.</h2>
+        <div class="own-grid reveal mt-10">
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Access</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">You should be able to access your website and relevant
+              accounts.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Transparency</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">You should understand what has been built and how the major
+              pieces fit together.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Control</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Your business shouldn't depend on unnecessary restrictions or
+              hidden systems.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Ownership</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Your digital presence should remain an asset of your
+              business.</p>
+          </article>
         </div>
+        <p class="mt-10 max-w-2xl text-base font-medium text-ink">We build the website to support your business — not to
+          take control of it.</p>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
+    <!-- BIGGER PICTURE -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Bigger Picture</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Your website works best when the rest of
+          your Google presence is ready.</h2>
+        <div class="system-flow reveal mt-10">
+          <div class="system-node">Google Search</div>
+          <div class="system-node">Business Profile</div>
+          <div class="system-node">Reviews</div>
+          <div class="system-node">Website</div>
+          <div class="system-node">Customer Action</div>
+        </div>
+        <p class="svc-lead mt-8 max-w-3xl">Your <a class="underline underline-offset-4"
+            href="google-business-profile-setup.html">Business Profile</a> helps customers discover you. <a
+            class="underline underline-offset-4" href="google-maps-review-management.html">Reviews</a> help build
+          confidence. Your website gives customers the information and next step they need. <a
+            class="underline underline-offset-4" href="google-ads-campaigns.html">Google Ads</a> can bring additional paid
+          traffic when it makes sense.</p>
+        <p class="mt-4 text-sm font-medium text-ink">Together, these pieces create a stronger local customer journey.</p>
+        <a href="../index.html#services"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          All Northline Services <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- OUTCOME -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Outcome</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">What a better website should help customers
+          do.</h2>
+        <div class="outcome-grid reveal mt-10">
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Understand Your Business</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make it immediately clear what you offer and who you serve.
+            </p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Find the Right Service</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Help visitors reach the page that matches what they're looking
+              for.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Build Confidence</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Give customers useful information and reasons to feel
+              comfortable moving forward.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Take the Next Step</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make calling, requesting information, booking, or enquiring
+              straightforward.</p>
+          </article>
+        </div>
+        <p class="mt-10 max-w-2xl text-base font-medium text-ink">A better website doesn't need to be complicated. It needs
+          to make the right things easier.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="web-faq" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-3xl">
-        <h2 class="font-serif text-3xl">Questions we hear before the contract</h2>
-        <div class="mt-8 divide-y divide-line border-y border-line">
+        <h2 class="svc-section-title font-serif tracking-tight">Website Design &amp; Development questions, answered.</h2>
+        <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do you keep admin after launch?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Only if you ask us to stay on for edits. Default is full access in your name. That is the point of the ownership badge in the footer.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you build websites from scratch?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can build a new website around your business,
+              services, customers, and goals rather than forcing your business into a generic template.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Can this wait until we have reviews?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">You can collect reviews with no site. Ads and Maps clicks convert better with one. If the listing is empty, add <a class="underline underline-offset-4" href="google-maps-review-management.html">Google Reviews</a>.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you redesign my existing website?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can review an existing website and identify
+              opportunities related to structure, messaging, usability, mobile experience, conversion paths, and technical
+              implementation.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">What does “only pay for domain” cover?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Hosting and the SSL certificate are handled through Cloudflare as part of our setup. The yearly domain renewal is yours with the registrar. The build itself is a separate project fee, agreed in the contract.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you build mobile-friendly websites?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Websites are designed and developed to work across modern
+              desktop, tablet, and mobile screen sizes.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Will my website be SEO-friendly?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We build with SEO-friendly structure in mind, including page
+              hierarchy, headings, URLs, internal linking, relevant content structure, metadata, and technical
+              considerations. SEO does not guarantee a specific Google ranking.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you create service pages for my
+              business?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Service pages can be structured around the services your
+              business actually provides and the questions customers need answered before contacting you.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you connect my website with Google
+              Business Profile?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can make sure the website and Business Profile work
+              together as part of the broader local customer journey.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you add contact forms and calls to
+              action?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can structure appropriate contact paths such as
+              enquiry forms, phone calls, booking links, quote requests, and other customer actions supported by your
+              setup.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you help with website content?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can help structure and develop customer-focused
+              website content based on your business, services, locations, and goals.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Do I own my website?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Your website and related digital infrastructure should remain
+              accessible to your business. The exact ownership and licensing details depend on the technologies,
+              third-party services, and project arrangement involved.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">How long does website development take?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">The timeline depends on the number of pages, content,
+              functionality, integrations, revisions, and information available for the project. We can provide a clearer
+              timeline after assessing the scope.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you guarantee more leads from the
+              website?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. A website can improve clarity, usability, and conversion
+              opportunities, but actual results depend on traffic, demand, competition, offer, reputation, website
+              experience, and many other factors.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you build websites for any local
+              business?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We work with many types of local businesses, including home
+              services, automotive, repair, professional services, beauty, health, retail, and other customer-facing
+              businesses.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="proposals" class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Proposal options</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Two builds. Both are yours to keep.</h2>
-        <p class="mt-4 max-w-2xl text-ink/65">Pick the stack that matches how you want to run the site after launch. Same
-          ownership guarantee either way: full access, source files, Cloudflare hosting and SSL included. You pay only for
-          the domain.</p>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 01</p>
-            <h3 class="mt-3 font-serif text-3xl">Custom-coded site</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">Hand-built HTML, CSS, and JavaScript when the layout
-              should stay light and fast. Best for a tight first site — home, services, contact, click-to-call — with no
-              plugin stack to maintain.</p>
-            <a href="../index.html?service=Website%20Building#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 02</p>
-            <h3 class="mt-3 font-serif text-3xl">CMS site</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">A content-managed build when you need to edit hours,
-              photos, or posts without calling us. You still own the install, the theme files, and the hosting login. We
-              set it up and hand you the keys.</p>
-            <a href="../index.html?service=Website%20Building#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
+    <!-- FINAL CTA -->
+    <section class="px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-6">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Ready to Build a Better Website?</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Give Your Next Customer a Better Place to Start.
+          </h2>
+          <p class="svc-lead mt-5 max-w-xl">We'll review your current website, business, services, and customer journey and
+            explain what could be improved — without unnecessary complexity or pressure.</p>
+          <a href="#contact"
+            class="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+          <p class="mt-4 text-sm text-ink/50">No bloated package. No guaranteed rankings. Just a clear plan for your
+            website.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-6">
+          <picture>
+            <source srcset="../assets/images/services/web-development/cta.webp" type="image/webp" />
+            <img src="../assets/images/services/web-development/cta.jpg"
+              alt="Local business owner discussing a finished website with a professional"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Free Assessment</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Tell us about your website.</h2>
+          <p class="svc-lead mt-5">We'll review what you share and explain what your website may need — clearly, without
+            pressure.</p>
+        </div>
+        <div class="lg:col-span-7">
+          <form id="contract-form"
+            class="reveal w-full rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Your name</span><input
+                  name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input
+                  name="email" type="email" autocomplete="email" required placeholder="you@business.com"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone"
+                  type="tel" autocomplete="tel" required placeholder="+1 555 010 2841"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input
+                  name="businessName" type="text" autocomplete="organization" required
+                  placeholder="Hale &amp; Co. Plumbing"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
+                <select name="service" required
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10">
+                  <option value="Website Design &amp; Development" selected>Website Design &amp; Development</option>
+                  <option value="Google Business Profile Setup">Google Business Profile Setup</option>
+                  <option value="Google Business Reviews">Google Business Reviews</option>
+                  <option value="Google Ads Campaigns">Google Ads Campaigns</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Current Website
+                  URL</span><input name="mapsLink" type="url" placeholder="https://..."
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /><span
+                  class="mt-1 block text-xs text-ink/45">Optional. Helps us review your existing website.</span></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
+                <textarea name="message" rows="4"
+                  placeholder="Tell us about your current website, services, and what you want to improve..."
+                  class="field-input w-full resize-y rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10"></textarea>
+              </label>
+            </div>
+            <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
+            <button type="submit"
+              class="mt-6 w-full rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper sm:w-auto">Get My Free
+              Assessment</button>
+          </form>
+          <div id="form-success"
+            class="hidden success-pop w-full rounded-[1.75rem] border border-line bg-white p-10 text-center shadow-soft">
+            <p class="font-serif text-3xl">Request received.</p>
+            <p id="success-copy" class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink/65"></p>
+            <button id="send-another" type="button"
+              class="mt-8 text-sm underline underline-offset-4 transition-all duration-300 ease-in-out hover:opacity-70">Send
+              another request</button>
+          </div>
         </div>
       </div>
     </section>
@@ -488,16 +1616,8 @@
       </div>
     </div>
   </footer>
-  <dialog id="privacy" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="privacy-title">
-    <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">Contract form data is used to reply to your request. It is not sold. Email hello@northline.example to remove a record.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
-  </dialog>
-  <dialog id="terms" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="terms-title">
-    <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">Web projects include full access and ownership. Cloudflare hosting and SSL are set up at no extra fee. Domain registration is paid by the client.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
-  </dialog>
+
   <script src="../assets/site.js"></script>
 </body>
+
 </html>

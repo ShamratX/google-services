@@ -4,44 +4,355 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Business Profile Setup &amp; Optimization | New &amp; Existing Listings | Northline</title>
+  <title>Google Business Profile Setup &amp; Optimization | Northline</title>
   <meta name="description"
-    content="Northline creates new Google Business Profiles and optimizes existing Google Maps listings for any local business. Claim, verify, categories, photos, hours. You keep admin. No fake reviews." />
-  <meta name="keywords"
-    content="Google Business Profile setup, Google Business Profile optimization, Google My Business, Google Maps listing" />
+    content="Get your Google Business Profile properly set up and optimized with accurate business information, stronger local visibility, clear services, and customer-focused actions." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/services/google-business-profile-setup.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Google Business Profile Setup &amp; Optimization | Northline" />
   <meta property="og:description"
-    content="New Google Maps profiles and existing listing optimization for trades, restaurants, salons, and any local business." />
+    content="Get your Google Business Profile properly set up and optimized with accurate business information, stronger local visibility, clear services, and customer-focused actions." />
   <meta property="og:url" content="https://northline.example/services/google-business-profile-setup.html" />
-  <meta property="og:image"
-    content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=75" />
+  <meta property="og:image" content="https://northline.example/assets/images/services/gbp/hero.jpg" />
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
+  </script>
   <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .svc-hero-title {
+      font-size: 2.15rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    @media (min-width: 640px) {
+      .svc-hero-title { font-size: 2.65rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .svc-hero-title { font-size: 3.25rem; }
+    }
+
+    @media (min-width: 1280px) {
+      .svc-hero-title { font-size: 3.5rem; }
+    }
+
+    .svc-section-title {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .svc-lead {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      line-height: 1.65;
+      color: rgba(17, 17, 17, 0.62);
+    }
+
+    .value-strip {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .value-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    .value-item {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .value-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.28);
+    }
+
+    .optimize-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .optimize-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .optimize-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    .optimize-card ul {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.58);
+    }
+
+    .profile-mock {
+      border-radius: 1.75rem;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      background: linear-gradient(160deg, #111 0%, #2a2a2a 100%);
+      color: #f5f1e8;
+      padding: 1.5rem;
+      box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.55);
+    }
+
+    .profile-mock-phone {
+      max-width: 22rem;
+      margin: 0 auto;
+      border-radius: 1.75rem;
+      border: 1px solid rgba(245, 241, 232, 0.16);
+      background: #161616;
+      padding: 0.85rem;
+    }
+
+    .profile-mock-screen {
+      border-radius: 1.25rem;
+      background: #f5f1e8;
+      color: #111;
+      padding: 1.15rem;
+    }
+
+    .checklist-panel {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .checklist-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .checklist-grid li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .checklist-grid li::before {
+      content: "✓";
+      flex: none;
+      margin-top: 0.05rem;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .who-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .who-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .who-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .who-card {
+      overflow: hidden;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.25rem;
+      background: #fff;
+    }
+
+    .who-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .who-card-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+    }
+
+    .process-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .process-row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
+    .process-card {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .approach-panel {
+      border-radius: 1.5rem;
+      background: #111;
+      color: #f5f1e8;
+      padding: 2rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-panel {
+        padding: 2.75rem;
+      }
+    }
+
+    .approach-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-cols {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(245, 241, 232, 0.72);
+    }
+
+    .system-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 1024px) {
+      .system-flow {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.65rem;
+      }
+    }
+
+    .system-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 9999px;
+      background: #fff;
+      padding: 0.85rem 0.65rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-node,
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .system-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .system-arrow {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .system-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    #gbp-faq details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    #gbp-faq details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
-        "name": "Google Business Profile Setup",
-        "alternateName": "Google My Business Setup",
+        "name": "Google Business Profile Setup & Optimization",
         "provider": { "@type": "ProfessionalService", "name": "Northline", "url": "https://northline.example/" },
         "url": "https://northline.example/services/google-business-profile-setup.html",
         "areaServed": "United States",
-        "description": "New Google Business Profile setup and existing Google Maps listing optimization for local businesses. Access stays in the client's name."
+        "description": "Google Business Profile setup and optimization for local businesses. Accurate information, categories, services, and customer actions — with account control staying with the business."
       },
       {
         "@type": "BreadcrumbList",
@@ -56,38 +367,38 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is Google My Business the same as Google Business Profile?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Owners still say Google My Business. Google renamed the product to Google Business Profile. The listing on Maps and Search is the same pin. This contract is the setup of that listing." }
+            "name": "What is a Google Business Profile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Google Business Profile is the business listing that can appear when customers search for a business or service on Google. It can provide important information such as your business name, category, hours, location or service area, website, and customer actions." }
           },
           {
             "@type": "Question",
-            "name": "Is Google Business Profile setup the same as Google Business Reviews?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Setup is the listing itself: claim, verify, categories, photos, hours, posts, and NAP. Review management is how real customers leave Google reviews. Most local businesses eventually need both." }
+            "name": "Do I need an existing Google Business Profile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We can help with a new setup or optimize an existing profile." }
           },
           {
             "@type": "Question",
-            "name": "Do you keep the Google login after setup?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. The Business Profile stays in an account you own. Northline can be invited as a manager for ongoing edits. Default is your name on the door." }
+            "name": "Can you optimize my existing profile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can review the existing profile and identify the most important areas to improve." }
           },
           {
             "@type": "Question",
-            "name": "Do you buy Google reviews as part of setup?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Profile setup does not include purchased stars, fake check-ins, or spam posts. Google suspends listings for that. Authentic review collection is a separate Northline service." }
+            "name": "Do you create or buy Google reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We do not create or purchase fake reviews. Our review services focus on legitimate ways to make it easier for real customers to provide feedback." }
           },
           {
             "@type": "Question",
-            "name": "Is this new setup, or only fixing a listing I already have?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Both. If there is no pin, we create and verify a new Google Business Profile. If you already have one, we optimize categories, services, photos, hours, NAP, and duplicates." }
+            "name": "Can you guarantee higher Google rankings?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Google rankings depend on many factors and no legitimate provider can guarantee a specific ranking. We focus on proper profile optimization and sound local marketing practices." }
           },
           {
             "@type": "Question",
-            "name": "Do you only work with shops?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. We set up and optimize Google Business Profiles for any business that needs to appear on Google Maps — new listings and existing ones. Trades, restaurants, salons, and other local categories. If you need a Maps profile, we take the contract." }
+            "name": "Do I keep ownership of my Google Business Profile?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your business should retain control of its Google Business Profile and related accounts." }
           },
           {
             "@type": "Question",
-            "name": "Can you set up a service-area business with no storefront?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Trades and mobile operators can hide the street address and show a service area instead. Verification still has to prove the business is real. We set the pin the way Google allows for that category." }
+            "name": "How long does the setup take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The timeline depends on whether you're creating a new profile or optimizing an existing one, as well as the information and access available." }
           }
         ]
       }
@@ -99,8 +410,9 @@
 <body class="bg-paper text-ink antialiased">
   <div class="grain" aria-hidden="true"></div>
   <a href="#main"
-    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
     to content</a>
+
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="../index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
@@ -157,586 +469,636 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
-        <div id="mobile-services" class="mobile-services">
-          <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html" aria-current="page"><span
-                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
-            <a class="nav-drop-item mobile-link" href="google-maps-review-management.html"><span
-                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
-            <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html"><span
-                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
-            <a class="nav-drop-item mobile-link" href="web-development.html"><span
-                class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
+            <button type="button" id="mobile-services-btn"
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
+                <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
+                  <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html" aria-current="page"><span
+                      class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+                  <a class="nav-drop-item mobile-link" href="google-maps-review-management.html"><span
+                      class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
+                  <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html"><span
+                      class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+                  <a class="nav-drop-item mobile-link" href="web-development.html"><span
+                      class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+                </div>
+              </div>
+            </div>
           </div>
+          <a href="../industries/index.html" class="mobile-link mobile-menu-item">Industries</a>
+          <a href="../index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="../index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="../index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
+          <a href="../index.html#contact"
+            class="mobile-link mobile-menu-item mobile-menu-cta">Get Started</a>
         </div>
-        <a href="../industries/index.html" class="mobile-link py-1">Industries</a>
-        <a href="../index.html#work" class="mobile-link py-1">Work</a>
-        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
-        <a href="../index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
-      <div class="mx-auto max-w-7xl">
-        <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
-          <ol class="flex flex-wrap items-center gap-2">
-            <li><a class="hover:text-ink" href="../index.html">Home</a></li>
-            <li aria-hidden="true">/</li>
-            <li><a class="hover:text-ink" href="index.html">Services</a></li>
-            <li aria-hidden="true">/</li>
-            <li class="text-ink/70">Google Business Profile Setup</li>
-          </ol>
-        </nav>
-
-        <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
-          <div class="flex flex-col justify-center">
-            <p
-              class="inline-flex rounded-full border border-line bg-white/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/55">
-              Service 02 · Google My Business</p>
-            <h1 class="mt-5 font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl xl:text-[3.4rem]">New Google
-              Business Profile setup and existing profile optimization — for any business on Google Maps.</h1>
-            <p class="mt-6 text-base leading-relaxed text-ink/65 sm:text-lg">This is not a shop-only product. If a
-              customer searches Google Maps for a plumber, HVAC tech, electrician, restaurant, salon, or any other local
-              service, the pin has to exist and it has to be accurate. We create a new Google Business Profile when there is
-              none, and we optimize the listing you already have — categories, hours, photos, services, NAP, and duplicates.
-              You keep the login. Review collection is a separate contract.</p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="../index.html?service=Google%20My%20Business#contact"
-                class="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Contract this service</a>
-              <a href="#work" class="inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">See the
-                field work</a>
-            </div>
+  <main id="main" class="pt-[4.5rem] lg:pt-0">
+    <!-- HERO -->
+    <section class="border-b border-line px-5 pb-12 pt-8 lg:px-8 lg:pb-16 lg:pt-24">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-7">
+          <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li><a class="hover:text-ink" href="../index.html">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li><a class="hover:text-ink" href="index.html">Services</a></li>
+              <li aria-hidden="true">/</li>
+              <li class="text-ink/70">Google Business Profile</li>
+            </ol>
+          </nav>
+          <p class="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Google Business Profile</p>
+          <h1 class="svc-hero-title mt-4 font-serif tracking-tight">Get Your Business Found Where Local Customers
+            Search.</h1>
+          <p class="svc-lead mt-6 max-w-xl">We set up and optimize your Google Business Profile so customers can quickly
+            understand what you offer, where you serve, and how to contact you.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+            <a href="#optimize" class="rounded-full border border-line px-6 py-3 text-sm font-medium">See What We Optimize
+              ↓</a>
           </div>
+          <p class="mt-5 text-sm text-ink/50">Clear setup. Legitimate optimization. You keep control.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/gbp/hero.webp" type="image/webp" />
+            <img src="../assets/images/services/gbp/hero.jpg"
+              alt="Local business owner reviewing their business presence on a smartphone"
+              class="w-full object-cover" width="1152" height="864" fetchpriority="high" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
 
-          <figure
-            class="reveal relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-line bg-ink shadow-lift sm:min-h-[18rem] lg:min-h-0 lg:h-full">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=1600&amp;q=75"
-              alt="Electrician on a residential job site, the kind of Google Maps service-area business Northline sets up and optimizes"
-              class="absolute inset-0 h-full w-full object-cover" width="1600" height="900" fetchpriority="high"
-              decoding="async" />
-            <figcaption
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/55 to-transparent p-5 text-sm text-paper sm:p-7 sm:text-base">
-              Trades, restaurants, salons, and every other Maps category — new profile or an existing one that needs work.
-            </figcaption>
-          </figure>
+    <!-- VALUE STRIP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">A better profile does more than list your
+          business.</h2>
+        <div class="value-strip reveal mt-10">
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">01</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path stroke-linecap="round" d="M20 20l-3.5-3.5" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Visibility</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Help customers discover you</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make your business information easier to understand when
+              customers search for local services.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">02</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h10M4 17h7" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Clarity</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Show customers what you actually offer</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Organize your business details, services, categories,
+              hours, and contact information clearly.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">03</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Action</h3>
+            <p class="mt-1 text-sm font-medium text-ink/70">Make the next step obvious</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Give customers a clear path to call, visit your website,
+              request information, or take the appropriate next step.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid gap-12 lg:grid-cols-12">
-          <div class="lg:col-span-7">
-            <h2 class="font-serif text-3xl sm:text-4xl">What Google Business Profile work actually is</h2>
-            <p class="mt-5 leading-relaxed text-ink/65">A Google Business Profile is the card in Google Search and
-              Google Maps when someone looks for a plumber, HVAC contractor, electrician, restaurant, salon, or any
-              other local business near them. If there is no profile, you do not appear. If the profile is unclaimed,
-              Google is guessing. If it is claimed and still thin, the map pack shows the wrong category and a photo
-              that does not look like the job.</p>
-            <p class="mt-4 leading-relaxed text-ink/65">Northline builds new listings and optimizes existing ones.
-              Primary category, secondary categories, name-address-phone that matches the van or the door, hours, the
-              services you actually sell, attributes, the website field, Q&amp;A, and photos from the real work. Access
-              lives in a Google account you own. We do not keyword-stuff the business name. We do not buy reviews as
-              part of this contract.</p>
-            <p class="mt-4 leading-relaxed text-ink/65">If the pin is already accurate and the problem is silence under
-              Reviews, open <a class="underline underline-offset-4" href="google-maps-review-management.html">Google
-                Business Reviews</a> instead. Most businesses eventually need both. They are not the same job.</p>
+    <!-- PROBLEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-7">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Problem</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Your business may be good. Your profile may not
+            show it.</h2>
+          <p class="svc-lead mt-5 max-w-2xl">When customers discover your business through Google, your profile may be
+            their first impression. Missing information, outdated details, weak organization, or unclear services can
+            make it harder for customers to understand your business and decide what to do next.</p>
+          <div class="mt-10 grid gap-6 sm:grid-cols-3">
+            <article>
+              <p class="font-serif text-2xl text-ink/25">01</p>
+              <h3 class="mt-3 font-serif text-xl">Incomplete Information</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Missing or outdated business information, hours, phone,
+                website, or service details.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">02</p>
+              <h3 class="mt-3 font-serif text-xl">Weak Positioning</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Your profile may not clearly communicate what you do,
+                what services you provide, where you operate, or who you serve.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">03</p>
+              <h3 class="mt-3 font-serif text-xl">Lost Opportunities</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">A customer can find your business but still leave because
+                the profile doesn't make the next step clear.</p>
+            </article>
           </div>
-          <aside class="lg:col-span-5">
-            <div class="rounded-3xl border border-line bg-white/70 p-7">
-              <h3 class="font-serif text-2xl">This work is for you if</h3>
-              <ul class="mt-5 space-y-3 text-sm leading-relaxed text-ink/70">
-                <li class="border-b border-line pb-3">You have no Google Maps listing yet and need a new profile
-                  created.</li>
-                <li class="border-b border-line pb-3">You have a listing and it is unclaimed, incomplete, or held by an
-                  old vendor.</li>
-                <li class="border-b border-line pb-3">Hours, category, services, or phone number do not match the
-                  business.</li>
-                <li class="border-b border-line pb-3">Google shows two pins, or photos that are not your jobs.</li>
-                <li>You are a storefront, a salon, a restaurant, or a service-area trade that should not publish a home
-                  address.</li>
+          <p class="mt-8 max-w-2xl text-base font-medium text-ink">Your Google Business Profile should make choosing your
+            business easier — not harder.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/gbp/problem.webp" type="image/webp" />
+            <img src="../assets/images/services/gbp/problem.jpg"
+              alt="Local business owner reviewing an online business listing on a smartphone"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- WHAT WE OPTIMIZE -->
+    <section id="optimize" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What We Optimize</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">We build your profile around how customers
+          search.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We organize the important parts of your Google Business Profile so customers
+          can quickly understand your business and take the next step.</p>
+        <div class="optimize-grid reveal mt-10">
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-9 4h12M7 21h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-2xl">Business Information</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We make sure the core information customers rely on is
+              accurate, consistent, and easy to understand.</p>
+            <ul>
+              <li>Business details</li>
+              <li>Phone</li>
+              <li>Website</li>
+              <li>Hours</li>
+              <li>Service area</li>
+              <li>Business description</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h7" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-2xl">Categories &amp; Services</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We structure your profile around the services your
+              business actually provides.</p>
+            <ul>
+              <li>Primary category</li>
+              <li>Relevant secondary categories</li>
+              <li>Services</li>
+              <li>Service descriptions</li>
+              <li>Business relevance</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 19V5m0 14h16M8 15l3-4 2 2 4-5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-2xl">Profile Content</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We improve the customer-facing information that helps
+              people understand your business.</p>
+            <ul>
+              <li>Business description</li>
+              <li>Service information</li>
+              <li>Photo organization</li>
+              <li>Customer-facing content</li>
+              <li>Profile completeness</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-2xl">Customer Actions</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We connect your profile to the actions that matter to your
+              business.</p>
+            <ul>
+              <li>Website</li>
+              <li>Calls</li>
+              <li>Booking/enquiry options where appropriate</li>
+              <li>Customer contact paths</li>
+              <li>Clear next steps</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL BREAK -->
+    <section class="border-b border-line bg-mist/40 px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-6">
+          <h2 class="svc-section-title font-serif tracking-tight">Your profile is your local storefront on Google.</h2>
+          <p class="svc-lead mt-5">Before someone calls, visits your website, or contacts your business, they may first
+            see your business information in local search. A strong profile gives them the information they need to move
+            forward with confidence.</p>
+        </div>
+        <div class="reveal lg:col-span-6">
+          <div class="profile-mock">
+            <div class="profile-mock-phone">
+              <div class="profile-mock-screen">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-ink/40">Northline profile concept</p>
+                <p class="mt-3 font-serif text-2xl leading-tight">Your Business Name</p>
+                <p class="mt-1 text-xs text-ink/50">Local Service · Open today</p>
+                <div class="mt-3 flex gap-1 text-xs text-ink/45">
+                  <span>★★★★★</span><span>4.9</span>
+                </div>
+                <div class="mt-4 grid gap-2 text-xs text-ink/65">
+                  <p>Services · Hours · Service area</p>
+                  <p>Website · Call · Directions</p>
+                </div>
+                <div class="mt-5 flex gap-2">
+                  <span class="rounded-full bg-ink px-3 py-1.5 text-[11px] font-medium text-paper">Call</span>
+                  <span
+                    class="rounded-full border border-ink/15 px-3 py-1.5 text-[11px] font-medium text-ink">Website</span>
+                </div>
+              </div>
+            </div>
+            <p class="mt-4 text-center text-xs text-paper/45">Abstract visualization — not a Google product interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What You Get</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">A complete profile setup — without the
+          guesswork.</h2>
+        <div class="checklist-panel reveal mt-10">
+          <ul class="checklist-grid">
+            <li>Google Business Profile setup or optimization</li>
+            <li>Business information setup</li>
+            <li>Primary category research</li>
+            <li>Relevant category selection</li>
+            <li>Service setup</li>
+            <li>Service-area configuration</li>
+            <li>Business description</li>
+            <li>Hours and contact details</li>
+            <li>Website connection</li>
+            <li>Photo and media guidance</li>
+            <li>Profile completeness review</li>
+            <li>Local search best-practice setup</li>
+            <li>Final profile quality check</li>
+          </ul>
+          <p class="mt-8 text-sm leading-relaxed text-ink/55">Exact recommendations depend on your business type,
+            location, existing profile, and available business information.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Who We Help</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Built for businesses that depend on local
+          customers.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Northline works with local businesses across different industries — from
+          service companies to automotive, repair, retail, and other customer-facing businesses.</p>
+        <div class="who-grid reveal mt-10">
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/gbp/ind-home.webp" type="image/webp" />
+              <img src="../assets/images/services/gbp/ind-home.jpg"
+                alt="Home services technician working at a customer property" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Home Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Plumbing · HVAC · Electrical · Roofing · Landscaping
+              </p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/gbp/ind-auto.webp" type="image/webp" />
+              <img src="../assets/images/services/gbp/ind-auto.jpg" alt="Automotive technician working on a vehicle"
+                width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Automotive</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Auto Repair · Car Detailing · Mobile Car Wash</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/gbp/ind-repair.webp" type="image/webp" />
+              <img src="../assets/images/services/gbp/ind-repair.jpg" alt="Technician repairing home equipment"
+                width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Repair &amp; Installation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Appliance Repair · Garage Door · Locksmith · Water Heater
+              </p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/gbp/ind-local.webp" type="image/webp" />
+              <img src="../assets/images/services/gbp/ind-local.jpg"
+                alt="Local business owner serving a customer in a shop" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Local Businesses</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Cleaning · Barber Shops · Salons · Restaurants · Retail
+              </p>
+            </div>
+          </article>
+        </div>
+        <p class="mt-8 text-sm text-ink/60">Don't see your business? We work with many other local businesses too.</p>
+        <a href="../industries/index.html"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">See
+          All Industries <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">How It Works</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Simple process. No unnecessary
+          complexity.</h2>
+        <div class="process-row reveal mt-10">
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-xl">Assess</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We review your current profile, business information,
+              services, and local presence.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-xl">Plan</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We identify what needs to be corrected, added,
+              reorganized, or improved.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-xl">Optimize</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We update the profile around your actual business and
+              customer search intent.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-xl">Review</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We check the finished profile for accuracy, clarity,
+              completeness, and customer usability.</p>
+          </article>
+        </div>
+        <a href="#contact"
+          class="mt-10 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="approach-panel reveal">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Our Approach</p>
+          <h2 class="mt-3 font-serif text-3xl tracking-tight sm:text-4xl">No shortcuts. No fake signals.</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-paper/65 sm:text-base">Your business reputation should be
+            built on real information and real customers. We focus on legitimate profile optimization — not tactics that
+            put your business at risk.</p>
+          <div class="approach-cols mt-10">
+            <div>
+              <h3 class="font-serif text-2xl">We don't do</h3>
+              <ul class="approach-list">
+                <li>❌ Fake reviews</li>
+                <li>❌ Purchased reviews</li>
+                <li>❌ Fake business information</li>
+                <li>❌ Misleading locations</li>
+                <li>❌ Keyword stuffing</li>
+                <li>❌ Spammy profile tactics</li>
+                <li>❌ Guaranteed Google rankings</li>
               </ul>
             </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="font-serif text-3xl sm:text-4xl">What we complete on the listing</h2>
-        <p class="mt-4 max-w-2xl text-ink/65">Every field below is public. Google uses it to decide which searches you
-          belong in. We write it the way the business actually operates — not the way a template guesses.</p>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          <article class="reveal rounded-3xl border border-line bg-paper p-6">
-            <h3 class="font-serif text-2xl">Claim, verify, and ownership</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">We search Maps first so we do not create a second
-              listing. Then we claim or request access, walk verification in your name — video, postcard, phone, or
-              email, whichever Google offers — and leave owner access on an account you control.</p>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-6">
-            <h3 class="font-serif text-2xl">Categories, services, and NAP</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">One honest primary category, useful secondary
-              categories, a service list people actually buy, and name, address, phone, and website that match the door,
-              the invoice, and the site. Keyword stuffing in the title is how listings get suspended.</p>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-6">
-            <h3 class="font-serif text-2xl">Photos, hours, and posts</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Cover, logo, interior, team, products, and job-site
-              stills that look like the work. Regular hours plus holiday exceptions. Occasional posts so the profile
-              does not freeze on a 2019 grand opening.</p>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-6">
-            <h3 class="font-serif text-2xl">Q&amp;A, products, and duplicates</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Public questions get answers a stranger can use. Menus
-              or products go on when they belong. Duplicate or spam listings get reported. The map should show one
-              business, not two ghosts.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="font-serif text-3xl sm:text-4xl">How new setup and existing optimization run</h2>
-        <ol class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <li class="reveal rounded-3xl border border-line bg-white/70 p-6">
-            <p class="text-xs text-ink/40">Step 1</p>
-            <h3 class="mt-3 font-serif text-2xl">Find or create the pin</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">You send a Maps URL if you have one. If you do not, we
-              search first so we do not duplicate. No listing means we start a new Google Business Profile. An existing
-              one gets an audit of claim status, categories, hours, photos, and NAP.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-white/70 p-6">
-            <p class="text-xs text-ink/40">Step 2</p>
-            <h3 class="mt-3 font-serif text-2xl">Claim and verify</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Access in your name. Video walkthrough of the location
-              or branded van when Google asks for it. Postcard or phone when that is what they offer. No contractor
-              Gmail left holding the keys.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-white/70 p-6">
-            <p class="text-xs text-ink/40">Step 3</p>
-            <h3 class="mt-3 font-serif text-2xl">Build or optimize the card</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Categories, the real service list, photos from jobs or
-              the floor, hours, website, attributes, and Q&amp;A. We write what a stranger sees in the map pack before
-              they dial.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-white/70 p-6">
-            <p class="text-xs text-ink/40">Step 4</p>
-            <h3 class="mt-3 font-serif text-2xl">Hand you a live listing</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">You keep owner. We can stay on as manager. If you also
-              need reviews, ads, or a site URL to put on the profile, those are separate pages.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="work" class="border-t border-line bg-ink px-5 py-16 text-paper lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">From the field</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Photos of the work that belongs on the profile.</h2>
-        <p class="mt-4 max-w-2xl text-paper/60">Field photos of the work that belongs on a Google Maps listing — job
-          sites, vans, dining rooms, chairs. These stills stand in for the trades and local businesses this contract is
-          built for. Replace with your own job photos when the listing ships.</p>
-        <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Retail storefront interior used as Google Business Profile cover and interior photography"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Cover
-              &amp; interior — retail</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Barista at work in a neighborhood cafe, the type of action photo Google Business Profile expects"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Team at
-              work — cafe</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Electrician working on a residential job site for a service-area Google Business Profile"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Job site
-              — trades</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Dental treatment room photographed for a clinic Google Business Profile gallery"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">
-              Treatment room — clinic</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Fresh bakery goods photographed as product images on a Google Business Profile"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Products
-              — bakery</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Barbershop interior and chairs used as Google Business Profile location photography"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Interior
-              — barber</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Service van at a job, representing a Google My Business listing for a mobile trade"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">Service
-              area — van</figcaption>
-          </figure>
-          <figure class="reveal group relative overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&amp;fit=crop&amp;w=900&amp;q=75"
-              alt="Paper city map with a location pin illustrating Google Maps listing setup and local search"
-              class="h-48 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-56" width="900"
-              height="700" loading="lazy" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 p-3 text-xs text-paper">The pin
-              on Maps</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl space-y-16">
-        <div class="grid items-center gap-10 lg:grid-cols-2">
-          <figure class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-            <img
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=75"
-              alt="Restaurant dining room photographed for Google Business Profile interior and atmosphere photos"
-              class="h-72 w-full object-cover lg:h-96" width="1200" height="800" loading="lazy" decoding="async" />
-          </figure>
-          <div>
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Restaurant, salon, barber</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">The room has to match the pin.</h2>
-            <p class="mt-4 leading-relaxed text-ink/65">Restaurants, salons, and barber shops lose walk-ins when the map
-              shows a dark doorway and last year’s hours. Setup and optimization here is cover photography that looks
-              like the room, a primary category that is not “bar” when you serve food, a menu or service list, and hours
-              a host can stand behind.</p>
+            <div>
+              <h3 class="font-serif text-2xl">We focus on</h3>
+              <ul class="approach-list">
+                <li>✓ Accurate business information</li>
+                <li>✓ Relevant profile structure</li>
+                <li>✓ Clear service information</li>
+                <li>✓ Better customer experience</li>
+                <li>✓ Legitimate optimization</li>
+                <li>✓ Transparent work</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="grid items-center gap-10 lg:grid-cols-2">
-          <div class="lg:order-2">
-            <figure class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-              <img
-                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&amp;fit=crop&amp;w=1200&amp;q=75"
-                alt="Tools on a workbench at a trade job, the kind of field photo used on a service-area Google Business Profile"
-                class="h-72 w-full object-cover lg:h-96" width="1200" height="800" loading="lazy" decoding="async" />
-            </figure>
-          </div>
-          <div class="lg:order-1">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Service-area work</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Trades do not need a fake storefront.</h2>
-            <p class="mt-4 leading-relaxed text-ink/65">Plumbers, HVAC crews, electricians, locksmiths, and other
-              service-area trades often should hide the street address and publish a service area instead. We set that
-              correctly, list the jobs you actually take, and use van and job-site photos. Verification still has to
-              prove the business is real.</p>
-          </div>
+          <p class="mt-10 text-sm font-medium text-paper/80">Your business stays yours. Your accounts stay under your
+            control.</p>
         </div>
       </div>
     </section>
 
-    <section id="reviews" class="border-t border-line bg-ink px-5 py-16 text-paper lg:px-8 lg:py-24">
+    <!-- NORTHLINE SYSTEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Client reviews</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">What they say when the pin finally looks open.</h2>
-            <p class="mt-4 text-paper/55">Sample cards for Google Business Profile setup. These are layout quotes, not
-              live Trustpilot widgets. Replace them with real Google and Trustpilot reviews when contracts allow.</p>
-          </div>
-          <p class="text-xs uppercase tracking-[0.16em] text-paper/35">★★★★★ · Google My Business</p>
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Bigger Picture</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Your Business Profile shouldn't work
+          alone.</h2>
+        <div class="system-flow reveal mt-10">
+          <div class="system-node">Search</div>
+          <div class="system-node">Business Profile</div>
+          <div class="system-node">Reviews</div>
+          <div class="system-node">Website</div>
+          <div class="system-node">Customer</div>
         </div>
-        <div class="review-rail mt-10">
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Gail, a florist shop owner" class="h-12 w-12 rounded-full object-cover" width="160"
-                height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Gail M.</p>
-                <p class="text-xs text-paper/45">Neighborhood florist</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Google still had us closed on Sundays. We have not closed
-              Sundays in six years. Once hours and photos were right, people stopped calling to ask if we existed.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Theo, a locksmith" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Theo B.</p>
-                <p class="text-xs text-paper/45">Mobile locksmith</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Two listings. One with the old cell number. They got the
-              duplicate down and the service-area pin set. I keep the login. That was the deal.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Iris, a cafe owner" class="h-12 w-12 rounded-full object-cover" width="160"
-                height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Iris C.</p>
-                <p class="text-xs text-paper/45">Daytime cafe</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Wrong category. We were showing up as a bar. They fixed
-              the category, put food photos on the profile, and the map finally matched the room.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Frank, a dental office manager" class="h-12 w-12 rounded-full object-cover" width="160"
-                height="160" loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Frank L.</p>
-                <p class="text-xs text-paper/45">Family dental office</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Unclaimed for years. They walked us through verification,
-              wrote the services list, and put the new site URL on the profile the same week it launched.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Willa, a HVAC contractor" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Willa H.</p><p class="text-xs text-paper/45">HVAC contractor</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Holiday hours were wrong for two winters. Once the profile told the truth, after-hours callbacks dropped.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Cruz, a Solar panel installer" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Cruz N.</p><p class="text-xs text-paper/45">Solar panel installer</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Service area was the whole state. They tightened it to counties we actually drive. Leads stopped coming from four hours away.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Anika, a Barber shop" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Anika P.</p><p class="text-xs text-paper/45">Barber shop</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Cover photo was a stock chair. Interior shots from our floor made the pin look open.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Boyd, a Roofing contractor" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Boyd R.</p><p class="text-xs text-paper/45">Roofing contractor</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Two pins, one with a disconnected number. Duplicate is gone. I keep owner.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Reem, a Cleaning service" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Reem T.</p><p class="text-xs text-paper/45">Cleaning service</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Never claimed. Video verification, then services and photos. We finally show up when someone types house cleaner.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Niles, a Auto repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Niles U.</p><p class="text-xs text-paper/45">Auto repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Category said car dealer. They fixed it. The map pack stopped sending us people looking for a lot.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Tova, a Landscaping" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Tova X.</p><p class="text-xs text-paper/45">Landscaping</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“No photos of actual yards. Job-site stills went on the profile. The pin looks like the work.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Quill, a Pest control" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Quill Z.</p><p class="text-xs text-paper/45">Pest control</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Q&A was empty and full of spam. Honest answers about pets and same-day service sit there now.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Sable, a Restaurant" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Sable K.</p><p class="text-xs text-paper/45">Restaurant</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“We were closed on the map every Sunday. We have never closed Sundays. Hours were the first fix.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Enzo, a Boiler service" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Enzo J.</p><p class="text-xs text-paper/45">Boiler service</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Name, phone, and website did not match the van. NAP is clean. Google stopped guessing.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Maren, a Salon" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Maren D.</p><p class="text-xs text-paper/45">Salon</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Old vendor still held the login. Access is in my Gmail. That was the contract.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Pax, a Generator installation" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Pax E.</p><p class="text-xs text-paper/45">Generator installation</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Unclaimed card with a PO box. They built a service-area listing that does not publish my house.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Imani, a Fire protection service" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Imani G.</p><p class="text-xs text-paper/45">Fire protection service</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Posts had frozen in 2020. Categories, photos, and a current post made the listing look alive.”</p>
-          </blockquote>
-        </div>
+        <p class="svc-lead mt-8 max-w-3xl">Your profile helps customers discover you. <a
+            class="underline underline-offset-4" href="google-maps-review-management.html">Reviews</a> help build
+          confidence. Your <a class="underline underline-offset-4" href="web-development.html">website</a> gives them
+          the next step. Together — including <a class="underline underline-offset-4"
+            href="google-ads-campaigns.html">Google Ads</a> when paid reach is needed — they create a stronger local
+          customer journey.</p>
+        <a href="../index.html#services"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          All Northline Services <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
+    <!-- FAQ -->
+    <section id="gbp-faq" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-3xl">
-        <h2 class="font-serif text-3xl">Google Business Profile setup questions</h2>
-        <div class="mt-8 divide-y divide-line border-y border-line">
+        <h2 class="svc-section-title font-serif tracking-tight">Google Business Profile questions, answered.</h2>
+        <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do you only work with shops?<span
+            <summary class="flex items-center justify-between gap-4 font-medium">What is a Google Business Profile?<span
                 class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We set up new Google Business Profiles and optimize
-              existing Google Maps listings for any local business — trades, restaurants, salons, and the rest. If you
-              need a Maps profile, we take the contract.</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">A Google Business Profile is the business listing that can
+              appear when customers search for a business or service on Google. It can provide important information
+              such as your business name, category, hours, location or service area, website, and customer actions.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Is this new setup, or only fixing a
-              listing I already have?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Both. If there is no pin, we create and verify a new
-              Google Business Profile. If you already have one, we optimize categories, services, photos, hours, NAP,
-              and duplicates. Send the Maps URL if you have it, or say there is none.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Do I need an existing Google Business
+              Profile?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We can help with a new setup or optimize an existing
+              profile.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Is Google My Business the same as
-              Google Business Profile?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Owners still say Google My Business. Google renamed
-              the product to Google Business Profile. The listing on Maps and Search is the same pin.</p>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Is this the same as Google Business
-              Reviews?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Google Business Profile setup and optimization is
-              the listing: claim, verify, categories, photos, hours, posts. Review management is how real customers
-              leave Google reviews. Most local businesses eventually need both.</p>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do you keep the Google login?<span
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you optimize my existing profile?<span
                 class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. The Business Profile stays in an account you own. We
-              can be invited as a manager if you want ongoing edits. Default is your name on the door.</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can review the existing profile and identify the
+              most important areas to improve.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do you buy Google reviews with this
-              setup?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Finishing the profile does not include purchased
-              stars, fake check-ins, or spam posts. Google suspends listings for that. If you need authentic reviews
-              from real customers, that is <a class="underline underline-offset-4"
-                href="google-maps-review-management.html">Google Reviews</a>.</p>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Can you set up a service-area business
-              with no storefront?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Trades and mobile operators can hide the street
-              address and show a service area instead. Verification still has to prove the business is real. We set the
-              pin the way Google allows for that category.</p>
-          </details>
-          <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Will this replace Google Ads?<span
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you create or buy Google reviews?<span
                 class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">A clean profile helps paid clicks convert. It does not
-              buy the search. If you need inbound this month, see <a class="underline underline-offset-4"
-                href="google-ads-campaigns.html">Google Ads</a>. If clicks have nowhere to land, look at <a
-                class="underline underline-offset-4" href="web-development.html">web development</a>.</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We do not create or purchase fake reviews. Our review
+              services focus on legitimate ways to make it easier for real customers to provide feedback. See <a
+                class="underline underline-offset-4" href="google-maps-review-management.html">Google Business
+                Reviews</a>.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you guarantee higher Google
+              rankings?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Google rankings depend on many factors and no
+              legitimate provider can guarantee a specific ranking. We focus on proper profile optimization and sound
+              local marketing practices.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Do I keep ownership of my Google Business
+              Profile?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Your business should retain control of its Google
+              Business Profile and related accounts.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">How long does the setup take?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">The timeline depends on whether you're creating a new
+              profile or optimizing an existing one, as well as the information and access available.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="proposals" class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Proposal options</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Two contracts. Both are Google Maps work.</h2>
-        <p class="mt-4 max-w-2xl text-ink/65">Pick the one that matches the listing. If you are not sure, send the Maps
-          URL — or say there is none — and we will tell you which contract it is.</p>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 01</p>
-            <h3 class="mt-3 font-serif text-3xl">New profile setup</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">No pin, an unclaimed card Google invented from public
-              data, or a listing stuck in someone else’s Gmail. We create or claim the Google Business Profile, verify
-              it in your name, and fill the fields a searcher sees: category, services, hours, photos, phone, and
-              website.</p>
-            <a href="../index.html?service=Google%20My%20Business#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 02</p>
-            <h3 class="mt-3 font-serif text-3xl">Existing profile optimization</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">You already have a listing and it is wrong, thin, or
-              stale. Wrong category, duplicate pins, last year’s hours, a parking-lot cover photo, missing services. We
-              clean NAP, categories, photos, posts, Q&amp;A, and duplicates so the map pack matches the business that
-              actually shows up.</p>
-            <a href="../index.html?service=Google%20My%20Business#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
+    <!-- FINAL CTA -->
+    <section class="px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-6">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Ready to Improve Your Profile?</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Your next customer is already searching.</h2>
+          <p class="svc-lead mt-5 max-w-xl">Give them a clear, accurate, trustworthy place to start.</p>
+          <a href="#contact"
+            class="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+          <p class="mt-4 text-sm text-ink/50">No pressure. We'll identify what your profile needs and explain the next
+            steps.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-6">
+          <picture>
+            <source srcset="../assets/images/services/gbp/cta.webp" type="image/webp" />
+            <img src="../assets/images/services/gbp/cta.jpg"
+              alt="Local business owner speaking with a customer inside their business" class="w-full object-cover"
+              width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT / ASSESSMENT -->
+    <section id="contact" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Free Assessment</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Tell us about your profile.</h2>
+          <p class="svc-lead mt-5">We'll review what you share and explain what your Google Business Profile needs —
+            clearly, without pressure.</p>
+        </div>
+        <div class="lg:col-span-7">
+          <form id="contract-form"
+            class="reveal w-full rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Your name</span><input
+                  name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input
+                  name="email" type="email" autocomplete="email" required placeholder="you@business.com"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone"
+                  type="tel" autocomplete="tel" required placeholder="+1 555 010 2841"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input
+                  name="businessName" type="text" autocomplete="organization" required
+                  placeholder="Hale &amp; Co. Plumbing"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
+                <select name="service" required
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10">
+                  <option value="Google Business Profile Setup" selected>Google Business Profile Setup</option>
+                  <option value="Google Business Reviews">Google Business Reviews</option>
+                  <option value="Google Ads Campaigns">Google Ads Campaigns</option>
+                  <option value="Web Design &amp; Development">Web Design &amp; Development</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Business Profile
+                  URL</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /><span
+                  class="mt-1 block text-xs text-ink/45">Optional. Paste the public listing URL.</span></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
+                <textarea name="message" rows="4"
+                  placeholder="Tell us about your current profile or what you want to improve..."
+                  class="field-input w-full resize-y rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10"></textarea>
+              </label>
+            </div>
+            <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
+            <button type="submit"
+              class="mt-6 w-full rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper sm:w-auto">Get My Free
+              Assessment</button>
+          </form>
+          <div id="form-success"
+            class="hidden success-pop w-full rounded-[1.75rem] border border-line bg-white p-10 text-center shadow-soft">
+            <p class="font-serif text-3xl">Request received.</p>
+            <p id="success-copy" class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink/65"></p>
+            <button id="send-another" type="button"
+              class="mt-8 text-sm underline underline-offset-4 transition-all duration-300 ease-in-out hover:opacity-70">Send
+              another request</button>
+          </div>
         </div>
       </div>
     </section>
@@ -788,25 +1150,7 @@
       </div>
     </div>
   </footer>
-  <dialog id="privacy"
-    class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50"
-    aria-labelledby="privacy-title">
-    <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">Contract form data is used to reply to your request. It is not
-      sold. Email hello@northline.example to remove a record.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button>
-    </form>
-  </dialog>
-  <dialog id="terms"
-    class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50"
-    aria-labelledby="terms-title">
-    <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">A form submission is a request, not a paid contract. Google My
-      Business work covers legitimate Google Business Profile setup and optimization. Fake reviews and spam listings are
-      not offered.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button>
-    </form>
-  </dialog>
+
   <script src="../assets/site.js"></script>
 </body>
 

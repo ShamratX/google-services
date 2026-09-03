@@ -18,14 +18,24 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/tailwind.js"></script>
   <script>
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.addEventListener("beforeunload", function () { window.scrollTo(0, 0); });
+  </script>
+  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
   </script>
   <link rel="stylesheet" href="assets/site.css" />
   <script type="application/ld+json">
@@ -112,31 +122,40 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
-        <div id="mobile-services" class="mobile-services">
-          <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="services/google-business-profile-setup.html"><span
-                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
-            <a class="nav-drop-item mobile-link" href="services/google-maps-review-management.html"><span
-                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
-            <a class="nav-drop-item mobile-link" href="services/google-ads-campaigns.html"><span
-                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
-            <a class="nav-drop-item mobile-link" href="services/web-development.html"><span
-                class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
+            <button type="button" id="mobile-services-btn"
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
+                <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
+                  <a class="nav-drop-item mobile-link" href="services/google-business-profile-setup.html"><span
+                      class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+                  <a class="nav-drop-item mobile-link" href="services/google-maps-review-management.html"><span
+                      class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
+                  <a class="nav-drop-item mobile-link" href="services/google-ads-campaigns.html"><span
+                      class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+                  <a class="nav-drop-item mobile-link" href="services/web-development.html"><span
+                      class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+                </div>
+              </div>
+            </div>
           </div>
+          <a href="industries/index.html" class="mobile-link mobile-menu-item">Industries</a>
+          <a href="index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
+          <a href="index.html#contact"
+            class="mobile-link mobile-menu-item mobile-menu-cta">Get Started</a>
         </div>
-        <a href="industries/index.html" class="mobile-link py-1">Industries</a>
-        <a href="index.html#work" class="mobile-link py-1">Work</a>
-        <a href="index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="index.html#faq" class="mobile-link py-1">FAQ</a>
-        <a href="index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
       </div>
     </div>
   </header>
@@ -229,7 +248,7 @@
 
       <h2>Contact</h2>
       <p>Questions about this Privacy Policy: <a href="mailto:hello@northline.example">hello@northline.example</a></p>
-      <p class="mt-8"><a href="terms.html" class="text-sm font-medium">Read our Terms of Service →</a></p>
+      <p class="mt-8"><a href="terms.html" class="text-sm font-medium">Read our Terms of Service</a></p>
     </article>
   </main>
 

@@ -1,7 +1,48 @@
 html { scroll-behavior: smooth; scroll-padding-top: 5.75rem; }
-body { font-family: Outfit, system-ui, sans-serif; }
+
+/* Closer fallback metrics so Outfit swap does not “zoom” text */
+@font-face {
+  font-family: "Outfit Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Helvetica");
+  size-adjust: 105%;
+  ascent-override: 95%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 ::selection { background: #111111; color: #f4f1ea; }
-.font-serif { font-family: "Instrument Serif", Georgia, serif; }
+/* Headlines + subheadings use Outfit (same family as body / screenshot) */
+.font-serif,
+.svc-hero-title,
+.svc-section-title,
+.section-heading,
+.hero-title,
+.footer-guarantee-text,
+.value-num,
+.work-row-title,
+.work-compact-heading,
+.trust-compact-heading,
+h1,
+h2,
+h3 {
+  font-family: Outfit, "Outfit Fallback", system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
+}
 .grain {
   pointer-events: none;
   position: fixed;
@@ -11,12 +52,23 @@ body { font-family: Outfit, system-ui, sans-serif; }
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .reveal { opacity: 1; transform: none; }
-html.js .reveal {
+/* Only hide below-fold reveals (marked .reveal-pending by site.js) — avoids hard-refresh zoom blink */
+html.js .reveal.reveal-pending {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
-html.js .reveal.in { opacity: 1; transform: none; }
+html.js .reveal.reveal-pending.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal.reveal-pending {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 .nav-blur {
   background: rgba(244, 241, 234, 0.78);
   backdrop-filter: blur(16px);
@@ -49,7 +101,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 #site-header #menu-btn {
   border-color: rgba(255, 255, 255, 0.2);
 }
-#site-header #mobile-menu a.rounded-full {
+#site-header #mobile-menu a.rounded-full,
+#site-header #mobile-menu .mobile-menu-cta {
   background: #f5f1e8;
   color: #111111;
 }
@@ -59,7 +112,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   color: #111111;
 }
 #site-header #mobile-menu {
-  background: rgba(17, 17, 17, 0.98);
+  background: rgba(14, 14, 14, 0.985);
 }
 
 .nav-link {
@@ -167,24 +220,249 @@ details summary span:last-child { display: inline-block; transition: transform 0
   transform: translateX(0);
 }
 
+/* —— Premium mobile menu —— */
+html.nav-locked {
+  overflow: hidden;
+}
+
+/* Skip menu close animation when leaving for another page */
+html.is-navigating #mobile-menu,
+html.is-navigating #mobile-menu .mobile-menu-item,
+html.is-navigating .mobile-services,
+html.is-navigating .mobile-services-caret,
+html.is-navigating .nav-drop-menu,
+html.is-navigating #menu-btn,
+html.is-navigating #menu-btn svg {
+  transition: none !important;
+  animation: none !important;
+}
+html.is-navigating #mobile-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  grid-template-rows: 0fr !important;
+}
+html.is-navigating .nav-drop-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Soft page enter — optional; never leave content invisible */
+html.js.is-ready #main > * {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+html.js.is-ready #main > .hero-banner {
+  animation: none;
+}
+html.js.is-ready #main > .hero-banner .hero-banner-content {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js.is-ready #main > *,
+  html.js.is-ready #main > .hero-banner .hero-banner-content {
+    animation: none !important;
+  }
+}
+
+#menu-btn {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#menu-btn:active {
+  transform: scale(0.94);
+}
+#menu-btn[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+#menu-btn svg {
+  transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#menu-btn[aria-expanded="true"] #icon-open {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.55);
+}
+#menu-btn[aria-expanded="false"] #icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.55);
+}
+
+#mobile-menu.mobile-menu,
+#mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  border-top: 1px solid transparent;
+  background: rgba(14, 14, 14, 0.985);
+  transition:
+    grid-template-rows 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.32s ease,
+    visibility 0.32s ease,
+    border-color 0.32s ease;
+}
+#mobile-menu.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+#mobile-menu .mobile-menu-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+#mobile-menu .mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.85rem 1.25rem 1.35rem;
+}
+#mobile-menu .mobile-menu-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#mobile-menu.is-open .mobile-menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+#mobile-menu.is-open .mobile-menu-item:nth-child(1) { transition-delay: 0.06s; }
+#mobile-menu.is-open .mobile-menu-item:nth-child(2) { transition-delay: 0.1s; }
+#mobile-menu.is-open .mobile-menu-item:nth-child(3) { transition-delay: 0.14s; }
+#mobile-menu.is-open .mobile-menu-item:nth-child(4) { transition-delay: 0.18s; }
+#mobile-menu.is-open .mobile-menu-item:nth-child(5) { transition-delay: 0.22s; }
+#mobile-menu.is-open .mobile-menu-item:nth-child(6) { transition-delay: 0.26s; }
+
+#mobile-menu .mobile-link:not(.nav-drop-item):not(.mobile-menu-cta),
+#mobile-menu .mobile-services-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 0.15rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.25s ease, padding-left 0.25s ease, opacity 0.25s ease;
+}
+#mobile-menu .mobile-link:not(.nav-drop-item):not(.mobile-menu-cta):hover,
+#mobile-menu .mobile-services-btn:hover {
+  color: #fff;
+  padding-left: 0.35rem;
+}
+#mobile-menu .mobile-menu-cta {
+  margin-top: 0.85rem;
+  border: 0 !important;
+  border-radius: 999px;
+  background: #f5f1e8;
+  color: #111 !important;
+  text-align: center;
+  justify-content: center;
+  padding: 0.85rem 1.25rem !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  box-shadow: 0 10px 28px -18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+#mobile-menu .mobile-menu-cta:hover {
+  transform: translateY(-1px);
+}
+
 .mobile-services {
-  display: none;
-  margin-top: 0.35rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  margin: 0;
+  transition: grid-template-rows 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .mobile-services.is-open {
-  display: block;
+  grid-template-rows: 1fr;
+  margin-bottom: 0.35rem;
+}
+.mobile-services-clip {
+  overflow: hidden;
+  min-height: 0;
 }
 .mobile-services-caret {
-  transition: transform 0.22s ease;
+  display: inline-flex;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0.7;
 }
 .mobile-services-btn[aria-expanded="true"] .mobile-services-caret {
   transform: rotate(180deg);
+  opacity: 1;
+}
+#mobile-menu .mobile-services .nav-drop-panel {
+  margin: 0.35rem 0 0.55rem;
+  border-radius: 1.15rem;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.55);
+}
+#mobile-menu .nav-drop-num {
+  display: inline-block;
+  min-width: 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(17, 17, 17, 0.38);
+  font-variant-numeric: tabular-nums;
+}
+#mobile-menu .nav-drop-item {
+  padding: 0.78rem 0.85rem;
+  border-radius: 0.85rem;
+  transition: background 0.22s ease, transform 0.22s ease, color 0.22s ease;
+}
+#mobile-menu .nav-drop-item:active {
+  transform: scale(0.985);
 }
 .nav-drop-item[aria-current="page"] {
   background: rgba(17, 17, 17, 0.06);
 }
 .mobile-services .nav-drop-panel::before {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobile-menu,
+  #mobile-menu .mobile-menu-item,
+  .mobile-services,
+  .mobile-services-caret,
+  #menu-btn,
+  #menu-btn svg {
+    transition: none !important;
+  }
+  #mobile-menu .mobile-menu-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  #mobile-menu.mobile-menu,
+  #mobile-menu {
+    display: none !important;
+  }
 }
 
 .cat-rail {
@@ -479,7 +757,7 @@ details summary span:last-child { display: inline-block; transition: transform 0
   align-items: center;
   gap: 0.65rem;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #f4f1ea;
   transition: opacity 0.2s ease;
 }
@@ -492,7 +770,7 @@ details summary span:last-child { display: inline-block; transition: transform 0
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.12);
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.04em;
 }
 .footer-tagline {
@@ -562,7 +840,8 @@ details summary span:last-child { display: inline-block; transition: transform 0
 }
 .footer-guarantee-text {
   margin-top: 0.35rem;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, system-ui, sans-serif;
+  font-weight: 500;
   font-size: 1.05rem;
   line-height: 1.45;
 }
@@ -597,7 +876,8 @@ details summary span:last-child { display: inline-block; transition: transform 0
 
 .legal-prose h2 {
   margin-top: 2.25rem;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: Outfit, system-ui, sans-serif;
+  font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.25;
   color: #111111;
@@ -655,4 +935,497 @@ details summary span:last-child { display: inline-block; transition: transform 0
 .back-to-top svg {
   height: 1.1rem;
   width: 1.1rem;
+}
+
+/* Service-page <picture> wrappers: preserve full-bleed image crop */
+figure picture,
+.who-card picture {
+  display: block;
+  width: 100%;
+}
+
+figure picture img,
+.who-card picture img {
+  display: block;
+  width: 100%;
+}
+
+/* Alternating bands: first content section = white, then #f7f7f7, then white...
+   Homepage: skips .hero-banner. Service pages: first section is white. */
+main > section:nth-child(odd of section:not(.hero-banner):not(.bg-ink)) {
+  background-color: #ffffff !important;
+}
+
+main > section:nth-child(even of section:not(.hero-banner):not(.bg-ink)) {
+  background-color: #f7f7f7 !important;
+}
+
+/* No divider lines between alternating section bands */
+main > section.border-b,
+main > section.border-t {
+  border-bottom-width: 0 !important;
+  border-top-width: 0 !important;
+}
+
+/* Hide breadcrumbs visually; keep markup in place */
+nav[aria-label="Breadcrumb"] {
+  display: none !important;
+}
+
+/* =========================================================
+   Sitewide typography + visibility (no layout/content change)
+   Outfit for body, headlines, and subheadings
+   ========================================================= */
+
+/* Size scale */
+.text-xs {
+  font-size: 0.8125rem !important;
+  line-height: 1.55 !important;
+  font-weight: 400 !important;
+}
+
+.text-sm {
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+}
+
+/* Paragraph-only size lock — do not shrink headlines */
+p.text-base:not(.font-serif),
+p.text-lg:not(.font-serif) {
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+}
+
+/* Every body paragraph: Outfit @ 0.975rem (screenshot look) */
+p:not(.font-serif):not(.text-xs):not(.journey-label):not(.hero-eyebrow):not(.text-\[11px\]):not(.text-\[10px\]),
+.body-lg,
+.svc-lead {
+  font-family: Outfit, system-ui, sans-serif !important;
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+}
+
+.svc-lead {
+  color: rgba(17, 17, 17, 0.76) !important;
+}
+
+p.font-medium:not(.font-serif):not(.text-xs):not(.journey-label) {
+  font-weight: 500 !important;
+}
+
+/* Card / inline subheadings (were serif) */
+p.font-serif {
+  font-family: Outfit, system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+p.font-serif.text-lg {
+  font-size: 1.1875rem !important;
+}
+
+p.font-serif.text-xl {
+  font-size: 1.25rem !important;
+}
+
+/* Keep these section cards unchanged */
+#trust-strip .trust-badge p.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+  font-family: Outfit, system-ui, sans-serif !important;
+}
+
+#trust-strip .trust-badge p.text-xs {
+  font-size: 0.75rem !important;
+  line-height: 1.45 !important;
+  font-weight: 400 !important;
+  font-family: Outfit, system-ui, sans-serif !important;
+}
+
+#journey .journey-label,
+#journey .journey-step p {
+  font-size: 0.8125rem !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  font-family: Outfit, system-ui, sans-serif !important;
+}
+
+.svc-section-title,
+.section-heading,
+.svc-hero-title,
+.hero-title {
+  font-family: Outfit, system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+/* Match homepage hero title scale on all pages */
+.svc-hero-title,
+.hero-title,
+h1.font-serif,
+main > section:first-of-type h1 {
+  font-size: 2.15rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.025em !important;
+}
+
+@media (min-width: 640px) {
+  .svc-hero-title,
+  .hero-title,
+  h1.font-serif,
+  main > section:first-of-type h1 {
+    font-size: 2.65rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svc-hero-title,
+  .hero-title,
+  h1.font-serif,
+  main > section:first-of-type h1 {
+    font-size: 3.25rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .svc-hero-title,
+  .hero-title,
+  h1.font-serif,
+  main > section:first-of-type h1 {
+    font-size: 3.5rem !important;
+  }
+}
+
+/* Match homepage hero eyebrow / label size */
+main > section:first-of-type p.mt-6.text-xs,
+main > section:first-of-type p.text-\[11px\],
+#main > div > p.text-xs:first-child {
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+}
+
+/* Contact form inputs — lighter, smaller text */
+#contact .field-input,
+#contact input,
+#contact select,
+#contact textarea {
+  font-family: Outfit, system-ui, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+#contact .field-input::placeholder,
+#contact input::placeholder,
+#contact textarea::placeholder {
+  font-weight: 400 !important;
+  opacity: 0.55;
+}
+
+#contact label > span.font-medium {
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+}
+
+/* Non-hero section main headlines — unified 2.6rem (all pages) */
+.section-heading,
+.svc-section-title,
+.work-compact-heading,
+.trust-compact-heading,
+main section h2.font-serif,
+main section h2.section-heading,
+main section h2.svc-section-title {
+  font-size: 2.6rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Demo badge pills — keep compact; smaller on mobile */
+.demo-panel > p.inline-flex,
+.demo-panel > p.text-\[11px\],
+.demo-badge {
+  display: inline-flex !important;
+  width: fit-content !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+}
+
+@media (max-width: 767px) {
+  .demo-panel {
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .demo-panel > p.inline-flex,
+  .demo-panel > p.text-\[11px\],
+  .demo-badge {
+    font-size: 7.5px !important;
+    padding: 0.12rem 0.45rem !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Small / compact sizes: never bold — medium (500) is the ceiling */
+.text-xs.font-medium,
+.text-xs.font-semibold,
+.text-xs.font-bold,
+.text-\[10px\].font-medium,
+.text-\[10px\].font-semibold,
+.text-\[10px\].font-bold,
+.text-\[11px\].font-medium,
+.text-\[11px\].font-semibold,
+.text-\[11px\].font-bold,
+.text-\[12px\].font-medium,
+.text-\[12px\].font-semibold,
+.text-\[12px\].font-bold,
+.text-\[13px\].font-medium,
+.text-\[13px\].font-semibold,
+.text-\[13px\].font-bold,
+.text-\[15px\].font-semibold,
+.text-\[15px\].font-bold,
+.header-mark.font-semibold,
+.font-semibold.text-\[11px\] {
+  font-weight: 500 !important;
+}
+
+/* sm+ can use medium; keep semibold/bold from looking heavy */
+.text-sm.font-medium,
+.text-base.font-medium {
+  font-weight: 500 !important;
+}
+
+.text-sm.font-semibold,
+.text-sm.font-bold,
+.text-base.font-semibold,
+.text-base.font-bold {
+  font-weight: 500 !important;
+}
+
+/* Uppercase labels: clear, not heavy */
+.text-xs.uppercase,
+.text-xs.font-medium.uppercase {
+  font-weight: 500 !important;
+  letter-spacing: 0.2em;
+}
+
+/* Stronger muted / secondary text for contrast */
+.text-muted {
+  color: #4a4843 !important;
+}
+
+.text-ink\/25 {
+  color: rgba(17, 17, 17, 0.42) !important;
+}
+
+.text-ink\/30 {
+  color: rgba(17, 17, 17, 0.48) !important;
+}
+
+.text-ink\/35 {
+  color: rgba(17, 17, 17, 0.52) !important;
+}
+
+.text-ink\/40 {
+  color: rgba(17, 17, 17, 0.58) !important;
+}
+
+.text-ink\/45 {
+  color: rgba(17, 17, 17, 0.62) !important;
+}
+
+.text-ink\/50 {
+  color: rgba(17, 17, 17, 0.66) !important;
+}
+
+.text-ink\/55 {
+  color: rgba(17, 17, 17, 0.72) !important;
+}
+
+.text-ink\/60 {
+  color: rgba(17, 17, 17, 0.76) !important;
+}
+
+.text-ink\/65 {
+  color: rgba(17, 17, 17, 0.8) !important;
+}
+
+.text-ink\/70 {
+  color: rgba(17, 17, 17, 0.84) !important;
+}
+
+.text-black\/45 {
+  color: rgba(0, 0, 0, 0.62) !important;
+}
+
+.text-black\/55 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.text-black\/60 {
+  color: rgba(0, 0, 0, 0.76) !important;
+}
+
+/* Card / checklist secondary copy */
+.optimize-card ul,
+.do-card ul,
+.build-card ul,
+.checklist-grid li {
+  font-weight: 400 !important;
+  color: rgba(17, 17, 17, 0.74) !important;
+}
+
+.optimize-card ul,
+.do-card ul,
+.build-card ul {
+  font-size: 0.9375rem !important;
+  line-height: 1.55 !important;
+}
+
+.checklist-grid li {
+  font-size: 0.975rem !important;
+  line-height: 1.55 !important;
+}
+
+.checklist-grid li::before {
+  font-weight: 500 !important;
+}
+
+/* Footer small labels stay light */
+.footer-col-title,
+.footer-guarantee-label,
+.footer-bottom {
+  font-weight: 500;
+}
+
+.footer-ownership li,
+.footer-tagline,
+.footer-col a {
+  font-weight: 400;
+}
+
+/* =========================================================
+   Navbar + footer visibility (dark chrome)
+   ========================================================= */
+#site-header {
+  color: #f7f4ee;
+}
+
+#site-header .nav-link,
+#site-header .nav-drop-btn {
+  opacity: 1 !important;
+  color: #f7f4ee !important;
+  font-weight: 500 !important;
+  font-size: 0.975rem !important;
+}
+
+#site-header a.flex > span:last-child,
+#site-header nav > a span.text-\[15px\],
+#site-header .text-\[15px\] {
+  color: #f7f4ee !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+#site-header #menu-btn {
+  color: #f7f4ee;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+#site-header #mobile-menu,
+#site-header #mobile-menu .mobile-services-btn,
+#site-header #mobile-menu .mobile-link:not(.nav-drop-item):not(.mobile-menu-cta),
+#site-header #mobile-menu a:not(.nav-drop-item):not(.rounded-full):not(.mobile-menu-cta) {
+  color: #f7f4ee !important;
+  opacity: 1 !important;
+}
+
+#site-header #mobile-menu .mobile-services-btn,
+#site-header #mobile-menu a:not(.nav-drop-item):not(.mobile-menu-cta) {
+  font-weight: 500 !important;
+  font-size: 0.975rem !important;
+}
+
+.nav-drop-name {
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: inherit;
+}
+
+/* Footer: stronger contrast on dark */
+.footer-logo {
+  color: #f7f4ee !important;
+  font-weight: 500 !important;
+}
+
+.footer-mark {
+  color: #f7f4ee !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  font-weight: 500 !important;
+}
+
+.footer-col-title,
+.footer-guarantee-label {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.14em;
+  color: rgba(247, 244, 238, 0.78) !important;
+}
+
+.footer-col a {
+  font-size: 0.9375rem !important;
+  line-height: 1.45 !important;
+  color: rgba(247, 244, 238, 0.92) !important;
+}
+
+.footer-col a:hover,
+.footer-col a[aria-current="page"] {
+  color: #ffffff !important;
+}
+
+.footer-tagline,
+.footer-ownership li {
+  font-size: 0.9375rem !important;
+  line-height: 1.65 !important;
+  color: rgba(247, 244, 238, 0.82) !important;
+}
+
+.footer-email,
+.footer-cta {
+  font-size: 0.875rem !important;
+  color: rgba(247, 244, 238, 0.92) !important;
+}
+
+.footer-email:hover,
+.footer-cta:hover {
+  color: #ffffff !important;
+}
+
+.footer-guarantee-text {
+  color: #f7f4ee !important;
+}
+
+.footer-guarantee-text span {
+  color: rgba(247, 244, 238, 0.62) !important;
+}
+
+.footer-bottom {
+  font-size: 0.8125rem !important;
+  color: rgba(247, 244, 238, 0.72) !important;
+}
+
+.site-footer,
+.site-footer a {
+  -webkit-font-smoothing: antialiased;
 }

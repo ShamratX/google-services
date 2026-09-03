@@ -1,40 +1,645 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Ads Campaigns | High-Converting Paid Search for Local Businesses | Northline</title>
-  <meta name="description" content="Northline sets up Google Ads campaigns for local businesses that need leads and sales — structured around buying-intent searches, honest tracking, and spend you can live with." />
+  <title>Google Ads Management for Local Businesses | Northline</title>
+  <meta name="description"
+    content="Build focused Google Ads campaigns with better targeting, keyword structure, conversion tracking, landing-page alignment, and transparent campaign management." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/services/google-ads-campaigns.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Google Ads Campaigns | Northline" />
-  <meta property="og:description" content="Paid search built to book work, not to inflate click reports. Local campaigns with clean structure and tracking." />
+  <meta property="og:title" content="Google Ads Management for Local Businesses | Northline" />
+  <meta property="og:description"
+    content="Build focused Google Ads campaigns with better targeting, keyword structure, conversion tracking, landing-page alignment, and transparent campaign management." />
   <meta property="og:url" content="https://northline.example/services/google-ads-campaigns.html" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=75" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
+  <meta property="og:image" content="https://northline.example/assets/images/services/ads/hero.jpg" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
+  </script>
   <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .svc-hero-title {
+      font-size: 2.15rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    @media (min-width: 640px) {
+      .svc-hero-title { font-size: 2.65rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .svc-hero-title { font-size: 3.25rem; }
+    }
+
+    @media (min-width: 1280px) {
+      .svc-hero-title { font-size: 3.5rem; }
+    }
+
+    .svc-section-title {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .svc-lead {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      line-height: 1.65;
+      color: rgba(17, 17, 17, 0.62);
+    }
+
+    .value-strip {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .value-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    .value-item {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .value-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.28);
+    }
+
+    .build-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .build-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .build-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    .build-card ul {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.58);
+    }
+
+    .flow-panel {
+      border-radius: 1.75rem;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      background: #fff;
+      padding: 1.75rem 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .flow-panel {
+        padding: 2.5rem;
+      }
+    }
+
+    .flow-track {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 1024px) {
+      .flow-track {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0.65rem;
+      }
+    }
+
+    .flow-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1rem;
+      background: #f5f1e8;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-node,
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .flow-node strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .flow-node span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: rgba(17, 17, 17, 0.55);
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .checklist-panel {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .checklist-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .checklist-grid li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .checklist-grid li::before {
+      content: "✓";
+      flex: none;
+      margin-top: 0.05rem;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .budget-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .budget-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    .budget-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1.15rem;
+    }
+
+    .who-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .who-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .who-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .who-card {
+      overflow: hidden;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.25rem;
+      background: #fff;
+    }
+
+    .who-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .who-card-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+    }
+
+    .process-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .process-row {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    .process-card {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .quality-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .quality-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+        align-items: stretch;
+      }
+    }
+
+    .quality-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.5rem;
+    }
+
+    .quality-card .label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.4);
+    }
+
+    .quality-card .example {
+      margin-top: 0.85rem;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .quality-arrow {
+      display: none;
+      text-align: center;
+      color: rgba(17, 17, 17, 0.3);
+      font-size: 1.25rem;
+      align-self: center;
+    }
+
+    .track-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .track-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .track-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .track-card {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .approach-panel {
+      border-radius: 1.5rem;
+      background: #111;
+      color: #f5f1e8;
+      padding: 2rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-panel {
+        padding: 2.75rem;
+      }
+    }
+
+    .approach-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-cols {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(245, 241, 232, 0.72);
+    }
+
+    .own-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .own-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .own-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .own-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .system-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 1024px) {
+      .system-flow {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.65rem;
+      }
+    }
+
+    .system-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 9999px;
+      background: #fff;
+      padding: 0.85rem 0.65rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1023px) {
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .system-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 1023px) {
+      .system-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .outcome-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .outcome-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1.15rem;
+    }
+
+    .demo-panel {
+      border: 1px dashed rgba(17, 17, 17, 0.22);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .demo-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .demo-struct {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .demo-row {
+      display: grid;
+      gap: 0.35rem;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1rem;
+      background: #f5f1e8;
+      padding: 1rem 1.15rem;
+    }
+
+    @media (min-width: 768px) {
+      .demo-row {
+        grid-template-columns: 8rem 1fr;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    .demo-row strong {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.45);
+    }
+
+    .demo-row span {
+      font-size: 0.9375rem;
+      color: rgba(17, 17, 17, 0.7);
+    }
+
+    #ads-faq details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    #ads-faq details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@graph": [
+      {
     "@type": "Service",
     "name": "Google Ads Campaigns",
-    "provider": { "@type": "ProfessionalService", "name": "Northline" },
+        "provider": { "@type": "ProfessionalService", "name": "Northline", "url": "https://northline.example/" },
     "url": "https://northline.example/services/google-ads-campaigns.html",
-    "description": "High-converting Google Ads setup and management for local businesses seeking sales and inbound leads."
+        "areaServed": "United States",
+        "description": "Focused Google Ads campaign management for local businesses — structured around search intent, services, locations, landing-page alignment, conversion tracking, and transparent optimization. No guaranteed leads, rankings, or ROAS."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northline.example/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://northline.example/services/" },
+          { "@type": "ListItem", "position": 3, "name": "Google Ads Campaigns", "item": "https://northline.example/services/google-ads-campaigns.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much should I spend on Google Ads?",
+            "acceptedAnswer": { "@type": "Answer", "text": "There isn't one universal budget. A reasonable budget depends on your location, competition, services, customer value, search demand, and business goals. We can help assess what makes sense for your situation." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you guarantee leads or sales?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Advertising performance depends on many factors, including demand, competition, budget, targeting, landing pages, tracking, and the strength of the offer. We focus on building and improving the campaign rather than promising a fixed result." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a website to run Google Ads?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not always, but a strong landing page or website can be important for turning relevant clicks into enquiries or customers. We'll assess the customer journey before recommending the campaign structure." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you run ads for any business?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We can work with many local businesses, but suitability depends on the business, market, advertising policies, service, location, and customer demand." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I keep access to my Google Ads account?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We believe your business should retain access to its advertising infrastructure." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you manage campaigns after launch?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Campaign management can include monitoring, search-term analysis, conversion review, testing, and ongoing optimization depending on your service arrangement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you guarantee the top position on Google?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. No legitimate provider can guarantee a specific ad position or ranking. Ad placement depends on factors such as competition, bid, ad quality, relevance, and auction conditions." }
+          },
+          {
+            "@type": "Question",
+            "name": "What do you track?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Depending on your setup, we can track meaningful actions such as calls, forms, bookings, and other website actions. The exact setup depends on your website and customer journey." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you help if I already have Google Ads running?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can review an existing campaign and identify structural, targeting, tracking, landing-page, or optimization opportunities." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
+
 <body class="bg-paper text-ink antialiased">
   <div class="grain" aria-hidden="true"></div>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
+    to content</a>
+
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="../index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
@@ -91,13 +696,20 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
         <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
         <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
           <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
             <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html"><span
                 class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
@@ -109,20 +721,24 @@
                 class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
           </div>
         </div>
-        <a href="../industries/index.html" class="mobile-link py-1">Industries</a>
-        <a href="../index.html#work" class="mobile-link py-1">Work</a>
-        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
+            </div>
+          </div>
+          <a href="../industries/index.html" class="mobile-link mobile-menu-item">Industries</a>
+          <a href="../index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="../index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="../index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
         <a href="../index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
+            class="mobile-link mobile-menu-item mobile-menu-cta">Get Started</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
-      <div class="mx-auto max-w-7xl">
+  <main id="main" class="pt-[4.5rem] lg:pt-0">
+    <!-- HERO -->
+    <section class="border-b border-line px-5 pb-12 pt-8 lg:px-8 lg:pb-16 lg:pt-24">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-7">
         <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
           <ol class="flex flex-wrap items-center gap-2">
             <li><a class="hover:text-ink" href="../index.html">Home</a></li>
@@ -132,279 +748,815 @@
             <li class="text-ink/70">Google Ads Campaigns</li>
           </ol>
         </nav>
-        <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
-          <div class="flex flex-col justify-center">
-            <p
-              class="inline-flex rounded-full border border-line bg-white/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/55">
-              Service 03 · Google Ads Campaigns</p>
-            <h1 class="mt-5 font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl xl:text-[3.4rem]">Pay for the search that already wants to hire you.</h1>
-            <p class="mt-6 text-base leading-relaxed text-ink/65 sm:text-lg">Google Ads is expensive when the account is a default campaign, a handful of broad keywords, and a homepage pretending to be a landing page. We build paid search around the phrases people type when they are ready to call — then we keep cutting the queries that never should have been billed.</p>
+          <p class="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Google Ads Campaigns</p>
+          <h1 class="svc-hero-title mt-4 font-serif tracking-tight">Turn Local Searches Into Your Next Customer.</h1>
+          <p class="svc-lead mt-6 max-w-xl">We build and manage focused Google Ads campaigns around the services you
+            offer, the locations you serve, and the actions that matter to your business.</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="../index.html?service=Google%20Ads%20Campaigns#contact" class="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Contract this service</a>
-              <a href="#work" class="inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">See the field work</a>
+            <a href="#contact" class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+            <a href="#what-we-build" class="rounded-full border border-line px-6 py-3 text-sm font-medium">See How We Build
+              Campaigns ↓</a>
             </div>
+          <p class="mt-5 text-sm text-ink/50">Focused targeting. Clear tracking. Transparent management.</p>
           </div>
-          <figure
-            class="reveal relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-line bg-ink shadow-lift sm:min-h-[18rem] lg:min-h-0 lg:h-full">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1600&amp;q=75" alt="Widescreen analytics dashboard used while rebuilding a local Google Ads account" class="absolute inset-0 h-full w-full object-cover" width="1600" height="900" fetchpriority="high" decoding="async" />
-            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/55 to-transparent p-5 text-sm text-paper sm:p-7 sm:text-base">Paid search rebuilt around calls and booked jobs — not vanity clicks.</figcaption>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/ads/hero.webp" type="image/webp" />
+            <img src="../assets/images/services/ads/hero.jpg"
+              alt="Local business owner reviewing customer enquiries and advertising activity on a smartphone"
+              class="w-full object-cover" width="1152" height="864" fetchpriority="high" decoding="async" />
+          </picture>
           </figure>
+      </div>
+    </section>
+
+    <!-- VALUE STRIP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">Advertising works better when every click has a
+          purpose.</h2>
+        <div class="value-strip reveal mt-10">
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">01</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path stroke-linecap="round" d="M20 20l-3.5-3.5" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Intent</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Reach people actively searching for services your business
+              provides.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">02</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Focus</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Build campaigns around relevant services, locations, search
+              intent, and customer needs.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">03</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15l3-4 2 2 4-5" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Measurement</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Track meaningful actions so you can understand what your
+              advertising is actually producing.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12">
+    <!-- PROBLEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
         <div class="lg:col-span-7">
-          <h2 class="font-serif text-3xl sm:text-4xl">What “high-converting” means here</h2>
-          <p class="mt-5 leading-relaxed text-ink/65">It does not mean a vanity click-through rate. It means the people who tap the ad are close enough to buying that your calendar or inbox actually moves. For a plumber that is “emergency leak” in the right zip codes. For a clinic it is “accepting new patients near me,” not a lecture about wellness.</p>
-          <p class="mt-4 leading-relaxed text-ink/65">We write ads that sound like the business, not like a template factory. Extensions, call assets, and location targeting are part of the build, not leftovers. Tracking is set so you can see calls and form fills — not just sessions.</p>
-          <h3 class="mt-12 font-serif text-2xl">Inside the campaign build</h3>
-          <ul class="mt-5 space-y-4 text-sm leading-relaxed text-ink/70">
-            <li class="border-b border-line pb-4"><strong class="text-ink">Account structure.</strong> Separate the searches that mean “buy now” from the ones that mean “just looking.” Mixing them is how budgets disappear.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">Negatives from day one.</strong> Job seekers, DIY queries, and out-of-area terms get blocked before they eat the first week of spend.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">Landing that matches the promise.</strong> If you already have a site, we aim traffic at a page that can close. If you do not, that is a <a class="underline underline-offset-4" href="web-development.html">web development</a> conversation first.</li>
-            <li><strong class="text-ink">Your ads account, your media bill.</strong> Google charges you for clicks. Northline charges for setup and management. Those invoices stay separate on purpose.</li>
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Problem</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Paying for clicks isn't the same as generating
+            customers.</h2>
+          <p class="svc-lead mt-5">A campaign can spend money and still fail to create useful business opportunities.
+            Broad targeting, irrelevant searches, weak landing pages, poor tracking, or unclear campaign structure can
+            make it difficult to understand where your budget is going.</p>
+          <div class="mt-10 grid gap-6 sm:grid-cols-3">
+            <article>
+              <p class="font-serif text-2xl text-ink/25">01</p>
+              <h3 class="mt-3 font-serif text-xl">Too Broad</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Your ads may appear for searches that don't closely match
+                the service you actually provide.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">02</p>
+              <h3 class="mt-3 font-serif text-xl">Weak Customer Journey</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">A customer clicks an ad but lands on a page that doesn't
+                clearly explain the service or next step.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">03</p>
+              <h3 class="mt-3 font-serif text-xl">Poor Visibility Into Results</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">If calls, forms, bookings, or other customer actions aren't
+                tracked properly, it's difficult to know what your advertising is actually accomplishing.</p>
+            </article>
+        </div>
+          <p class="mt-8 max-w-2xl text-base font-medium text-ink">The goal isn't more clicks. It's a better path from
+            search to customer.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/ads/problem.webp" type="image/webp" />
+            <img src="../assets/images/services/ads/problem.jpg"
+              alt="Business owner reviewing advertising performance and customer enquiries"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+          </figure>
+          </div>
+    </section>
+
+    <!-- WHAT WE BUILD -->
+    <section id="what-we-build" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What We Build</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Campaigns built around how your customers
+          search.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We structure your Google Ads campaigns around your real services, service
+          areas, customer intent, and business goals — not a one-size-fits-all template.</p>
+        <div class="build-grid reveal mt-10">
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h7" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-2xl">Campaign Strategy</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We start with the business before building the campaign.</p>
+            <ul>
+              <li>Business goals</li>
+              <li>Services</li>
+              <li>Target locations</li>
+              <li>Customer intent</li>
+              <li>Budget considerations</li>
+              <li>Campaign priorities</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" />
+                <path stroke-linecap="round" d="M20 20l-3.5-3.5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-2xl">Search &amp; Keyword Structure</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We organize campaigns around relevant search demand.</p>
+            <ul>
+              <li>Service-focused keywords</li>
+              <li>Location intent</li>
+              <li>Search themes</li>
+              <li>Keyword organization</li>
+              <li>Negative keyword strategy</li>
+              <li>Search-term review</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v6H4zM4 13h10v6H4z" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-2xl">Ad &amp; Landing-Page Alignment</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">The customer experience shouldn't stop at the click.</p>
+            <ul>
+              <li>Ad messaging</li>
+              <li>Service relevance</li>
+              <li>Landing-page alignment</li>
+              <li>Clear calls to action</li>
+              <li>Mobile experience</li>
+              <li>Enquiry pathways</li>
+            </ul>
+          </article>
+          <article class="build-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15l3-4 2 2 4-5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-2xl">Tracking &amp; Optimization</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We monitor meaningful campaign signals and improve the
+              system over time.</p>
+            <ul>
+              <li>Conversion tracking</li>
+              <li>Search-term analysis</li>
+              <li>Campaign monitoring</li>
+              <li>Bid/budget adjustments where appropriate</li>
+              <li>Ad testing</li>
+              <li>Ongoing optimization</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMER JOURNEY -->
+    <section class="border-b border-line bg-mist/40 px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Customer Journey</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">From search intent to real business
+          action.</h2>
+        <div class="flow-panel reveal mt-10">
+          <div class="flow-track">
+            <div class="flow-node">
+              <strong>Customer Search</strong>
+              <span>High-intent local query</span>
+            </div>
+            <div class="flow-node">
+              <strong>Relevant Ad</strong>
+              <span>Matched to the service</span>
+            </div>
+            <div class="flow-node">
+              <strong>Service Page</strong>
+              <span>Clear offer &amp; next step</span>
+            </div>
+            <div class="flow-node">
+              <strong>Call / Form / Booking</strong>
+              <span>Tracked customer action</span>
+            </div>
+            <div class="flow-node">
+              <strong>Business Opportunity</strong>
+              <span>A real enquiry path</span>
+            </div>
+          </div>
+          <p class="mt-6 text-sm leading-relaxed text-ink/60">Every stage should make sense. The search should match the
+            ad. The ad should match the landing page. The landing page should make the next step obvious.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What You Get</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">A complete Google Ads campaign system.</h2>
+        <div class="checklist-panel reveal mt-10">
+          <ul class="checklist-grid">
+            <li>Campaign strategy</li>
+            <li>Account/campaign structure</li>
+            <li>Service-based campaign organization</li>
+            <li>Location targeting</li>
+            <li>Keyword research</li>
+            <li>Negative keyword strategy</li>
+            <li>Ad copy development</li>
+            <li>Ad group structure where appropriate</li>
+            <li>Landing-page recommendations</li>
+            <li>Conversion tracking setup</li>
+            <li>Campaign launch</li>
+            <li>Search-term monitoring</li>
+            <li>Performance monitoring</li>
+            <li>Ongoing optimization</li>
+            <li>Reporting / performance review</li>
           </ul>
+          <p class="mt-8 text-sm leading-relaxed text-ink/55">Exact campaign structure and optimization work depends on
+            your business, market, services, location, budget, website, and advertising goals.</p>
         </div>
-        <aside class="lg:col-span-5">
-          <figure class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1000&amp;q=75" alt="Laptop showing charts used while reviewing Google Ads campaign performance" class="h-64 w-full object-cover" width="1000" height="700" loading="lazy" decoding="async" />
-          </figure>
-          <div class="mt-5 rounded-3xl border border-line bg-white/70 p-6">
-            <h3 class="font-serif text-xl">A note on “guaranteed sales”</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Nobody honest can promise a fixed number of closed jobs from paid search. What we can do is aim the account at demand that already exists, measure the leads, and stop paying for traffic that never had a chance. If your offer, area, or follow-up is broken, ads will show that quickly — which is still useful.</p>
+      </div>
+    </section>
+
+    <!-- BUDGET -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Your Ad Budget</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Your budget should have a job.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We don't treat advertising spend as an unlimited pool of clicks. Campaign
+          structure, targeting, search intent, landing pages, and conversion tracking all influence how effectively a
+          budget can be used.</p>
+        <div class="budget-grid reveal mt-10">
+          <article class="budget-item">
+            <h3 class="font-serif text-2xl">Control</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Set clear campaign and budget priorities.</p>
+          </article>
+          <article class="budget-item">
+            <h3 class="font-serif text-2xl">Relevance</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Focus spend on searches connected to your actual services.
+            </p>
+          </article>
+          <article class="budget-item">
+            <h3 class="font-serif text-2xl">Learning</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Use campaign data to identify what deserves more attention —
+              and what doesn't.</p>
+          </article>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="font-serif text-3xl sm:text-4xl">How a typical engagement runs</h2>
-        <ol class="mt-10 grid gap-5 md:grid-cols-3">
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 1</p>
-            <h3 class="mt-3 font-serif text-2xl">Map the money searches</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">We list the phrases that already imply a job, the radius you can serve, and the budget you can stand for thirty days without panic.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 2</p>
-            <h3 class="mt-3 font-serif text-2xl">Launch a tight account</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Campaigns, ads, and conversion actions go live in your Google Ads account. You keep admin access. Nothing is locked in an agency black box.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 3</p>
-            <h3 class="mt-3 font-serif text-2xl">Trim what does not pay</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Search terms, locations, and schedules get edited against real leads — not a dashboard that only celebrates clicks.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="work" class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">From the field</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Accounts that look like work, not a default campaign.</h2>
-        <p class="mt-4 max-w-2xl text-ink/60">Top Google Ads agencies lead with dashboards, call rooms, and the trades they actually run ads for. Same idea here — stills for the rebuild, not a generic handshake photo.</p>
-        <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Marketer reviewing a laptop during a Google Ads account rebuild" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Team reviewing paid search notes around a conference table" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Office presentation of advertising performance for a local service business" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=800&amp;q=75" alt="Hands at a desk planning keyword structure for a Google Ads campaign" class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800" height="600" loading="lazy" decoding="async" />
-          </figure>
+        <p class="mt-10 max-w-3xl text-sm leading-relaxed text-ink/55">Advertising performance varies by market,
+          competition, location, service, budget, website quality, and many other factors. No specific number of leads,
+          sales, or return can be guaranteed.</p>
         </div>
-      </div>
     </section>
 
-    <section id="reviews" class="border-t border-line bg-ink px-5 py-16 text-paper lg:px-8 lg:py-24">
+    <!-- WHO WE HELP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Client reviews</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">What happens when the account stops buying junk clicks.</h2>
-            <p class="mt-4 text-paper/55">High-ranking PPC pages put named operators next to the work. These are layout-ready quotes for this service — replace with live Trustpilot and Google reviews when you have them.</p>
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Who We Help</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Built for businesses that want customers —
+          not vanity metrics.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Google Ads can be useful for businesses where customers actively search for a
+          service, product, appointment, or local provider.</p>
+        <div class="who-grid reveal mt-10">
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-home.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-home.jpg"
+                alt="Home services technician working at a customer property" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Home Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Plumbing · HVAC · Electrical · Roofing</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-auto.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-auto.jpg" alt="Automotive technician servicing a vehicle"
+                width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Automotive</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Auto Repair · Car Detailing · Mobile Car Wash</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-repair.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-repair.jpg"
+                alt="Technician repairing equipment for a local business" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Repair &amp; Installation</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Appliance Repair · Garage Door · Locksmith · Water Heater
+              </p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-clean.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-clean.jpg"
+                alt="Professional cleaning a residential property" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Cleaning &amp; Property Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Cleaning · Carpet Cleaning · Window Cleaning · Junk
+                Removal</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-personal.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-personal.jpg" alt="Salon professional serving a customer"
+                width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Personal &amp; Local Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Barber · Salon · Professional Services</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/ads/ind-local.webp" type="image/webp" />
+              <img src="../assets/images/services/ads/ind-local.jpg" alt="Local business owner serving a customer"
+                width="1152" height="864" loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Other Local Businesses</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Restaurants · Retail · Clinics · Customer-facing
+                businesses</p>
+            </div>
+          </article>
+            </div>
+        <p class="mt-8 text-sm text-ink/60">Don't see your business? Tell us what you offer and where you serve.</p>
+        <a href="#contact"
+          class="mt-4 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+            </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Our Process</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Strategy before spend.</h2>
+        <div class="process-row reveal mt-10">
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-xl">Assess</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We learn about your business, services, locations,
+              customers, website, and goals.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-xl">Research</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We investigate relevant search demand, services, locations,
+              competition, and customer intent.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-xl">Build</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We create the campaign structure, targeting, ads, negative
+              keywords, and conversion setup.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-xl">Launch</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We launch with the appropriate settings, tracking, and checks
+              in place.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">05</p>
+            <h3 class="mt-3 font-serif text-xl">Optimize</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">We review campaign data, search terms, conversions, and
+              performance signals to identify opportunities for improvement.</p>
+          </article>
+            </div>
+        <a href="#contact"
+          class="mt-10 inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">Plan My Campaign</a>
+            </div>
+    </section>
+
+    <!-- AD QUALITY -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Relevance Matters</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">The best ad is the one that makes sense for
+          the search.</h2>
+        <div class="quality-grid reveal mt-10">
+          <article class="quality-card">
+            <p class="label">Search</p>
+            <p class="example">“Emergency plumber near me”</p>
+          </article>
+          <article class="quality-card">
+            <p class="label">Ad</p>
+            <p class="example">Emergency Plumbing Service</p>
+          </article>
+          <article class="quality-card">
+            <p class="label">Landing Page</p>
+            <p class="example">Emergency Plumbing → Call Now</p>
+          </article>
+            </div>
+        <p class="svc-lead mt-8 max-w-3xl">When the customer's search, ad message, and landing page are aligned, the
+          journey is clearer for both the customer and the business.</p>
+        <p class="mt-4 text-xs text-ink/45">Conceptual example — not an actual campaign result.</p>
+            </div>
+    </section>
+
+    <!-- TRACKING -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Measure What Matters</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Clicks are only the beginning.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We focus on the actions that matter to your business rather than treating
+          clicks and impressions as the final goal.</p>
+        <div class="track-grid reveal mt-10">
+          <article class="track-card">
+            <h3 class="font-serif text-xl">Calls</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Track relevant phone-call actions where properly
+              configured.</p>
+          </article>
+          <article class="track-card">
+            <h3 class="font-serif text-xl">Forms</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Measure enquiries submitted through your website.</p>
+          </article>
+          <article class="track-card">
+            <h3 class="font-serif text-xl">Bookings</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Track booking actions when supported by your setup.</p>
+          </article>
+          <article class="track-card">
+            <h3 class="font-serif text-xl">Other Actions</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Measure meaningful customer actions relevant to your
+              business.</p>
+          </article>
+            </div>
+        <p class="mt-8 text-sm text-ink/55">The exact conversion setup depends on your website, booking system, phone
+          setup, and business goals.</p>
+            </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="approach-panel reveal">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Our Approach</p>
+          <h2 class="mt-3 font-serif text-3xl tracking-tight sm:text-4xl">No mystery spend. No empty promises.</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-paper/65 sm:text-base">Advertising should be understandable.
+            You should know what is being worked on, what your budget is being used for, and what the campaign is
+            designed to accomplish.</p>
+          <div class="approach-cols mt-10">
+            <div>
+              <h3 class="font-serif text-2xl">We Don't</h3>
+              <ul class="approach-list">
+                <li>❌ Guarantee a specific number of leads</li>
+                <li>❌ Guarantee a specific ROAS</li>
+                <li>❌ Promise #1 Google placement</li>
+                <li>❌ Buy fake clicks</li>
+                <li>❌ Manufacture conversions</li>
+                <li>❌ Hide campaign data</li>
+                <li>❌ Use misleading claims</li>
+                <li>❌ Spend your budget without a clear strategy</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-serif text-2xl">We Do</h3>
+              <ul class="approach-list">
+                <li>✓ Build focused campaigns</li>
+                <li>✓ Explain the strategy</li>
+                <li>✓ Track meaningful actions</li>
+                <li>✓ Monitor search terms</li>
+                <li>✓ Identify wasted or irrelevant traffic</li>
+                <li>✓ Optimize based on available data</li>
+                <li>✓ Keep reporting transparent</li>
+                <li>✓ Keep your account accessible to you</li>
+              </ul>
+            </div>
           </div>
-          <p class="text-xs uppercase tracking-[0.16em] text-paper/35">★★★★★ · Paid search</p>
-        </div>
-        <div class="review-rail mt-10">
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Rhea, a roofing company owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Rhea L.</p><p class="text-xs text-paper/45">Residential roofing</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Spend dropped because we stopped bidding on ‘free’ and ‘jobs’. Calls went up. That is the whole report I needed — not a screenshot of impressions.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Omar, a pest control owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Omar K.</p><p class="text-xs text-paper/45">Pest control</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They rebuilt the account instead of asking me to raise budget. Cost per booked job finally made sense. I still pay Google. I just stopped paying for tourists.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Tess, a small law office partner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Tess W.</p><p class="text-xs text-paper/45">Family law office</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I can see which zip codes pay. Before it was one blob campaign for the whole metro. Intake is quieter on junk inquiries and louder on people who can actually hire us.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Vic, an HVAC company owner" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Vic S.</p><p class="text-xs text-paper/45">HVAC company</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Call tracking was missing. Once that was in, we stopped arguing about whether ads worked. The number is on the call log, not in a feeling.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Joss, a Locksmith" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Joss C.</p><p class="text-xs text-paper/45">Locksmith</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Emergency searches were mixed with DIY queries. Negatives cut the waste. Budget finally hits people who need a door opened.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Kira, a Electrician" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Kira F.</p><p class="text-xs text-paper/45">Electrician</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“One campaign for the whole metro. They split zip codes. Dispatch is quieter on tire-kickers.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Ned, a Plumber" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Ned H.</p><p class="text-xs text-paper/45">Plumber</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I was paying for ‘plumbing jobs’ and career clicks. That is gone. Calls are from flooded kitchens.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Ophelia, a Car detailing" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Ophelia I.</p><p class="text-xs text-paper/45">Car detailing</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Mobile vs shop was a mess. Location targeting matches the van. Cost per booked detail dropped.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Raul, a Mobile car wash" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Raul L.</p><p class="text-xs text-paper/45">Mobile car wash</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Broad match ate the budget. Phrase match and a real call-only setup changed the week.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Shiloh, a Heating repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Shiloh M.</p><p class="text-xs text-paper/45">Heating repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Winter spend used to vanish on ‘HVAC salary’. They built the account around repair intent.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Uma, a Oven repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Uma N.</p><p class="text-xs text-paper/45">Oven repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“No conversion tracking. Once calls were in the log, I stopped arguing with the spreadsheet.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Wes, a Dryer repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Wes O.</p><p class="text-xs text-paper/45">Dryer repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They did not ask me to raise budget. They cut the queries that never hire anyone.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Yara, a Refrigerator repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Yara P.</p><p class="text-xs text-paper/45">Refrigerator repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Same-day searches convert. Brand terms were eating the rest. That split is in writing.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Zion, a Air conditioning repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Zion Q.</p><p class="text-xs text-paper/45">Air conditioning repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I pay Google directly. Their fee is the structure. That honesty is why I stayed.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75" alt="Portrait of Blair, a Washing machine repair" class="h-12 w-12 rounded-full object-cover" width="160" height="160" loading="lazy" decoding="async" />
-              <div><p class="text-sm font-medium">Blair R.</p><p class="text-xs text-paper/45">Washing machine repair</p></div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Landing page was the homepage. A service page plus call tracking made the ads useful.”</p>
-          </blockquote>
+          <p class="mt-10 text-sm font-medium text-paper/80">Your advertising account should never feel like a black box.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
+    <!-- ACCOUNT OWNERSHIP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Your Business. Your Account.</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">You shouldn't lose access to your own
+          advertising infrastructure.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We believe the accounts connected to your business should remain accessible to
+          you. Our role is to build, manage, and improve campaigns — not lock your business into a system you can't
+          control.</p>
+        <div class="own-grid reveal mt-10">
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Account Access</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">You maintain access to your advertising account.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Transparency</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">You can see what is being managed.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Data</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Campaign information remains available to you.</p>
+          </article>
+          <article class="own-item">
+            <h3 class="font-serif text-xl">Ownership</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Your digital infrastructure should remain yours.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NORTHLINE SYSTEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Bigger Picture</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Ads work best when the rest of the journey
+          is ready.</h2>
+        <div class="system-flow reveal mt-10">
+          <div class="system-node">Google Search</div>
+          <div class="system-node">Google Ads</div>
+          <div class="system-node">Business Profile</div>
+          <div class="system-node">Landing Page / Website</div>
+          <div class="system-node">Customer Action</div>
+        </div>
+        <p class="svc-lead mt-8 max-w-3xl">Advertising can bring people to your business, but the rest of the customer
+          journey still matters. Your <a class="underline underline-offset-4"
+            href="google-business-profile-setup.html">profile</a>, <a class="underline underline-offset-4"
+            href="google-maps-review-management.html">reviews</a>, <a class="underline underline-offset-4"
+            href="web-development.html">website</a>, messaging, and conversion path all influence what happens after the
+          click.</p>
+        <a href="../index.html#services"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          All Services <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Outcome</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">What a better campaign should help you
+          understand.</h2>
+        <div class="outcome-grid reveal mt-10">
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Where Demand Exists</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Understand which searches and services are attracting
+              relevant attention.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Where Your Budget Goes</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">See how campaign spend is distributed across your targeting
+              and activity.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Which Actions Matter</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Measure calls, forms, bookings, or other meaningful customer
+              actions where tracking allows.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">What Can Improve</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Use campaign data to identify opportunities for better
+              targeting, messaging, landing pages, or budget allocation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMONSTRATION -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Campaign Demonstration</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">How Northline structures a local campaign.
+        </h2>
+        <div class="demo-panel reveal mt-10">
+          <p
+            class="demo-badge inline-flex rounded-full border border-line px-2 py-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-ink/55 md:px-3 md:py-1">
+            Demonstration — not a client result</p>
+          <div class="demo-struct">
+            <div class="demo-row">
+              <strong>Campaign</strong>
+              <span>Service-focused search campaign (e.g. core services by market)</span>
+            </div>
+            <div class="demo-row">
+              <strong>Ad groups</strong>
+              <span>Organized by service theme — not one catch-all ad group</span>
+            </div>
+            <div class="demo-row">
+              <strong>Targeting</strong>
+              <span>Locations you actually serve + relevant search intent</span>
+            </div>
+            <div class="demo-row">
+              <strong>Negatives</strong>
+              <span>Filters for irrelevant or low-intent search terms</span>
+            </div>
+            <div class="demo-row">
+              <strong>Landing</strong>
+              <span>Page aligned to the advertised service and next step</span>
+            </div>
+            <div class="demo-row">
+              <strong>Tracking</strong>
+              <span>Calls, forms, or bookings configured to your setup</span>
+            </div>
+          </div>
+          <p class="mt-6 text-sm text-ink/55">Abstract campaign structure visualization — not a Google Ads product
+            screenshot and not verified client performance data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="ads-faq" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-3xl">
-        <h2 class="font-serif text-3xl">Questions we hear before the contract</h2>
-        <div class="mt-8 divide-y divide-line border-y border-line">
+        <h2 class="svc-section-title font-serif tracking-tight">Google Ads questions, answered.</h2>
+        <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do I need a website to run ads?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Call-only campaigns can work for some trades. Most offers still need a page people can trust after the click. If you have no site, start with <a class="underline underline-offset-4" href="web-development.html">web development</a>.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">How much should I spend on Google Ads?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">There isn't one universal budget. A reasonable budget
+              depends on your location, competition, services, customer value, search demand, and business goals. We can
+              help assess what makes sense for your situation.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">What if my Maps listing has no reviews?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Ads can still run. Conversion usually suffers when the map pack looks empty or unclaimed. Pair this with <a class="underline underline-offset-4" href="google-maps-review-management.html">Google Reviews</a> for stars, or <a class="underline underline-offset-4" href="google-business-profile-setup.html">Google Business Profile setup</a> if the listing itself is wrong.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you guarantee leads or sales?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Advertising performance depends on many factors,
+              including demand, competition, budget, targeting, landing pages, tracking, and the strength of the offer.
+              We focus on building and improving the campaign rather than promising a fixed result.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Who pays Google?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">You do, inside your own ads account. Our fee is for the build and the ongoing edits. Media spend is never marked up through Northline.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Do I need a website to run Google Ads?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Not always, but a strong landing page or website can be
+              important for turning relevant clicks into enquiries or customers. We'll assess the customer journey before
+              recommending the campaign structure.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you run ads for any business?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We can work with many local businesses, but suitability
+              depends on the business, market, advertising policies, service, location, and customer demand.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Do I keep access to my Google Ads
+              account?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We believe your business should retain access to its
+              advertising infrastructure.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you manage campaigns after launch?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Campaign management can include monitoring, search-term
+              analysis, conversion review, testing, and ongoing optimization depending on your service arrangement.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you guarantee the top position on
+              Google?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. No legitimate provider can guarantee a specific ad
+              position or ranking. Ad placement depends on factors such as competition, bid, ad quality, relevance, and
+              auction conditions.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">What do you track?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Depending on your setup, we can track meaningful actions such
+              as calls, forms, bookings, and other website actions. The exact setup depends on your website and customer
+              journey.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you help if I already have Google Ads
+              running?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can review an existing campaign and identify
+              structural, targeting, tracking, landing-page, or optimization opportunities.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="proposals" class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Proposal options</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Two contracts. Both are paid search work.</h2>
-        <p class="mt-4 max-w-2xl text-ink/65">Pick the one that matches the account. If you are not sure, tell us on
-          the contract form whether you are starting fresh or fixing a mess — we will scope the right proposal.</p>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 01</p>
-            <h3 class="mt-3 font-serif text-3xl">New account launch</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">No Google Ads account yet, or one that was never
-              structured. We build campaigns around buying-intent searches, set conversion tracking, wire call and form
-              goals, and launch in an account you own. Google bills you for clicks. Northline bills for the
-              architecture.</p>
-            <a href="../index.html?service=Google%20Ads%20Campaigns#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 02</p>
-            <h3 class="mt-3 font-serif text-3xl">Account rebuild &amp; cleanup</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">You already run ads and the money disappears. One
-              campaign, broad keywords, no negatives, traffic that never books. We restructure what is worth keeping,
-              cut the waste, and aim spend at leads you can actually close.</p>
-            <a href="../index.html?service=Google%20Ads%20Campaigns#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this proposal</a>
-          </article>
+    <!-- FINAL CTA -->
+    <section class="px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-6">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Ready to Make Your Ad Budget Work Harder?
+          </p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Stop paying for random clicks. Start with a better
+            campaign.</h2>
+          <p class="svc-lead mt-5 max-w-xl">We'll review your business, services, location, website, and advertising goals
+            and show you where Google Ads could fit.</p>
+          <a href="#contact"
+            class="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+          <p class="mt-4 text-sm text-ink/50">No guaranteed numbers. No mystery strategy. Just a clear plan.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-6">
+          <picture>
+            <source srcset="../assets/images/services/ads/cta.webp" type="image/webp" />
+            <img src="../assets/images/services/ads/cta.jpg"
+              alt="Confident local business owner reviewing customer enquiries on a smartphone"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Free Assessment</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Tell us what you want Google Ads to do.</h2>
+          <p class="svc-lead mt-5">Share your services, locations, and goals. We'll explain whether a focused campaign
+            makes sense — without empty performance promises.</p>
+        </div>
+        <div class="lg:col-span-7">
+          <form id="contract-form"
+            class="reveal w-full rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Your name</span><input
+                  name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input
+                  name="email" type="email" autocomplete="email" required placeholder="you@business.com"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone"
+                  type="tel" autocomplete="tel" required placeholder="+1 555 010 2841"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input
+                  name="businessName" type="text" autocomplete="organization" required
+                  placeholder="Hale &amp; Co. Plumbing"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
+                <select name="service" required
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10">
+                  <option value="Google Ads Campaigns" selected>Google Ads Campaigns</option>
+                  <option value="Google Business Profile Setup">Google Business Profile Setup</option>
+                  <option value="Google Business Reviews">Google Business Reviews</option>
+                  <option value="Web Design &amp; Development">Web Design &amp; Development</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Website or Google Business
+                  Profile URL</span><input name="mapsLink" type="url" placeholder="https://..."
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /><span
+                  class="mt-1 block text-xs text-ink/45">Optional. Helps us assess the customer journey.</span></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
+                <textarea name="message" rows="4"
+                  placeholder="Tell us about your services, locations, budget range, and advertising goals..."
+                  class="field-input w-full resize-y rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10"></textarea>
+              </label>
+            </div>
+            <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
+            <button type="submit"
+              class="mt-6 w-full rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper sm:w-auto">Get My Free
+              Assessment</button>
+          </form>
+          <div id="form-success"
+            class="hidden success-pop w-full rounded-[1.75rem] border border-line bg-white p-10 text-center shadow-soft">
+            <p class="font-serif text-3xl">Request received.</p>
+            <p id="success-copy" class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink/65"></p>
+            <button id="send-another" type="button"
+              class="mt-8 text-sm underline underline-offset-4 transition-all duration-300 ease-in-out hover:opacity-70">Send
+              another request</button>
+          </div>
         </div>
       </div>
     </section>
@@ -456,16 +1608,8 @@
       </div>
     </div>
   </footer>
-  <dialog id="privacy" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="privacy-title">
-    <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">Contract form data is used to reply to your request. It is not sold. Email hello@northline.example to remove a record.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
-  </dialog>
-  <dialog id="terms" class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50" aria-labelledby="terms-title">
-    <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">A form submission is a request, not a paid contract. Google media spend is billed by Google to the client’s ads account.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button></form>
-  </dialog>
+
   <script src="../assets/site.js"></script>
 </body>
+
 </html>

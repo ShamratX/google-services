@@ -6,6 +6,15 @@
 
   document.documentElement.classList.add("js");
 
+  function markPageReady() {
+    document.documentElement.classList.add("is-ready");
+  }
+  window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(markPageReady);
+  });
+  window.setTimeout(markPageReady, 50);
+  document.addEventListener("DOMContentLoaded", markPageReady);
+
   var siteHeader = document.getElementById("site-header");
   if (siteHeader) {
     var onScroll = function () {
@@ -35,20 +44,32 @@
   var mobileMenu = document.getElementById("mobile-menu");
   var iconOpen = document.getElementById("icon-open");
   var iconClose = document.getElementById("icon-close");
+  var mobileServicesBtn = document.getElementById("mobile-services-btn");
+  var mobileServices = document.getElementById("mobile-services");
+
+  function setServicesOpen(open) {
+    if (!mobileServices || !mobileServicesBtn) return;
+    mobileServices.classList.toggle("is-open", open);
+    mobileServicesBtn.setAttribute("aria-expanded", String(open));
+  }
 
   function setMobileOpen(open) {
     if (!mobileMenu || !menuBtn) return;
-    mobileMenu.classList.toggle("hidden", !open);
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.toggle("is-open", open);
+    mobileMenu.setAttribute("aria-hidden", String(!open));
     menuBtn.setAttribute("aria-expanded", String(open));
     menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     if (iconOpen) iconOpen.classList.toggle("hidden", open);
     if (iconClose) iconClose.classList.toggle("hidden", !open);
     if (siteHeader) siteHeader.classList.toggle("is-menu-open", open);
+    document.documentElement.classList.toggle("nav-locked", open);
+    if (!open) setServicesOpen(false);
   }
 
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", function () {
-      setMobileOpen(mobileMenu.classList.contains("hidden"));
+      setMobileOpen(!mobileMenu.classList.contains("is-open"));
     });
   }
 
@@ -91,12 +112,9 @@
     setMobileOpen(false);
   });
 
-  var mobileServicesBtn = document.getElementById("mobile-services-btn");
-  var mobileServices = document.getElementById("mobile-services");
   if (mobileServicesBtn && mobileServices) {
     mobileServicesBtn.addEventListener("click", function () {
-      var open = mobileServices.classList.toggle("is-open");
-      mobileServicesBtn.setAttribute("aria-expanded", String(open));
+      setServicesOpen(!mobileServices.classList.contains("is-open"));
     });
   }
 
@@ -104,6 +122,10 @@
     link.addEventListener("click", function () {
       setMobileOpen(false);
     });
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.matchMedia("(min-width: 768px)").matches) setMobileOpen(false);
   });
 
   document.querySelectorAll(".legal-link").forEach(function (link) {

@@ -4,36 +4,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Industries We Serve | Local Business Google Marketing | Northline</title>
+  <title>Industries | Local Businesses Google Growth | Northline</title>
   <meta name="description"
-    content="Northline helps plumbers, HVAC contractors, electricians, roofers, restaurants, clinics, and other local businesses improve Google visibility, reviews, ads, and websites." />
+    content="Built for local businesses of all types. Northline helps home services, automotive, repair, restaurants, clinics, and other local businesses grow with Google Business Profile, reviews, ads, and websites." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/industries/" />
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
   <script>
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.addEventListener("beforeunload", function () { window.scrollTo(0, 0); });
+  </script>
+  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
   </script>
   <link rel="stylesheet" href="../assets/site.css" />
   <style>
-    body { font-family: Outfit, system-ui, sans-serif; }
-    .font-serif { font-family: "Instrument Serif", Georgia, serif; }
-    .industry-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .industry-pills span {
+    body { font-family: Outfit, "Outfit Fallback", system-ui, sans-serif; }
+    .font-serif { font-family: Outfit, "Outfit Fallback", system-ui, sans-serif; font-weight: 500; }
+
+    .industry-group {
+      margin-top: 2.75rem;
+    }
+
+    .industry-group-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.45);
+    }
+
+    .industry-card-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 640px) {
+      .industry-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .industry-card-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+    }
+
+    .industry-type-card {
+      display: flex;
+      align-items: center;
+      min-height: 3.5rem;
+      padding: 0.9rem 1rem;
       border: 1px solid rgba(17, 17, 17, 0.1);
-      border-radius: 9999px;
+      border-radius: 0.9rem;
       background: #fff;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.8125rem;
-      color: rgba(17, 17, 17, 0.72);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #111;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .industry-type-card:hover {
+      border-color: rgba(17, 17, 17, 0.22);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px -20px rgba(17, 17, 17, 0.35);
     }
   </style>
 </head>
@@ -100,31 +154,40 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
-        <div id="mobile-services" class="mobile-services">
-          <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="../services/google-business-profile-setup.html"><span
-                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
-            <a class="nav-drop-item mobile-link" href="../services/google-maps-review-management.html"><span
-                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
-            <a class="nav-drop-item mobile-link" href="../services/google-ads-campaigns.html"><span
-                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
-            <a class="nav-drop-item mobile-link" href="../services/web-development.html"><span
-                class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
+            <button type="button" id="mobile-services-btn"
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
+                <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
+                  <a class="nav-drop-item mobile-link" href="../services/google-business-profile-setup.html"><span
+                      class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+                  <a class="nav-drop-item mobile-link" href="../services/google-maps-review-management.html"><span
+                      class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
+                  <a class="nav-drop-item mobile-link" href="../services/google-ads-campaigns.html"><span
+                      class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+                  <a class="nav-drop-item mobile-link" href="../services/web-development.html"><span
+                      class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+                </div>
+              </div>
+            </div>
           </div>
+          <a href="index.html" class="mobile-link mobile-menu-item" aria-current="page">Industries</a>
+          <a href="../index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="../index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="../index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
+          <a href="../index.html#contact"
+            class="mobile-link mobile-menu-item mobile-menu-cta">Get Started</a>
         </div>
-        <a href="index.html" class="mobile-link py-1">Industries</a>
-        <a href="../index.html#work" class="mobile-link py-1">Work</a>
-        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
-        <a href="../index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
       </div>
     </div>
   </header>
@@ -132,40 +195,259 @@
   <main id="main" class="px-5 pb-16 pt-24 lg:px-8 lg:pb-24 lg:pt-28">
     <div class="mx-auto max-w-7xl">
       <p class="text-xs font-medium uppercase tracking-[0.22em] text-black/45">Industries</p>
-      <h1 class="mt-3 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl">Built for Local Businesses</h1>
-      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-black/60">Dedicated industry landing pages are coming. For now, here are the local business types we commonly help with Google Business Profile, reviews, ads, and websites.</p>
+      <h1 class="mt-3 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl">Local businesses. One Google growth
+        system.</h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-black/60">Whether you run a home-service company, automotive
+        business, repair service, or another local business, Northline helps you build visibility, trust, and a better
+        path from Google search to customer.</p>
+      <p class="mt-4 max-w-2xl text-base font-medium text-ink">Built for local businesses of all types.</p>
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-black/55">The cards below show common business types we
+        support. If customers search Google before they call, book, or visit — we can help.</p>
 
-      <div class="mt-14 space-y-12">
-        <section>
-          <h2 class="text-xs font-medium uppercase tracking-[0.18em] text-black/40">Home Services</h2>
-          <div class="industry-pills mt-4">
-            <span>Plumber</span><span>HVAC Contractor</span><span>Electrician</span><span>Roofing Contractor</span><span>Pest Control</span><span>Landscaping</span><span>Lawn Care</span><span>Painting Contractor</span><span>Pressure Washing</span><span>Cleaning Service</span><span>Junk Removal</span><span>Window Cleaning</span><span>Carpet Cleaning</span><span>Locksmith</span><span>Garage Door Repair</span><span>Fire Protection Service</span>
+      <div class="mt-12">
+        <section class="industry-group" aria-labelledby="group-home">
+          <h2 id="group-home" class="industry-group-title">Home Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Plumbing</div>
+            <div class="industry-type-card">HVAC</div>
+            <div class="industry-type-card">Electrical</div>
+            <div class="industry-type-card">Roofing</div>
+            <div class="industry-type-card">General Contractor</div>
+            <div class="industry-type-card">Landscaping</div>
+            <div class="industry-type-card">Painting</div>
+            <div class="industry-type-card">Flooring</div>
+            <div class="industry-type-card">Pest Control</div>
+            <div class="industry-type-card">Cleaning</div>
+            <div class="industry-type-card">Handyman</div>
+            <div class="industry-type-card">Home Remodeling</div>
+            <div class="industry-type-card">Concrete</div>
+            <div class="industry-type-card">Fencing</div>
+            <div class="industry-type-card">Tree Service</div>
           </div>
         </section>
-        <section>
-          <h2 class="text-xs font-medium uppercase tracking-[0.18em] text-black/40">Automotive</h2>
-          <div class="industry-pills mt-4">
-            <span>Auto Repair</span><span>Car Detailing</span><span>Mobile Car Wash</span>
+
+        <section class="industry-group" aria-labelledby="group-auto">
+          <h2 id="group-auto" class="industry-group-title">Automotive</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Auto Repair</div>
+            <div class="industry-type-card">Auto Body &amp; Collision</div>
+            <div class="industry-type-card">Car Detailing</div>
+            <div class="industry-type-card">Mobile Car Detailing</div>
+            <div class="industry-type-card">Car Wash</div>
+            <div class="industry-type-card">Tire Shop</div>
+            <div class="industry-type-card">Brake Service</div>
+            <div class="industry-type-card">Auto Glass</div>
+            <div class="industry-type-card">Towing</div>
+            <div class="industry-type-card">Roadside Assistance</div>
+            <div class="industry-type-card">Mobile Mechanic</div>
           </div>
         </section>
-        <section>
-          <h2 class="text-xs font-medium uppercase tracking-[0.18em] text-black/40">Repair &amp; Installation</h2>
-          <div class="industry-pills mt-4">
-            <span>Appliance Repair</span><span>Refrigerator Repair</span><span>Washing Machine Repair</span><span>Dryer Repair</span><span>Oven/Stove Repair</span><span>Water Heater Service</span><span>Boiler Service</span><span>Generator Installation</span><span>Solar Panel Installer</span><span>Air Conditioning Repair</span><span>Heating Repair</span>
+
+        <section class="industry-group" aria-labelledby="group-repair">
+          <h2 id="group-repair" class="industry-group-title">Repair &amp; Installation</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Appliance Repair</div>
+            <div class="industry-type-card">Refrigerator Repair</div>
+            <div class="industry-type-card">Washing Machine Repair</div>
+            <div class="industry-type-card">Dryer Repair</div>
+            <div class="industry-type-card">Water Heater</div>
+            <div class="industry-type-card">Garage Door Repair</div>
+            <div class="industry-type-card">Locksmith</div>
+            <div class="industry-type-card">Solar Panel Installer</div>
+            <div class="industry-type-card">Generator Installation</div>
+            <div class="industry-type-card">Drain Cleaning</div>
+            <div class="industry-type-card">Electrician</div>
+            <div class="industry-type-card">Plumber</div>
           </div>
         </section>
-        <section>
-          <h2 class="text-xs font-medium uppercase tracking-[0.18em] text-black/40">Local Businesses</h2>
-          <div class="industry-pills mt-4">
-            <span>Restaurant</span><span>Barber Shop</span><span>Salon</span><span>Clinic</span><span>Retail</span><span>Professional Services</span>
+
+        <section class="industry-group" aria-labelledby="group-outdoor">
+          <h2 id="group-outdoor" class="industry-group-title">Outdoor Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Landscaping</div>
+            <div class="industry-type-card">Lawn Care</div>
+            <div class="industry-type-card">Tree Removal</div>
+            <div class="industry-type-card">Tree Trimming</div>
+            <div class="industry-type-card">Irrigation</div>
+            <div class="industry-type-card">Sprinkler Repair</div>
+            <div class="industry-type-card">Pressure Washing</div>
+            <div class="industry-type-card">Window Cleaning</div>
+            <div class="industry-type-card">Pool Cleaning</div>
+            <div class="industry-type-card">Pool Repair</div>
+            <div class="industry-type-card">Paving</div>
+            <div class="industry-type-card">Driveway Contractor</div>
+            <div class="industry-type-card">Outdoor Lighting</div>
+            <div class="industry-type-card">Snow Removal</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-pro">
+          <h2 id="group-pro" class="industry-group-title">Professional Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Accountant</div>
+            <div class="industry-type-card">Bookkeeping</div>
+            <div class="industry-type-card">Tax Consultant</div>
+            <div class="industry-type-card">Insurance Agency</div>
+            <div class="industry-type-card">Real Estate Agent</div>
+            <div class="industry-type-card">Property Management</div>
+            <div class="industry-type-card">Mortgage Broker</div>
+            <div class="industry-type-card">Business Consultant</div>
+            <div class="industry-type-card">Marketing Consultant</div>
+            <div class="industry-type-card">IT Services</div>
+            <div class="industry-type-card">Computer Repair</div>
+            <div class="industry-type-card">Web Design</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-legal">
+          <h2 id="group-legal" class="industry-group-title">Legal Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Law Firm</div>
+            <div class="industry-type-card">Personal Injury Lawyer</div>
+            <div class="industry-type-card">Family Lawyer</div>
+            <div class="industry-type-card">Divorce Lawyer</div>
+            <div class="industry-type-card">Immigration Lawyer</div>
+            <div class="industry-type-card">Criminal Defense Lawyer</div>
+            <div class="industry-type-card">Estate Planning Lawyer</div>
+            <div class="industry-type-card">Employment Lawyer</div>
+            <div class="industry-type-card">Real Estate Lawyer</div>
+            <div class="industry-type-card">Business Lawyer</div>
+            <div class="industry-type-card">Notary Service</div>
+            <div class="industry-type-card">Mediator</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-beauty">
+          <h2 id="group-beauty" class="industry-group-title">Beauty &amp; Personal Care</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Barber Shop</div>
+            <div class="industry-type-card">Hair Salon</div>
+            <div class="industry-type-card">Beauty Salon</div>
+            <div class="industry-type-card">Nail Salon</div>
+            <div class="industry-type-card">Hair Stylist</div>
+            <div class="industry-type-card">Makeup Artist</div>
+            <div class="industry-type-card">Lash Studio</div>
+            <div class="industry-type-card">Brow Studio</div>
+            <div class="industry-type-card">Massage Therapist</div>
+            <div class="industry-type-card">Spa</div>
+            <div class="industry-type-card">Tattoo Studio</div>
+            <div class="industry-type-card">Skin Care</div>
+            <div class="industry-type-card">Personal Trainer</div>
+            <div class="industry-type-card">Fitness Coach</div>
+            <div class="industry-type-card">Yoga Instructor</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-health">
+          <h2 id="group-health" class="industry-group-title">Health &amp; Wellness</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Dentist</div>
+            <div class="industry-type-card">Dental Clinic</div>
+            <div class="industry-type-card">Chiropractor</div>
+            <div class="industry-type-card">Physiotherapy</div>
+            <div class="industry-type-card">Optometrist</div>
+            <div class="industry-type-card">Audiologist</div>
+            <div class="industry-type-card">Podiatrist</div>
+            <div class="industry-type-card">Veterinary Clinic</div>
+            <div class="industry-type-card">Counseling Practice</div>
+            <div class="industry-type-card">Nutritionist</div>
+            <div class="industry-type-card">Speech Therapist</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-pet">
+          <h2 id="group-pet" class="industry-group-title">Pet Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Dog Grooming</div>
+            <div class="industry-type-card">Dog Walking</div>
+            <div class="industry-type-card">Pet Sitting</div>
+            <div class="industry-type-card">Pet Boarding</div>
+            <div class="industry-type-card">Dog Training</div>
+            <div class="industry-type-card">Pet Photography</div>
+            <div class="industry-type-card">Mobile Pet Grooming</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-moving">
+          <h2 id="group-moving" class="industry-group-title">Moving &amp; Local Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Moving Company</div>
+            <div class="industry-type-card">Local Movers</div>
+            <div class="industry-type-card">Long-Distance Movers</div>
+            <div class="industry-type-card">Packing Service</div>
+            <div class="industry-type-card">Storage Company</div>
+            <div class="industry-type-card">Junk Removal</div>
+            <div class="industry-type-card">Courier Service</div>
+            <div class="industry-type-card">Delivery Service</div>
+            <div class="industry-type-card">Freight Service</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-events">
+          <h2 id="group-events" class="industry-group-title">Events &amp; Creative</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Wedding Photographer</div>
+            <div class="industry-type-card">Event Photographer</div>
+            <div class="industry-type-card">Wedding Videographer</div>
+            <div class="industry-type-card">Wedding Planner</div>
+            <div class="industry-type-card">Event Planner</div>
+            <div class="industry-type-card">Party Planner</div>
+            <div class="industry-type-card">DJ Service</div>
+            <div class="industry-type-card">Event Decorator</div>
+            <div class="industry-type-card">Florist</div>
+            <div class="industry-type-card">Photo Booth Rental</div>
+            <div class="industry-type-card">Wedding Venue</div>
+            <div class="industry-type-card">Event Venue</div>
+            <div class="industry-type-card">Catering Service</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-commercial">
+          <h2 id="group-commercial" class="industry-group-title">Commercial &amp; B2B</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Commercial Contractor</div>
+            <div class="industry-type-card">Commercial Cleaning</div>
+            <div class="industry-type-card">Commercial Landscaping</div>
+            <div class="industry-type-card">Commercial HVAC</div>
+            <div class="industry-type-card">Commercial Plumbing</div>
+            <div class="industry-type-card">Commercial Electrical</div>
+            <div class="industry-type-card">Security Company</div>
+            <div class="industry-type-card">Sign Company</div>
+            <div class="industry-type-card">Printing Company</div>
+            <div class="industry-type-card">Packaging Company</div>
+            <div class="industry-type-card">Fire Protection</div>
+            <div class="industry-type-card">Commercial Maintenance</div>
+            <div class="industry-type-card">Pest Control</div>
+          </div>
+        </section>
+
+        <section class="industry-group" aria-labelledby="group-specialty">
+          <h2 id="group-specialty" class="industry-group-title">Specialty Local Services</h2>
+          <div class="industry-card-grid">
+            <div class="industry-type-card">Home Inspection</div>
+            <div class="industry-type-card">Property Inspection</div>
+            <div class="industry-type-card">Mold Inspection</div>
+            <div class="industry-type-card">Water Damage Restoration</div>
+            <div class="industry-type-card">Fire Damage Restoration</div>
+            <div class="industry-type-card">Mold Remediation</div>
+            <div class="industry-type-card">Termite Control</div>
+            <div class="industry-type-card">Wildlife Removal</div>
+            <div class="industry-type-card">Septic Service</div>
+            <div class="industry-type-card">Water Treatment</div>
+            <div class="industry-type-card">Well Pump Service</div>
+            <div class="industry-type-card">Sewer Repair</div>
+            <div class="industry-type-card">Leak Detection</div>
           </div>
         </section>
       </div>
 
-      <p class="mt-14 text-sm text-black/60">Don't see your business? We work with many other local businesses too.</p>
+      <p class="mt-14 text-sm text-black/60">Don't see your business type? We still work with local businesses across
+        Google Business Profile categories.</p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="../index.html#contact" class="rounded-full bg-[#111] px-6 py-3 text-sm font-medium text-[#f4f1ea]">Get a Free Business Assessment</a>
-        <a href="../index.html#services" class="rounded-full border border-black/15 px-6 py-3 text-sm font-medium">View Services</a>
+        <a href="../index.html#contact" class="rounded-full bg-[#111] px-6 py-3 text-sm font-medium text-[#f4f1ea]">Get a
+          Free Business Assessment</a>
+        <a href="../index.html#services" class="rounded-full border border-black/15 px-6 py-3 text-sm font-medium">View
+          Services</a>
       </div>
     </div>
   </main>

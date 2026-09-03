@@ -7,7 +7,7 @@ tailwind.config = {
       },
       colors: {
         ink: "#111111",
-        paper: "#f4f1ea",
+        paper: "#f7f7f7",
         mist: "#ebe6dc",
         line: "rgba(17,17,17,0.12)",
       },
