@@ -17,7 +17,8 @@ def ac(current, key):
     return ' aria-current="page"' if current == key else ""
 
 
-def render_header(prefix: str, services_prefix: str, industries_prefix: str, home: str, hash_base: str, current=None):
+def render_header(prefix: str, services_prefix: str, industries_prefix: str, home: str, hash_base: str, current=None, contact_href=None):
+    contact = contact_href if contact_href is not None else f"{hash_base}#contact"
     return f"""  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
       <a href="{home}" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
@@ -55,10 +56,10 @@ def render_header(prefix: str, services_prefix: str, industries_prefix: str, hom
         <li><a class="nav-link opacity-85" data-nav="work" href="{hash_base}#work">Work</a></li>
         <li><a class="nav-link opacity-85" data-nav="trust" href="{hash_base}#trust">Trust</a></li>
         <li><a class="nav-link opacity-85" data-nav="faq" href="{hash_base}#faq">FAQ</a></li>
-        <li><a class="nav-link opacity-85" data-nav="contact" href="{hash_base}#contact">Get Started</a></li>
+        <li><a class="nav-link opacity-85" data-nav="contact" href="{contact}">Contact</a></li>
       </ul>
       <div class="flex items-center gap-3">
-        <a href="{hash_base}#contact"
+        <a href="{contact}"
           class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
           Started</a>
         <button id="menu-btn"
@@ -74,37 +75,47 @@ def render_header(prefix: str, services_prefix: str, industries_prefix: str, hom
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
-        <div id="mobile-services" class="mobile-services">
-          <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="{services_prefix}google-business-profile-setup.html"{ac(current, "gbp")}><span
-                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
-            <a class="nav-drop-item mobile-link" href="{services_prefix}google-maps-review-management.html"{ac(current, "reviews")}><span
-                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
-            <a class="nav-drop-item mobile-link" href="{services_prefix}google-ads-campaigns.html"{ac(current, "ads")}><span
-                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
-            <a class="nav-drop-item mobile-link" href="{services_prefix}web-development.html"{ac(current, "web")}><span
-                class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
+            <button type="button" id="mobile-services-btn"
+              class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
+                <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
+                  <a class="nav-drop-item mobile-link" href="{services_prefix}google-business-profile-setup.html"{ac(current, "gbp")}><span
+                      class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+                  <a class="nav-drop-item mobile-link" href="{services_prefix}google-maps-review-management.html"{ac(current, "reviews")}><span
+                      class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
+                  <a class="nav-drop-item mobile-link" href="{services_prefix}google-ads-campaigns.html"{ac(current, "ads")}><span
+                      class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+                  <a class="nav-drop-item mobile-link" href="{services_prefix}web-development.html"{ac(current, "web")}><span
+                      class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+                </div>
+              </div>
+            </div>
           </div>
+          <a href="{industries_prefix}index.html" class="mobile-link mobile-menu-item"{ac(current, "industries")}>Industries</a>
+          <a href="{hash_base}#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="{hash_base}#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="{hash_base}#faq" class="mobile-link mobile-menu-item">FAQ</a>
+          <a href="{contact}"
+            class="mobile-link mobile-menu-item mobile-menu-cta">Contact</a>
         </div>
-        <a href="{industries_prefix}index.html" class="mobile-link py-1">Industries</a>
-        <a href="{hash_base}#work" class="mobile-link py-1">Work</a>
-        <a href="{hash_base}#trust" class="mobile-link py-1">Trust</a>
-        <a href="{hash_base}#faq" class="mobile-link py-1">FAQ</a>
-        <a href="{hash_base}#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
       </div>
     </div>
   </header>"""
 
 
-def render_footer(services_prefix: str, hash_base: str):
+def render_footer(services_prefix: str, hash_base: str, contact_href=None):
+    contact = contact_href if contact_href is not None else f"{hash_base}#contact"
     return f"""  <footer class="site-footer bg-ink px-5 py-14 text-paper lg:px-8">
     <div class="mx-auto max-w-7xl">
       <div class="footer-top">
@@ -127,7 +138,7 @@ def render_footer(services_prefix: str, hash_base: str):
           <ul>
             <li><a href="{hash_base}#work">Work</a></li>
             <li><a href="{hash_base}#faq">FAQ</a></li>
-            <li><a href="{hash_base}#contact">Contact</a></li>
+            <li><a href="{contact}">Contact</a></li>
             <li><a href="{hash_base}#trust">About</a></li>
           </ul>
         </div>
@@ -147,7 +158,7 @@ def render_footer(services_prefix: str, hash_base: str):
       </div>
       <div class="footer-bottom">
         <p>© <span id="year"></span> Northline</p>
-        <a href="{hash_base}#contact" class="footer-cta">Get a Free Assessment →</a>
+        <a href="{contact}" class="footer-cta">Get a Free Assessment</a>
       </div>
     </div>
   </footer>"""
@@ -212,20 +223,21 @@ def apply(path: Path, header: str, footer: str):
 
 def main():
     configs = [
-        ("privacy.html", "", "services/", "industries/", "index.html", "index.html", None),
-        ("terms.html", "", "services/", "industries/", "index.html", "index.html", None),
-        ("industries/index.html", "../", "../services/", "", "../index.html", "../index.html", "industries"),
-        ("services/index.html", "../", "", "../industries/", "../index.html", "../index.html", None),
-        ("services/google-business-profile-setup.html", "../", "", "../industries/", "../index.html", "../index.html", "gbp"),
-        ("services/google-maps-review-management.html", "../", "", "../industries/", "../index.html", "../index.html", "reviews"),
-        ("services/google-ads-campaigns.html", "../", "", "../industries/", "../index.html", "../index.html", "ads"),
-        ("services/web-development.html", "../", "", "../industries/", "../index.html", "../index.html", "web"),
+        # rel, prefix, services_prefix, industries_prefix, home, hash_base, current, contact_href
+        ("privacy.html", "", "services/", "industries/", "index.html", "index.html", None, None),
+        ("terms.html", "", "services/", "industries/", "index.html", "index.html", None, None),
+        ("industries/index.html", "../", "../services/", "", "../index.html", "../index.html", "industries", None),
+        ("services/index.html", "../", "", "../industries/", "../index.html", "../index.html", None, None),
+        ("services/google-business-profile-setup.html", "../", "", "../industries/", "../index.html", "../index.html", "gbp", "#contact"),
+        ("services/google-maps-review-management.html", "../", "", "../industries/", "../index.html", "../index.html", "reviews", "#contact"),
+        ("services/google-ads-campaigns.html", "../", "", "../industries/", "../index.html", "../index.html", "ads", "#contact"),
+        ("services/web-development.html", "../", "", "../industries/", "../index.html", "../index.html", "web", "#contact"),
     ]
 
-    for rel, prefix, services_prefix, industries_prefix, home, hash_base, current in configs:
+    for rel, prefix, services_prefix, industries_prefix, home, hash_base, current, contact_href in configs:
         path = ROOT / rel
-        header = render_header(prefix, services_prefix, industries_prefix, home, hash_base, current)
-        footer = render_footer(services_prefix, hash_base)
+        header = render_header(prefix, services_prefix, industries_prefix, home, hash_base, current, contact_href)
+        footer = render_footer(services_prefix, hash_base, contact_href)
         apply(path, header, footer)
 
     # Normalize industries page body classes

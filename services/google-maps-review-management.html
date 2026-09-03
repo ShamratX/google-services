@@ -4,38 +4,518 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Reviews | Authentic Reviews for Empty Listings | Northline</title>
+  <title>Google Review Management Services | Northline</title>
   <meta name="description"
-    content="Northline helps any Google Maps listing collect authentic Google reviews from real customers, whatever the business category. No purchased stars." />
+    content="Build a stronger reputation with real Google reviews. Northline helps local businesses create review strategies, request feedback, respond professionally, and build customer trust." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://northline.example/services/google-maps-review-management.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Google Reviews | Northline" />
+  <meta property="og:title" content="Google Review Management Services | Northline" />
   <meta property="og:description"
-    content="Turn an empty Google Business Profile into a listing people actually trust. Real reviews. No purchased stars." />
+    content="Build a stronger reputation with real Google reviews. Northline helps local businesses create review strategies, request feedback, respond professionally, and build customer trust." />
   <meta property="og:url" content="https://northline.example/services/google-maps-review-management.html" />
-  <meta property="og:image"
-    content="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&amp;fit=crop&amp;w=1200&amp;q=75" />
+  <meta property="og:image" content="https://northline.example/assets/images/services/reviews/hero.jpg" />
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Cpath d='M8 22 L16 8 L24 22 Z' fill='none' stroke='%23f4f1ea' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23f4f1ea'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2" />
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/tailwind.js"></script>
   <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.documentElement.classList.add("is-ready");
+    });
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+    }, 80);
+  </script>
   <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .svc-hero-title {
+      font-size: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .svc-section-title {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .svc-lead {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      line-height: 1.65;
+      color: rgba(17, 17, 17, 0.62);
+    }
+
+    .value-strip {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .value-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    .value-item {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .value-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(17, 17, 17, 0.28);
+    }
+
+    .optimize-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .optimize-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .optimize-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    .optimize-card ul {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.58);
+    }
+
+    .flow-panel {
+      border-radius: 1.75rem;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      background: #fff;
+      padding: 1.75rem 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .flow-panel {
+        padding: 2.5rem;
+      }
+    }
+
+    .flow-track {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 1024px) {
+      .flow-track {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0.65rem;
+      }
+    }
+
+    .flow-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1rem;
+      background: #f5f1e8;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-node,
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .flow-node strong {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .flow-node span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: rgba(17, 17, 17, 0.55);
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 1.05rem;
+      flex: none;
+      align-self: center;
+    }
+
+    @media (max-width: 1023px) {
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .checklist-panel {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .checklist-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .checklist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .checklist-grid li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    .checklist-grid li::before {
+      content: "✓";
+      flex: none;
+      margin-top: 0.05rem;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .who-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .who-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .who-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .who-card {
+      overflow: hidden;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.25rem;
+      background: #fff;
+    }
+
+    .who-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .who-card-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+    }
+
+    .process-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .process-row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
+    .process-card {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1rem;
+    }
+
+    .response-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .response-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .response-card {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 1.35rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    .approach-panel {
+      border-radius: 1.5rem;
+      background: #111;
+      color: #f5f1e8;
+      padding: 2rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-panel {
+        padding: 2.75rem;
+      }
+    }
+
+    .approach-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .approach-cols {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(245, 241, 232, 0.72);
+    }
+
+    .system-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.65rem;
+    }
+
+    @media (min-width: 1024px) {
+      .system-flow {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.65rem;
+      }
+    }
+
+    .system-node {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 0;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 9999px;
+      background: #fff;
+      padding: 0.85rem 0.65rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1023px) {
+      .system-node {
+        flex: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    .outcome-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .outcome-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+      padding-top: 1.15rem;
+    }
+
+    .demo-panel {
+      border: 1px dashed rgba(17, 17, 17, 0.22);
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .demo-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .demo-struct {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .demo-row {
+      display: grid;
+      gap: 0.25rem;
+      border-top: 1px solid rgba(17, 17, 17, 0.1);
+      padding-top: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .demo-row {
+        grid-template-columns: 9rem 1fr;
+        gap: 1rem;
+        align-items: baseline;
+      }
+    }
+
+    .demo-row strong {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.55);
+    }
+
+    .demo-row span {
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: rgba(17, 17, 17, 0.72);
+    }
+
+    #reviews-faq details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    #reviews-faq details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Google Reviews",
-    "provider": { "@type": "ProfessionalService", "name": "Northline" },
-    "url": "https://northline.example/services/google-maps-review-management.html",
-    "description": "Help any Google Maps listing collect authentic Google reviews, regardless of business category."
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Google Business Reviews & Reputation Management",
+        "provider": { "@type": "ProfessionalService", "name": "Northline", "url": "https://northline.example/" },
+        "url": "https://northline.example/services/google-maps-review-management.html",
+        "areaServed": "United States",
+        "description": "Legitimate Google review request systems, review management, and reputation practices for businesses with a Google Business Profile. No purchased or fake reviews."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northline.example/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://northline.example/services/" },
+          { "@type": "ListItem", "position": 3, "name": "Google Business Reviews", "item": "https://northline.example/services/google-maps-review-management.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can I get more Google reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The safest approach is to make it easy for genuine customers to leave feedback after a real experience. This can include sharing your Google review link or QR code through appropriate customer touchpoints." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you guarantee a certain number of reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We don't guarantee a specific number of reviews because reviews come from real customers and their genuine experiences." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you buy Google reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We never purchase or create fake reviews." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I offer customers a discount for leaving a review?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Google prohibits offering incentives such as discounts or free goods or services in exchange for reviews, review changes, or removal of negative reviews." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you help with negative reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can help establish a professional response process and identify reviews that may violate Google's policies and could potentially be reported." }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I respond to positive reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Thoughtful responses can show customers that you value their feedback. Google recommends professional, relevant responses rather than repetitive or overly promotional replies." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you remove negative reviews?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We cannot guarantee removal. If a review appears to violate Google's policies, it can be reported through the appropriate process. Legitimate negative reviews should generally be handled professionally rather than manipulated or suppressed." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this service only for home-service businesses?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Our Google Business Reviews service is designed for businesses across many industries, including restaurants, automotive businesses, salons, retail, professional services, repair companies, and other customer-facing businesses." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -43,12 +523,12 @@
 <body class="bg-paper text-ink antialiased">
   <div class="grain" aria-hidden="true"></div>
   <a href="#main"
-    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip
     to content</a>
+
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-paper">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
-      <a href="../index.html"
-        class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
+      <a href="../index.html" class="flex items-center gap-2.5 transition-all duration-300 ease-in-out hover:opacity-90">
         <span
           class="header-mark grid h-8 w-8 place-items-center rounded-lg bg-paper text-[11px] font-semibold tracking-wide text-ink">N</span>
         <span class="text-[15px] font-semibold tracking-tight">Northline</span>
@@ -82,10 +562,10 @@
         <li><a class="nav-link opacity-85" data-nav="work" href="../index.html#work">Work</a></li>
         <li><a class="nav-link opacity-85" data-nav="trust" href="../index.html#trust">Trust</a></li>
         <li><a class="nav-link opacity-85" data-nav="faq" href="../index.html#faq">FAQ</a></li>
-        <li><a class="nav-link opacity-85" data-nav="contact" href="../index.html#contact">Get Started</a></li>
+        <li><a class="nav-link opacity-85" data-nav="contact" href="#contact">Contact</a></li>
       </ul>
       <div class="flex items-center gap-3">
-        <a href="../index.html#contact"
+        <a href="#contact"
           class="header-cta hidden rounded-full bg-paper px-4 py-2 text-sm font-medium text-ink transition-all duration-300 ease-in-out hover:scale-[1.03] hover:opacity-90 md:inline-flex">Get
           Started</a>
         <button id="menu-btn"
@@ -101,487 +581,759 @@
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-current/15 px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-3 text-sm">
-        <button type="button" id="mobile-services-btn"
-          class="mobile-services-btn flex w-full items-center justify-between py-1 font-medium" aria-expanded="false"
-          aria-controls="mobile-services">Services <span class="mobile-services-caret"
-            aria-hidden="true">▾</span></button>
-        <div id="mobile-services" class="mobile-services">
-          <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
-            <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html"><span
-                class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
-            <a class="nav-drop-item mobile-link" href="google-maps-review-management.html" aria-current="page"><span
-                class="nav-drop-num">02</span><span class="nav-drop-name">Google Reviews</span></a>
-            <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html"><span
-                class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
-            <a class="nav-drop-item mobile-link" href="web-development.html"><span class="nav-drop-num">04</span><span
-                class="nav-drop-name">Website Building</span></a>
+    <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-nav">
+          <div class="mobile-menu-item">
+            <button type="button" id="mobile-services-btn" class="mobile-services-btn" aria-expanded="false"
+              aria-controls="mobile-services">Services
+              <svg class="mobile-services-caret h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id="mobile-services" class="mobile-services">
+              <div class="mobile-services-clip">
+                <div class="nav-drop-panel rounded-[1.35rem] p-1.5">
+                  <a class="nav-drop-item mobile-link" href="google-business-profile-setup.html"><span
+                      class="nav-drop-num">01</span><span class="nav-drop-name">Google Business Profile</span></a>
+                  <a class="nav-drop-item mobile-link" href="google-maps-review-management.html"
+                    aria-current="page"><span class="nav-drop-num">02</span><span class="nav-drop-name">Google
+                      Reviews</span></a>
+                  <a class="nav-drop-item mobile-link" href="google-ads-campaigns.html"><span
+                      class="nav-drop-num">03</span><span class="nav-drop-name">Google Ads</span></a>
+                  <a class="nav-drop-item mobile-link" href="web-development.html"><span
+                      class="nav-drop-num">04</span><span class="nav-drop-name">Website Building</span></a>
+                </div>
+              </div>
+            </div>
           </div>
+          <a href="../industries/index.html" class="mobile-link mobile-menu-item">Industries</a>
+          <a href="../index.html#work" class="mobile-link mobile-menu-item">Work</a>
+          <a href="../index.html#trust" class="mobile-link mobile-menu-item">Trust</a>
+          <a href="../index.html#faq" class="mobile-link mobile-menu-item">FAQ</a>
+          <a href="#contact" class="mobile-link mobile-menu-item mobile-menu-cta">Contact</a>
         </div>
-        <a href="../industries/index.html" class="mobile-link py-1">Industries</a>
-        <a href="../index.html#work" class="mobile-link py-1">Work</a>
-        <a href="../index.html#trust" class="mobile-link py-1">Trust</a>
-        <a href="../index.html#faq" class="mobile-link py-1">FAQ</a>
-        <a href="../index.html#contact"
-          class="mobile-link rounded-full bg-paper px-4 py-2.5 text-center font-medium text-ink transition-all duration-300 ease-in-out">Get
-          Started</a>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
-      <div class="mx-auto max-w-7xl">
-        <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
-          <ol class="flex flex-wrap items-center gap-2">
-            <li><a class="hover:text-ink" href="../index.html">Home</a></li>
-            <li aria-hidden="true">/</li>
-            <li><a class="hover:text-ink" href="index.html">Services</a></li>
-            <li aria-hidden="true">/</li>
-            <li class="text-ink/70">Google Reviews</li>
-          </ol>
-        </nav>
-        <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
-          <div class="flex flex-col justify-center">
-            <p
-              class="inline-flex rounded-full border border-line bg-white/70 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/55">
-              Service 01 · Google Reviews</p>
-            <h1 class="mt-5 font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl xl:text-[3.4rem]">A Google pin
-              with no reviews is a closed sign nobody bothers to read.</h1>
-            <p class="mt-6 text-base leading-relaxed text-ink/65 sm:text-lg">Plenty of businesses already have a Maps
-              listing. Hours are set. The address is right. And still the review count sits at zero. Strangers treat
-              that silence as a warning. This page is the work we do to change that — with feedback from people who
-              already used you, not a purchased pile of stars. The Google Maps category does not matter. If the pin
-              exists, we can run the contract.</p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="../index.html?service=Google%20Reviews#contact"
-                class="inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Contract this
-                service</a>
-              <a href="#work" class="inline-flex rounded-full border border-line px-6 py-3 text-sm font-medium">See the
-                field work</a>
-            </div>
-          </div>
-          <figure
-            class="reveal relative min-h-[16rem] overflow-hidden rounded-[1.75rem] border border-line bg-ink shadow-lift sm:min-h-[18rem] lg:min-h-0 lg:h-full">
-            <img
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1600&amp;q=75"
-              alt="Customer at a local counter, the moment most Google review requests should happen"
-              class="absolute inset-0 h-full w-full object-cover" width="1600" height="900" fetchpriority="high"
-              decoding="async" />
-            <figcaption
-              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/55 to-transparent p-5 text-sm text-paper sm:p-7 sm:text-base">
-              The ask happens here — at checkout, not in a review farm.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12">
+  <main id="main" class="pt-[4.5rem] lg:pt-0">
+    <!-- HERO -->
+    <section class="border-b border-line px-5 pb-12 pt-8 lg:px-8 lg:pb-16 lg:pt-32">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
         <div class="lg:col-span-7">
-          <h2 class="font-serif text-3xl sm:text-4xl">Who this is for</h2>
-          <p class="mt-5 leading-relaxed text-ink/65">You show up on Google Maps. The category on the listing can be
-            anything Google allows — storefront, service area, mobile crew, office, or something else. Maybe you claimed
-            the profile years ago and then left it alone. Maybe a customer tried to leave a review and got lost. Either
-            way, the listing looks unfinished. Competitors with thirty ordinary reviews keep winning the tap, even when
-            your work is better.</p>
-          <p class="mt-4 leading-relaxed text-ink/65">We step in when the problem is social proof, not a missing pin. We
-            do not pick a short list of industries. If it has a Google Maps profile, the review work is the same: a real
-            ask after a real job. If you do not have a listing yet, we still want the public Maps link once it exists —
-            the form on the contract page has a field for it.</p>
-          <h3 class="mt-12 font-serif text-2xl">What the work actually includes</h3>
-          <ul class="mt-5 space-y-4 text-sm leading-relaxed text-ink/70">
-            <li class="border-b border-line pb-4"><strong class="text-ink">Profile cleanup.</strong> Categories,
-              services, photos, and hours that match how you really operate — so new reviews attach to a listing that
-              looks alive.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">A request flow that feels human.</strong>
-              Timing after a good visit, language your staff can actually say, and a path that lands on Google’s own
-              review screen. No fake portals.</li>
-            <li class="border-b border-line pb-4"><strong class="text-ink">Staff habits, not a one-week burst.</strong>
-              The listing keeps growing after the setup week because asking becomes part of closing the job, not a
-              marketing stunt.</li>
-            <li><strong class="text-ink">Local search that can use the signal.</strong> Fresh, authentic reviews are one
-              of the few public proofs Google still leans on for map pack ranking. Empty profiles give it nothing to
-              work with.</li>
+          <nav class="text-xs text-ink/45" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li><a class="hover:text-ink" href="../index.html">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li><a class="hover:text-ink" href="index.html">Services</a></li>
+              <li aria-hidden="true">/</li>
+              <li class="text-ink/70">Google Business Reviews</li>
+            </ol>
+          </nav>
+          <p class="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Google Business Reviews</p>
+          <h1 class="svc-hero-title mt-4 font-serif tracking-tight">Turn Great Customer Experiences Into Stronger Google
+            Reviews.</h1>
+          <p class="svc-lead mt-6 max-w-xl">We help businesses create a simple, legitimate system for requesting customer
+            feedback, managing reviews, and building a reputation customers can trust.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free
+              Assessment</a>
+            <a href="#how-it-works" class="rounded-full border border-line px-6 py-3 text-sm font-medium">See How It Works
+              ↓</a>
+          </div>
+          <p class="mt-5 text-sm text-ink/50">Real customers. Honest feedback. No purchased reviews.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/reviews/hero.webp" type="image/webp" />
+            <img src="../assets/images/services/reviews/hero.jpg"
+              alt="Local business owner with a satisfied customer after service, smartphone nearby"
+              class="w-full object-cover" width="1152" height="864" fetchpriority="high" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">A stronger reputation starts with real customer
+          experiences.</h2>
+        <div class="value-strip reveal mt-10">
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">01</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 21s-7-4.35-7-10a7 7 0 0114 0c0 5.65-7 10-7 10z" />
+                <circle cx="12" cy="11" r="2.25" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Genuine</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Real customers sharing real experiences.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">02</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h10M4 17h7" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Consistent</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make asking for feedback part of your normal customer
+              journey.</p>
+          </article>
+          <article class="value-item">
+            <div class="flex items-start justify-between gap-4">
+              <p class="value-num">03</p>
+              <svg class="mt-1 h-6 w-6 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.4"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 10h8M8 14h5M7 5h10a2 2 0 012 2v12l-4-2H7a2 2 0 01-2-2V7a2 2 0 012-2z" />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-serif text-2xl">Managed</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Respond to reviews professionally and address issues when
+              they arise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-7">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Problem</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Great service doesn't automatically create a
+            strong review presence.</h2>
+          <p class="svc-lead mt-5 max-w-2xl">You can do excellent work and still have a weak online reputation if
+            customers aren't reminded to share their experience. Meanwhile, unanswered negative feedback or inconsistent
+            review activity can leave potential customers with questions.</p>
+          <div class="mt-10 grid gap-6 sm:grid-cols-3">
+            <article>
+              <p class="font-serif text-2xl text-ink/25">01</p>
+              <h3 class="mt-3 font-serif text-xl">Happy Customers Stay Silent</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Many satisfied customers simply move on after a good
+                experience.</p>
+              <p class="mt-3 text-sm font-medium leading-relaxed text-ink/75">The problem isn't always customer
+                satisfaction. Sometimes it's the lack of a simple review-request process.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">02</p>
+              <h3 class="mt-3 font-serif text-xl">Your Review Profile Gets Ignored</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Reviews may be coming in, but nobody is consistently
+                monitoring, responding, and learning from them.</p>
+            </article>
+            <article>
+              <p class="font-serif text-2xl text-ink/25">03</p>
+              <h3 class="mt-3 font-serif text-xl">Negative Feedback Gets the Last Word</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">One unanswered complaint can become part of the
+                customer's first impression.</p>
+            </article>
+          </div>
+          <p class="mt-8 max-w-2xl text-base font-medium text-ink">Your reputation deserves a system — not occasional
+            attention.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-5">
+          <picture>
+            <source srcset="../assets/images/services/reviews/problem.webp" type="image/webp" />
+            <img src="../assets/images/services/reviews/problem.jpg"
+              alt="Local business owner reviewing customer feedback on a smartphone" class="w-full object-cover"
+              width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section id="what-we-do" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What We Actually Do</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Build a review system around the customer
+          experience.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">We help turn review requests from an occasional task into a simple part of
+          your customer journey.</p>
+        <div class="optimize-grid reveal mt-10">
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 10h8M8 14h5M7 5h10a2 2 0 012 2v12l-4-2H7a2 2 0 01-2-2V7a2 2 0 012-2z" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-2xl">Review Request Strategy</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Create a practical process for asking genuine customers for
+              feedback at the right point in their journey.</p>
+            <ul>
+              <li>Review request timing</li>
+              <li>Customer touchpoints</li>
+              <li>Email / SMS / receipt opportunities</li>
+              <li>Review link strategy</li>
+              <li>QR code use where appropriate</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-2xl">Review Management</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Keep your review presence active and professional.</p>
+            <ul>
+              <li>Review monitoring</li>
+              <li>Response guidance</li>
+              <li>Positive review responses</li>
+              <li>Negative review responses</li>
+              <li>Customer communication</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15l3-4 2 2 4-5" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-2xl">Reputation Strategy</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Create a consistent approach to maintaining a trustworthy
+              public reputation.</p>
+            <ul>
+              <li>Review patterns</li>
+              <li>Customer feedback</li>
+              <li>Response consistency</li>
+              <li>Reputation opportunities</li>
+              <li>Improvement recommendations</li>
+            </ul>
+          </article>
+          <article class="optimize-card">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper/70"
+              aria-hidden="true">
+              <svg class="h-5 w-5 text-ink/55" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <rect x="5" y="5" width="14" height="14" rx="2" />
+                <path stroke-linecap="round" d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01M12 12h.01" />
+              </svg>
+            </div>
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-2xl">Review System Setup</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Make the process easy for your team and customers.</p>
+            <ul>
+              <li>Review link</li>
+              <li>QR code</li>
+              <li>Request templates</li>
+              <li>Customer touchpoints</li>
+              <li>Internal workflow</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEW FLOW -->
+    <section class="border-b border-line bg-mist/40 px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="svc-section-title max-w-3xl font-serif tracking-tight">Make leaving feedback easy.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">The easier it is for a genuine customer to find your review link, the easier
+          it is for them to share their experience.</p>
+        <div class="flow-panel reveal mt-10">
+          <div class="flow-track">
+            <div class="flow-node">
+              <strong>Customer Experience</strong>
+              <span>The real visit or job</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-node">
+              <strong>Review Request</strong>
+              <span>Link, QR, or ask</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-node">
+              <strong>Google Review</strong>
+              <span>Genuine feedback</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-node">
+              <strong>Business Response</strong>
+              <span>Professional reply</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-node">
+              <strong>Stronger Trust</strong>
+              <span>Public confidence</span>
+            </div>
+          </div>
+          <p class="mt-6 text-center text-xs text-ink/45">Northline review-system diagram — not a Google product interface
+            and not a client result.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">What You Get</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Everything needed to build a better review
+          process.</h2>
+        <div class="checklist-panel reveal mt-10">
+          <ul class="checklist-grid">
+            <li>Review request strategy</li>
+            <li>Google review link setup</li>
+            <li>QR code guidance</li>
+            <li>Customer touchpoint planning</li>
+            <li>Review request templates</li>
+            <li>Review response guidance</li>
+            <li>Positive review response framework</li>
+            <li>Negative review response framework</li>
+            <li>Review monitoring process</li>
+            <li>Reputation improvement recommendations</li>
+            <li>Customer feedback insights</li>
+            <li>Final workflow review</li>
           </ul>
+          <p class="mt-8 text-sm leading-relaxed text-ink/55">The exact setup depends on your business, customer journey,
+            communication channels, and existing Google Business Profile.</p>
         </div>
-        <aside class="lg:col-span-5">
-          <figure class="reveal overflow-hidden rounded-3xl border border-line shadow-lift">
-            <img
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&amp;fit=crop&amp;w=1000&amp;q=75"
-              alt="Folded map with a red location pin, illustrating Google Maps profile and review work"
-              class="h-64 w-full object-cover" width="1000" height="700" loading="lazy" decoding="async" />
-          </figure>
-          <div class="mt-5 rounded-3xl border border-line bg-white/70 p-6">
-            <h3 class="font-serif text-xl">What we will not do</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">We do not buy Google reviews, run review farms, or write
-              them for people who never visited. That kind of inventory gets listings filtered or suspended, and it is
-              not the contract. If a competitor offered you “50 five-stars next week,” that is not this service.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Our Review System</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">From customer experience to public
+          trust.</h2>
+        <div class="process-row reveal mt-10">
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">01</p>
+            <h3 class="mt-3 font-serif text-xl">Experience</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Deliver the service or experience your customer came for.
+            </p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">02</p>
+            <h3 class="mt-3 font-serif text-xl">Ask</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Make it easy for genuine customers to leave feedback.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">03</p>
+            <h3 class="mt-3 font-serif text-xl">Respond</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Acknowledge reviews professionally and address concerns
+              appropriately.</p>
+          </article>
+          <article class="process-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">04</p>
+            <h3 class="mt-3 font-serif text-xl">Improve</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/60">Use customer feedback to identify opportunities to improve
+              the business.</p>
+          </article>
+        </div>
+        <p class="mt-10 max-w-2xl text-base font-medium text-ink">We don't manufacture reputation. We help businesses
+          make the most of the reputation they earn.</p>
+        <a href="#contact"
+          class="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+      </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Who We Help</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">For businesses where trust matters.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Reviews matter across almost every customer-facing industry. If people
+          research your business before choosing you, your reputation matters.</p>
+        <div class="who-grid reveal mt-10">
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-home.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-home.jpg"
+                alt="Home services technician speaking with a homeowner" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Home Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Plumbing · HVAC · Electrical · Roofing</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-auto.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-auto.jpg"
+                alt="Customer receiving a vehicle from an automotive technician" width="1152" height="864"
+                loading="lazy" decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Automotive</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Auto Repair · Car Detailing · Mobile Car Wash</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-food.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-food.jpg"
+                alt="Restaurant owner interacting with a satisfied customer" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Food &amp; Hospitality</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Restaurants · Cafés · Local Hospitality</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-personal.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-personal.jpg"
+                alt="Salon or barber professional interacting with a customer" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Personal Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Barbers · Salons · Beauty Businesses</p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-pro.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-pro.jpg"
+                alt="Professional meeting with a client in an office" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Professional Services</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Clinics · Agencies · Consultants · Local Professionals
+              </p>
+            </div>
+          </article>
+          <article class="who-card">
+            <picture>
+              <source srcset="../assets/images/services/reviews/ind-retail.webp" type="image/webp" />
+              <img src="../assets/images/services/reviews/ind-retail.jpg"
+                alt="Local shop owner helping a customer in a retail store" width="1152" height="864" loading="lazy"
+                decoding="async" />
+            </picture>
+            <div class="who-card-body">
+              <h3 class="font-serif text-xl">Retail &amp; Other Local Businesses</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/60">Retail · Repair · Installation · Customer-facing
+                businesses</p>
+            </div>
+          </article>
+        </div>
+        <p class="mt-8 text-base font-medium text-ink">Don't see your business?</p>
+        <p class="mt-2 text-sm text-ink/60">We work with many other businesses that rely on local customers and online
+          trust.</p>
+        <a href="../industries/index.html"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          Industries <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- REPUTATION MANAGEMENT -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Reputation Management</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Every review is part of your public
+          conversation.</h2>
+        <p class="svc-lead mt-5 max-w-2xl">Customers don't only read the star rating. They can also see how a business
+          responds when things go well — and when they don't.</p>
+        <div class="response-grid reveal mt-10">
+          <article class="response-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">Positive Reviews</p>
+            <h3 class="mt-3 font-serif text-2xl">Thank them. Be specific. Stay human.</h3>
+            <p class="mt-4 text-sm leading-relaxed text-ink/65">Good responses should acknowledge the customer's
+              experience rather than copying the same generic response every time.</p>
+          </article>
+          <article class="response-card">
+            <p class="text-xs tracking-[0.18em] text-ink/40">Negative Reviews</p>
+            <h3 class="mt-3 font-serif text-2xl">Stay professional. Protect privacy. Move the conversation forward.</h3>
+            <p class="mt-4 text-sm leading-relaxed text-ink/65">Respond respectfully, avoid sharing private information,
+              and where appropriate invite the customer to continue the conversation privately.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NO FAKE REPUTATION -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="approach-panel reveal">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Our Promise</p>
+          <h2 class="mt-3 font-serif text-3xl tracking-tight sm:text-4xl">No fake reputation. Ever.</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-paper/65 sm:text-base">Your reputation should come from
+            customers who actually experienced your business.</p>
+          <div class="approach-cols mt-10">
+            <div>
+              <h3 class="font-serif text-2xl">We Don't</h3>
+              <ul class="approach-list">
+                <li>❌ Buy Google reviews</li>
+                <li>❌ Write fake customer reviews</li>
+                <li>❌ Create fake customer accounts</li>
+                <li>❌ Offer discounts for positive reviews</li>
+                <li>❌ Ask customers to remove negative reviews in exchange for incentives</li>
+                <li>❌ Manipulate ratings</li>
+                <li>❌ Post reviews on behalf of customers</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-serif text-2xl">We Do</h3>
+              <ul class="approach-list">
+                <li>✓ Help you request genuine feedback</li>
+                <li>✓ Make review links easy to access</li>
+                <li>✓ Build legitimate request workflows</li>
+                <li>✓ Help manage responses</li>
+                <li>✓ Identify reputation opportunities</li>
+                <li>✓ Keep the process transparent</li>
+              </ul>
+            </div>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="font-serif text-3xl sm:text-4xl">How a typical engagement runs</h2>
-        <ol class="mt-10 grid gap-5 md:grid-cols-3">
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 1</p>
-            <h3 class="mt-3 font-serif text-2xl">Read the listing</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">You send the public Google Maps link. We look at what is
-              missing, what is wrong, and whether Google already treats the profile as established or brand new.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 2</p>
-            <h3 class="mt-3 font-serif text-2xl">Install the ask</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">QR, SMS, email, or a line at the register — whichever
-              matches how you actually finish a job. The goal is one honest request while the visit is still warm.</p>
-          </li>
-          <li class="reveal rounded-3xl border border-line bg-paper p-6">
-            <p class="text-xs text-ink/40">Step 3</p>
-            <h3 class="mt-3 font-serif text-2xl">Keep it honest</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">We watch for filtered posts, reply guidance, and photo
-              updates so the profile does not go quiet again after the first handful of reviews.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="work" class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">From the field</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Where review work actually happens.</h2>
-        <p class="mt-4 max-w-2xl text-ink/60">The work sits on the listing, the phone, and the moment after a real job —
-          for any Google Maps category, not a short list of industries.</p>
-        <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&amp;fit=crop&amp;w=800&amp;q=75"
-              alt="Local storefront of a business that appears on Google Maps"
-              class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800"
-              height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=800&amp;q=75"
-              alt="Checkout counter where a Google review request can happen after a real visit"
-              class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800"
-              height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&amp;fit=crop&amp;w=800&amp;q=75"
-              alt="Person holding a phone, the device most customers use to leave a Google review"
-              class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800"
-              height="600" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="reveal group overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&amp;fit=crop&amp;w=800&amp;q=75"
-              alt="Map with a location pin representing a Google Maps listing in any category"
-              class="h-44 w-full object-cover transition duration-700 group-hover:scale-[1.04] md:h-52" width="800"
-              height="600" loading="lazy" decoding="async" />
-          </figure>
+          <p class="mt-10 text-sm font-medium text-paper/80">We help you earn a reputation — not manufacture one.</p>
         </div>
       </div>
     </section>
 
-    <section id="reviews" class="border-t border-line bg-ink px-5 py-16 text-paper lg:px-8 lg:py-24">
+    <!-- WHY NORTHLINE / SYSTEM -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-7xl">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div class="max-w-xl">
-            <p class="text-xs font-medium uppercase tracking-[0.22em] text-paper/45">Client reviews</p>
-            <h2 class="mt-3 font-serif text-3xl sm:text-4xl">What owners say after the listing stops looking abandoned.
-            </h2>
-            <p class="mt-4 text-paper/55">Sample Trustpilot-style cards for this service. Swap in live Google and
-              Trustpilot widgets when real contracts allow.</p>
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Why Northline</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">Reviews are part of the bigger customer
+          journey.</h2>
+        <div class="system-flow reveal mt-10">
+          <div class="system-node">Search</div>
+          <div class="system-node">Profile</div>
+          <div class="system-node">Reviews</div>
+          <div class="system-node">Website</div>
+          <div class="system-node">Contact</div>
+        </div>
+        <p class="svc-lead mt-8 max-w-3xl">That's why Northline doesn't treat reviews as an isolated marketing trick.
+          Your reputation works best when it connects with your <a class="underline underline-offset-4"
+            href="google-business-profile-setup.html">Business Profile</a>, <a class="underline underline-offset-4"
+            href="web-development.html">website</a>, and broader local marketing system — including <a
+            class="underline underline-offset-4" href="google-ads-campaigns.html">Google Ads</a> when paid reach is
+          needed.</p>
+        <a href="../index.html#services"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 ease-in-out hover:gap-3">Explore
+          All Services <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">The Outcome</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">What a better review system should help
+          you achieve.</h2>
+        <div class="outcome-grid reveal mt-10">
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">More Opportunities to Hear From Customers</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Make it easier for satisfied customers to share genuine
+              feedback.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">A More Active Review Presence</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Create a repeatable process instead of relying on customers
+              to remember on their own.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">Better Public Communication</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Respond to customers consistently and professionally.</p>
+          </article>
+          <article class="outcome-item">
+            <h3 class="font-serif text-2xl">More Confidence for Future Customers</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/60">Give people more real-world information when they're
+              deciding whether to choose your business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMONSTRATION -->
+    <section id="work" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl">
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">How The System Works</p>
+        <h2 class="svc-section-title mt-3 max-w-3xl font-serif tracking-tight">See how the system works.</h2>
+        <div class="demo-panel reveal mt-10">
+          <p
+            class="demo-badge inline-flex rounded-full border border-line px-2 py-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-ink/55 md:px-3 md:py-1">
+            Demonstration — not a client result</p>
+          <div class="demo-struct">
+            <div class="demo-row">
+              <strong>Touchpoint</strong>
+              <span>After a completed visit or job — while the experience is still clear</span>
+            </div>
+            <div class="demo-row">
+              <strong>Request</strong>
+              <span>A simple ask with your Google review link or QR code</span>
+            </div>
+            <div class="demo-row">
+              <strong>Review</strong>
+              <span>Genuine customer feedback on Google — never purchased or written for them</span>
+            </div>
+            <div class="demo-row">
+              <strong>Response</strong>
+              <span>Professional replies for positive and negative reviews</span>
+            </div>
+            <div class="demo-row">
+              <strong>Insight</strong>
+              <span>Patterns and opportunities to improve the customer experience</span>
+            </div>
           </div>
-          <p class="text-xs uppercase tracking-[0.16em] text-paper/35">★★★★★ · Google Reviews</p>
-        </div>
-        <div class="review-rail mt-10">
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Nora" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Nora V.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Four reviews in three years. After they timed the ask at
-              checkout, customers started posting the same week. Nobody bought us stars — staff just finally asked.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Ben" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Ben H.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“The listing looked like we had closed. Hours, photos, and
-              a real review path changed who showed up on Saturday. I still get people saying they checked Google
-              first.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Aisha" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Aisha R.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They refused to buy ratings. Good. The reviews we have now
-              are from people I can picture at the counter. That is the only kind Google left on the listing.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Cole" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Cole D.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“QR on the invoice. That was the whole trick. My crew
-              actually asks now instead of hoping someone remembers us after the van leaves.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Keiko" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Keiko F.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“The ask is on the invoice now. Reviews started showing up
-              from jobs we already finished, not from strangers on a list.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Roland" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Roland V.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Customers were leaving feedback on Facebook and nowhere
-              Google could see it. The path to Maps is one tap. Staff actually uses it.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Yasmin" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Yasmin O.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Zero reviews for a year. We did not buy stars. We asked at
-              pickup. The listing finally looks like a company people hire.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Pete" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Pete I.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Seasonal crews forget to ask. The QR lives on the
-              estimate. That is the only change that stuck.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Ines" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Ines Q.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Customers are gone the next morning. Timing the request
-              before the truck leaves was the whole engagement.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Garth" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Garth M.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“We had three Google reviews from 2019. After checkout
-              language, the count moved without anyone inventing names.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Lila" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Lila S.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“They refused a farm. Good. The reviews that landed are
-              from customers I actually served.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Boone" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Boone T.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“Same-day jobs never got a follow-up. A text after the dump
-              run did more than a flyer ever did.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Nadia" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Nadia W.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“The listing looked closed. Reviews from real service calls
-              made Saturday look booked instead of empty.”</p>
-          </blockquote>
-          <blockquote class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-            <div class="mb-4 flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=75"
-                alt="Portrait of Skip" class="h-12 w-12 rounded-full object-cover" width="160" height="160"
-                loading="lazy" decoding="async" />
-              <div>
-                <p class="text-sm font-medium">Skip Y.</p>
-                <p class="text-xs text-paper/45">Maps listing</p>
-              </div>
-            </div>
-            <p class="mb-3 text-sm text-[#00b67a]" aria-label="5 out of 5 stars">★★★★★</p>
-            <p class="text-sm leading-relaxed text-paper/80">“I still own the Google login. They set the ask, not a
-              dashboard I would lose if I fired them.”</p>
-          </blockquote>
+          <p class="mt-6 text-sm text-ink/55">Abstract review-system visualization — not a Google product screenshot and
+            not verified client performance data.</p>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line px-5 py-16 lg:px-8 lg:py-24">
+    <!-- FAQ -->
+    <section id="reviews-faq" class="border-b border-line px-5 py-14 lg:px-8 lg:py-20">
       <div class="mx-auto max-w-3xl">
-        <h2 class="font-serif text-3xl">Questions we hear before the contract</h2>
-        <div class="mt-8 divide-y divide-line border-y border-line">
+        <h2 class="svc-section-title font-serif tracking-tight">Google Business Reviews questions, answered.</h2>
+        <div class="mt-10 divide-y divide-line border-y border-line">
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Can you guarantee a star rating?<span
+            <summary class="flex items-center justify-between gap-4 font-medium">How can I get more Google reviews?<span
                 class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Real customers write what they experienced. We can
-              raise the number of genuine reviews and clean the listing so those posts are visible. We cannot script
-              five stars.</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">The safest approach is to make it easy for genuine
+              customers to leave feedback after a real experience. This can include sharing your Google review link or
+              QR code through appropriate customer touchpoints.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do we need a website first?<span
-                class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Not for this service. Maps can send calls on its own. If
-              clicks have nowhere to land, look at <a class="underline underline-offset-4"
-                href="web-development.html">web development</a> as a second contract.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you guarantee a certain number of
+              reviews?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We don't guarantee a specific number of reviews because
+              reviews come from real customers and their genuine experiences.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Will this replace Google Ads?<span
+            <summary class="flex items-center justify-between gap-4 font-medium">Do you buy Google reviews?<span
                 class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">Reviews make paid traffic convert better. They do not
-              buy the click. If you need inbound this month, open the <a class="underline underline-offset-4"
-                href="google-ads-campaigns.html">Google Ads page</a>. If the listing itself is wrong or unclaimed, start
-              with <a class="underline underline-offset-4" href="google-business-profile-setup.html">Google Business
-                Profile setup</a>.</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. We never purchase or create fake reviews.</p>
           </details>
           <details class="py-5">
-            <summary class="flex items-center justify-between gap-4 font-medium">Do you only take certain Google Maps
-              categories?<span class="text-ink/30">+</span></summary>
-            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Storefront, service area, mobile crew, office —
-              whatever category Google already put on the listing. The contract is the same: a real ask after a real
-              job.</p>
+            <summary class="flex items-center justify-between gap-4 font-medium">Can I offer customers a discount for
+              leaving a review?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Google prohibits offering incentives such as discounts or
+              free goods or services in exchange for reviews, review changes, or removal of negative reviews.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you help with negative reviews?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. We can help establish a professional response process
+              and identify reviews that may violate Google's policies and could potentially be reported.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Should I respond to positive
+              reviews?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">Yes. Thoughtful responses can show customers that you value
+              their feedback. Google recommends professional, relevant responses rather than repetitive or overly
+              promotional replies.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Can you remove negative reviews?<span
+                class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">We cannot guarantee removal. If a review appears to violate
+              Google's policies, it can be reported through the appropriate process. Legitimate negative reviews should
+              generally be handled professionally rather than manipulated or suppressed.</p>
+          </details>
+          <details class="py-5">
+            <summary class="flex items-center justify-between gap-4 font-medium">Is this service only for home-service
+              businesses?<span class="text-ink/30">+</span></summary>
+            <p class="mt-3 text-sm leading-relaxed text-ink/65">No. Our Google Business Reviews service is designed for
+              businesses across many industries, including restaurants, automotive businesses, salons, retail,
+              professional services, repair companies, and other customer-facing businesses.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="proposals" class="border-t border-line bg-mist/50 px-5 py-16 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-7xl">
-        <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Proposal options</p>
-        <h2 class="mt-3 font-serif text-3xl sm:text-4xl">Two contracts. Both are review work.</h2>
-        <p class="mt-4 max-w-2xl text-ink/65">Pick the one that matches the listing. Any Google Maps category. If you
-          are not sure, send the Maps URL on the contract form and we will tell you which proposal fits.</p>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 01</p>
-            <h3 class="mt-3 font-serif text-3xl">From zero reviews</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">The pin exists. Hours and address look fine. The review
-              count is still empty or close to it. We clean the public listing, install a real ask after each job, and
-              teach staff to use it — so strangers see proof before they call.</p>
-            <a href="../index.html?service=Google%20Reviews#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this
-              proposal</a>
-          </article>
-          <article class="reveal rounded-3xl border border-line bg-paper p-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-ink/40">Offer 02</p>
-            <h3 class="mt-3 font-serif text-3xl">Restart a stalled listing</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink/65">You have a handful of old reviews and then nothing for
-              months. The listing looks abandoned. We audit what is filtered, refresh photos and replies, and rebuild
-              the
-              request flow so new feedback starts again without buying stars.</p>
-            <a href="../index.html?service=Google%20Reviews#contact"
-              class="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper">Request this
-              proposal</a>
-          </article>
+    <!-- FINAL CTA -->
+    <section class="px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+        <div class="lg:col-span-6">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Ready to Build a Stronger Reputation?</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Let your real customers tell the story.</h2>
+          <p class="svc-lead mt-5 max-w-xl">We'll help you create a simple, legitimate process for earning more genuine
+            feedback and managing your reputation professionally.</p>
+          <a href="#contact"
+            class="mt-8 inline-flex rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Get My Free Assessment</a>
+          <p class="mt-4 text-sm text-ink/50">No fake reviews. No shortcuts. Just a better system for real customer
+            feedback.</p>
+        </div>
+        <figure class="reveal overflow-hidden rounded-[1.75rem] border border-line shadow-lift lg:col-span-6">
+          <picture>
+            <source srcset="../assets/images/services/reviews/cta.webp" type="image/webp" />
+            <img src="../assets/images/services/reviews/cta.jpg"
+              alt="Genuine moment between a local business owner and a satisfied customer"
+              class="w-full object-cover" width="1152" height="864" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT / ASSESSMENT -->
+    <section id="contact" class="border-t border-line px-5 py-14 lg:px-8 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-medium uppercase tracking-[0.22em] text-ink/45">Free Assessment</p>
+          <h2 class="svc-section-title mt-3 font-serif tracking-tight">Tell us about your review presence.</h2>
+          <p class="svc-lead mt-5">We'll review what you share and explain what a legitimate review system could look
+            like for your business — clearly, without pressure.</p>
+        </div>
+        <div class="lg:col-span-7">
+          <form id="contract-form"
+            class="reveal w-full rounded-[1.75rem] border border-line bg-white p-6 shadow-soft sm:p-8" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Your name</span><input
+                  name="clientName" type="text" autocomplete="name" required placeholder="Jordan Hale"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Business email</span><input
+                  name="email" type="email" autocomplete="email" required placeholder="you@business.com"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Phone</span><input name="phone"
+                  type="tel" autocomplete="tel" required placeholder="+1 555 010 2841"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm"><span class="mb-1.5 block font-medium">Company name</span><input
+                  name="businessName" type="text" autocomplete="organization" required
+                  placeholder="Hale &amp; Co. Plumbing"
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Selected service</span>
+                <select name="service" required
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10">
+                  <option value="Google Business Profile Setup">Google Business Profile Setup</option>
+                  <option value="Google Business Reviews" selected>Google Business Reviews</option>
+                  <option value="Google Ads Campaigns">Google Ads Campaigns</option>
+                  <option value="Web Design &amp; Development">Web Design &amp; Development</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Google Business Profile
+                  URL</span><input name="mapsLink" type="url" placeholder="https://maps.google.com/..."
+                  class="field-input w-full rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10" /><span
+                  class="mt-1 block text-xs text-ink/45">Optional. Paste the public listing URL.</span></label>
+              <label class="block text-sm sm:col-span-2"><span class="mb-1.5 block font-medium">Message</span>
+                <textarea name="message" rows="4"
+                  placeholder="Tell us about your current reviews or what you want to improve..."
+                  class="field-input w-full resize-y rounded-xl border border-line bg-paper/40 px-4 py-3 text-sm outline-none transition-all duration-300 ease-in-out focus:border-ink/40 focus:ring-2 focus:ring-ink/10"></textarea>
+              </label>
+            </div>
+            <p id="form-error" class="mt-4 hidden text-sm text-red-700" role="alert"></p>
+            <button type="submit"
+              class="mt-6 w-full rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper sm:w-auto">Get My Free
+              Assessment</button>
+          </form>
+          <div id="form-success"
+            class="hidden success-pop w-full rounded-[1.75rem] border border-line bg-white p-10 text-center shadow-soft">
+            <p class="font-serif text-3xl">Request received.</p>
+            <p id="success-copy" class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink/65"></p>
+            <button id="send-another" type="button"
+              class="mt-8 text-sm underline underline-offset-4 transition-all duration-300 ease-in-out hover:opacity-70">Send
+              another request</button>
+          </div>
         </div>
       </div>
     </section>
@@ -609,7 +1361,7 @@
           <ul>
             <li><a href="../index.html#work">Work</a></li>
             <li><a href="../index.html#faq">FAQ</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="../index.html#trust">About</a></li>
           </ul>
         </div>
@@ -629,28 +1381,11 @@
       </div>
       <div class="footer-bottom">
         <p>© <span id="year"></span> Northline</p>
-        <a href="../index.html#contact" class="footer-cta">Get a Free Assessment →</a>
+        <a href="#contact" class="footer-cta">Get a Free Assessment</a>
       </div>
     </div>
   </footer>
-  <dialog id="privacy"
-    class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50"
-    aria-labelledby="privacy-title">
-    <h2 id="privacy-title" class="font-serif text-3xl">Privacy</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">Contract form data is used to reply to your request. It is not
-      sold. Email hello@northline.example to remove a record.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button>
-    </form>
-  </dialog>
-  <dialog id="terms"
-    class="w-[min(640px,92vw)] rounded-3xl border border-line bg-paper p-8 text-ink shadow-soft backdrop:bg-ink/50"
-    aria-labelledby="terms-title">
-    <h2 id="terms-title" class="font-serif text-3xl">Terms</h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink/70">A form submission is a request, not a paid contract. Review work
-      covers authentic customer feedback only.</p>
-    <form method="dialog" class="mt-6"><button class="rounded-full bg-ink px-5 py-2 text-sm text-paper">Close</button>
-    </form>
-  </dialog>
+
   <script src="../assets/site.js"></script>
 </body>
 

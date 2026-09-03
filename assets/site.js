@@ -1,19 +1,8 @@
 (function () {
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  window.addEventListener("beforeunload", function () {
-    window.scrollTo(0, 0);
-  });
 
   document.documentElement.classList.add("js");
-
-  function markPageReady() {
-    document.documentElement.classList.add("is-ready");
-  }
-  window.requestAnimationFrame(function () {
-    window.requestAnimationFrame(markPageReady);
-  });
-  window.setTimeout(markPageReady, 50);
-  document.addEventListener("DOMContentLoaded", markPageReady);
+  document.documentElement.classList.add("is-ready");
 
   var siteHeader = document.getElementById("site-header");
   if (siteHeader) {
@@ -67,6 +56,23 @@
     if (!open) setServicesOpen(false);
   }
 
+  function leavePageNow() {
+    document.documentElement.classList.add("is-navigating");
+    document.documentElement.classList.remove("nav-locked");
+    if (siteHeader) siteHeader.classList.remove("is-menu-open");
+    if (mobileMenu) {
+      mobileMenu.classList.remove("is-open");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    }
+    if (menuBtn) {
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open menu");
+    }
+    if (iconOpen) iconOpen.classList.remove("hidden");
+    if (iconClose) iconClose.classList.add("hidden");
+    setServicesOpen(false);
+  }
+
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", function () {
       setMobileOpen(!mobileMenu.classList.contains("is-open"));
@@ -118,9 +124,15 @@
     });
   }
 
-  document.querySelectorAll(".mobile-link").forEach(function (link) {
+  document.querySelectorAll(".mobile-link, .nav-drop-item").forEach(function (link) {
     link.addEventListener("click", function () {
-      setMobileOpen(false);
+      var href = link.getAttribute("href") || "";
+      if (href.charAt(0) === "#") {
+        setMobileOpen(false);
+        return;
+      }
+      /* Skip menu-close animation so category navigation does not feel stuck */
+      leavePageNow();
     });
   });
 
