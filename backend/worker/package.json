@@ -2,7 +2,7 @@
   "name": "northline-google-services-worker",
   "private": true,
   "version": "1.0.0",
-  "description": "Cloudflare Worker API for Northline Free Assessment / Contact form",
+  "description": "Cloudflare Worker API for Townloc Free Assessment / Contact form",
   "main": "src/index.js",
   "scripts": {
     "dev": "wrangler dev",

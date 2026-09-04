@@ -1,6 +1,6 @@
-# Northline — Google Services Website
+# Townloc — Google Services Website
 
-Static agency site for **Northline**: Google Reviews, Google Business Profile, Google Ads, and Website Building.
+Static agency site for **Townloc**: Google Reviews, Google Business Profile, Google Ads, and Website Building.
 
 **Live site:** https://shamratx.github.io/google-services/
 

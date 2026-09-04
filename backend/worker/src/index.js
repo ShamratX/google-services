@@ -1,5 +1,5 @@
 /**
- * Northline — Free Assessment / Contact API
+ * Townloc — Free Assessment / Contact API
  * POST /api/contact
  *
  * Validates submissions, rejects spam (honeypot + rate limit),
@@ -225,13 +225,13 @@ function buildEmailHtml(data, submittedAt) {
 <body style="margin:0;padding:24px;background:#f9fafb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
   <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden">
     <div style="background:#111827;padding:20px 24px">
-      <h1 style="margin:0;font-size:18px;color:#fff">New Northline Lead</h1>
+      <h1 style="margin:0;font-size:18px;color:#fff">New Townloc Lead</h1>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:14px">
       ${rowsHtml}
     </table>
     <div style="padding:16px 24px;font-size:12px;color:#9ca3af;border-top:1px solid #e5e7eb">
-      Northline Contact API &middot; Automated notification
+      Townloc Contact API &middot; Automated notification
     </div>
   </div>
 </body></html>`;
@@ -239,7 +239,7 @@ function buildEmailHtml(data, submittedAt) {
 
 function buildEmailText(data, submittedAt) {
   return [
-    "New Northline Lead",
+    "New Townloc Lead",
     "═══════════════════",
     "",
     `Name:         ${data.clientName}`,
@@ -251,7 +251,7 @@ function buildEmailText(data, submittedAt) {
     `Website/GBP:  ${data.mapsLink || "Not provided"}`,
     `Submitted:    ${submittedAt}`,
     "",
-    "— Northline Contact API",
+    "— Townloc Contact API",
   ].join("\n");
 }
 
@@ -275,7 +275,7 @@ async function sendNotification(env, data) {
   const submittedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
   const payload = {
-    from: env.SENDER_EMAIL || "Northline <onboarding@resend.dev>",
+    from: env.SENDER_EMAIL || "Townloc <onboarding@resend.dev>",
     to: [recipient],
     subject: `New Lead: ${data.clientName} — ${data.service}`,
     html: buildEmailHtml(data, submittedAt),
@@ -414,7 +414,7 @@ export default {
         return json(
           {
             success: true,
-            message: "Northline contact API is online.",
+            message: "Townloc contact API is online.",
             endpoints: ["POST /api/contact"],
           },
           200,
