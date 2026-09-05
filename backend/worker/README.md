@@ -49,17 +49,30 @@ Remote (production):
 npm run db:migrate:remote
 ```
 
-## 3. Resend email setup
+## 3. Resend email setup (Zoho inboxes)
+
+Lead alerts are sent **to** `contact@townloc.com` (Zoho)  
+and **from** `Townloc <contact@townloc.com>`.
 
 ### Step 1 — Create a Resend account
 
 Go to https://resend.com and sign up (free tier: 100 emails/day).
 
-### Step 2 — Create an API key
+### Step 2 — Verify `townloc.com` in Resend
+
+1. Open https://resend.com/domains
+2. Add `townloc.com`
+3. Add the DNS records Resend shows (SPF / DKIM — usually TXT records in Cloudflare DNS)
+4. Wait until the domain status is **Verified**
+
+> Zoho keeps your MX records for receiving mail.  
+> Resend only needs SPF/DKIM TXT records for **sending**. Do not remove Zoho MX.
+
+### Step 3 — Create an API key
 
 Go to https://resend.com/api-keys → Create API Key → copy it.
 
-### Step 3 — Store the API key as a Cloudflare secret
+### Step 4 — Store the API key as a Cloudflare secret
 
 ```bash
 npx wrangler secret put RESEND_API_KEY
@@ -67,35 +80,35 @@ npx wrangler secret put RESEND_API_KEY
 
 Paste the key when prompted. This keeps it out of Git and `wrangler.toml`.
 
-### Step 4 — Deploy
+### Step 5 — Deploy
 
 ```bash
 npm run deploy
 ```
 
-### Important note about `onboarding@resend.dev`
+### Email roles
 
-Without a verified custom domain in Resend, emails are sent **from** `onboarding@resend.dev`.  
-This sandbox sender can **only deliver to the email address associated with your Resend account**.
-
-This works fine as long as your Resend account email matches `RECIPIENT_EMAIL` in `wrangler.toml` (currently `shamratar@gmail.com`).
-
-To send from your own domain (e.g. `leads@northline.example`), verify the domain in the Resend dashboard at https://resend.com/domains, then update `SENDER_EMAIL` in `wrangler.toml`.
+| Address | Role |
+|---|---|
+| `contact@townloc.com` | Lead / form notifications |
+| `marketing@townloc.com` | Bulk marketing (later) |
+| `hello@townloc.com` | General brand |
+| `support@townloc.com` | Client support |
 
 ## 4. Environment variables & secrets
 
 | Variable | Location | Purpose |
 |---|---|---|
 | `RESEND_API_KEY` | Cloudflare secret | Resend API key (never in Git) |
-| `RECIPIENT_EMAIL` | `wrangler.toml` `[vars]` | Who receives lead notifications |
-| `SENDER_EMAIL` | `wrangler.toml` `[vars]` | From address for notification emails |
+| `RECIPIENT_EMAIL` | `wrangler.toml` `[vars]` | Who receives lead notifications (`contact@townloc.com`) |
+| `SENDER_EMAIL` | `wrangler.toml` `[vars]` | From address (`Townloc <contact@townloc.com>`) |
 | `ALLOWED_ORIGINS` | `wrangler.toml` `[vars]` | CORS allowed origins |
 
 ### Change the recipient email later
 
 Option A — edit `wrangler.toml` and redeploy:
 ```toml
-RECIPIENT_EMAIL = "new-email@example.com"
+RECIPIENT_EMAIL = "hello@townloc.com"
 ```
 
 Option B — set as secret (no redeploy needed):

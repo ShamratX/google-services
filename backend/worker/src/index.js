@@ -265,7 +265,7 @@ function escapeHtml(str) {
 
 async function sendNotification(env, data) {
   const apiKey = env.RESEND_API_KEY;
-  const recipient = env.RECIPIENT_EMAIL || "shamratar@gmail.com";
+  const recipient = env.RECIPIENT_EMAIL || "contact@townloc.com";
 
   if (!apiKey) {
     console.error("RESEND_API_KEY not configured — skipping email notification.");
@@ -275,7 +275,7 @@ async function sendNotification(env, data) {
   const submittedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
   const payload = {
-    from: env.SENDER_EMAIL || "Townloc <onboarding@resend.dev>",
+    from: env.SENDER_EMAIL || "Townloc <contact@townloc.com>",
     to: [recipient],
     subject: `New Lead: ${data.clientName} — ${data.service}`,
     html: buildEmailHtml(data, submittedAt),
